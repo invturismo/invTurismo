@@ -1,0 +1,756 @@
+{
+	"1" : {
+    "1" : [
+      {
+        "ID_TIPO_PATRIMONIO" : "1",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Arquitectura Militar"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Arquitectura Habitacional"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Arquitectura Religiosa"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Arquitectura Institucional"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Obras de Ingeniería e Infraestructura (Camino real; Corredor Férreo; Puente Colgante; Puente Metálico; Torre del Cable Aéreo; Túnel; Embalses y represas; Otro)"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "6",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "2" : [
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "2",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Sector Urbano o Rural de Interés"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "2",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Elementos del Espacio Público (Plaza; Plaza Mayor; Plazoleta; Plazuela; Alameda; Parque Urbano; Avenida y Calle; Otro)"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "2",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "3" : [
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Minera"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Agropecuaria"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Industrial"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Técnica"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "4" : [
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Sitio Arqueológico"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Zona Arqueológica"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Parque Arqueológico"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "5" : [
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Obras de Arte en Museos, Colecciones o Recintos Cerrados"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Obras en Espacio Público"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "De Carácter Científico"
+      }
+    ],
+    "6" : [
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Conocimientos y Prácticas sobre El Universo y La Naturaleza"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "La Gastronomía y Los Saberes Culinarios"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Lenguas y Expresiones Orales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "La Medicina Tradicional"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "6",
+        "COMPONENTE": "Expresiones Musicales y Sonoras"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "7",
+        "COMPONENTE": "Expresiones Dancísticas"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "8",
+        "COMPONENTE": "Las Artes Escénicas"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "9",
+        "COMPONENTE": "Los Juegos Tradicionales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "10",
+        "COMPONENTE": "Las Técnicas de Elaboración de Objetos Artesanales e Instrumentos"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "11",
+        "COMPONENTE": "Elaboración de Vestuario y Ornamentación Corporal"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "12",
+        "COMPONENTE": "Las Técnicas de Construcción"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "13",
+        "COMPONENTE": "Las Celebraciones y Rituales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "14",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "7" : [
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Fiestas"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Ferias y Exposiciones"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Eventos Artísticos y Culturales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Eventos Deportivos"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Otros"
+      }
+    ],
+    "8": [
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "8",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Comunidad Indígena"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "8",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Comunidad Negra"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "8",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Comunidad Raizal"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "8",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Comunidad Rom"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "1",
+        "ID_GRUPO": "8",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Otra"
+      }
+    ]
+  },
+  "2" : {
+    "1" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Nudo"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Macizo"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Cordillera"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Sierra"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Serranía"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "6",
+        "COMPONENTE": "Monte"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "7",
+        "COMPONENTE": "Loma o Colina"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "8",
+        "COMPONENTE": "Nevado"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "9",
+        "COMPONENTE": "Volcán"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "10",
+        "COMPONENTE": "Depresión"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "11",
+        "COMPONENTE": "Desfiladero"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "12",
+        "COMPONENTE": "Páramo"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "13",
+        "COMPONENTE": "Cerro"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "14",
+        "COMPONENTE": "Alto"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "1",
+        "ID_COMPONENTE": "15",
+        "COMPONENTE": "Otra"
+      }
+    ],
+    "2" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "2",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Meseta"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "2",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Valle"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "2",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Cañón"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "2",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Cuenca"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "2",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "3" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Sabana o Llano"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Pradera"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Desierto"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "3",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "4" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Ciénegas"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Lagos"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Lagunas"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Humedales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "4",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Otra"
+      }
+    ],
+    "5" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Cascada, Catarata o Salto"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Estero"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Fuente o Manantial"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Quebrada"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Río"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "6",
+        "COMPONENTE": "Arroyo o Riachuelo"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "7",
+        "COMPONENTE": "Rápido"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "8",
+        "COMPONENTE": "Caudal"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "9",
+        "COMPONENTE": "Torrente"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "10",
+        "COMPONENTE": "Ribera"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "5",
+        "ID_COMPONENTE": "11",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "6" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Acantilado"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Bahía"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Ensenada"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Golfo"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Playa"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "6",
+        "COMPONENTE": "Punta"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "7",
+        "COMPONENTE": "Rada"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "8",
+        "COMPONENTE": "Fondeadero"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "9",
+        "COMPONENTE": "Península"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "10",
+        "COMPONENTE": "Cabo"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "11",
+        "COMPONENTE": "Promontorio"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "12",
+        "COMPONENTE": "Istmo"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "13",
+        "COMPONENTE": "Estrecho"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "6",
+        "ID_COMPONENTE": "14",
+        "COMPONENTE": "Otro"
+      }
+    ],
+    "7" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Islas Continentales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Islas Oceánicas"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Islas en Espacios Fluviales y Lacustres"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Archipiélago"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Islote"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "6",
+        "COMPONENTE": "Cayo"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "7",
+        "COMPONENTE": "Arrecife"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "8",
+        "COMPONENTE": "Barra"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "7",
+        "ID_COMPONENTE": "9",
+        "COMPONENTE": "Otras"
+      }
+    ],
+    "10" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "10",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Sistema de Parques Nacionales Naturales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "10",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Áreas con Declaratorias Departamentales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "10",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Áreas con Declaratorias Municipales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "10",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Reservas de la Sociedad Civil"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "10",
+        "ID_COMPONENTE": "5",
+        "COMPONENTE": "Otra"
+      }
+    ],
+    "11" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "11",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Aguas Minerales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "11",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Aguas Termales"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "11",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Geyser"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "11",
+        "ID_COMPONENTE": "4",
+        "COMPONENTE": "Otra"
+      }
+    ],
+    "12" : [
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "12",
+        "ID_COMPONENTE": "1",
+        "COMPONENTE": "Cueva"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "12",
+        "ID_COMPONENTE": "2",
+        "COMPONENTE": "Cavernas"
+      },
+      {
+        "ID_TIPO_PATRIMONIO": "2",
+        "ID_GRUPO": "12",
+        "ID_COMPONENTE": "3",
+        "COMPONENTE": "Otro"
+      }
+    ]
+  }
+}

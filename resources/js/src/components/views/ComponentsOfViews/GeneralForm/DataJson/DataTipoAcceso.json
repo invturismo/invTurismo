@@ -1,0 +1,14 @@
+[
+	{
+    "ID_TIPO_ACCESO": 1,
+    "ACCESO": "Terrestre"
+	},
+	{
+	"ID_TIPO_ACCESO": 2,
+	"ACCESO": "Acuático"
+	},
+	{
+	"ID_TIPO_ACCESO": 3,
+	"ACCESO": "Aéreo"
+	}
+]

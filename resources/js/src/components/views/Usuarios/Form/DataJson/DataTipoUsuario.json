@@ -1,0 +1,10 @@
+[
+  {
+    "ID_TIPO_USUARIO": 1,
+    "TIPO": "Administrativo"
+  },
+  {
+    "ID_TIPO_USUARIO": 2,
+    "TIPO": "Funcionario"
+  }
+]

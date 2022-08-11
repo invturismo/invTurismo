@@ -1,0 +1,561 @@
+{
+	"1" : {
+    "1" : {
+      "1" : [
+        {
+          "ID_TIPO_PATRIMONIO" : "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Recinto Amurallado (Acceso Principal; Baluarte; Cortina; Espigón; Cuartel Militar)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Muralla del Arrabal (Baluarte; Cortina)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Fortificación (Almacén de Provisiones; Batería; Castillo; Fuerte; Plataforma; Puente; Trincherón)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Escuela de Adiestramiento"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "5",
+          "ELEMENTO": "Batallón"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "6",
+          "ELEMENTO": "Otro"
+        }
+      ],
+      "2": [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Vivienda Urbana (Unifamiliar; Multifamiliar)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Vivienda Rural (Casa de Hacienda; Quinta, Vivienda Raizal, Tradicional, Popular)"
+        }
+      ],
+      "3" : [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Templo (Iglesia; Claustro; Capilla; Ermita; Templo Parroquial; Templete; Santuario; Oratorio; Basílica; Catedral; Sinagoga; Mezquita; Otros)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Conjunto Parroquial (Iglesia - Casa Cural)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Conjunto Conventual (Claustro; Convento)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Centro Doctrinero (Capilla Doctrinera; Iglesia Doctrinera)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "5",
+          "ELEMENTO": "Palacio (Arzobispal; Episcopal)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "6",
+          "ELEMENTO": "Otro"
+        }
+      ],
+      "4" : [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Edificación Gubernamental (Capitolio Nacional; Palacio Nacional; Palacio de la Gobernación; Palacio Municipal; Palacio de la Policía; Edificio de Rentas Departamentales; Tribunales y Cárceles del Santo Oficio; Aduana; Banco de la República; Centro Cívico; Centro Administrativo; Otro...)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Edificación para la Educación (Institución de Educación Básica; Institución de Educación Técnica; Universidad; Facultad Universitaria; Centro de Formación Cultural; Conservatorio; Seminario; Otro)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Edificación para la Ciencia (Observatorio Astronómico; Laboratorio; Planetario; Centro de Investigación; Jardín Botánico; Otro)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Edificación para la Cultura (Biblioteca; Paraninfo; Sala de Cine; Sala de Conciertos; Sala Múltiple; Teatro; Museo; Casa de la Cultura; Otro)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "5",
+          "ELEMENTO": "Escenario para la Recreación y el Deporte (Estadio; Plaza de Toros; Circo; Club Social; Parque Temático y Recreativo; Otro)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "6",
+          "ELEMENTO": "Centro Hospitalario y Asistencial (Hospital; Clínica; Centro Médico; Puesto de Salud; Penitenciaría; Panóptico; Cárcel; Otro)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "7",
+          "ELEMENTO": "Funeraria (Cementerio; Parque Cementerio; Mausoleo; Tumba)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "8",
+          "ELEMENTO": "Arquitectura para el Comercio (Edificación Comercial; Pasaje; Plaza de Mercado; Complejo Comercial; Centro Comercial; Edificios; Entidad Bancaria; Otro)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "9",
+          "ELEMENTO": "Arquitectura para la Industria (Imprenta; Fábrica; Horno; Otra)"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "1",
+          "ID_COMPONENTE": "4",
+          "ID_ELEMENTO": "10",
+          "ELEMENTO": "Arquitectura para el Transporte (Estación de Ferrocarril; Estación de Tranvía; Terminal de Transporte; Terminal de Transporte Masivo Urbano; Aeropuerto de Pasajeros; Aeropuerto de Carga; Transporte; Puerto de Pasajeros; Puerto de Carga; Muelle; Otro)"
+        }
+      ]
+    },
+    "5" : {
+      "1" : [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Pintura"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Escultura"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Otro"
+        }
+      ],
+      "2" : [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Cabeza"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Busto"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Estatua"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Escultura"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "5",
+          "ELEMENTO": "Relieve"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "6",
+          "ELEMENTO": "Monumento"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "7",
+          "ELEMENTO": "Pila"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "8",
+          "ELEMENTO": "Farol"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "9",
+          "ELEMENTO": "Templete"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "10",
+          "ELEMENTO": "Reloj"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "11",
+          "ELEMENTO": "Fuente"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "12",
+          "ELEMENTO": "Cruz"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "13",
+          "ELEMENTO": "Mural"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "14",
+          "ELEMENTO": "Otro"
+        }
+      ],
+      "3" : [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Especímenes Biológicos"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Especímenes Geológicos"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Cuerpos Astronómicos"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "5",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Otro"
+        }
+      ]
+    },
+    "7" : {
+      "1" : [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Aniversarios de Fundación y/o Fiestas de Retorno"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Carnavales"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Concursos y/o Reinados"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Fiesta Patria y/o Acontecimiento Histórico"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "5",
+          "ELEMENTO": "Religiosas, Patronales y/o Profanas"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "6",
+          "ELEMENTO": "Encuentros"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "7",
+          "ELEMENTO": "Otras"
+        }
+      ],
+      "2" : [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Agrícola"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Agroindustrial"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Artesanal"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Artística"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "5",
+          "ELEMENTO": "Científica"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "6",
+          "ELEMENTO": "Comercial"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "7",
+          "ELEMENTO": "Equina"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "8",
+          "ELEMENTO": "Ganadera"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "9",
+          "ELEMENTO": "Gastronómica"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "10",
+          "ELEMENTO": "Industrial"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "11",
+          "ELEMENTO": "Mercado"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "2",
+          "ID_ELEMENTO": "12",
+          "ELEMENTO": "Otras"
+        }
+      ],
+      "3" : [
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Danza"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Música"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Poesía, Letra y/o Narración Oral"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Teatro"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "5",
+          "ELEMENTO": "Cine y/o Audivisuales"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "1",
+          "ID_GRUPO": "7",
+          "ID_COMPONENTE": "3",
+          "ID_ELEMENTO": "6",
+          "ELEMENTO": "Otros"
+        }
+      ]
+    }
+  },
+  "2" : {
+    "10": {
+      "1" : [
+        {
+          "ID_TIPO_PATRIMONIO": "2",
+          "ID_GRUPO": "10",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "1",
+          "ELEMENTO": "Parque Nacional Natural"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "2",
+          "ID_GRUPO": "10",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "2",
+          "ELEMENTO": "Reserva Natural"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "2",
+          "ID_GRUPO": "10",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "3",
+          "ELEMENTO": "Área Natural Única"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "2",
+          "ID_GRUPO": "10",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "4",
+          "ELEMENTO": "Santuario de Flora y Fauna"
+        },
+        {
+          "ID_TIPO_PATRIMONIO": "2",
+          "ID_GRUPO": "10",
+          "ID_COMPONENTE": "1",
+          "ID_ELEMENTO": "5",
+          "ELEMENTO": "Vía Parque"
+        }
+      ]
+    }
+  }
+}

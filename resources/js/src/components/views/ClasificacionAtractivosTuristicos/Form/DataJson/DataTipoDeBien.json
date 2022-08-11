@@ -1,0 +1,22 @@
+[
+  {
+    "id_tipos_bien": 1,
+    "tipo_bien": "Patrimonio Cultural Material"
+  },
+  {
+    "id_tipos_bien": 2,
+    "tipo_bien": "Patrimonio Cultural Inmaterial"
+  },
+  {
+    "id_tipos_bien": 3,
+    "tipo_bien": "Festividades y Eventos"
+  },
+  {
+    "id_tipos_bien": 4,
+    "tipo_bien": "Grupos de Especial Interés"
+  },
+  {
+    "id_tipos_bien": 5,
+    "tipo_bien": "Sitios Naturales"
+  }
+]

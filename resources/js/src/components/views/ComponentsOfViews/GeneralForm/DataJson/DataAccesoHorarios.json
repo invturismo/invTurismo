@@ -1,0 +1,18 @@
+[
+	{
+    "NOMBRE": "RESTRINGIDO",
+    "VALOR": true
+	},
+	{
+	"NOMBRE": "PERMANENTE",
+	"VALOR": true
+	},
+	{
+	"NOMBRE": "VISITA_EXTERIOR",
+	"VALOR": true
+	},
+	{
+	"NOMBRE": "VISITA_INTERIOR",
+	"VALOR": true
+	}
+]

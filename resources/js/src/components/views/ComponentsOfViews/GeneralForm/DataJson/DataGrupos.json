@@ -1,0 +1,106 @@
+{
+	"1" : [
+    {
+      "ID_TIPO_PATRIMONIO": "1",
+      "ID_GRUPO": "1",
+      "GRUPO": "Patrimonio Cultural Material Inmueble; Grupo Arquitectónico"
+    },
+    {
+      "ID_TIPO_PATRIMONIO": "1",
+      "ID_GRUPO": "2",
+      "GRUPO": "Patrimonio Cultural Material Inmueble; Grupo Urbano o Rural"
+    },
+    {
+      "ID_TIPO_PATRIMONIO": "1",
+      "ID_GRUPO": "3",
+      "GRUPO": "Realizaciones Técnico Científicas"
+    },
+    {
+      "ID_TIPO_PATRIMONIO": "1",
+      "ID_GRUPO": "4",
+      "GRUPO": "Patrimonio Cultural Material Inmueble; Grupo Arqueológico"
+    },
+    {
+      "ID_TIPO_PATRIMONIO": "1",
+      "ID_GRUPO": "5",
+      "GRUPO": "Patrimonio Cultural Material Mueble"
+    },
+    {
+      "ID_TIPO_PATRIMONIO": "1",
+      "ID_GRUPO": "6",
+      "GRUPO": "Patrimonio Cultural Inmaterial"
+    },
+    {
+      "ID_TIPO_PATRIMONIO": "1",
+      "ID_GRUPO": "7",
+      "GRUPO": "Festividades y Eventos"
+    },
+    {
+      "ID_TIPO_PATRIMONIO": "1",
+      "ID_GRUPO": "8",
+      "GRUPO": "Grupos de Especial Interés"
+    }
+  ],
+	"2" : [
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "1",
+      "GRUPO": "Montañas"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "2",
+      "GRUPO": "Altiplanicies"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "3",
+      "GRUPO": "Llanuras"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "4",
+      "GRUPO": "Aguas Lénticas"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "5",
+      "GRUPO": "Aguas Lóticas"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "6",
+      "GRUPO": "Costas Litorales"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "7",
+      "GRUPO": "Tierras Insulares"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "8",
+      "GRUPO": "Lugares de Caza y Pesca"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "9",
+      "GRUPO": "Lugares de Observación de Flora y Fauna"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "10",
+      "GRUPO": "Áreas Protegidas"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "11",
+      "GRUPO": "Aguas Subterráneas"
+    },
+		{
+      "ID_TIPO_PATRIMONIO": "2",
+      "ID_GRUPO": "12",
+      "GRUPO": "Formaciones Cársicas"
+    }
+	]
+}

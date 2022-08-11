@@ -1,0 +1,30 @@
+[
+	{
+    "NOMBRE": "LUNES",
+    "VALOR": true
+	},
+	{
+	"NOMBRE": "MARTES",
+	"VALOR": true
+	},
+	{
+	"NOMBRE": "MIERCOLES",
+	"VALOR": true
+	},
+	{
+	"NOMBRE": "JUEVES",
+	"VALOR": true
+	},
+	{
+	"NOMBRE": "VIERNES",
+	"VALOR": true
+	},
+	{
+	"NOMBRE": "SABADO",
+	"VALOR": true
+	},
+	{
+	"NOMBRE": "DOMINGO",
+	"VALOR": true
+	}
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "ID_ESTADO": 1,
+    "ESTADO": "Satisfactorio",
+		"DESCRIPCION": "Componentes sanos, no presentan daños apreciables, solo requieren acciones de mantenimiento."
+  },
+  {
+    "ID_ESTADO": 2,
+    "ESTADO": "Bueno",
+		"DESCRIPCION": "Componentes o elementos presentan afectaciones mínimas. Para su recuperación se requiere de  labores menores de intervención."
+  },
+  {
+    "ID_ESTADO": 3,
+    "ESTADO": "Regular",
+    "DESCRIPCION": "Componentes o elementos afectados. Requieren de una intervención mayor con el fin de devolverle las características originales."
+  },
+  {
+    "ID_ESTADO": 4,
+    "ESTADO": "Malo o ruinoso",
+    "DESCRIPCION": "Estado en que el bien presenta inestabilidad y avanzado estado de deterioro, requiriendo de una restauración profunda."
+  }
+]

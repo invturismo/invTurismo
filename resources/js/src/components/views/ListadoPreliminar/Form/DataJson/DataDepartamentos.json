@@ -1,0 +1,134 @@
+[
+    {
+        "Código": "05",
+        "Nombre": "ANTIOQUIA"
+    },
+    {
+        "Código": "08",
+        "Nombre": "ATLÁNTICO"
+    },
+    {
+        "Código": "11",
+        "Nombre": "BOGOTÁ, D.C."
+    },
+    {
+        "Código": "13",
+        "Nombre": "BOLÍVAR"
+    },
+    {
+        "Código": "15",
+        "Nombre": "BOYACÁ"
+    },
+    {
+        "Código": "17",
+        "Nombre": "CALDAS"
+    },
+    {
+        "Código": "18",
+        "Nombre": "CAQUETÁ"
+    },
+    {
+        "Código": "19",
+        "Nombre": "CAUCA"
+    },
+    {
+        "Código": "20",
+        "Nombre": "CESAR"
+    },
+    {
+        "Código": "23",
+        "Nombre": "CÓRDOBA"
+    },
+    {
+        "Código": "25",
+        "Nombre": "CUNDINAMARCA"
+    },
+    {
+        "Código": "27",
+        "Nombre": "CHOCÓ"
+    },
+    {
+        "Código": "41",
+        "Nombre": "HUILA"
+    },
+    {
+        "Código": "44",
+        "Nombre": "LA GUAJIRA"
+    },
+    {
+        "Código": "47",
+        "Nombre": "MAGDALENA"
+    },
+    {
+        "Código": "50",
+        "Nombre": "META"
+    },
+    {
+        "Código": "52",
+        "Nombre": "NARIÑO"
+    },
+    {
+        "Código": "54",
+        "Nombre": "NORTE DE SANTANDER"
+    },
+    {
+        "Código": "63",
+        "Nombre": "QUINDÍO"
+    },
+    {
+        "Código": "66",
+        "Nombre": "RISARALDA"
+    },
+    {
+        "Código": "68",
+        "Nombre": "SANTANDER"
+    },
+    {
+        "Código": "70",
+        "Nombre": "SUCRE"
+    },
+    {
+        "Código": "73",
+        "Nombre": "TOLIMA"
+    },
+    {
+        "Código": "76",
+        "Nombre": "VALLE DEL CAUCA"
+    },
+    {
+        "Código": "81",
+        "Nombre": "ARAUCA"
+    },
+    {
+        "Código": "85",
+        "Nombre": "CASANARE"
+    },
+    {
+        "Código": "86",
+        "Nombre": "PUTUMAYO"
+    },
+    {
+        "Código": "88",
+        "Nombre": "ARCHIPIÉLAGO DE SAN ANDRÉS, PROVIDENCIA Y SANTA CATALINA"
+    },
+    {
+        "Código": "91",
+        "Nombre": "AMAZONAS"
+    },
+    {
+        "Código": "94",
+        "Nombre": "GUAINÍA"
+    },
+    {
+        "Código": "95",
+        "Nombre": "GUAVIARE"
+    },
+    {
+        "Código": "97",
+        "Nombre": "VAUPÉS"
+    },
+    {
+        "Código": "99",
+        "Nombre": "VICHADA"
+    }
+]

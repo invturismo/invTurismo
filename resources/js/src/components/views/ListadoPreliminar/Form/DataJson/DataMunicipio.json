@@ -1,0 +1,5673 @@
+{
+    "11": [
+        {
+            "Id_Departamento": "11",
+            "Id_Municipio": "001",
+            "Nombre": "BOGOTÁ, D.C."
+        }
+    ],
+    "13": [
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "001",
+            "Nombre": "CARTAGENA DE INDIAS"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "006",
+            "Nombre": "ACHÍ"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "030",
+            "Nombre": "ALTOS DEL ROSARIO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "042",
+            "Nombre": "ARENAL"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "052",
+            "Nombre": "ARJONA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "062",
+            "Nombre": "ARROYOHONDO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "074",
+            "Nombre": "BARRANCO DE LOBA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "140",
+            "Nombre": "CALAMAR"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "160",
+            "Nombre": "CANTAGALLO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "188",
+            "Nombre": "CICUCO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "212",
+            "Nombre": "CÓRDOBA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "222",
+            "Nombre": "CLEMENCIA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "244",
+            "Nombre": "EL CARMEN DE BOLÍVAR"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "248",
+            "Nombre": "EL GUAMO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "268",
+            "Nombre": "EL PEÑÓN"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "300",
+            "Nombre": "HATILLO DE LOBA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "430",
+            "Nombre": "MAGANGUÉ"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "433",
+            "Nombre": "MAHATES"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "440",
+            "Nombre": "MARGARITA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "442",
+            "Nombre": "MARÍA LA BAJA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "458",
+            "Nombre": "MONTECRISTO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "468",
+            "Nombre": "SANTA CRUZ DE MOMPOX"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "473",
+            "Nombre": "MORALES"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "490",
+            "Nombre": "NOROSÍ"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "549",
+            "Nombre": "PINILLOS"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "580",
+            "Nombre": "REGIDOR"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "600",
+            "Nombre": "RÍO VIEJO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "620",
+            "Nombre": "SAN CRISTÓBAL"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "647",
+            "Nombre": "SAN ESTANISLAO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "650",
+            "Nombre": "SAN FERNANDO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "654",
+            "Nombre": "SAN JACINTO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "655",
+            "Nombre": "SAN JACINTO DEL CAUCA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "657",
+            "Nombre": "SAN JUAN NEPOMUCENO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "667",
+            "Nombre": "SAN MARTÍN DE LOBA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "670",
+            "Nombre": "SAN PABLO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "673",
+            "Nombre": "SANTA CATALINA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "683",
+            "Nombre": "SANTA ROSA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "688",
+            "Nombre": "SANTA ROSA DEL SUR"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "744",
+            "Nombre": "SIMITÍ"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "760",
+            "Nombre": "SOPLAVIENTO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "780",
+            "Nombre": "TALAIGUA NUEVO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "810",
+            "Nombre": "TIQUISIO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "836",
+            "Nombre": "TURBACO"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "838",
+            "Nombre": "TURBANÁ"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "873",
+            "Nombre": "VILLANUEVA"
+        },
+        {
+            "Id_Departamento": "13",
+            "Id_Municipio": "894",
+            "Nombre": "ZAMBRANO"
+        }
+    ],
+    "15": [
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "001",
+            "Nombre": "TUNJA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "022",
+            "Nombre": "ALMEIDA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "047",
+            "Nombre": "AQUITANIA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "051",
+            "Nombre": "ARCABUCO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "087",
+            "Nombre": "BELÉN"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "090",
+            "Nombre": "BERBEO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "092",
+            "Nombre": "BETÉITIVA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "097",
+            "Nombre": "BOAVITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "104",
+            "Nombre": "BOYACÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "106",
+            "Nombre": "BRICEÑO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "109",
+            "Nombre": "BUENAVISTA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "114",
+            "Nombre": "BUSBANZÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "131",
+            "Nombre": "CALDAS"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "135",
+            "Nombre": "CAMPOHERMOSO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "162",
+            "Nombre": "CERINZA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "172",
+            "Nombre": "CHINAVITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "176",
+            "Nombre": "CHIQUINQUIRÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "180",
+            "Nombre": "CHISCAS"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "183",
+            "Nombre": "CHITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "185",
+            "Nombre": "CHITARAQUE"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "187",
+            "Nombre": "CHIVATÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "189",
+            "Nombre": "CIÉNEGA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "204",
+            "Nombre": "CÓMBITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "212",
+            "Nombre": "COPER"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "215",
+            "Nombre": "CORRALES"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "218",
+            "Nombre": "COVARACHÍA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "223",
+            "Nombre": "CUBARÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "224",
+            "Nombre": "CUCAITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "226",
+            "Nombre": "CUÍTIVA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "232",
+            "Nombre": "CHÍQUIZA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "236",
+            "Nombre": "CHIVOR"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "238",
+            "Nombre": "DUITAMA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "244",
+            "Nombre": "EL COCUY"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "248",
+            "Nombre": "EL ESPINO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "272",
+            "Nombre": "FIRAVITOBA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "276",
+            "Nombre": "FLORESTA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "293",
+            "Nombre": "GACHANTIVÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "296",
+            "Nombre": "GÁMEZA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "299",
+            "Nombre": "GARAGOA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "317",
+            "Nombre": "GUACAMAYAS"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "322",
+            "Nombre": "GUATEQUE"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "325",
+            "Nombre": "GUAYATÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "332",
+            "Nombre": "GÜICÁN DE LA SIERRA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "362",
+            "Nombre": "IZA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "367",
+            "Nombre": "JENESANO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "368",
+            "Nombre": "JERICÓ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "377",
+            "Nombre": "LABRANZAGRANDE"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "380",
+            "Nombre": "LA CAPILLA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "401",
+            "Nombre": "LA VICTORIA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "403",
+            "Nombre": "LA UVITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "407",
+            "Nombre": "VILLA DE LEYVA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "425",
+            "Nombre": "MACANAL"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "442",
+            "Nombre": "MARIPÍ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "455",
+            "Nombre": "MIRAFLORES"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "464",
+            "Nombre": "MONGUA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "466",
+            "Nombre": "MONGUÍ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "469",
+            "Nombre": "MONIQUIRÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "476",
+            "Nombre": "MOTAVITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "480",
+            "Nombre": "MUZO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "491",
+            "Nombre": "NOBSA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "494",
+            "Nombre": "NUEVO COLÓN"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "500",
+            "Nombre": "OICATÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "507",
+            "Nombre": "OTANCHE"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "511",
+            "Nombre": "PACHAVITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "514",
+            "Nombre": "PÁEZ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "516",
+            "Nombre": "PAIPA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "518",
+            "Nombre": "PAJARITO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "522",
+            "Nombre": "PANQUEBA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "531",
+            "Nombre": "PAUNA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "533",
+            "Nombre": "PAYA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "537",
+            "Nombre": "PAZ DE RÍO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "542",
+            "Nombre": "PESCA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "550",
+            "Nombre": "PISBA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "572",
+            "Nombre": "PUERTO BOYACÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "580",
+            "Nombre": "QUÍPAMA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "599",
+            "Nombre": "RAMIRIQUÍ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "600",
+            "Nombre": "RÁQUIRA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "621",
+            "Nombre": "RONDÓN"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "632",
+            "Nombre": "SABOYÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "638",
+            "Nombre": "SÁCHICA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "646",
+            "Nombre": "SAMACÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "660",
+            "Nombre": "SAN EDUARDO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "664",
+            "Nombre": "SAN JOSÉ DE PARE"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "667",
+            "Nombre": "SAN LUIS DE GACENO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "673",
+            "Nombre": "SAN MATEO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "676",
+            "Nombre": "SAN MIGUEL DE SEMA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "681",
+            "Nombre": "SAN PABLO DE BORBUR"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "686",
+            "Nombre": "SANTANA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "690",
+            "Nombre": "SANTA MARÍA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "693",
+            "Nombre": "SANTA ROSA DE VITERBO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "696",
+            "Nombre": "SANTA SOFÍA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "720",
+            "Nombre": "SATIVANORTE"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "723",
+            "Nombre": "SATIVASUR"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "740",
+            "Nombre": "SIACHOQUE"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "753",
+            "Nombre": "SOATÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "755",
+            "Nombre": "SOCOTÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "757",
+            "Nombre": "SOCHA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "759",
+            "Nombre": "SOGAMOSO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "761",
+            "Nombre": "SOMONDOCO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "762",
+            "Nombre": "SORA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "763",
+            "Nombre": "SOTAQUIRÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "764",
+            "Nombre": "SORACÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "774",
+            "Nombre": "SUSACÓN"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "776",
+            "Nombre": "SUTAMARCHÁN"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "778",
+            "Nombre": "SUTATENZA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "790",
+            "Nombre": "TASCO"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "798",
+            "Nombre": "TENZA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "804",
+            "Nombre": "TIBANÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "806",
+            "Nombre": "TIBASOSA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "808",
+            "Nombre": "TINJACÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "810",
+            "Nombre": "TIPACOQUE"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "814",
+            "Nombre": "TOCA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "816",
+            "Nombre": "TOGÜÍ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "820",
+            "Nombre": "TÓPAGA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "822",
+            "Nombre": "TOTA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "832",
+            "Nombre": "TUNUNGUÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "835",
+            "Nombre": "TURMEQUÉ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "837",
+            "Nombre": "TUTA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "839",
+            "Nombre": "TUTAZÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "842",
+            "Nombre": "ÚMBITA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "861",
+            "Nombre": "VENTAQUEMADA"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "879",
+            "Nombre": "VIRACACHÁ"
+        },
+        {
+            "Id_Departamento": "15",
+            "Id_Municipio": "897",
+            "Nombre": "ZETAQUIRA"
+        }
+    ],
+    "17": [
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "001",
+            "Nombre": "MANIZALES"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "013",
+            "Nombre": "AGUADAS"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "042",
+            "Nombre": "ANSERMA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "050",
+            "Nombre": "ARANZAZU"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "088",
+            "Nombre": "BELALCÁZAR"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "174",
+            "Nombre": "CHINCHINÁ"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "272",
+            "Nombre": "FILADELFIA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "380",
+            "Nombre": "LA DORADA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "388",
+            "Nombre": "LA MERCED"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "433",
+            "Nombre": "MANZANARES"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "442",
+            "Nombre": "MARMATO"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "444",
+            "Nombre": "MARQUETALIA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "446",
+            "Nombre": "MARULANDA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "486",
+            "Nombre": "NEIRA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "495",
+            "Nombre": "NORCASIA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "513",
+            "Nombre": "PÁCORA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "524",
+            "Nombre": "PALESTINA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "541",
+            "Nombre": "PENSILVANIA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "614",
+            "Nombre": "RIOSUCIO"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "616",
+            "Nombre": "RISARALDA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "653",
+            "Nombre": "SALAMINA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "662",
+            "Nombre": "SAMANÁ"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "665",
+            "Nombre": "SAN JOSÉ"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "777",
+            "Nombre": "SUPÍA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "867",
+            "Nombre": "VICTORIA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "873",
+            "Nombre": "VILLAMARÍA"
+        },
+        {
+            "Id_Departamento": "17",
+            "Id_Municipio": "877",
+            "Nombre": "VITERBO"
+        }
+    ],
+    "18": [
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "001",
+            "Nombre": "FLORENCIA"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "029",
+            "Nombre": "ALBANIA"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "094",
+            "Nombre": "BELÉN DE LOS ANDAQUÍES"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "150",
+            "Nombre": "CARTAGENA DEL CHAIRÁ"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "205",
+            "Nombre": "CURILLO"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "247",
+            "Nombre": "EL DONCELLO"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "256",
+            "Nombre": "EL PAUJÍL"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "410",
+            "Nombre": "LA MONTAÑITA"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "460",
+            "Nombre": "MILÁN"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "479",
+            "Nombre": "MORELIA"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "592",
+            "Nombre": "PUERTO RICO"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "610",
+            "Nombre": "SAN JOSÉ DEL FRAGUA"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "753",
+            "Nombre": "SAN VICENTE DEL CAGUÁN"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "756",
+            "Nombre": "SOLANO"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "785",
+            "Nombre": "SOLITA"
+        },
+        {
+            "Id_Departamento": "18",
+            "Id_Municipio": "860",
+            "Nombre": "VALPARAÍSO"
+        }
+    ],
+    "19": [
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "001",
+            "Nombre": "POPAYÁN"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "022",
+            "Nombre": "ALMAGUER"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "050",
+            "Nombre": "ARGELIA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "075",
+            "Nombre": "BALBOA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "100",
+            "Nombre": "BOLÍVAR"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "110",
+            "Nombre": "BUENOS AIRES"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "130",
+            "Nombre": "CAJIBÍO"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "137",
+            "Nombre": "CALDONO"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "142",
+            "Nombre": "CALOTO"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "212",
+            "Nombre": "CORINTO"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "256",
+            "Nombre": "EL TAMBO"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "290",
+            "Nombre": "FLORENCIA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "300",
+            "Nombre": "GUACHENÉ"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "318",
+            "Nombre": "GUAPI"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "355",
+            "Nombre": "INZÁ"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "364",
+            "Nombre": "JAMBALÓ"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "392",
+            "Nombre": "LA SIERRA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "397",
+            "Nombre": "LA VEGA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "418",
+            "Nombre": "LÓPEZ DE MICAY"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "450",
+            "Nombre": "MERCADERES"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "455",
+            "Nombre": "MIRANDA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "473",
+            "Nombre": "MORALES"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "513",
+            "Nombre": "PADILLA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "517",
+            "Nombre": "PÁEZ"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "532",
+            "Nombre": "PATÍA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "533",
+            "Nombre": "PIAMONTE"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "548",
+            "Nombre": "PIENDAMÓ - TUNÍA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "573",
+            "Nombre": "PUERTO TEJADA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "585",
+            "Nombre": "PURACÉ"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "622",
+            "Nombre": "ROSAS"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "693",
+            "Nombre": "SAN SEBASTIÁN"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "698",
+            "Nombre": "SANTANDER DE QUILICHAO"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "701",
+            "Nombre": "SANTA ROSA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "743",
+            "Nombre": "SILVIA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "760",
+            "Nombre": "SOTARÁ PAISPAMBA"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "780",
+            "Nombre": "SUÁREZ"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "785",
+            "Nombre": "SUCRE"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "807",
+            "Nombre": "TIMBÍO"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "809",
+            "Nombre": "TIMBIQUÍ"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "821",
+            "Nombre": "TORIBÍO"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "824",
+            "Nombre": "TOTORÓ"
+        },
+        {
+            "Id_Departamento": "19",
+            "Id_Municipio": "845",
+            "Nombre": "VILLA RICA"
+        }
+    ],
+    "20": [
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "001",
+            "Nombre": "VALLEDUPAR"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "011",
+            "Nombre": "AGUACHICA"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "013",
+            "Nombre": "AGUSTÍN CODAZZI"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "032",
+            "Nombre": "ASTREA"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "045",
+            "Nombre": "BECERRIL"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "060",
+            "Nombre": "BOSCONIA"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "175",
+            "Nombre": "CHIMICHAGUA"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "178",
+            "Nombre": "CHIRIGUANÁ"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "228",
+            "Nombre": "CURUMANÍ"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "238",
+            "Nombre": "EL COPEY"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "250",
+            "Nombre": "EL PASO"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "295",
+            "Nombre": "GAMARRA"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "310",
+            "Nombre": "GONZÁLEZ"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "383",
+            "Nombre": "LA GLORIA"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "400",
+            "Nombre": "LA JAGUA DE IBIRICO"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "443",
+            "Nombre": "MANAURE BALCÓN DEL CESAR"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "517",
+            "Nombre": "PAILITAS"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "550",
+            "Nombre": "PELAYA"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "570",
+            "Nombre": "PUEBLO BELLO"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "614",
+            "Nombre": "RÍO DE ORO"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "621",
+            "Nombre": "LA PAZ"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "710",
+            "Nombre": "SAN ALBERTO"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "750",
+            "Nombre": "SAN DIEGO"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "770",
+            "Nombre": "SAN MARTÍN"
+        },
+        {
+            "Id_Departamento": "20",
+            "Id_Municipio": "787",
+            "Nombre": "TAMALAMEQUE"
+        }
+    ],
+    "23": [
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "001",
+            "Nombre": "MONTERÍA"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "068",
+            "Nombre": "AYAPEL"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "079",
+            "Nombre": "BUENAVISTA"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "090",
+            "Nombre": "CANALETE"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "162",
+            "Nombre": "CERETÉ"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "168",
+            "Nombre": "CHIMÁ"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "182",
+            "Nombre": "CHINÚ"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "189",
+            "Nombre": "CIÉNAGA DE ORO"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "300",
+            "Nombre": "COTORRA"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "350",
+            "Nombre": "LA APARTADA"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "417",
+            "Nombre": "LORICA"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "419",
+            "Nombre": "LOS CÓRDOBAS"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "464",
+            "Nombre": "MOMIL"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "466",
+            "Nombre": "MONTELÍBANO"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "500",
+            "Nombre": "MOÑITOS"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "555",
+            "Nombre": "PLANETA RICA"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "570",
+            "Nombre": "PUEBLO NUEVO"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "574",
+            "Nombre": "PUERTO ESCONDIDO"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "580",
+            "Nombre": "PUERTO LIBERTADOR"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "586",
+            "Nombre": "PURÍSIMA DE LA CONCEPCIÓN"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "660",
+            "Nombre": "SAHAGÚN"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "670",
+            "Nombre": "SAN ANDRÉS DE SOTAVENTO"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "672",
+            "Nombre": "SAN ANTERO"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "675",
+            "Nombre": "SAN BERNARDO DEL VIENTO"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "678",
+            "Nombre": "SAN CARLOS"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "682",
+            "Nombre": "SAN JOSÉ DE URÉ"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "686",
+            "Nombre": "SAN PELAYO"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "807",
+            "Nombre": "TIERRALTA"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "815",
+            "Nombre": "TUCHÍN"
+        },
+        {
+            "Id_Departamento": "23",
+            "Id_Municipio": "855",
+            "Nombre": "VALENCIA"
+        }
+    ],
+    "25": [
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "001",
+            "Nombre": "AGUA DE DIOS"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "019",
+            "Nombre": "ALBÁN"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "035",
+            "Nombre": "ANAPOIMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "040",
+            "Nombre": "ANOLAIMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "053",
+            "Nombre": "ARBELÁEZ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "086",
+            "Nombre": "BELTRÁN"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "095",
+            "Nombre": "BITUIMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "099",
+            "Nombre": "BOJACÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "120",
+            "Nombre": "CABRERA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "123",
+            "Nombre": "CACHIPAY"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "126",
+            "Nombre": "CAJICÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "148",
+            "Nombre": "CAPARRAPÍ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "151",
+            "Nombre": "CÁQUEZA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "154",
+            "Nombre": "CARMEN DE CARUPA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "168",
+            "Nombre": "CHAGUANÍ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "175",
+            "Nombre": "CHÍA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "178",
+            "Nombre": "CHIPAQUE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "181",
+            "Nombre": "CHOACHÍ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "183",
+            "Nombre": "CHOCONTÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "200",
+            "Nombre": "COGUA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "214",
+            "Nombre": "COTA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "224",
+            "Nombre": "CUCUNUBÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "245",
+            "Nombre": "EL COLEGIO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "258",
+            "Nombre": "EL PEÑÓN"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "260",
+            "Nombre": "EL ROSAL"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "269",
+            "Nombre": "FACATATIVÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "279",
+            "Nombre": "FÓMEQUE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "281",
+            "Nombre": "FOSCA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "286",
+            "Nombre": "FUNZA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "288",
+            "Nombre": "FÚQUENE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "290",
+            "Nombre": "FUSAGASUGÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "293",
+            "Nombre": "GACHALÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "295",
+            "Nombre": "GACHANCIPÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "297",
+            "Nombre": "GACHETÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "299",
+            "Nombre": "GAMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "307",
+            "Nombre": "GIRARDOT"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "312",
+            "Nombre": "GRANADA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "317",
+            "Nombre": "GUACHETÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "320",
+            "Nombre": "GUADUAS"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "322",
+            "Nombre": "GUASCA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "324",
+            "Nombre": "GUATAQUÍ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "326",
+            "Nombre": "GUATAVITA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "328",
+            "Nombre": "GUAYABAL DE SÍQUIMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "335",
+            "Nombre": "GUAYABETAL"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "339",
+            "Nombre": "GUTIÉRREZ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "368",
+            "Nombre": "JERUSALÉN"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "372",
+            "Nombre": "JUNÍN"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "377",
+            "Nombre": "LA CALERA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "386",
+            "Nombre": "LA MESA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "394",
+            "Nombre": "LA PALMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "398",
+            "Nombre": "LA PEÑA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "402",
+            "Nombre": "LA VEGA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "407",
+            "Nombre": "LENGUAZAQUE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "426",
+            "Nombre": "MACHETÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "430",
+            "Nombre": "MADRID"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "436",
+            "Nombre": "MANTA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "438",
+            "Nombre": "MEDINA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "473",
+            "Nombre": "MOSQUERA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "483",
+            "Nombre": "NARIÑO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "486",
+            "Nombre": "NEMOCÓN"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "488",
+            "Nombre": "NILO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "489",
+            "Nombre": "NIMAIMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "491",
+            "Nombre": "NOCAIMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "506",
+            "Nombre": "VENECIA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "513",
+            "Nombre": "PACHO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "518",
+            "Nombre": "PAIME"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "524",
+            "Nombre": "PANDI"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "530",
+            "Nombre": "PARATEBUENO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "535",
+            "Nombre": "PASCA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "572",
+            "Nombre": "PUERTO SALGAR"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "580",
+            "Nombre": "PULÍ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "592",
+            "Nombre": "QUEBRADANEGRA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "594",
+            "Nombre": "QUETAME"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "596",
+            "Nombre": "QUIPILE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "599",
+            "Nombre": "APULO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "612",
+            "Nombre": "RICAURTE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "645",
+            "Nombre": "SAN ANTONIO DEL TEQUENDAMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "649",
+            "Nombre": "SAN BERNARDO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "653",
+            "Nombre": "SAN CAYETANO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "658",
+            "Nombre": "SAN FRANCISCO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "662",
+            "Nombre": "SAN JUAN DE RIOSECO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "718",
+            "Nombre": "SASAIMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "736",
+            "Nombre": "SESQUILÉ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "740",
+            "Nombre": "SIBATÉ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "743",
+            "Nombre": "SILVANIA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "745",
+            "Nombre": "SIMIJACA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "754",
+            "Nombre": "SOACHA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "758",
+            "Nombre": "SOPÓ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "769",
+            "Nombre": "SUBACHOQUE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "772",
+            "Nombre": "SUESCA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "777",
+            "Nombre": "SUPATÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "779",
+            "Nombre": "SUSA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "781",
+            "Nombre": "SUTATAUSA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "785",
+            "Nombre": "TABIO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "793",
+            "Nombre": "TAUSA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "797",
+            "Nombre": "TENA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "799",
+            "Nombre": "TENJO"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "805",
+            "Nombre": "TIBACUY"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "807",
+            "Nombre": "TIBIRITA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "815",
+            "Nombre": "TOCAIMA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "817",
+            "Nombre": "TOCANCIPÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "823",
+            "Nombre": "TOPAIPÍ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "839",
+            "Nombre": "UBALÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "841",
+            "Nombre": "UBAQUE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "843",
+            "Nombre": "VILLA DE SAN DIEGO DE UBATÉ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "845",
+            "Nombre": "UNE"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "851",
+            "Nombre": "ÚTICA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "862",
+            "Nombre": "VERGARA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "867",
+            "Nombre": "VIANÍ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "871",
+            "Nombre": "VILLAGÓMEZ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "873",
+            "Nombre": "VILLAPINZÓN"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "875",
+            "Nombre": "VILLETA"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "878",
+            "Nombre": "VIOTÁ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "885",
+            "Nombre": "YACOPÍ"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "898",
+            "Nombre": "ZIPACÓN"
+        },
+        {
+            "Id_Departamento": "25",
+            "Id_Municipio": "899",
+            "Nombre": "ZIPAQUIRÁ"
+        }
+    ],
+    "27": [
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "001",
+            "Nombre": "QUIBDÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "006",
+            "Nombre": "ACANDÍ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "025",
+            "Nombre": "ALTO BAUDÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "050",
+            "Nombre": "ATRATO"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "073",
+            "Nombre": "BAGADÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "075",
+            "Nombre": "BAHÍA SOLANO"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "077",
+            "Nombre": "BAJO BAUDÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "099",
+            "Nombre": "BOJAYÁ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "135",
+            "Nombre": "EL CANTÓN DEL SAN PABLO"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "150",
+            "Nombre": "CARMEN DEL DARIÉN"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "160",
+            "Nombre": "CÉRTEGUI"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "205",
+            "Nombre": "CONDOTO"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "245",
+            "Nombre": "EL CARMEN DE ATRATO"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "250",
+            "Nombre": "EL LITORAL DEL SAN JUAN"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "361",
+            "Nombre": "ISTMINA"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "372",
+            "Nombre": "JURADÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "413",
+            "Nombre": "LLORÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "425",
+            "Nombre": "MEDIO ATRATO"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "430",
+            "Nombre": "MEDIO BAUDÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "450",
+            "Nombre": "MEDIO SAN JUAN"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "491",
+            "Nombre": "NÓVITA"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "495",
+            "Nombre": "NUQUÍ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "580",
+            "Nombre": "RÍO IRÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "600",
+            "Nombre": "RÍO QUITO"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "615",
+            "Nombre": "RIOSUCIO"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "660",
+            "Nombre": "SAN JOSÉ DEL PALMAR"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "745",
+            "Nombre": "SIPÍ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "787",
+            "Nombre": "TADÓ"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "800",
+            "Nombre": "UNGUÍA"
+        },
+        {
+            "Id_Departamento": "27",
+            "Id_Municipio": "810",
+            "Nombre": "UNIÓN PANAMERICANA"
+        }
+    ],
+    "41": [
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "001",
+            "Nombre": "NEIVA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "006",
+            "Nombre": "ACEVEDO"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "013",
+            "Nombre": "AGRADO"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "016",
+            "Nombre": "AIPE"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "020",
+            "Nombre": "ALGECIRAS"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "026",
+            "Nombre": "ALTAMIRA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "078",
+            "Nombre": "BARAYA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "132",
+            "Nombre": "CAMPOALEGRE"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "206",
+            "Nombre": "COLOMBIA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "244",
+            "Nombre": "ELÍAS"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "298",
+            "Nombre": "GARZÓN"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "306",
+            "Nombre": "GIGANTE"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "319",
+            "Nombre": "GUADALUPE"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "349",
+            "Nombre": "HOBO"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "357",
+            "Nombre": "ÍQUIRA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "359",
+            "Nombre": "ISNOS"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "378",
+            "Nombre": "LA ARGENTINA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "396",
+            "Nombre": "LA PLATA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "483",
+            "Nombre": "NÁTAGA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "503",
+            "Nombre": "OPORAPA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "518",
+            "Nombre": "PAICOL"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "524",
+            "Nombre": "PALERMO"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "530",
+            "Nombre": "PALESTINA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "548",
+            "Nombre": "PITAL"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "551",
+            "Nombre": "PITALITO"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "615",
+            "Nombre": "RIVERA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "660",
+            "Nombre": "SALADOBLANCO"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "668",
+            "Nombre": "SAN AGUSTÍN"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "676",
+            "Nombre": "SANTA MARÍA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "770",
+            "Nombre": "SUAZA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "791",
+            "Nombre": "TARQUI"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "797",
+            "Nombre": "TESALIA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "799",
+            "Nombre": "TELLO"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "801",
+            "Nombre": "TERUEL"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "807",
+            "Nombre": "TIMANÁ"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "872",
+            "Nombre": "VILLAVIEJA"
+        },
+        {
+            "Id_Departamento": "41",
+            "Id_Municipio": "885",
+            "Nombre": "YAGUARÁ"
+        }
+    ],
+    "44": [
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "001",
+            "Nombre": "RIOHACHA"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "035",
+            "Nombre": "ALBANIA"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "078",
+            "Nombre": "BARRANCAS"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "090",
+            "Nombre": "DIBULLA"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "098",
+            "Nombre": "DISTRACCIÓN"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "110",
+            "Nombre": "EL MOLINO"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "279",
+            "Nombre": "FONSECA"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "378",
+            "Nombre": "HATONUEVO"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "420",
+            "Nombre": "LA JAGUA DEL PILAR"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "430",
+            "Nombre": "MAICAO"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "560",
+            "Nombre": "MANAURE"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "650",
+            "Nombre": "SAN JUAN DEL CESAR"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "847",
+            "Nombre": "URIBIA"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "855",
+            "Nombre": "URUMITA"
+        },
+        {
+            "Id_Departamento": "44",
+            "Id_Municipio": "874",
+            "Nombre": "VILLANUEVA"
+        }
+    ],
+    "47": [
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "001",
+            "Nombre": "SANTA MARTA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "030",
+            "Nombre": "ALGARROBO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "053",
+            "Nombre": "ARACATACA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "058",
+            "Nombre": "ARIGUANÍ"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "161",
+            "Nombre": "CERRO DE SAN ANTONIO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "170",
+            "Nombre": "CHIVOLO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "189",
+            "Nombre": "CIÉNAGA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "205",
+            "Nombre": "CONCORDIA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "245",
+            "Nombre": "EL BANCO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "258",
+            "Nombre": "EL PIÑÓN"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "268",
+            "Nombre": "EL RETÉN"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "288",
+            "Nombre": "FUNDACIÓN"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "318",
+            "Nombre": "GUAMAL"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "460",
+            "Nombre": "NUEVA GRANADA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "541",
+            "Nombre": "PEDRAZA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "545",
+            "Nombre": "PIJIÑO DEL CARMEN"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "551",
+            "Nombre": "PIVIJAY"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "555",
+            "Nombre": "PLATO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "570",
+            "Nombre": "PUEBLOVIEJO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "605",
+            "Nombre": "REMOLINO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "660",
+            "Nombre": "SABANAS DE SAN ÁNGEL"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "675",
+            "Nombre": "SALAMINA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "692",
+            "Nombre": "SAN SEBASTIÁN DE BUENAVISTA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "703",
+            "Nombre": "SAN ZENÓN"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "707",
+            "Nombre": "SANTA ANA"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "720",
+            "Nombre": "SANTA BÁRBARA DE PINTO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "745",
+            "Nombre": "SITIONUEVO"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "798",
+            "Nombre": "TENERIFE"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "960",
+            "Nombre": "ZAPAYÁN"
+        },
+        {
+            "Id_Departamento": "47",
+            "Id_Municipio": "980",
+            "Nombre": "ZONA BANANERA"
+        }
+    ],
+    "50": [
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "001",
+            "Nombre": "VILLAVICENCIO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "006",
+            "Nombre": "ACACÍAS"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "110",
+            "Nombre": "BARRANCA DE UPÍA"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "124",
+            "Nombre": "CABUYARO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "150",
+            "Nombre": "CASTILLA LA NUEVA"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "223",
+            "Nombre": "CUBARRAL"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "226",
+            "Nombre": "CUMARAL"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "245",
+            "Nombre": "EL CALVARIO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "251",
+            "Nombre": "EL CASTILLO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "270",
+            "Nombre": "EL DORADO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "287",
+            "Nombre": "FUENTE DE ORO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "313",
+            "Nombre": "GRANADA"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "318",
+            "Nombre": "GUAMAL"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "325",
+            "Nombre": "MAPIRIPÁN"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "330",
+            "Nombre": "MESETAS"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "350",
+            "Nombre": "LA MACARENA"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "370",
+            "Nombre": "URIBE"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "400",
+            "Nombre": "LEJANÍAS"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "450",
+            "Nombre": "PUERTO CONCORDIA"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "568",
+            "Nombre": "PUERTO GAITÁN"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "573",
+            "Nombre": "PUERTO LÓPEZ"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "577",
+            "Nombre": "PUERTO LLERAS"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "590",
+            "Nombre": "PUERTO RICO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "606",
+            "Nombre": "RESTREPO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "680",
+            "Nombre": "SAN CARLOS DE GUAROA"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "683",
+            "Nombre": "SAN JUAN DE ARAMA"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "686",
+            "Nombre": "SAN JUANITO"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "689",
+            "Nombre": "SAN MARTÍN"
+        },
+        {
+            "Id_Departamento": "50",
+            "Id_Municipio": "711",
+            "Nombre": "VISTAHERMOSA"
+        }
+    ],
+    "52": [
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "001",
+            "Nombre": "PASTO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "019",
+            "Nombre": "ALBÁN"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "022",
+            "Nombre": "ALDANA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "036",
+            "Nombre": "ANCUYA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "051",
+            "Nombre": "ARBOLEDA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "079",
+            "Nombre": "BARBACOAS"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "083",
+            "Nombre": "BELÉN"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "110",
+            "Nombre": "BUESACO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "203",
+            "Nombre": "COLÓN"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "207",
+            "Nombre": "CONSACÁ"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "210",
+            "Nombre": "CONTADERO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "215",
+            "Nombre": "CÓRDOBA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "224",
+            "Nombre": "CUASPUD CARLOSAMA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "227",
+            "Nombre": "CUMBAL"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "233",
+            "Nombre": "CUMBITARA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "240",
+            "Nombre": "CHACHAGÜÍ"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "250",
+            "Nombre": "EL CHARCO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "254",
+            "Nombre": "EL PEÑOL"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "256",
+            "Nombre": "EL ROSARIO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "258",
+            "Nombre": "EL TABLÓN DE GÓMEZ"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "260",
+            "Nombre": "EL TAMBO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "287",
+            "Nombre": "FUNES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "317",
+            "Nombre": "GUACHUCAL"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "320",
+            "Nombre": "GUAITARILLA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "323",
+            "Nombre": "GUALMATÁN"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "352",
+            "Nombre": "ILES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "354",
+            "Nombre": "IMUÉS"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "356",
+            "Nombre": "IPIALES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "378",
+            "Nombre": "LA CRUZ"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "381",
+            "Nombre": "LA FLORIDA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "385",
+            "Nombre": "LA LLANADA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "390",
+            "Nombre": "LA TOLA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "399",
+            "Nombre": "LA UNIÓN"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "405",
+            "Nombre": "LEIVA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "411",
+            "Nombre": "LINARES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "418",
+            "Nombre": "LOS ANDES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "427",
+            "Nombre": "MAGÜÍ"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "435",
+            "Nombre": "MALLAMA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "473",
+            "Nombre": "MOSQUERA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "480",
+            "Nombre": "NARIÑO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "490",
+            "Nombre": "OLAYA HERRERA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "506",
+            "Nombre": "OSPINA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "520",
+            "Nombre": "FRANCISCO PIZARRO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "540",
+            "Nombre": "POLICARPA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "560",
+            "Nombre": "POTOSÍ"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "565",
+            "Nombre": "PROVIDENCIA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "573",
+            "Nombre": "PUERRES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "585",
+            "Nombre": "PUPIALES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "612",
+            "Nombre": "RICAURTE"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "621",
+            "Nombre": "ROBERTO PAYÁN"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "678",
+            "Nombre": "SAMANIEGO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "683",
+            "Nombre": "SANDONÁ"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "685",
+            "Nombre": "SAN BERNARDO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "687",
+            "Nombre": "SAN LORENZO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "693",
+            "Nombre": "SAN PABLO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "694",
+            "Nombre": "SAN PEDRO DE CARTAGO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "696",
+            "Nombre": "SANTA BÁRBARA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "699",
+            "Nombre": "SANTACRUZ"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "720",
+            "Nombre": "SAPUYES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "786",
+            "Nombre": "TAMINANGO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "788",
+            "Nombre": "TANGUA"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "835",
+            "Nombre": "SAN ANDRÉS DE TUMACO"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "838",
+            "Nombre": "TÚQUERRES"
+        },
+        {
+            "Id_Departamento": "52",
+            "Id_Municipio": "885",
+            "Nombre": "YACUANQUER"
+        }
+    ],
+    "54": [
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "001",
+            "Nombre": "SAN JOSÉ DE CÚCUTA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "003",
+            "Nombre": "ÁBREGO"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "051",
+            "Nombre": "ARBOLEDAS"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "099",
+            "Nombre": "BOCHALEMA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "109",
+            "Nombre": "BUCARASICA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "125",
+            "Nombre": "CÁCOTA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "128",
+            "Nombre": "CÁCHIRA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "172",
+            "Nombre": "CHINÁCOTA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "174",
+            "Nombre": "CHITAGÁ"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "206",
+            "Nombre": "CONVENCIÓN"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "223",
+            "Nombre": "CUCUTILLA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "239",
+            "Nombre": "DURANIA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "245",
+            "Nombre": "EL CARMEN"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "250",
+            "Nombre": "EL TARRA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "261",
+            "Nombre": "EL ZULIA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "313",
+            "Nombre": "GRAMALOTE"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "344",
+            "Nombre": "HACARÍ"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "347",
+            "Nombre": "HERRÁN"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "377",
+            "Nombre": "LABATECA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "385",
+            "Nombre": "LA ESPERANZA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "398",
+            "Nombre": "LA PLAYA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "405",
+            "Nombre": "LOS PATIOS"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "418",
+            "Nombre": "LOURDES"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "480",
+            "Nombre": "MUTISCUA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "498",
+            "Nombre": "OCAÑA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "518",
+            "Nombre": "PAMPLONA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "520",
+            "Nombre": "PAMPLONITA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "553",
+            "Nombre": "PUERTO SANTANDER"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "599",
+            "Nombre": "RAGONVALIA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "660",
+            "Nombre": "SALAZAR"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "670",
+            "Nombre": "SAN CALIXTO"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "673",
+            "Nombre": "SAN CAYETANO"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "680",
+            "Nombre": "SANTIAGO"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "720",
+            "Nombre": "SARDINATA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "743",
+            "Nombre": "SILOS"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "800",
+            "Nombre": "TEORAMA"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "810",
+            "Nombre": "TIBÚ"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "820",
+            "Nombre": "TOLEDO"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "871",
+            "Nombre": "VILLA CARO"
+        },
+        {
+            "Id_Departamento": "54",
+            "Id_Municipio": "874",
+            "Nombre": "VILLA DEL ROSARIO"
+        }
+    ],
+    "63": [
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "001",
+            "Nombre": "ARMENIA"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "111",
+            "Nombre": "BUENAVISTA"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "130",
+            "Nombre": "CALARCÁ"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "190",
+            "Nombre": "CIRCASIA"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "212",
+            "Nombre": "CÓRDOBA"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "272",
+            "Nombre": "FILANDIA"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "302",
+            "Nombre": "GÉNOVA"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "401",
+            "Nombre": "LA TEBAIDA"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "470",
+            "Nombre": "MONTENEGRO"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "548",
+            "Nombre": "PIJAO"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "594",
+            "Nombre": "QUIMBAYA"
+        },
+        {
+            "Id_Departamento": "63",
+            "Id_Municipio": "690",
+            "Nombre": "SALENTO"
+        }
+    ],
+    "66": [
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "001",
+            "Nombre": "PEREIRA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "045",
+            "Nombre": "APÍA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "075",
+            "Nombre": "BALBOA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "088",
+            "Nombre": "BELÉN DE UMBRÍA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "170",
+            "Nombre": "DOSQUEBRADAS"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "318",
+            "Nombre": "GUÁTICA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "383",
+            "Nombre": "LA CELIA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "400",
+            "Nombre": "LA VIRGINIA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "440",
+            "Nombre": "MARSELLA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "456",
+            "Nombre": "MISTRATÓ"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "572",
+            "Nombre": "PUEBLO RICO"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "594",
+            "Nombre": "QUINCHÍA"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "682",
+            "Nombre": "SANTA ROSA DE CABAL"
+        },
+        {
+            "Id_Departamento": "66",
+            "Id_Municipio": "687",
+            "Nombre": "SANTUARIO"
+        }
+    ],
+    "68": [
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "001",
+            "Nombre": "BUCARAMANGA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "013",
+            "Nombre": "AGUADA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "020",
+            "Nombre": "ALBANIA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "051",
+            "Nombre": "ARATOCA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "077",
+            "Nombre": "BARBOSA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "079",
+            "Nombre": "BARICHARA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "081",
+            "Nombre": "BARRANCABERMEJA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "092",
+            "Nombre": "BETULIA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "101",
+            "Nombre": "BOLÍVAR"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "121",
+            "Nombre": "CABRERA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "132",
+            "Nombre": "CALIFORNIA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "147",
+            "Nombre": "CAPITANEJO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "152",
+            "Nombre": "CARCASÍ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "160",
+            "Nombre": "CEPITÁ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "162",
+            "Nombre": "CERRITO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "167",
+            "Nombre": "CHARALÁ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "169",
+            "Nombre": "CHARTA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "176",
+            "Nombre": "CHIMA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "179",
+            "Nombre": "CHIPATÁ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "190",
+            "Nombre": "CIMITARRA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "207",
+            "Nombre": "CONCEPCIÓN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "209",
+            "Nombre": "CONFINES"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "211",
+            "Nombre": "CONTRATACIÓN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "217",
+            "Nombre": "COROMORO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "229",
+            "Nombre": "CURITÍ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "235",
+            "Nombre": "EL CARMEN DE CHUCURÍ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "245",
+            "Nombre": "EL GUACAMAYO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "250",
+            "Nombre": "EL PEÑÓN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "255",
+            "Nombre": "EL PLAYÓN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "264",
+            "Nombre": "ENCINO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "266",
+            "Nombre": "ENCISO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "271",
+            "Nombre": "FLORIÁN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "276",
+            "Nombre": "FLORIDABLANCA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "296",
+            "Nombre": "GALÁN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "298",
+            "Nombre": "GÁMBITA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "307",
+            "Nombre": "GIRÓN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "318",
+            "Nombre": "GUACA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "320",
+            "Nombre": "GUADALUPE"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "322",
+            "Nombre": "GUAPOTÁ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "324",
+            "Nombre": "GUAVATÁ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "327",
+            "Nombre": "GÜEPSA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "344",
+            "Nombre": "HATO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "368",
+            "Nombre": "JESÚS MARÍA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "370",
+            "Nombre": "JORDÁN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "377",
+            "Nombre": "LA BELLEZA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "385",
+            "Nombre": "LANDÁZURI"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "397",
+            "Nombre": "LA PAZ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "406",
+            "Nombre": "LEBRIJA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "418",
+            "Nombre": "LOS SANTOS"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "425",
+            "Nombre": "MACARAVITA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "432",
+            "Nombre": "MÁLAGA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "444",
+            "Nombre": "MATANZA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "464",
+            "Nombre": "MOGOTES"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "468",
+            "Nombre": "MOLAGAVITA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "498",
+            "Nombre": "OCAMONTE"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "500",
+            "Nombre": "OIBA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "502",
+            "Nombre": "ONZAGA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "522",
+            "Nombre": "PALMAR"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "524",
+            "Nombre": "PALMAS DEL SOCORRO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "533",
+            "Nombre": "PÁRAMO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "547",
+            "Nombre": "PIEDECUESTA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "549",
+            "Nombre": "PINCHOTE"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "572",
+            "Nombre": "PUENTE NACIONAL"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "573",
+            "Nombre": "PUERTO PARRA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "575",
+            "Nombre": "PUERTO WILCHES"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "615",
+            "Nombre": "RIONEGRO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "655",
+            "Nombre": "SABANA DE TORRES"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "669",
+            "Nombre": "SAN ANDRÉS"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "673",
+            "Nombre": "SAN BENITO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "679",
+            "Nombre": "SAN GIL"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "682",
+            "Nombre": "SAN JOAQUÍN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "684",
+            "Nombre": "SAN JOSÉ DE MIRANDA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "686",
+            "Nombre": "SAN MIGUEL"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "689",
+            "Nombre": "SAN VICENTE DE CHUCURÍ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "705",
+            "Nombre": "SANTA BÁRBARA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "720",
+            "Nombre": "SANTA HELENA DEL OPÓN"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "745",
+            "Nombre": "SIMACOTA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "755",
+            "Nombre": "SOCORRO"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "770",
+            "Nombre": "SUAITA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "773",
+            "Nombre": "SUCRE"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "780",
+            "Nombre": "SURATÁ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "820",
+            "Nombre": "TONA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "855",
+            "Nombre": "VALLE DE SAN JOSÉ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "861",
+            "Nombre": "VÉLEZ"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "867",
+            "Nombre": "VETAS"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "872",
+            "Nombre": "VILLANUEVA"
+        },
+        {
+            "Id_Departamento": "68",
+            "Id_Municipio": "895",
+            "Nombre": "ZAPATOCA"
+        }
+    ],
+    "70": [
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "001",
+            "Nombre": "SINCELEJO"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "110",
+            "Nombre": "BUENAVISTA"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "124",
+            "Nombre": "CAIMITO"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "204",
+            "Nombre": "COLOSÓ"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "215",
+            "Nombre": "COROZAL"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "221",
+            "Nombre": "COVEÑAS"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "230",
+            "Nombre": "CHALÁN"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "233",
+            "Nombre": "EL ROBLE"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "235",
+            "Nombre": "GALERAS"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "265",
+            "Nombre": "GUARANDA"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "400",
+            "Nombre": "LA UNIÓN"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "418",
+            "Nombre": "LOS PALMITOS"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "429",
+            "Nombre": "MAJAGUAL"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "473",
+            "Nombre": "MORROA"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "508",
+            "Nombre": "OVEJAS"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "523",
+            "Nombre": "PALMITO"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "670",
+            "Nombre": "SAMPUÉS"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "678",
+            "Nombre": "SAN BENITO ABAD"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "702",
+            "Nombre": "SAN JUAN DE BETULIA"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "708",
+            "Nombre": "SAN MARCOS"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "713",
+            "Nombre": "SAN ONOFRE"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "717",
+            "Nombre": "SAN PEDRO"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "742",
+            "Nombre": "SAN LUIS DE SINCÉ"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "771",
+            "Nombre": "SUCRE"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "820",
+            "Nombre": "SANTIAGO DE TOLÚ"
+        },
+        {
+            "Id_Departamento": "70",
+            "Id_Municipio": "823",
+            "Nombre": "SAN JOSÉ DE TOLUVIEJO"
+        }
+    ],
+    "73": [
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "001",
+            "Nombre": "IBAGUÉ"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "024",
+            "Nombre": "ALPUJARRA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "026",
+            "Nombre": "ALVARADO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "030",
+            "Nombre": "AMBALEMA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "043",
+            "Nombre": "ANZOÁTEGUI"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "055",
+            "Nombre": "ARMERO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "067",
+            "Nombre": "ATACO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "124",
+            "Nombre": "CAJAMARCA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "148",
+            "Nombre": "CARMEN DE APICALÁ"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "152",
+            "Nombre": "CASABIANCA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "168",
+            "Nombre": "CHAPARRAL"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "200",
+            "Nombre": "COELLO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "217",
+            "Nombre": "COYAIMA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "226",
+            "Nombre": "CUNDAY"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "236",
+            "Nombre": "DOLORES"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "268",
+            "Nombre": "ESPINAL"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "270",
+            "Nombre": "FALAN"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "275",
+            "Nombre": "FLANDES"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "283",
+            "Nombre": "FRESNO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "319",
+            "Nombre": "GUAMO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "347",
+            "Nombre": "HERVEO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "349",
+            "Nombre": "HONDA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "352",
+            "Nombre": "ICONONZO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "408",
+            "Nombre": "LÉRIDA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "411",
+            "Nombre": "LÍBANO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "443",
+            "Nombre": "SAN SEBASTIÁN DE MARIQUITA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "449",
+            "Nombre": "MELGAR"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "461",
+            "Nombre": "MURILLO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "483",
+            "Nombre": "NATAGAIMA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "504",
+            "Nombre": "ORTEGA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "520",
+            "Nombre": "PALOCABILDO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "547",
+            "Nombre": "PIEDRAS"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "555",
+            "Nombre": "PLANADAS"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "563",
+            "Nombre": "PRADO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "585",
+            "Nombre": "PURIFICACIÓN"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "616",
+            "Nombre": "RIOBLANCO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "622",
+            "Nombre": "RONCESVALLES"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "624",
+            "Nombre": "ROVIRA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "671",
+            "Nombre": "SALDAÑA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "675",
+            "Nombre": "SAN ANTONIO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "678",
+            "Nombre": "SAN LUIS"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "686",
+            "Nombre": "SANTA ISABEL"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "770",
+            "Nombre": "SUÁREZ"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "854",
+            "Nombre": "VALLE DE SAN JUAN"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "861",
+            "Nombre": "VENADILLO"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "870",
+            "Nombre": "VILLAHERMOSA"
+        },
+        {
+            "Id_Departamento": "73",
+            "Id_Municipio": "873",
+            "Nombre": "VILLARRICA"
+        }
+    ],
+    "76": [
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "001",
+            "Nombre": "CALI"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "020",
+            "Nombre": "ALCALÁ"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "036",
+            "Nombre": "ANDALUCÍA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "041",
+            "Nombre": "ANSERMANUEVO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "054",
+            "Nombre": "ARGELIA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "100",
+            "Nombre": "BOLÍVAR"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "109",
+            "Nombre": "BUENAVENTURA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "111",
+            "Nombre": "GUADALAJARA DE BUGA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "113",
+            "Nombre": "BUGALAGRANDE"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "122",
+            "Nombre": "CAICEDONIA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "126",
+            "Nombre": "CALIMA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "130",
+            "Nombre": "CANDELARIA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "147",
+            "Nombre": "CARTAGO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "233",
+            "Nombre": "DAGUA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "243",
+            "Nombre": "EL ÁGUILA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "246",
+            "Nombre": "EL CAIRO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "248",
+            "Nombre": "EL CERRITO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "250",
+            "Nombre": "EL DOVIO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "275",
+            "Nombre": "FLORIDA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "306",
+            "Nombre": "GINEBRA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "318",
+            "Nombre": "GUACARÍ"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "364",
+            "Nombre": "JAMUNDÍ"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "377",
+            "Nombre": "LA CUMBRE"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "400",
+            "Nombre": "LA UNIÓN"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "403",
+            "Nombre": "LA VICTORIA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "497",
+            "Nombre": "OBANDO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "520",
+            "Nombre": "PALMIRA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "563",
+            "Nombre": "PRADERA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "606",
+            "Nombre": "RESTREPO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "616",
+            "Nombre": "RIOFRÍO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "622",
+            "Nombre": "ROLDANILLO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "670",
+            "Nombre": "SAN PEDRO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "736",
+            "Nombre": "SEVILLA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "823",
+            "Nombre": "TORO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "828",
+            "Nombre": "TRUJILLO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "834",
+            "Nombre": "TULUÁ"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "845",
+            "Nombre": "ULLOA"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "863",
+            "Nombre": "VERSALLES"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "869",
+            "Nombre": "VIJES"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "890",
+            "Nombre": "YOTOCO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "892",
+            "Nombre": "YUMBO"
+        },
+        {
+            "Id_Departamento": "76",
+            "Id_Municipio": "895",
+            "Nombre": "ZARZAL"
+        }
+    ],
+    "81": [
+        {
+            "Id_Departamento": "81",
+            "Id_Municipio": "001",
+            "Nombre": "ARAUCA"
+        },
+        {
+            "Id_Departamento": "81",
+            "Id_Municipio": "065",
+            "Nombre": "ARAUQUITA"
+        },
+        {
+            "Id_Departamento": "81",
+            "Id_Municipio": "220",
+            "Nombre": "CRAVO NORTE"
+        },
+        {
+            "Id_Departamento": "81",
+            "Id_Municipio": "300",
+            "Nombre": "FORTUL"
+        },
+        {
+            "Id_Departamento": "81",
+            "Id_Municipio": "591",
+            "Nombre": "PUERTO RONDÓN"
+        },
+        {
+            "Id_Departamento": "81",
+            "Id_Municipio": "736",
+            "Nombre": "SARAVENA"
+        },
+        {
+            "Id_Departamento": "81",
+            "Id_Municipio": "794",
+            "Nombre": "TAME"
+        }
+    ],
+    "85": [
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "001",
+            "Nombre": "YOPAL"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "010",
+            "Nombre": "AGUAZUL"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "015",
+            "Nombre": "CHÁMEZA"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "125",
+            "Nombre": "HATO COROZAL"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "136",
+            "Nombre": "LA SALINA"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "139",
+            "Nombre": "MANÍ"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "162",
+            "Nombre": "MONTERREY"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "225",
+            "Nombre": "NUNCHÍA"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "230",
+            "Nombre": "OROCUÉ"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "250",
+            "Nombre": "PAZ DE ARIPORO"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "263",
+            "Nombre": "PORE"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "279",
+            "Nombre": "RECETOR"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "300",
+            "Nombre": "SABANALARGA"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "315",
+            "Nombre": "SÁCAMA"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "325",
+            "Nombre": "SAN LUIS DE PALENQUE"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "400",
+            "Nombre": "TÁMARA"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "410",
+            "Nombre": "TAURAMENA"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "430",
+            "Nombre": "TRINIDAD"
+        },
+        {
+            "Id_Departamento": "85",
+            "Id_Municipio": "440",
+            "Nombre": "VILLANUEVA"
+        }
+    ],
+    "86": [
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "001",
+            "Nombre": "MOCOA"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "219",
+            "Nombre": "COLÓN"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "320",
+            "Nombre": "ORITO"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "568",
+            "Nombre": "PUERTO ASÍS"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "569",
+            "Nombre": "PUERTO CAICEDO"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "571",
+            "Nombre": "PUERTO GUZMÁN"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "573",
+            "Nombre": "PUERTO LEGUÍZAMO"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "749",
+            "Nombre": "SIBUNDOY"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "755",
+            "Nombre": "SAN FRANCISCO"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "757",
+            "Nombre": "SAN MIGUEL"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "760",
+            "Nombre": "SANTIAGO"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "865",
+            "Nombre": "VALLE DEL GUAMUEZ"
+        },
+        {
+            "Id_Departamento": "86",
+            "Id_Municipio": "885",
+            "Nombre": "VILLAGARZÓN"
+        }
+    ],
+    "88": [
+        {
+            "Id_Departamento": "88",
+            "Id_Municipio": "001",
+            "Nombre": "SAN ANDRÉS"
+        },
+        {
+            "Id_Departamento": "88",
+            "Id_Municipio": "564",
+            "Nombre": "PROVIDENCIA"
+        }
+    ],
+    "91": [
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "001",
+            "Nombre": "LETICIA"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "263",
+            "Nombre": "EL ENCANTO"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "405",
+            "Nombre": "LA CHORRERA"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "407",
+            "Nombre": "LA PEDRERA"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "430",
+            "Nombre": "LA VICTORIA"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "460",
+            "Nombre": "MIRITÍ - PARANÁ"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "530",
+            "Nombre": "PUERTO ALEGRÍA"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "536",
+            "Nombre": "PUERTO ARICA"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "540",
+            "Nombre": "PUERTO NARIÑO"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "669",
+            "Nombre": "PUERTO SANTANDER"
+        },
+        {
+            "Id_Departamento": "91",
+            "Id_Municipio": "798",
+            "Nombre": "TARAPACÁ"
+        }
+    ],
+    "94": [
+        {
+            "Id_Departamento": "94",
+            "Id_Municipio": "001",
+            "Nombre": "INÍRIDA"
+        },
+        {
+            "Id_Departamento": "94",
+            "Id_Municipio": "343",
+            "Nombre": "BARRANCOMINAS"
+        },
+        {
+            "Id_Departamento": "94",
+            "Id_Municipio": "883",
+            "Nombre": "SAN FELIPE"
+        },
+        {
+            "Id_Departamento": "94",
+            "Id_Municipio": "884",
+            "Nombre": "PUERTO COLOMBIA"
+        },
+        {
+            "Id_Departamento": "94",
+            "Id_Municipio": "885",
+            "Nombre": "LA GUADALUPE"
+        },
+        {
+            "Id_Departamento": "94",
+            "Id_Municipio": "886",
+            "Nombre": "CACAHUAL"
+        },
+        {
+            "Id_Departamento": "94",
+            "Id_Municipio": "887",
+            "Nombre": "PANA PANA"
+        },
+        {
+            "Id_Departamento": "94",
+            "Id_Municipio": "888",
+            "Nombre": "MORICHAL"
+        }
+    ],
+    "95": [
+        {
+            "Id_Departamento": "95",
+            "Id_Municipio": "001",
+            "Nombre": "SAN JOSÉ DEL GUAVIARE"
+        },
+        {
+            "Id_Departamento": "95",
+            "Id_Municipio": "015",
+            "Nombre": "CALAMAR"
+        },
+        {
+            "Id_Departamento": "95",
+            "Id_Municipio": "025",
+            "Nombre": "EL RETORNO"
+        },
+        {
+            "Id_Departamento": "95",
+            "Id_Municipio": "200",
+            "Nombre": "MIRAFLORES"
+        }
+    ],
+    "97": [
+        {
+            "Id_Departamento": "97",
+            "Id_Municipio": "001",
+            "Nombre": "MITÚ"
+        },
+        {
+            "Id_Departamento": "97",
+            "Id_Municipio": "161",
+            "Nombre": "CARURÚ"
+        },
+        {
+            "Id_Departamento": "97",
+            "Id_Municipio": "511",
+            "Nombre": "PACOA"
+        },
+        {
+            "Id_Departamento": "97",
+            "Id_Municipio": "666",
+            "Nombre": "TARAIRA"
+        },
+        {
+            "Id_Departamento": "97",
+            "Id_Municipio": "777",
+            "Nombre": "PAPUNAHUA"
+        },
+        {
+            "Id_Departamento": "97",
+            "Id_Municipio": "889",
+            "Nombre": "YAVARATÉ"
+        }
+    ],
+    "99": [
+        {
+            "Id_Departamento": "99",
+            "Id_Municipio": "001",
+            "Nombre": "PUERTO CARREÑO"
+        },
+        {
+            "Id_Departamento": "99",
+            "Id_Municipio": "524",
+            "Nombre": "LA PRIMAVERA"
+        },
+        {
+            "Id_Departamento": "99",
+            "Id_Municipio": "624",
+            "Nombre": "SANTA ROSALÍA"
+        },
+        {
+            "Id_Departamento": "99",
+            "Id_Municipio": "773",
+            "Nombre": "CUMARIBO"
+        }
+    ],
+    "05": [
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "001",
+            "Nombre": "MEDELLÍN"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "002",
+            "Nombre": "ABEJORRAL"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "004",
+            "Nombre": "ABRIAQUÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "021",
+            "Nombre": "ALEJANDRÍA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "030",
+            "Nombre": "AMAGÁ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "031",
+            "Nombre": "AMALFI"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "034",
+            "Nombre": "ANDES"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "036",
+            "Nombre": "ANGELÓPOLIS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "038",
+            "Nombre": "ANGOSTURA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "040",
+            "Nombre": "ANORÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "042",
+            "Nombre": "SANTA FÉ DE ANTIOQUIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "044",
+            "Nombre": "ANZÁ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "045",
+            "Nombre": "APARTADÓ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "051",
+            "Nombre": "ARBOLETES"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "055",
+            "Nombre": "ARGELIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "059",
+            "Nombre": "ARMENIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "079",
+            "Nombre": "BARBOSA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "086",
+            "Nombre": "BELMIRA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "088",
+            "Nombre": "BELLO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "091",
+            "Nombre": "BETANIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "093",
+            "Nombre": "BETULIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "101",
+            "Nombre": "CIUDAD BOLÍVAR"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "107",
+            "Nombre": "BRICEÑO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "113",
+            "Nombre": "BURITICÁ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "120",
+            "Nombre": "CÁCERES"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "125",
+            "Nombre": "CAICEDO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "129",
+            "Nombre": "CALDAS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "134",
+            "Nombre": "CAMPAMENTO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "138",
+            "Nombre": "CAÑASGORDAS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "142",
+            "Nombre": "CARACOLÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "145",
+            "Nombre": "CARAMANTA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "147",
+            "Nombre": "CAREPA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "148",
+            "Nombre": "EL CARMEN DE VIBORAL"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "150",
+            "Nombre": "CAROLINA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "154",
+            "Nombre": "CAUCASIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "172",
+            "Nombre": "CHIGORODÓ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "190",
+            "Nombre": "CISNEROS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "197",
+            "Nombre": "COCORNÁ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "206",
+            "Nombre": "CONCEPCIÓN"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "209",
+            "Nombre": "CONCORDIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "212",
+            "Nombre": "COPACABANA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "234",
+            "Nombre": "DABEIBA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "237",
+            "Nombre": "DONMATÍAS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "240",
+            "Nombre": "EBÉJICO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "250",
+            "Nombre": "EL BAGRE"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "264",
+            "Nombre": "ENTRERRÍOS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "266",
+            "Nombre": "ENVIGADO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "282",
+            "Nombre": "FREDONIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "284",
+            "Nombre": "FRONTINO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "306",
+            "Nombre": "GIRALDO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "308",
+            "Nombre": "GIRARDOTA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "310",
+            "Nombre": "GÓMEZ PLATA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "313",
+            "Nombre": "GRANADA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "315",
+            "Nombre": "GUADALUPE"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "318",
+            "Nombre": "GUARNE"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "321",
+            "Nombre": "GUATAPÉ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "347",
+            "Nombre": "HELICONIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "353",
+            "Nombre": "HISPANIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "360",
+            "Nombre": "ITAGÜÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "361",
+            "Nombre": "ITUANGO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "364",
+            "Nombre": "JARDÍN"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "368",
+            "Nombre": "JERICÓ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "376",
+            "Nombre": "LA CEJA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "380",
+            "Nombre": "LA ESTRELLA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "390",
+            "Nombre": "LA PINTADA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "400",
+            "Nombre": "LA UNIÓN"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "411",
+            "Nombre": "LIBORINA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "425",
+            "Nombre": "MACEO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "440",
+            "Nombre": "MARINILLA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "467",
+            "Nombre": "MONTEBELLO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "475",
+            "Nombre": "MURINDÓ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "480",
+            "Nombre": "MUTATÁ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "483",
+            "Nombre": "NARIÑO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "490",
+            "Nombre": "NECOCLÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "495",
+            "Nombre": "NECHÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "501",
+            "Nombre": "OLAYA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "541",
+            "Nombre": "PEÑOL"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "543",
+            "Nombre": "PEQUE"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "576",
+            "Nombre": "PUEBLORRICO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "579",
+            "Nombre": "PUERTO BERRÍO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "585",
+            "Nombre": "PUERTO NARE"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "591",
+            "Nombre": "PUERTO TRIUNFO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "604",
+            "Nombre": "REMEDIOS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "607",
+            "Nombre": "RETIRO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "615",
+            "Nombre": "RIONEGRO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "628",
+            "Nombre": "SABANALARGA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "631",
+            "Nombre": "SABANETA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "642",
+            "Nombre": "SALGAR"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "647",
+            "Nombre": "SAN ANDRÉS DE CUERQUÍA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "649",
+            "Nombre": "SAN CARLOS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "652",
+            "Nombre": "SAN FRANCISCO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "656",
+            "Nombre": "SAN JERÓNIMO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "658",
+            "Nombre": "SAN JOSÉ DE LA MONTAÑA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "659",
+            "Nombre": "SAN JUAN DE URABÁ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "660",
+            "Nombre": "SAN LUIS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "664",
+            "Nombre": "SAN PEDRO DE LOS MILAGROS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "665",
+            "Nombre": "SAN PEDRO DE URABÁ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "667",
+            "Nombre": "SAN RAFAEL"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "670",
+            "Nombre": "SAN ROQUE"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "674",
+            "Nombre": "SAN VICENTE FERRER"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "679",
+            "Nombre": "SANTA BÁRBARA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "686",
+            "Nombre": "SANTA ROSA DE OSOS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "690",
+            "Nombre": "SANTO DOMINGO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "697",
+            "Nombre": "EL SANTUARIO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "736",
+            "Nombre": "SEGOVIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "756",
+            "Nombre": "SONSÓN"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "761",
+            "Nombre": "SOPETRÁN"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "789",
+            "Nombre": "TÁMESIS"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "790",
+            "Nombre": "TARAZÁ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "792",
+            "Nombre": "TARSO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "809",
+            "Nombre": "TITIRIBÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "819",
+            "Nombre": "TOLEDO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "837",
+            "Nombre": "TURBO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "842",
+            "Nombre": "URAMITA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "847",
+            "Nombre": "URRAO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "854",
+            "Nombre": "VALDIVIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "856",
+            "Nombre": "VALPARAÍSO"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "858",
+            "Nombre": "VEGACHÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "861",
+            "Nombre": "VENECIA"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "873",
+            "Nombre": "VIGÍA DEL FUERTE"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "885",
+            "Nombre": "YALÍ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "887",
+            "Nombre": "YARUMAL"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "890",
+            "Nombre": "YOLOMBÓ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "893",
+            "Nombre": "YONDÓ"
+        },
+        {
+            "Id_Departamento": "05",
+            "Id_Municipio": "895",
+            "Nombre": "ZARAGOZA"
+        }
+    ],
+    "08": [
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "001",
+            "Nombre": "BARRANQUILLA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "078",
+            "Nombre": "BARANOA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "137",
+            "Nombre": "CAMPO DE LA CRUZ"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "141",
+            "Nombre": "CANDELARIA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "296",
+            "Nombre": "GALAPA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "372",
+            "Nombre": "JUAN DE ACOSTA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "421",
+            "Nombre": "LURUACO"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "433",
+            "Nombre": "MALAMBO"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "436",
+            "Nombre": "MANATÍ"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "520",
+            "Nombre": "PALMAR DE VARELA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "549",
+            "Nombre": "PIOJÓ"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "558",
+            "Nombre": "POLONUEVO"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "560",
+            "Nombre": "PONEDERA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "573",
+            "Nombre": "PUERTO COLOMBIA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "606",
+            "Nombre": "REPELÓN"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "634",
+            "Nombre": "SABANAGRANDE"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "638",
+            "Nombre": "SABANALARGA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "675",
+            "Nombre": "SANTA LUCÍA"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "685",
+            "Nombre": "SANTO TOMÁS"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "758",
+            "Nombre": "SOLEDAD"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "770",
+            "Nombre": "SUAN"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "832",
+            "Nombre": "TUBARÁ"
+        },
+        {
+            "Id_Departamento": "08",
+            "Id_Municipio": "849",
+            "Nombre": "USIACURÍ"
+        }
+    ]
+}

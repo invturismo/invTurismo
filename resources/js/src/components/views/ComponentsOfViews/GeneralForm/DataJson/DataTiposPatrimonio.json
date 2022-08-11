@@ -1,0 +1,10 @@
+[
+	{
+    "ID_TIPO_PATRIMONIO": "1",
+    "PATROMONIO": "Patrimonio Cultural"
+	},
+	{
+		"ID_TIPO_PATRIMONIO": "2",
+		"PATROMONIO": "Sitios Naturales"
+	}
+]
