@@ -9,25 +9,27 @@ use Illuminate\Support\Facades\Auth;
 
 class UpdateController extends Controller
 {
-    public static function stateUpdate($REGISTRO,$TABLA,$idTokenUser) {
+    public static function stateUpdate($REGISTRO,$TABLA,$idTokenUser,$delete) {
       try {
         $queryData = Update_Record::where('REGISTRO',"=",$REGISTRO)
         ->where("TABLA","=",$TABLA)
         ->where("ID_TOKEN","!=",$idTokenUser)->first();
         if(isset($queryData)) {
-            $record = DB::table('personal_access_tokens')->select()
-            ->where('id','=',$queryData->ID_TOKEN)->first();
-            if(isset($record)) return ["state" => 1];
-            $queryData->delete();
+          $record = DB::table('personal_access_tokens')->select()
+          ->where('id','=',$queryData->ID_TOKEN)->first();
+          if(isset($record)) return ["state" => 1];
+          $queryData->delete();
         }
-        $recordsToken = Update_Record::where('ID_TOKEN',"=",$idTokenUser);
-        $validateRecord = $recordsToken->get()->toArray();
-        if(!empty($validateRecord)) $recordsToken->delete();
-        $updateRecord = new Update_Record();
-        $updateRecord->ID_TOKEN = $idTokenUser;
-        $updateRecord->TABLA = $TABLA;
-        $updateRecord->REGISTRO = $REGISTRO;
-        $updateRecord->save();
+        if(!$delete) {
+          $recordsToken = Update_Record::where('ID_TOKEN',"=",$idTokenUser);
+          $validateRecord = $recordsToken->get()->toArray();
+          if(!empty($validateRecord)) $recordsToken->delete();
+          $updateRecord = new Update_Record();
+          $updateRecord->ID_TOKEN = $idTokenUser;
+          $updateRecord->TABLA = $TABLA;
+          $updateRecord->REGISTRO = $REGISTRO;
+          $updateRecord->save();
+        }
         return ["state" => 2];
       } catch (\Throwable $th) {
         return [

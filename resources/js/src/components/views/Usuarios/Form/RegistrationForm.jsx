@@ -57,6 +57,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.PRIMER_NOMBRE}
+            placeholder="Pepito"
             autoComplete="off"
           />
           {errors.PRIMER_NOMBRE && (
@@ -72,6 +73,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.SEGUNDO_NOMBRE}
+            placeholder="Andres"
             autoComplete="off"
           />
           {errors.SEGUNDO_NOMBRE && (
@@ -87,6 +89,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.PRIMER_APELLIDO}
+            placeholder="Perez"
             autoComplete="off"
           />
           {errors.PRIMER_APELLIDO && (
@@ -102,6 +105,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.SEGUNDO_APELLIDO}
+            placeholder="Sabogal"
             autoComplete="off"
           />
           {errors.SEGUNDO_APELLIDO && (
@@ -117,6 +121,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.USUARIO}
+            placeholder="Pepito123"
             autoComplete="off"
           />
           {errors.USUARIO && (
@@ -132,6 +137,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.CORREO}
+            placeholder="pepito@gmail.com"
             autoComplete="off"
           />
           {errors.CORREO && (
@@ -179,7 +185,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
         </label>
       </div>
       <ButtonPage type="submit" colorButton="green" className="ButtonRegistrar">
-        {who===1 ? 'Registrar' : 'Actualizar'}
+        {who === 1 ? "Registrar" : "Actualizar"}
       </ButtonPage>
     </form>
   );

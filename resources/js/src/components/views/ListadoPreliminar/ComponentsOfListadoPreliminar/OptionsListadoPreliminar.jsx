@@ -6,7 +6,7 @@ const OptionsListadoPreliminar = () => {
     <div className="OptionsListadoPreliminar">
       <h2>Exportar listado preliminar</h2>
       <div className="ContainerMainOptionsListadoPreliminar">
-        <ExportExcel fileName='Listado-Preliminar'/>
+        <ExportExcel fileName="Listado-Preliminar" url="listado-preliminar" />
       </div>
     </div>
   );

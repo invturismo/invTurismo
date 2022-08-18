@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
-import useResponsive from '../../../hooks/useResponsive';
-import HeaderMovil from './ComponentsMainLayout/HeaderMovil';
-import Navbar from './Navbar/Navbar';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import useResponsive from "../../../hooks/useResponsive";
+import HeaderMovil from "./ComponentsMainLayout/HeaderMovil";
+import Navbar from "./Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { StyleLeandingLayout } from './StyleLeadingLayout';
-import { closeMenu } from '../../../features/mainLayoutSlice';
-import ModalLogout from '../../common/ModalLogout';
-import { AnimatePresence } from 'framer-motion';
-import HeaderDesktop from './ComponentsMainLayout/HeaderDesktop';
+import { StyleLeandingLayout } from "./StyleLeadingLayout";
+import { closeMenu } from "../../../features/mainLayoutSlice";
+import ModalPopper from "../../views/ComponentsOfViews/ModalPopper/ModalPopper";
+import { AnimatePresence } from "framer-motion";
+import HeaderDesktop from "./ComponentsMainLayout/HeaderDesktop";
 import { Toaster } from "react-hot-toast";
-import LoaderForm from './ComponentsMainLayout/LoaderForm';
+import LoaderForm from "./ComponentsMainLayout/LoaderForm";
 
 const MovileLeandingLayout = () => {
   const menuState = useSelector((state) => state.mainLayoutSlice.menuState);
@@ -28,10 +28,10 @@ const MovileLeandingLayout = () => {
       )}
     </>
   );
-}
+};
 
 const LeadingLayout = () => {
-  const movile = useResponsive(0,783);
+  const movile = useResponsive(0, 783);
   const desktop = useResponsive(783);
   const modalLayoutState = useSelector(
     (state) => state.modalsSlice.modalLayoutState
@@ -46,11 +46,11 @@ const LeadingLayout = () => {
       <main>
         <Outlet />
       </main>
-      {modalLayoutState && <ModalLogout />}
-      {loaderForm && <LoaderForm/>}
+      {modalLayoutState && <ModalPopper />}
+      {loaderForm && <LoaderForm />}
       <Toaster />
     </StyleLeandingLayout>
   );
-}
+};
 
 export default LeadingLayout;

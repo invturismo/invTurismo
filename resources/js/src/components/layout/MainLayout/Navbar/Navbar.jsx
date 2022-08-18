@@ -27,10 +27,17 @@ const HeaderMenu = () => {
 
 const ButtonLogout = () => {
   const dispatch = useDispatch();
+  const dataPayload = {
+    textMessage1: "¿Estas seguro que quieres",
+    textMessage2: "Cerrar sesion?",
+    textButton: "cerrar",
+    srcImg: "svgLogOutPopup",
+    whoFunction: "handleClickLogout",
+  };
 
   return (
     <div className="ContainerLogoutNavbar">
-      <button onClick={() => dispatch(openModalLayoutState())}>
+      <button onClick={() => dispatch(openModalLayoutState(dataPayload))}>
         <span className="iconOption">
           <img src={`/img/iconsMenu/LogoutIcon.svg`} alt="icon" />
         </span>

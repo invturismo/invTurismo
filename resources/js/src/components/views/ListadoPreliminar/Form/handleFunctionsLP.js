@@ -20,11 +20,13 @@ export const handleFunctionsLP = (
 
   const handleChange = async (e) => {
     let response;
-    if (e.target.name === "ID_DEPARTAMENTOS" && values.ID_MUNICIPIOS) {
+    if (e.target.name === "ID_DEPARTAMENTOS") {
+      const valueMunicipio = { ID_MUNICIPIOS: "" };
+      if (e.target.value === "11") valueMunicipio.ID_MUNICIPIOS = "001";
       setValues({
         ...values,
         [e.target.name]: e.target.value,
-        ID_MUNICIPIOS: "",
+        ...valueMunicipio,
       });
     } else {
       setValues({ ...values, [e.target.name]: e.target.value });
@@ -47,6 +49,7 @@ export const handleFunctionsLP = (
         : "listados-preliminares/update";
     const responseServe = await fetchFormListaPreliminar(values, method, url);
     if (!responseServe.state) {
+      console.log(responseServe);
       if (responseServe.errors)
         setErrors({ ...initialErrors, ...responseServe.errors });
       if (responseServe.message) toastMs().error(responseServe.message);

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   modalLayoutState: false,
   loaderForm: false,
+  dataModalPopper: {},
 };
 
 export const modalsSlice = createSlice({
@@ -11,9 +12,11 @@ export const modalsSlice = createSlice({
   reducers: {
     closeModalLayoutState: (state) => {
       state.modalLayoutState = false;
+      state.dataModalPopper = {};
     },
-    openModalLayoutState: (state) => {
+    openModalLayoutState: (state,action) => {
       state.modalLayoutState = true;
+      state.dataModalPopper = action.payload;
     },
     closeLoaderForm: (state) => {
       state.loaderForm = false;

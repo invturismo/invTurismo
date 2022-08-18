@@ -215,7 +215,7 @@ class ListadosPreliminaresController extends Controller
             });})
             ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
             ->select("listados_preliminares.ID_LISTADO","listados_preliminares.ID_FUENTE","fuentes.FUENTE","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
-            ->where("listados_preliminares.ID_TIPO_BIEN","=",NULL)
+            ->whereNull("listados_preliminares.ID_TIPO_BIEN")
             ->where("listados_preliminares.EXIST","=",1)
             ->where("listados_preliminares.ID_LISTADO","=",$request->ID_LISTADO)
             ->first();
@@ -246,7 +246,7 @@ class ListadosPreliminaresController extends Controller
                 'message' => "El registro no existe"
             ]);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
-            $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser);
+            $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser,false);
             if($response['state']==0) throw new Error($response['message']);
             if($response['state']==1) return response()->json([
                 'state' => false,

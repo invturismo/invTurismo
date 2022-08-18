@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { openModalLayoutState } from "../../../../features/modalsSlice";
 import { helpCapitalize } from "../../../../helpers/helpCapitalize";
 import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
@@ -20,6 +22,7 @@ const GetRecordUsuarios = () => {
   const { idUsuario } = useParams();
   const response = useRecordUsuario(idUsuario, "user");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   if (!response) return <GeneralLoader />;
 
@@ -29,6 +32,17 @@ const GetRecordUsuarios = () => {
     navigate(`/usuarios/actualizar/${response.data["ID_USUARIO"]}`);
   const handleClickPassword = () =>
     navigate(`/usuarios/cambiar-clave/${response.data["ID_USUARIO"]}`);
+  const handleClickDelete = () => {
+    const dataPayload = {
+      textMessage1: "¿Estas seguro que quieres",
+      textMessage2: "Eliminar este registro?",
+      textButton: "eliminar",
+      srcImg: "svgDelete",
+      whoFunction: "handleClickDelete",
+      idRegister: idUsuario,
+    };
+    dispatch(openModalLayoutState(dataPayload));
+  }
 
   return (
     <div className="GetRecordUsuarios">
@@ -59,7 +73,9 @@ const GetRecordUsuarios = () => {
           <ButtonPage colorButton="green" onClick={handleClickUpdate}>
             Actualizar
           </ButtonPage>
-          <ButtonPage colorButton="red">Eliminar</ButtonPage>
+          <ButtonPage colorButton="red" onClick={handleClickDelete}>
+            Eliminar
+          </ButtonPage>
           <ButtonPage colorButton="blue" onClick={handleClickPassword}>
             Cambiar contraseña
           </ButtonPage>

@@ -10,7 +10,7 @@ const ContainerLoader = styled.div`
   display: grid;
   place-items: center center;
   background-color: #000000ba;
-  z-index: 51;
+  z-index: 53;
   .loader {
     width: 84px;
     height: 84px;

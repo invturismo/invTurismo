@@ -33,6 +33,10 @@ const ClasificacionRecursosAtractivos = () => {
           path="/clasificado/actualizar/:idRecursoAtractivo"
           element={<MainClasificacionAtractivosTuristicos who={5} />}
         />
+        <Route
+          path="opciones"
+          element={<MainClasificacionAtractivosTuristicos who={6} />}
+        />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>

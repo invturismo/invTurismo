@@ -27,12 +27,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("user",[AuthController::class,'getRecord']);
     Route::post("user-update",[AuthController::class,'infoUpdate']);
     Route::put("user-update",[AuthController::class,'update']);
+    Route::delete("user-delete",[AuthController::class,'delete']);
     Route::put("reset-password",[AuthController::class,'resetPassword']);
     Route::post("profile",[AuthController::class,'profile']);
     Route::post("logout",[AuthController::class,'logout']);
     Route::delete("cancel-update",[UpdateController::class,'cancelUpdate']);
 
     Route::post("/export/listado-preliminar",[ExportController::class,'ExportListadosPreliminares']);
+    Route::post("/export/clasificacion-atractivos",[ExportController::class,'ExportClasificacion']);
 
     Route::post("/listados-preliminares/create",[ListadosPreliminaresController::class,'create']);
     Route::put("/listados-preliminares/update",[ListadosPreliminaresController::class,'update']);

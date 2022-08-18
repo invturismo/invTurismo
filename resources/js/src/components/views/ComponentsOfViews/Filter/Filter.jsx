@@ -34,10 +34,12 @@ const Filter = () => {
 
   const handleChange = (e) => {
     if (e.target.name === "ID_DEPARTAMENTOS") {
+      const valueMunicipio = { ID_MUNICIPIOS: "" };
+      if (e.target.value === "11") valueMunicipio.ID_MUNICIPIOS = "001";
       setValues({
         ...values,
         [e.target.name]: e.target.value,
-        ID_MUNICIPIOS: "",
+        ...valueMunicipio,
       });
     } else setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -46,8 +48,8 @@ const Filter = () => {
     e.preventDefault();
     if (!values.ID_DEPARTAMENTOS && !values.ID_MUNICIPIOS)
       return toastMs().error("No selecciono ningun filtro");
-    cookies.set("id_departamentos", values.ID_DEPARTAMENTOS);
-    cookies.set("id_municipios", values.ID_MUNICIPIOS);
+    cookies.set("id_departamentos", values.ID_DEPARTAMENTOS, { path: "/" });
+    cookies.set("id_municipios", values.ID_MUNICIPIOS, { path: "/" });
     if (params.has("page")) params.delete("page");
     setParams(params);
     dispatch(closeFilter());

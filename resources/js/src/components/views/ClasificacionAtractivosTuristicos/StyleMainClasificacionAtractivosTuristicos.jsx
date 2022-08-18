@@ -14,7 +14,8 @@ const StyleMainClasificacionAtractivosTuristicos = styled.div`
     }
   }
   .GetRecordClasificado,
-  .GetRecordClasificacionAtractivosTuristicos {
+  .GetRecordClasificacionAtractivosTuristicos,
+  .OptionsClasificacion {
     display: flex;
     flex-direction: column;
     gap: 20px;

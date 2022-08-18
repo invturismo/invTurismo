@@ -200,7 +200,7 @@ class AuthController extends Controller
                 'message' => "El registro no existe"
             ]);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
-            $response = UpdateController::stateUpdate($request->ID_USUARIO,2,$idTokenUser);
+            $response = UpdateController::stateUpdate($request->ID_USUARIO,2,$idTokenUser,false);
             if($response['state']==0) throw new Error($response['message']);
             if($response['state']==1) return response()->json([
                 'state' => false,
@@ -250,6 +250,43 @@ class AuthController extends Controller
             HistorialController::createUpdate($ID_USUARIO,'usuarios',$queryData->ID_USUARIO,'CLAVE',$old,$queryData->CLAVE);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            return response()->json([
+                "state" => true
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
+    }
+
+    public function delete(Request $request)
+    {
+        if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
+            'state' => false,
+            'message' => 'No es posible el acceso'
+        ]);
+        try {
+            $objectUser = new User();
+            $queryData = $objectUser->where('EXIST','=',true)
+            ->where('ID_USUARIO','=',$request->ID_USUARIO)->first();
+            if(!isset($queryData)) return response()->json([
+                'state' => false,
+                'message' => "El registro no existe"
+            ]);
+            $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
+            $response = UpdateController::stateUpdate($request->ID_USUARIO,2,$idTokenUser,true);
+            if($response['state']==0) throw new Error($response['message']);
+            if($response['state']==1) return response()->json([
+                'state' => false,
+                'message' => "El registro se esta actualizando"
+            ]);
+            $queryData->EXIST = false;
+            $queryData->save();
+            $ID_USUARIO = Auth::user()->ID_USUARIO;
+            HistorialController::createInsertDelete($ID_USUARIO,'listados_preliminares',$queryData->ID_USUARIO,0);
             return response()->json([
                 "state" => true
             ]);

@@ -145,7 +145,7 @@ class PatrimoniosClasificacionController extends Controller
                 'message' => "El registro no existe"
             ]);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
-            $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser);
+            $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser,false);
             if($response['state']==0) throw new Error($response['message']);
             if($response['state']==1) return response()->json([
                 'state' => false,
@@ -222,7 +222,7 @@ class PatrimoniosClasificacionController extends Controller
             $queryData = $queryData->toArray();
             if(isset($request->ACTUALIZANDO)) {
                 $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
-                $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser);
+                $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser,false);
                 if($response['state']==0) throw new Error($response['message']);
                 if($response['state']==1) return response()->json([
                     'state' => false,

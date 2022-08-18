@@ -35,7 +35,8 @@ const LabelFilter = () => {
         setDataFilter({ ID_DEPARTAMENTOS: "", ID_MUNICIPIOS: "" })
       );
     }
-    if (id === "ID_DEPARTAMENTOS") cookies.remove("id_departamentos", { path: "/" });
+    if (id === "ID_DEPARTAMENTOS")
+      cookies.remove("id_departamentos", { path: "/" });
     if (id === "ID_MUNICIPIOS") cookies.remove("id_municipios", { path: "/" });
     dispatch(setDataFilter({ [id]: "" }));
   };
@@ -53,7 +54,7 @@ const LabelFilter = () => {
               })}
             </SpanTag>
           )}
-          {dataFilter.ID_MUNICIPIOS && (
+          {dataFilter.ID_MUNICIPIOS && dataFilter.ID_DEPARTAMENTOS !== "11" && (
             <SpanTag id="ID_MUNICIPIOS" handleClick={handleClick}>
               {Municipios[dataFilter.ID_DEPARTAMENTOS].map((val) => {
                 if (val.Id_Municipio === dataFilter.ID_MUNICIPIOS)

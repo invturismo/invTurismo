@@ -4,6 +4,7 @@ import GetRecordClasificacionAtractivosTuristicos from './ComponentsOfClasificac
 import { StyleMainClasificacionAtractivosTuristicos } from './StyleMainClasificacionAtractivosTuristicos';
 import GetClasificado from './ComponentsOfClasificacion/GetClasificado';
 import GetRecordClasificado from './ComponentsOfClasificacion/GetRecordClasificado';
+import OptionsClasificacion from './ComponentsOfClasificacion/OptionsClasificacion';
 
 const MainClasificacionAtractivosTuristicos = ({who}) => {
   return (
@@ -24,6 +25,7 @@ const MainClasificacionAtractivosTuristicos = ({who}) => {
           back="clasificado"
         />
       )}
+      {who === 6 && <OptionsClasificacion />}
     </StyleMainClasificacionAtractivosTuristicos>
   );
 }

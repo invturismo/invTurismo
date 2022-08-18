@@ -23,6 +23,7 @@ const FieldsPassword = ({
             onBlur={(e) => handleBlur(e)}
             onFocus={handleFocus}
             value={values.CLAVE}
+            placeholder="Minimo 8 caracteres"
             className="notInput"
           />
           {values.CLAVE && (
@@ -51,6 +52,7 @@ const FieldsPassword = ({
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             onFocus={handleFocus}
+            placeholder="Minimo 8 caracteres"
             value={values.CONFIRMAR_CLAVE}
             className="notInput"
           />
