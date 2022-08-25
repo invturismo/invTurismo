@@ -17,6 +17,7 @@ use App\Http\Controllers\ServiciosEspecialesController;
 use App\Http\Controllers\RedesController;
 use App\Models\PatrimoniosMateriales;
 use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\UpdateController;
 
 class PatrimoniosMaterialesController extends Controller
 {
@@ -126,6 +127,110 @@ class PatrimoniosMaterialesController extends Controller
             return response()->json([
                 "state" => true,
             ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                "state" => false,
+                "message" => "Error en la base de datos",
+                'phpMessage' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function getDataSinCom(Request $request)
+    {
+        try {
+            $queryData = PatrimoniosMateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_materiales.ID_LISTADO")
+            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+            ->join('municipios', function ($join) {
+                $join->on(function($query){
+                    $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
+                    ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
+            });})
+            ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
+            ->select("patrimonios_materiales.ID_MATERIAL as ID","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
+            ->where("patrimonios_materiales.EXIST","=",true)
+            ->whereNull("codigos.id_tipo_patrimonio");
+            if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
+            if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
+            if($request->BUSCAR) $queryData = $queryData->where("listados_preliminares.NOMBRE","LIKE","%".$request->BUSCAR."%");
+            $queryData = $queryData->orderBy("patrimonios_materiales.ID_MATERIAL","DESC")
+            ->paginate(10)->toArray();
+            return response()->json(array_merge(
+                $queryData,
+                ["state" => true]
+            ));
+        } catch (\Throwable $th) {
+            return response()->json([
+                "state" => false,
+                "message" => "Error en la base de datos",
+                'phpMessage' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function getRecordSinCom(Request $request)
+    {
+        try {
+            $queryData = PatrimoniosMateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_materiales.ID_LISTADO")
+            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+            ->join('municipios', function ($join) {
+                $join->on(function($query){
+                    $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
+                    ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
+            });})
+            ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
+            ->select("listados_preliminares.NOMBRE","listados_preliminares.UBICACION","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS")
+            ->where("patrimonios_materiales.EXIST","=",true)
+            ->whereNull("codigos.id_tipo_patrimonio")
+            ->where("patrimonios_materiales.ID_MATERIAL","=",$request->REGISTRO)
+            ->first();
+            if(!isset($queryData)) return response()->json([
+                'state' => false,
+                'message' => "El registro no existe"
+            ]);
+            $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
+            $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser,false);
+            if($response['state']==0) throw new Error($response['message']);
+            if($response['state']==1) return response()->json([
+                'state' => false,
+                'message' => "El registro se esta modificando actualmente"
+            ]);
+            return response()->json([
+                "state" => true,
+                "data" => $queryData
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                "state" => false,
+                "message" => "Error en la base de datos",
+                'phpMessage' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function getDataCom(Request $request)
+    {
+        try {
+            $queryData = PatrimoniosMateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_materiales.ID_LISTADO")
+            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+            ->join('municipios', function ($join) {
+                $join->on(function($query){
+                    $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
+                    ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
+            });})
+            ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
+            ->select("patrimonios_materiales.ID_MATERIAL as ID","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
+            ->where("patrimonios_materiales.EXIST","=",true)
+            ->whereNotNull("codigos.id_tipo_patrimonio");
+            if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
+            if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
+            if($request->BUSCAR) $queryData = $queryData->where("listados_preliminares.NOMBRE","LIKE","%".$request->BUSCAR."%");
+            $queryData = $queryData->orderBy("patrimonios_materiales.ID_MATERIAL","DESC")
+            ->paginate(10)->toArray();
+            return response()->json(array_merge(
+                $queryData,
+                ["state" => true]
+            ));
         } catch (\Throwable $th) {
             return response()->json([
                 "state" => false,

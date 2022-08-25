@@ -10,11 +10,14 @@ import FormPuntajesValoracion from "./ComponentsOfGeneralForm/FormPuntajesValora
 import FormServiciosEspeciales from "./ComponentsOfGeneralForm/FormServiciosEspeciales";
 import { changeFunctionsGeneralForm } from "./changeFunctionsGeneralForm";
 import { StyleMainGeneralForm } from "./StyleMainGeneralForm";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const MainGeneralForm = ({ initialValues, initialErrors, who }) => {
+const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord }) => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
-  const [load, setLoad] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     handleBlur,
@@ -35,6 +38,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who }) => {
     handleChangeServiciosEspeciales,
     handleChangeRedes,
     handleChangeOtros,
+    handleDeleteImage,
   } = changeFunctionsGeneralForm({
     values,
     errors,
@@ -42,6 +46,9 @@ const MainGeneralForm = ({ initialValues, initialErrors, who }) => {
     setErrors,
     initialErrors,
     who,
+    dispatch,
+    idRecord,
+    navigate,
   });
 
   return (
@@ -63,6 +70,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who }) => {
         errors={errors.CARACTERISTICAS}
         handleChangeCodigo={handleChangeCodigo}
         valuesCodigo={values.CARACTERISTICAS.CODIGOS}
+        handleDeleteImage={handleDeleteImage}
       />
       <FormPuntajesValoracion
         errors={errors.PUNTAJES_VALORACION}

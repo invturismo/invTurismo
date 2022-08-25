@@ -16,7 +16,7 @@ const PaginationSection = ({others}) => {
 
   return (
     <StylePagination>
-      {others.prev_page_url ? (
+      {others?.prev_page_url ? (
         <span
           onClick={() => handleClick(others.prev_page_url, true)}
           className="prev"
@@ -39,7 +39,7 @@ const PaginationSection = ({others}) => {
           );
         })}
       </div>
-      {others.next_page_url ? (
+      {others?.next_page_url ? (
         <span
           onClick={() => handleClick(others.next_page_url)}
           className="next"

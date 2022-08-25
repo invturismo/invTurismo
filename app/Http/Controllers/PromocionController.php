@@ -16,7 +16,7 @@ class PromocionController extends Controller
         'GOOGLEM' => 'max:300',
         'PAGINA_WEB' => 'max:300',
         'YOUTUBE' => 'max:300',
-        'OTROS3' => 'max:300',
+        'OTROS2' => 'max:300',
     ];
 
     public static function create($clientData)
@@ -29,7 +29,7 @@ class PromocionController extends Controller
         $promo->GOOGLEM = $clientData->GOOGLEM;
         $promo->PAGINA_WEB = $clientData->PAGINA_WEB;
         $promo->YOUTUBE = $clientData->YOUTUBE;
-        $promo->OTROS = $clientData->OTROS3;
+        $promo->OTROS = $clientData->OTROS2;
         $promo->save();
         return $promo->ID_PROMOCION;
     }
@@ -38,7 +38,7 @@ class PromocionController extends Controller
     {
         $queryData = Promocion::find($queryUpdate->ID_PROMOCION);
         foreach (self::$rules as $key => $value) {
-            $valueUpdate = $key == 'OTROS3' ? "OTROS" : $key;
+            $valueUpdate = $key == 'OTROS2' ? "OTROS" : $key;
             if($queryData[$valueUpdate] != $clientData[$key]) {
                 HistorialController::createUpdate($idUsuario,'promocion',$queryData->ID_PROMOCION,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
                 $queryData[$valueUpdate] = $clientData[$key];

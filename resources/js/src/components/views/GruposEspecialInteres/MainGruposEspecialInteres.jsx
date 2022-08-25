@@ -8,6 +8,7 @@ const GetSinCompletarGruposEspecialInteres = () => {
         h2Text="Grupos de especial interés"
         toFirst="/grupos-especial-interes/sin-completar"
         toLast="/grupos-especial-interes/completado"
+        linkOptions="/grupos-especial-interes/opciones"
       >
         <tr className="NoData">
           <td colSpan={6}>No hay datos para completar</td>

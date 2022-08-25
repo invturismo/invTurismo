@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { DOMAIN } from "../../../router/paths";
 
 const StyleMainGeneralForm = styled.form`
   display: flex;
@@ -120,6 +121,61 @@ const StyleMainGeneralForm = styled.form`
   .ContainerInputFile {
     display: flex;
     flex-direction: column;
+  }
+  .LabelFile input {
+    display: none;
+  }
+  .LabelFile {
+    display: flex;
+    width: 100%;
+    max-width: 216px;
+    cursor: pointer;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border-radius: 30px;
+    border: 3px solid #220646;
+  }
+  .LabelFile::before {
+    content: "";
+    display: block;
+    background-size: cover;
+    background-position: center;
+    background-image: url(${DOMAIN + "img/iconsGeneral/svgUpgrade.svg"});
+    height: 30px;
+    width: 30px;
+  }
+  .LabelFile::after {
+    content: "Subir imagen";
+    display: block;
+    font-weight: 800;
+    font-size: 0.9rem;
+  }
+  .containerImage > img {
+    width: 100%;
+    height: auto;
+  }
+  .containerImage {
+    position: relative;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .containerImage:hover span {
+    display: grid;
+  }
+  .containerImage span {
+    position: absolute;
+    inset: 0;
+    display: none;
+    place-items: center center;
+  }
+  .containerImage span i {
+    cursor: pointer;
+  }
+  .containerImage span i img {
+    width: 40px;
+    height: 40px;
   }
   .LabelType1 .NameField {
     font-size: 1.1rem;

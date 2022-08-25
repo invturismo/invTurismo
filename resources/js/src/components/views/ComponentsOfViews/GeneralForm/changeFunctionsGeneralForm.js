@@ -1,11 +1,21 @@
+import {
+  closeLoadImage,
+  deleteUrlImage,
+  openLoadImage,
+  setUrlImage,
+} from "../../../../features/imagesSlice";
 import { toastMs } from "../../../../helpers/helpToastMessage";
 import Componentes from "./DataJson/DataComponentes.json";
 import Elementos from "./DataJson/DataElementos.json";
 import Significado from "./DataJson/DataSignificado.json";
+import { formDataTransform } from "./formDataTransform";
 import {
   unitValidateGeneralForm,
   validationsGeneralForm,
 } from "./validationsGeneralForm";
+import { sendDataForm } from "./sendDataForm";
+import { errorsTransform } from "./errorsTransform";
+import { closeLoaderForm, openLoaderForm } from "../../../../features/modalsSlice";
 
 const switchCodigo = (values, e) => {
   let optionalChange = {};
@@ -48,6 +58,9 @@ export const changeFunctionsGeneralForm = ({
   setErrors,
   initialErrors,
   who,
+  dispatch,
+  idRecord,
+  navigate,
 }) => {
   const validateExists = (e, who) => {
     if (e.target.name === who) return e.target.value;
@@ -80,9 +93,10 @@ export const changeFunctionsGeneralForm = ({
   const normalChange = async (name, value, table, optionalChange = {}) => {
     let e = {
       target: {
-        name,value
-      }
-    }
+        name,
+        value,
+      },
+    };
     setValues({
       ...values,
       [table]: {
@@ -105,9 +119,10 @@ export const changeFunctionsGeneralForm = ({
   ) => {
     let e = {
       target: {
-        name,value
-      }
-    }
+        name,
+        value,
+      },
+    };
     setValues({
       ...values,
       [firstTable]: {
@@ -169,7 +184,12 @@ export const changeFunctionsGeneralForm = ({
   };
 
   const handleChangeAdminPropietario = (e) => {
-    secondLevelChange(e.target.name, e.target.value, "GENERALIDADES", "ADMIN/PROPIETARIOS");
+    secondLevelChange(
+      e.target.name,
+      e.target.value,
+      "GENERALIDADES",
+      "ADMIN/PROPIETARIOS"
+    );
   };
 
   const handleChangeCaracteristicas = (e) => {
@@ -188,8 +208,32 @@ export const changeFunctionsGeneralForm = ({
   };
 
   const handleChangeFile = (e) => {
-    console.log(e);
-    normalChange(e.target.name, e.target.files[0], "CARACTERISTICAS");
+    const { name, files } = e.target;
+    let response = { errors: {} };
+    if (!files[0].type.includes("image")) {
+      response.errors[name] = "Solo puede subir imagenes";
+      return firstLevelErrors("CARACTERISTICAS", response);
+    }
+    if (files[0].size / 1024 > 1024) {
+      response.errors[name] = "El peso maximo de la imagen es de 1MB";
+      return firstLevelErrors("CARACTERISTICAS", response);
+    }
+    console.log(files[0]);
+    const readerImage = new FileReader();
+    readerImage.readAsDataURL(files[0]);
+    dispatch(openLoadImage(name));
+    readerImage.addEventListener("load", (evt) => {
+      const { result } = evt.currentTarget;
+      dispatch(closeLoadImage(name));
+      dispatch(setUrlImage({ [name]: result }));
+      normalChange(name, files[0], "CARACTERISTICAS");
+    });
+  };
+
+  const handleDeleteImage = (e) => {
+    const { className } = e.target;
+    normalChange(className, null, "CARACTERISTICAS");
+    dispatch(deleteUrlImage(className));
   };
 
   const handleChangePuntajes = (e) => {
@@ -245,6 +289,14 @@ export const changeFunctionsGeneralForm = ({
   };
 
   const handleChangeCheckbox = (e) => {
+    if (e.target.name === "HORAS") {
+      return secondLevelChange(
+        e.target.name,
+        e.target.value,
+        "CARACTERISTICAS_RELEVANTES",
+        "DIAS_HORARIOS"
+      );
+    }
     setValues({
       ...values,
       CARACTERISTICAS_RELEVANTES: {
@@ -306,16 +358,39 @@ export const changeFunctionsGeneralForm = ({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch(openLoaderForm());
     const response = await validationsGeneralForm(
       values,
       valueWho[who],
       initialErrors
     );
     if (!response.state) {
-      toastMs().error('Hay campos erroneos');
+      dispatch(closeLoaderForm());
+      toastMs().error("Hay campos erroneos");
       return setErrors({ ...response.errors });
     }
-    console.log("Todo bien");
+    console.log(values, idRecord);
+    const formData = formDataTransform({ ...values, ...idRecord });
+    const responseServe = await sendDataForm(
+      "patrimonios-materiales/insertForm",
+      formData
+    );
+    dispatch(closeLoaderForm());
+    console.log(responseServe);
+    if (!responseServe.state) {
+      if (responseServe.errors) {
+        let errTrans = errorsTransform(
+          responseServe,
+          valueWho[who],
+          initialErrors
+        );
+        toastMs().error("Hay campos erroneos");
+        return setErrors({ ...errTrans });
+      }
+      return toastMs().error(responseServe.message || "Error inesperado");
+    }
+    toastMs().success("El resgistro se completo correctamente");
+    navigate(`/patrimonio-material/sin-completar`, { replace: true });
   };
 
   const handleBlur = async (e, firstParent, secondParent) => {
@@ -350,5 +425,6 @@ export const changeFunctionsGeneralForm = ({
     handleChangeServiciosEspeciales,
     handleChangeRedes,
     handleChangeOtros,
+    handleDeleteImage,
   };
 };

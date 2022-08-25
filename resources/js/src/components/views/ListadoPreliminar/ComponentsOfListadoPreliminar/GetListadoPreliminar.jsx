@@ -23,7 +23,7 @@ const GetListadoPreliminar = () => {
         {stateFilter && <Filter />}
         <LabelFilter />
         <TableListadoPreliminar>
-          {data.data.length ? (
+          {data?.data?.length ? (
             data.data.map((val, key) => {
               return (
                 <RowTableListadoPreliminar

@@ -37,6 +37,9 @@ export const initialErrorsGeneralForm = (Calidad) => ({
   CARACTERISTICAS_RELEVANTES: {
     ID_TIPO_CLIMA: "",
     TEMPERATURA: "",
+    DIAS_HORARIOS: {
+      HORAS: "",
+    },
     TARIFAS: {
       NINOS: "",
       ADULTOS: "",

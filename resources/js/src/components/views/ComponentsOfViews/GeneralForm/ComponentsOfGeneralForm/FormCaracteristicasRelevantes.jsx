@@ -57,7 +57,7 @@ const Clima = ({ values, errors, handleChange, handleBlur }) => {
   );
 };
 
-const Horario = ({ values, handleChange }) => {
+const Horario = ({ values, handleChange,errors,handleBlur }) => {
   return (
     <div className="SectionDivType2">
       <h4>Horario</h4>
@@ -112,6 +112,22 @@ const Horario = ({ values, handleChange }) => {
             })}
           </div>
         </div>
+        <label htmlFor="HORAS" className="LabelType1">
+          <span className="NameField">Descripcion del horario</span>
+          <textarea
+            name="HORAS"
+            id="HORAS"
+            onChange={(e) => handleChange(e)}
+            value={values.DIAS_HORARIOS.HORAS}
+            onBlur={(e) =>
+              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "DIAS_HORARIOS")
+            }
+            rows={3}
+          />
+          {errors.HORAS && (
+            <small className="errorMessage">{errors.HORAS}</small>
+          )}
+        </label>
       </div>
     </div>
   );
@@ -302,7 +318,12 @@ const FormCaracteristicasRelevantes = ({
         handleBlur={handleBlur}
         handleChange={handleChange}
       />
-      <Horario values={values} handleChange={handleChangeCheckbox} />
+      <Horario
+        values={values}
+        handleChange={handleChangeCheckbox}
+        handleBlur={handleBlur}
+        errors={errors.DIAS_HORARIOS}
+      />
       <Tarifas
         values={values.TARIFAS}
         handleChange={handleChangeTarifas}

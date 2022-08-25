@@ -8,6 +8,7 @@ const GetSinCompletarFestividadesEventos = () => {
         h2Text="Festividades y eventos"
         toFirst="/festividades-eventos/sin-completar"
         toLast="/festividades-eventos/completado"
+        linkOptions="/festividades-eventos/opciones"
       >
         <tr className="NoData">
           <td colSpan={6}>No hay datos para completar</td>

@@ -51,9 +51,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/clasificacion-recursos-atractivos/clas",[PatrimoniosClasificacionController::class,'getRecordCon']);
     Route::put("/clasificacion-recursos-atractivos/create",[ListadosPreliminaresController::class,'clasificacion']);
 
-    Route::post("upload-image/create",[ImagenesController::class,'create']);
-    Route::post("upload-image/update",[ImagenesController::class,'update']);
-
     Route::post("/patrimonios-materiales/insertForm",[PatrimoniosMaterialesController::class,'insertForm']);
     Route::post("/patrimonios-materiales/update",[PatrimoniosMaterialesController::class,'update']);
+    Route::post("/patrimonios-materiales/getdatasincom",[PatrimoniosMaterialesController::class,'getDataSinCom']);
+    Route::post("/patrimonios-materiales/getrecordsincom",[PatrimoniosMaterialesController::class,'getRecordSinCom']);
 });

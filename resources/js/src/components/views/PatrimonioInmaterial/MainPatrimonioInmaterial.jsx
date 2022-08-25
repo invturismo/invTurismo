@@ -8,6 +8,7 @@ const GetSinCompletarPatrimonioInmaterial = () => {
         h2Text="Patrimonio inmaterial"
         toFirst="/patrimonio-inmaterial/sin-completar"
         toLast="/patrimonio-inmaterial/completado"
+        linkOptions="/patrimonio-inmaterial/opciones"
       >
         <tr className="NoData">
           <td colSpan={6}>No hay datos para completar</td>

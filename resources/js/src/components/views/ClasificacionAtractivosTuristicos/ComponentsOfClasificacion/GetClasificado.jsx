@@ -11,7 +11,7 @@ const GetClasificado = () => {
 
   return (
     <TemplateGet who={2} others={data}>
-      {data.data.length > 0 ? (
+      {data?.data?.length > 0 ? (
         data.data.map((val, key) => {
           return (
             <RowTableClasificacion

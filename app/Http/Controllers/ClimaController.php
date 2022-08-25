@@ -9,7 +9,7 @@ use App\Http\Controllers\HistorialController;
 class ClimaController extends Controller
 {
     public static $rules = [
-        'ID_TIPO_CLIMA' => 'numeric|max:1',
+        'ID_TIPO_CLIMA' => 'numeric|max:7',
         'TEMPERATURA' => 'max:4',
     ];
 

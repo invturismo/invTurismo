@@ -8,6 +8,7 @@ const GetSinCompletarSitiosNaturales = () => {
         h2Text="Sitios naturales"
         toFirst="/sitios-naturales/sin-completar"
         toLast="/sitios-naturales/completado"
+        linkOptions="/sitios-naturales/opciones"
       >
         <tr className="NoData">
           <td colSpan={6}>No hay datos para completar</td>

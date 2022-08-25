@@ -14,7 +14,7 @@ class ServiciosEspecialesController extends Controller
         'DISCAP_AUDITIVA' => 'max:300',
         'BANOS2' => 'max:300',
         'MOVILIDAD' => 'max:300',
-        'OTROS4' => 'max:300',
+        'OTROS3' => 'max:300',
     ];
 
     public static function create($clientData)
@@ -25,7 +25,7 @@ class ServiciosEspecialesController extends Controller
         $especial->DISCAP_AUDITIVA = $clientData->DISCAP_AUDITIVA;
         $especial->BANOS = $clientData->BANOS2;
         $especial->MOVILIDAD = $clientData->MOVILIDAD;
-        $especial->OTROS = $clientData->OTROS4;
+        $especial->OTROS = $clientData->OTROS3;
         $especial->save();
         return $especial->ID_SERVICIO_ESPECIAL;
     }
@@ -36,7 +36,7 @@ class ServiciosEspecialesController extends Controller
         foreach (self::$rules as $key => $value) {
             $valueUpdate = "";
             switch ($key) {
-                case 'OTROS4':
+                case 'OTROS3':
                     $valueUpdate = 'OTROS';
                 break;
                 case 'BANOS2':

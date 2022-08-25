@@ -95,6 +95,10 @@ const schemaCaracteristicasRelevantes = {
   ID_ESTADO: yupMax(1),
 };
 
+const schemaDiasHorarios = {
+  HORAS: yupMax(300),
+};
+
 const schemaTarifas = {
   NINOS: yupTarifa(),
   ADULTOS: yupTarifa(),
@@ -171,6 +175,7 @@ const unitValidateTemplate = (who) => ({
   },
   CARACTERISTICAS_RELEVANTES: {
     ...schemaCaracteristicasRelevantes,
+    DIAS_HORARIOS: schemaDiasHorarios,
     TARIFAS: schemaTarifas,
   },
   ACTIVIDADES_SERVICIOS: {
@@ -201,6 +206,7 @@ const schemaGeneral = (who) =>
     }),
     CARACTERISTICAS_RELEVANTES: yup.object({
       ...schemaCaracteristicasRelevantes,
+      DIAS_HORARIOS: yup.object(schemaDiasHorarios),
       TARIFAS: yup.object(schemaTarifas),
     }),
     ACTIVIDADES_SERVICIOS: yup.object({

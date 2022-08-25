@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TiposPatrimonio from "../DataJson/DataTiposPatrimonio.json";
 import Grupos from "../DataJson/DataGrupos.json";
 import Componentes from "../DataJson/DataComponentes.json";
 import Elementos from "../DataJson/DataElementos.json";
+import { useDispatch, useSelector } from "react-redux";
+import LoaderImage from './LoaderImage';
+import { deleteUrlImage } from '../../../../../features/imagesSlice';
 
 const Codigo = ({
   values,
@@ -190,37 +193,83 @@ const Images = ({
   handleChange,
   handleChangeFile,
   handleBlur,
+  handleDeleteImage,
 }) => {
+  const { urlImage, loadImage } = useSelector((state) => state.imagesSlice),
+    { IMAGEN1, IMAGEN2 } = urlImage;
+  const dispatch = useDispatch();
+
+  useEffect(() => {  
+    return () => {
+      dispatch(deleteUrlImage("IMAGEN1"));
+      dispatch(deleteUrlImage("IMAGEN2"));
+    }
+  }, []);  
+
   return (
     <div className="SectionDivType2">
       <h4>Imagenes</h4>
       <div className="SectionDivType1">
         <div className="LabelType1 ContainerInputFile">
           <span className="NameField">Imágen 1 </span>
-          <label htmlFor="IMAGEN1" className="LabelFile1">
-            <input
-              type="file"
-              name="IMAGEN1"
-              id="IMAGEN1"
-              onChange={(e) => handleChangeFile(e)}
-              onBlur={(e) => handleBlur(e, "CARACTERISTICAS")}
-            />
-          </label>
+          {!IMAGEN1 && !loadImage.IMAGEN1 && (
+            <label htmlFor="IMAGEN1" className="LabelFile">
+              <input
+                type="file"
+                name="IMAGEN1"
+                id="IMAGEN1"
+                onChange={(e) => handleChangeFile(e)}
+                onBlur={(e) => handleBlur(e, "CARACTERISTICAS")}
+              />
+            </label>
+          )}
+          {loadImage.IMAGEN1 && <LoaderImage />}
+          {IMAGEN1 && (
+            <div className="containerImage">
+              <span>
+                <i onClick={handleDeleteImage} className="IMAGEN1">
+                  <img
+                    src="/img/iconsGeneral/svgCloseImage.svg"
+                    alt="close"
+                    className="IMAGEN1"
+                  />
+                </i>
+              </span>
+              <img src={IMAGEN1} alt="imagen1" />
+            </div>
+          )}
           {errors.IMAGEN1 && (
             <small className="errorMessage">{errors.IMAGEN1}</small>
           )}
         </div>
         <div className="LabelType1 ContainerInputFile">
           <span className="NameField">Imágen 2 </span>
-          <label htmlFor="IMAGEN2" className="LabelFile2">
-            <input
-              type="file"
-              name="IMAGEN2"
-              id="IMAGEN2"
-              onChange={(e) => handleChangeFile(e)}
-              onBlur={(e) => handleBlur(e, "CARACTERISTICAS")}
-            />
-          </label>
+          {!IMAGEN2 && !loadImage.IMAGEN2 && (
+            <label htmlFor="IMAGEN2" className="LabelFile">
+              <input
+                type="file"
+                name="IMAGEN2"
+                id="IMAGEN2"
+                onChange={(e) => handleChangeFile(e)}
+                onBlur={(e) => handleBlur(e, "CARACTERISTICAS")}
+              />
+            </label>
+          )}
+          {loadImage.IMAGEN2 && <LoaderImage />}
+          {IMAGEN2 && (
+            <div className="containerImage">
+              <span>
+                <i onClick={handleDeleteImage} className="IMAGEN2">
+                  <img
+                    src="/img/iconsGeneral/svgCloseImage.svg"
+                    alt="close"
+                    className="IMAGEN2"
+                  />
+                </i>
+              </span>
+              <img src={IMAGEN2} alt="imagen1" />
+            </div>
+          )}
           {errors.IMAGEN2 && (
             <small className="errorMessage">{errors.IMAGEN2}</small>
           )}
@@ -253,6 +302,7 @@ const FormCaracteristicas = ({
   handleChangeCodigo,
   handleChangeFile,
   handleBlur,
+  handleDeleteImage,
 }) => {
   return (
     <section>
@@ -272,6 +322,7 @@ const FormCaracteristicas = ({
         handleBlur={handleBlur}
         handleChange={handleChange}
         handleChangeFile={handleChangeFile}
+        handleDeleteImage={handleDeleteImage}
       />
     </section>
   );

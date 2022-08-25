@@ -1,11 +1,11 @@
-export const initialValuesGeneralForm = (Calidad) => ({
+export const initialValuesGeneralForm = (Calidad, data) => ({
   GENERALIDADES: {
     GEORREFERENCIACION: "",
     ID_TIPO_ACCESO: "",
     INDICACIONES_ACCESO: "",
     CORREGIMIENTO_VEREDA_LOCALIDAD: "",
-    NOMBRE: "",
-    UBICACION: "",
+    NOMBRE: data?.NOMBRE || "",
+    UBICACION: data?.UBICACION || "",
     "ADMIN/PROPIETARIOS": {
       NOMBRE: "",
       DIRECCION_UBICACION: "",
@@ -16,8 +16,8 @@ export const initialValuesGeneralForm = (Calidad) => ({
   },
   CARACTERISTICAS: {
     CODIGOS: {
-      ID_MUNICIPIOS: "",
-      ID_DEPARTAMENTOS: "",
+      ID_MUNICIPIOS: data?.ID_MUNICIPIOS || "",
+      ID_DEPARTAMENTOS: data?.ID_DEPARTAMENTOS || "",
       ID_ELEMENTO: "",
       ID_COMPONENTE: "",
       ID_GRUPO: "",
@@ -53,6 +53,7 @@ export const initialValuesGeneralForm = (Calidad) => ({
       VIERNES: false,
       SABADO: false,
       DOMINGO: false,
+      HORAS: "",
     },
     TARIFAS: {
       NINOS: "",

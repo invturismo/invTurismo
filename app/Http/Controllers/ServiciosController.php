@@ -15,7 +15,7 @@ class ServiciosController extends Controller
         'RESTAURANTES' => 'max:300',
         'PARQUEADERO' => 'max:300',
         'ALOJAMIENTO' => 'max:300',
-        'OTROS2' => 'max:300',
+        'OTROS1' => 'max:300',
     ];
 
     public static function create($clientData)
@@ -27,7 +27,7 @@ class ServiciosController extends Controller
         $servicio->RESTAURANTES = $clientData->RESTAURANTES;
         $servicio->PARQUEADERO = $clientData->PARQUEADERO;
         $servicio->ALOJAMIENTO = $clientData->ALOJAMIENTO;
-        $servicio->OTROS = $clientData->OTROS2;
+        $servicio->OTROS = $clientData->OTROS1;
         $servicio->save();
         return $servicio->ID_SERVICIO;
     }
@@ -36,7 +36,7 @@ class ServiciosController extends Controller
     {
         $queryData = Servicios::find($queryUpdate->ID_SERVICIO);
         foreach (self::$rules as $key => $value) {
-            $valueUpdate = $key == 'OTROS2' ? "OTROS" : $key;
+            $valueUpdate = $key == 'OTROS1' ? "OTROS" : $key;
             if($queryData[$valueUpdate] != $clientData[$key]) {
                 HistorialController::createUpdate($idUsuario,'servicios',$queryData->ID_SERVICIO,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
                 $queryData[$valueUpdate] = $clientData[$key];
