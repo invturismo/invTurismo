@@ -39,4 +39,10 @@ class ActividadesController extends Controller
             }
         }
     }
+
+    public static function getRecord($idActividad)
+    {
+        $queryData = Actividades::find($idActividad)->toArray();
+        return ["ACTIVIDADES"=>$queryData];
+    }
 }

@@ -1,3 +1,11 @@
+const dataCalidad = {
+  PATRIMONIO_MATERIAL: {
+    ESTADO_CONSERVACION: "",
+    CONSTITUCION: "",
+    REPRESENTATIVIDAD: "",
+  },
+};
+
 export const initialErrorsGeneralForm = (Calidad) => ({
   GENERALIDADES: {
     GEORREFERENCIACION: "",
@@ -30,7 +38,7 @@ export const initialErrorsGeneralForm = (Calidad) => ({
   },
   PUNTAJES_VALORACION: {
     CALIDAD: {
-      ...Calidad,
+      ...dataCalidad[Calidad],
     },
     ID_SIGNIFICADO: "",
   },

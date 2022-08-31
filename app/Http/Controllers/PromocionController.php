@@ -46,4 +46,10 @@ class PromocionController extends Controller
             }
         }
     }
+
+    public static function getRecord($idPromocion)
+    {
+        $queryData = Promocion::find($idPromocion)->toArray();
+        return ["PROMOCION"=>$queryData];
+    }
 }

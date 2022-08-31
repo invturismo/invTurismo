@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { helpHttp } from '../../../../helpers/helpHttp';
 
-const useRecordMaterial = (REGISTRO,url) => {
+const useRecordMaterial = (REGISTRO, url, ACTUALIZANDO) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -12,6 +12,7 @@ const useRecordMaterial = (REGISTRO,url) => {
     (async () => {
       try {
         const body = { REGISTRO };
+        if (ACTUALIZANDO) body.ACTUALIZANDO = ACTUALIZANDO;
         const response = await helpHttp().post(
           "patrimonios-materiales/" + url,
           {

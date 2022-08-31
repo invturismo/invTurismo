@@ -30,6 +30,13 @@ const StyleHeaderMovil = styled.header`
 
 const HeaderMovil = () => {
   const dispatch = useDispatch();
+  const dataPayload = {
+    textMessage1: "¿Estas seguro que quieres",
+    textMessage2: "Cerrar sesion?",
+    textButton: "cerrar",
+    srcImg: "svgLogOutPopup",
+    whoFunction: "handleClickLogout",
+  };
 
   return (
     <StyleHeaderMovil>
@@ -42,7 +49,7 @@ const HeaderMovil = () => {
         <SearchBar movile={true} />
       </div>
       <div className="ContainerButtonSesion">
-        <button onClick={() => dispatch(openModalLayoutState())}>
+        <button onClick={() => dispatch(openModalLayoutState(dataPayload))}>
           <SvgLogout size={40} />
         </button>
       </div>

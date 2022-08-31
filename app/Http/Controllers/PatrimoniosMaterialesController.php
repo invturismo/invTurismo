@@ -79,6 +79,7 @@ class PatrimoniosMaterialesController extends Controller
             $queryData->REF_BIBLIOGRAFICA = $request->REF_BIBLIOGRAFICA;
             $queryData->OBSERVACIONES = $request->OBSERVACIONES;
             $queryData->save();
+            HistorialController::createInsertDelete($ID_USUARIO,'Patrimonio Cultural Material',$queryData->ID_MATERIAL,2);
             return response()->json([
                 "state" => true,
             ]);
@@ -124,6 +125,8 @@ class PatrimoniosMaterialesController extends Controller
                     $queryData->save();
                 }
             }
+            $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
+            UpdateController::actionCancelUpdate($idTokenUser);
             return response()->json([
                 "state" => true,
             ]);
@@ -179,7 +182,7 @@ class PatrimoniosMaterialesController extends Controller
                     ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
             });})
             ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->select("listados_preliminares.NOMBRE","listados_preliminares.UBICACION","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS")
+            ->select("listados_preliminares.NOMBRE","listados_preliminares.ID_LISTADO","listados_preliminares.UBICACION","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS")
             ->where("patrimonios_materiales.EXIST","=",true)
             ->whereNull("codigos.id_tipo_patrimonio")
             ->where("patrimonios_materiales.ID_MATERIAL","=",$request->REGISTRO)
@@ -189,7 +192,7 @@ class PatrimoniosMaterialesController extends Controller
                 'message' => "El registro no existe"
             ]);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
-            $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser,false);
+            $response = UpdateController::stateUpdate($queryData->ID_LISTADO,1,$idTokenUser,false);
             if($response['state']==0) throw new Error($response['message']);
             if($response['state']==1) return response()->json([
                 'state' => false,
@@ -219,7 +222,9 @@ class PatrimoniosMaterialesController extends Controller
                     ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
             });})
             ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->select("patrimonios_materiales.ID_MATERIAL as ID","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
+            ->join("valoraciones_material","valoraciones_material.ID_VALORACION_MATERIAL","=","patrimonios_materiales.ID_VALORACION_MATERIAL")
+            ->join("generalidades","generalidades.ID_GENERALIDAD","=","patrimonios_materiales.ID_GENERALIDAD")
+            ->select("patrimonios_materiales.ID_MATERIAL as ID","listados_preliminares.NOMBRE","listados_preliminares.ID_LISTADO","valoraciones_material.TOTAL as CALIFICACION","listados_preliminares.UBICACION","generalidades.GEORREFERENCIACION")
             ->where("patrimonios_materiales.EXIST","=",true)
             ->whereNotNull("codigos.id_tipo_patrimonio");
             if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
@@ -227,10 +232,59 @@ class PatrimoniosMaterialesController extends Controller
             if($request->BUSCAR) $queryData = $queryData->where("listados_preliminares.NOMBRE","LIKE","%".$request->BUSCAR."%");
             $queryData = $queryData->orderBy("patrimonios_materiales.ID_MATERIAL","DESC")
             ->paginate(10)->toArray();
+            $queryData = CodigosController::getData($queryData);
             return response()->json(array_merge(
                 $queryData,
                 ["state" => true]
             ));
+        } catch (\Throwable $th) {
+            return response()->json([
+                "state" => false,
+                "message" => "Error en la base de datos",
+                'phpMessage' => $th->getMessage()
+            ]);
+        }
+    }
+
+    public function getRecordCom(Request $request)
+    {
+        try {
+            $queryData = PatrimoniosMateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_materiales.ID_LISTADO")
+            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+            ->select("patrimonios_materiales.*")
+            ->where("patrimonios_materiales.EXIST","=",true)
+            ->whereNotNull("codigos.id_tipo_patrimonio")
+            ->where("patrimonios_materiales.ID_MATERIAL","=",$request->REGISTRO)->first();
+            if(!isset($queryData)) return response()->json([
+                'state' => false,
+                'message' => "El registro no existe"
+            ]);
+            $dataGeneralidades = GeneralidadesController::getRecord($queryData->ID_GENERALIDAD,$queryData->ID_LISTADO);
+            $dataCaracteristicas = CaracteristicasController::getRecord($queryData->ID_CARACTERISTICA,$queryData->ID_LISTADO);
+            $dataPuntajes = PuntajesController::getRecord($queryData->ID_VALORACION_MATERIAL,"PATRIMONIOS_MATERIALES");
+            $dataRelevantes = RelevantesController::getRecord($queryData->ID_RELEVANTE);
+            $dataActividades = ActividadesController::getRecord($queryData->ID_ACTIVIDAD);
+            $dataServicios = ServiciosController::getRecord($queryData->ID_SERVICIO);
+            $dataAc_Ser = ["ACTIVIDADES_SERVICIOS"=>array_merge($dataActividades,$dataServicios)];
+            $dataPromocion = PromocionController::getRecord($queryData->ID_PROMOCION);
+            $dataEspeciales =  ServiciosEspecialesController::getRecord($queryData->ID_PROMOCION);
+            $dataRedes = RedesController::getRecord($queryData->ID_RED_SOCIAL);
+            $dataRef_Ob = ["REF_BIBLIOGRAFICA"=>$queryData->REF_BIBLIOGRAFICA,"OBSERVACIONES"=>$queryData->OBSERVACIONES,"ID_MATERIAL"=>$queryData->ID_MATERIAL];
+            $dataOtros = ["OTROS"=>array_merge($dataRedes,$dataRef_Ob)];
+            $mergeQuery = array_merge($dataGeneralidades,$dataCaracteristicas,$dataPuntajes,$dataRelevantes,$dataAc_Ser,$dataPromocion,$dataEspeciales,$dataOtros);
+            if(isset($request->ACTUALIZANDO)) {
+                $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
+                $response = UpdateController::stateUpdate($queryData->ID_LISTADO,1,$idTokenUser,false);
+                if($response['state']==0) throw new Error($response['message']);
+                if($response['state']==1) return response()->json([
+                    'state' => false,
+                    'message' => "El registro se esta modificando actualmente"
+                ]);
+            }
+            return response()->json([
+                "state" => true,
+                "data" => $mergeQuery
+            ]);
         } catch (\Throwable $th) {
             return response()->json([
                 "state" => false,

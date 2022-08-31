@@ -44,4 +44,10 @@ class ServiciosController extends Controller
             }
         }
     }
+    
+    public static function getRecord($idServicio)
+    {
+        $queryData = Servicios::find($idServicio)->toArray();
+        return ["SERVICIOS"=>$queryData];
+    }
 }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\ImagenesController;
 use App\Models\Caracteristicas;
 use App\Http\Controllers\HistorialController;
+use App\Models\ListadosPreliminares;
+use App\Http\Controllers\CodigosController;
 
 class CaracteristicasController extends Controller
 {
@@ -39,5 +41,16 @@ class CaracteristicasController extends Controller
             $queryData['DESCRIPCION'] = $clientData['DESCRIPCION'];
             $queryData->save();
         }
+    }
+
+    public static function getRecord($idCaracteristica,$idListado)
+    {
+        $queryData = Caracteristicas::find($idCaracteristica)->toArray();
+        $queryImagenes = ImagenesController::getRecord($queryData['ID_IMAGEN']);
+        $queryListado = ListadosPreliminares::find($idListado);
+        $queryCodigo = CodigosController::getRecord($idListado,$queryListado->ID_CODIGO);
+        return [
+            "CARACTERISTICAS"=>array_merge($queryData,$queryCodigo,$queryImagenes)
+        ];
     }
 }

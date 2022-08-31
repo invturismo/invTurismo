@@ -47,4 +47,10 @@ class TarifasController extends Controller
             }
         }
     }
+
+    public static function getRecord($idTarifa)
+    {
+        $queryData = Tarifas::find($idTarifa)->toArray();
+        return ["TARIFAS"=>$queryData];
+    }
 }

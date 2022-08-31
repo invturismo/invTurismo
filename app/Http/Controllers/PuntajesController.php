@@ -83,4 +83,17 @@ class PuntajesController extends Controller
             break;
         }
     }
+
+    public static function getRecord($idPuntaje,$who)
+    {
+        switch ($who) {
+            case 'PATRIMONIOS_MATERIALES':
+                $queryData = ValoracionMaterial::find($idPuntaje)->toArray();
+                $queryCalidad = CalidadMaterial::find($queryData["ID_CALIDAD_MATERIAL"]);
+                return [
+                    "PUNTAJES_VALORACION" => array_merge($queryData,["CALIDAD"=>$queryCalidad])
+                ];
+            break;
+        }
+    }
 }

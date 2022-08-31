@@ -60,4 +60,10 @@ class ImagenesController extends Controller
             $imagenes->save();
         }
     }
+
+    public static function getRecord($idImagen)
+    {
+        $queryData = Imagenes::find($idImagen)->toArray();
+        return $queryData;
+    }
 }

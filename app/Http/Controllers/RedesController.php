@@ -40,4 +40,10 @@ class RedesController extends Controller
             }
         }
     }
+
+    public static function getRecord($idRedes)
+    {
+        $queryData = Redes::find($idRedes)->toArray();
+        return ["REDES"=>$queryData];
+    }
 }

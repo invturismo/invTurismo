@@ -53,4 +53,10 @@ class ServiciosEspecialesController extends Controller
             }
         }
     }
+
+    public static function getRecord($idEspecial)
+    {
+        $queryData = ServiciosEspeciales::find($idEspecial)->toArray();
+        return ["SERVICIOS_ESPECIALES"=>$queryData];
+    }
 }

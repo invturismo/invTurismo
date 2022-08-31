@@ -13,7 +13,7 @@ import { StyleMainGeneralForm } from "./StyleMainGeneralForm";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord }) => {
+const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }) => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
   const dispatch = useDispatch();
@@ -22,7 +22,8 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord }) => {
   const {
     handleBlur,
     handleChangeCheckbox,
-    handleSubmit,
+    handleSubmitCreate,
+    handleSubmitUpdate,
     handleChangeGeneralidades,
     handleChangeAdminPropietario,
     handleChangeCaracteristicas,
@@ -49,10 +50,15 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord }) => {
     dispatch,
     idRecord,
     navigate,
+    initialValues,
   });
 
   return (
-    <StyleMainGeneralForm onSubmit={(e) => handleSubmit(e)}>
+    <StyleMainGeneralForm onSubmit={(e) => {
+      e.preventDefault();
+      if(!update) return handleSubmitCreate();
+      handleSubmitUpdate();
+    }}>
       <FormGeneralidades
         values={values.GENERALIDADES}
         valuesCodigo={values.CARACTERISTICAS.CODIGOS}
@@ -115,7 +121,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord }) => {
         errors={errors.OTROS}
       />
       <ButtonPage type="submit" colorButton="green">
-        Aceptar
+        {update ? "Actualizar" : "Aceptar"}
       </ButtonPage>
     </StyleMainGeneralForm>
   );

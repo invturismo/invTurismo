@@ -25,6 +25,15 @@ const PatrimonioMaterial = () => {
           path="/sin-completar/:idPatrimonioMaterial"
           element={<MainPatrimonioMaterial who={3} />}
         />
+        <Route
+          path="/completado/:idPatrimonioMaterial"
+          element={<MainPatrimonioMaterial who={4} />}
+        />
+        <Route
+          path="/completado/actualizar/:idPatrimonioMaterial"
+          element={<MainPatrimonioMaterial who={5} />}
+        />
+        <Route path="/opciones" element={<MainPatrimonioMaterial who={6} />} />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>

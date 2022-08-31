@@ -5,13 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Climas;
 use App\Http\Controllers\HistorialController;
+use App\Rules\ValidateNumber;
 
 class ClimaController extends Controller
 {
-    public static $rules = [
-        'ID_TIPO_CLIMA' => 'numeric|max:7',
-        'TEMPERATURA' => 'max:4',
-    ];
+    public static function rules()
+    {
+        return [
+            'ID_TIPO_CLIMA' => [new ValidateNumber(),'max:1'],
+            'TEMPERATURA' => 'max:4',
+        ];
+    }
 
     public static function create($clientData)
     {
@@ -25,12 +29,18 @@ class ClimaController extends Controller
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Climas::find($queryUpdate->ID_CLIMA);
-        foreach (self::$rules as $key => $value) {
+        foreach (self::rules() as $key => $value) {
             if($queryData[$key] != $clientData[$key]) {
                 HistorialController::createUpdate($idUsuario,'climas',$queryData->ID_CLIMA,$key,$queryData[$key],$clientData[$key]);
                 $queryData[$key] = $clientData[$key];
                 $queryData->save();
             }
         }
+    }
+
+    public static function getRecord($idClima)
+    {
+        $queryData = Climas::find($idClima)->toArray();
+        return $queryData;
     }
 }

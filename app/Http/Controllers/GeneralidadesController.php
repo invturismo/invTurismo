@@ -14,6 +14,7 @@ class GeneralidadesController extends Controller
         'ID_TIPO_ACCESO',
         'GEORREFERENCIACION',
         'INDICACIONES_ACCESO',
+        'CORREGIMIENTO_VEREDA_LOCALIDAD',
     ];
 
     public static $rules = [
@@ -22,6 +23,7 @@ class GeneralidadesController extends Controller
         'ID_TIPO_ACCESO' => 'required|numeric',
         'GEORREFERENCIACION' => 'required|max:50',
         'INDICACIONES_ACCESO' => 'max:300',
+        'CORREGIMIENTO_VEREDA_LOCALIDAD' => 'max:200'
     ];
 
     public static function rulesGeneralidades()
@@ -54,6 +56,7 @@ class GeneralidadesController extends Controller
         $generalidad->ID_TIPO_ACCESO = $clientData->ID_TIPO_ACCESO;
         $generalidad->GEORREFERENCIACION = $clientData->GEORREFERENCIACION;
         $generalidad->INDICACIONES_ACCESO = $clientData->INDICACIONES_ACCESO;
+        $generalidad->CORREGIMIENTO_VEREDA_LOCALIDAD = $clientData->CORREGIMIENTO_VEREDA_LOCALIDAD;
         $generalidad->save();
         return $generalidad->ID_GENERALIDAD;
     }
@@ -70,5 +73,24 @@ class GeneralidadesController extends Controller
                 $queryData->save();
             }
         }
+    }
+
+    public static function getRecord($idGeneralidad,$idListado)
+    {
+        $queryListado = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+        ->join('municipios', function ($join) {
+            $join->on(function($query){
+                $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
+                ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
+        });})
+        ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
+        ->select("departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
+        ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first()->toArray();
+        $queryData = Generalidades::join("tipos_acceso","tipos_acceso.ID_TIPO_ACCESO","=","generalidades.ID_TIPO_ACCESO")
+        ->select("generalidades.*","tipos_acceso.ACCESO")->first()->toArray();
+        $queryAdmin = AdminController::getRecord($queryData['ID_ADMIN']);
+        return [
+            "GENERALIDADES" => array_merge($queryData,$queryListado,$queryAdmin)
+        ];
     }
 }

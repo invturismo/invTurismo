@@ -51,4 +51,14 @@ class HorariosController extends Controller
             }
         }
     }
+
+    public static function getRecord($idHorario)
+    {
+        $queryData = Horarios::find($idHorario)->toArray();
+        $queryIngresos = IngresosController::getRecord($queryData['ID_INGRESO']);
+        return array_merge(
+            ["ACCESO_HORARIOS" => $queryData],
+            $queryIngresos
+        );
+    }
 }

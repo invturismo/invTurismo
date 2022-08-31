@@ -15,7 +15,10 @@ import {
 } from "./validationsGeneralForm";
 import { sendDataForm } from "./sendDataForm";
 import { errorsTransform } from "./errorsTransform";
-import { closeLoaderForm, openLoaderForm } from "../../../../features/modalsSlice";
+import {
+  closeLoaderForm,
+  openLoaderForm,
+} from "../../../../features/modalsSlice";
 
 const switchCodigo = (values, e) => {
   let optionalChange = {};
@@ -50,6 +53,14 @@ const changeInt = (number) => (isNaN(parseInt(number)) ? 0 : parseInt(number));
 const valueWho = {
   1: "PATRIMONIO_MATERIAL",
 };
+const whoLink = {
+  1: [
+    "patrimonios-materiales/insertForm",
+    "patrimonios-materiales/update",
+    "/patrimonio-material/sin-completar",
+    "/patrimonio-material/completado/",
+  ],
+};
 
 export const changeFunctionsGeneralForm = ({
   values,
@@ -61,6 +72,7 @@ export const changeFunctionsGeneralForm = ({
   dispatch,
   idRecord,
   navigate,
+  initialValues,
 }) => {
   const validateExists = (e, who) => {
     if (e.target.name === who) return e.target.value;
@@ -356,8 +368,7 @@ export const changeFunctionsGeneralForm = ({
     normalChange(e.target.name, e.target.value, "OTROS");
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const templateSubmit = async (nameLink, exec, updateImage) => {
     dispatch(openLoaderForm());
     const response = await validationsGeneralForm(
       values,
@@ -371,10 +382,11 @@ export const changeFunctionsGeneralForm = ({
     }
     console.log(values, idRecord);
     const formData = formDataTransform({ ...values, ...idRecord });
-    const responseServe = await sendDataForm(
-      "patrimonios-materiales/insertForm",
-      formData
-    );
+    if (updateImage) {
+      let rulesImage = updateImage();
+      if (rulesImage) formData.append("REGLAS", rulesImage);
+    }
+    const responseServe = await sendDataForm(nameLink, formData);
     dispatch(closeLoaderForm());
     console.log(responseServe);
     if (!responseServe.state) {
@@ -389,8 +401,46 @@ export const changeFunctionsGeneralForm = ({
       }
       return toastMs().error(responseServe.message || "Error inesperado");
     }
-    toastMs().success("El resgistro se completo correctamente");
-    navigate(`/patrimonio-material/sin-completar`, { replace: true });
+    exec();
+  };
+
+  const handleSubmitCreate = async () => {
+    await templateSubmit(whoLink[who][0], () => {
+      toastMs().success("El resgistro se completo correctamente");
+      navigate(whoLink[who][2], { replace: true });
+    });
+  };
+
+  const handleSubmitUpdate = async () => {
+    let jsonInital = JSON.stringify(initialValues),
+      jsonValues = JSON.stringify(values);
+    if (jsonInital == jsonValues)
+      return toastMs().error("No modifico ningun dato");
+    await templateSubmit(
+      whoLink[who][1],
+      () => {
+        toastMs().success("El resgistro se actualizo correctamente");
+        navigate(whoLink[who][3] + Object.values(idRecord)[0], {
+          replace: true,
+        });
+      },
+      () => {
+        let ifImage1 =
+            values.CARACTERISTICAS.IMAGEN1 !=
+            initialValues.CARACTERISTICAS.IMAGEN1,
+          ifImage2 =
+            values.CARACTERISTICAS.IMAGEN2 !=
+            initialValues.CARACTERISTICAS.IMAGEN2,
+          ifFuente =
+            values.CARACTERISTICAS.FUENTE !=
+            initialValues.CARACTERISTICAS.FUENTE,
+          whoChange = [];
+        if (ifImage1) whoChange.push("IMAGEN1");
+        if (ifImage2) whoChange.push("IMAGEN2");
+        if (ifFuente) whoChange.push("FUENTE");
+        return whoChange.join("|");
+      }
+    );
   };
 
   const handleBlur = async (e, firstParent, secondParent) => {
@@ -409,7 +459,6 @@ export const changeFunctionsGeneralForm = ({
   return {
     handleChangeCheckbox,
     handleBlur,
-    handleSubmit,
     handleChangeGeneralidades,
     handleChangeAdminPropietario,
     handleChangeCaracteristicas,
@@ -426,5 +475,7 @@ export const changeFunctionsGeneralForm = ({
     handleChangeRedes,
     handleChangeOtros,
     handleDeleteImage,
+    handleSubmitCreate,
+    handleSubmitUpdate,
   };
 };

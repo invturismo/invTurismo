@@ -44,4 +44,12 @@ class AdminController extends Controller
             }
         }
     }
+
+    public static function getRecord($idAdmin)
+    {
+        $queryData = Admin::find($idAdmin)->toArray();
+        return [
+            "ADMIN/PROPIETARIOS" => $queryData
+        ];        
+    }
 }

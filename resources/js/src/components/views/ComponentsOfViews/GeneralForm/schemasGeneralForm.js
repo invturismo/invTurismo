@@ -57,6 +57,7 @@ const schemaGeneralidades = {
   GEORREFERENCIACION: yupMaxAndReq(50),
   ID_TIPO_ACCESO: yupMaxAndReq(1),
   INDICACIONES_ACCESO: yupMax(300),
+  CORREGIMIENTO_VEREDA_LOCALIDAD: yupMax(200),
   NOMBRE: yupMaxAndReq(200),
   UBICACION: yupMaxAndReq(200),
 };

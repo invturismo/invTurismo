@@ -50,4 +50,12 @@ class IngresosController extends Controller
             }
         }
     }
+
+    public static function getRecord($idIngreso)
+    {
+        $queryData = Ingresos::find($idIngreso)->toArray();
+        return [
+            "DIAS_HORARIOS" => $queryData
+        ];
+    }
 }

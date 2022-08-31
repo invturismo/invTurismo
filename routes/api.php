@@ -37,6 +37,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post("/export/listado-preliminar",[ExportController::class,'ExportListadosPreliminares']);
     Route::post("/export/clasificacion-atractivos",[ExportController::class,'ExportClasificacion']);
+    Route::post("/export/patrimonio-material",[ExportController::class,'ExportPatrimonioMaterial']);
 
     Route::post("/listados-preliminares/create",[ListadosPreliminaresController::class,'create']);
     Route::put("/listados-preliminares/update",[ListadosPreliminaresController::class,'update']);
@@ -55,4 +56,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/patrimonios-materiales/update",[PatrimoniosMaterialesController::class,'update']);
     Route::post("/patrimonios-materiales/getdatasincom",[PatrimoniosMaterialesController::class,'getDataSinCom']);
     Route::post("/patrimonios-materiales/getrecordsincom",[PatrimoniosMaterialesController::class,'getRecordSinCom']);
+    Route::post("/patrimonios-materiales/getdatacom",[PatrimoniosMaterialesController::class,'getDataCom']);
+    Route::post("/patrimonios-materiales/getrecordcom",[PatrimoniosMaterialesController::class,'getRecordCom']);
 });

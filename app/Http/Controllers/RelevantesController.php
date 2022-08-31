@@ -8,21 +8,25 @@ use App\Http\Controllers\HorariosController;
 use App\Http\Controllers\TarifasController;
 use App\Models\Relevantes;
 use App\Http\Controllers\HistorialController;
+use App\Rules\ValidateNumber;
 
 class RelevantesController extends Controller
 {
-    public static $rules = [
-        'ID_ESTADO' => 'numeric|max:4',
-    ];
+    public static function rules()
+    {
+        return [
+            'ID_ESTADO' => [new ValidateNumber(),'max:1']
+        ];
+    }
 
     public static function rulesRelevantes()
     {
         $merge = [
-            ClimaController::$rules,
+            ClimaController::rules(),
             HorariosController::rulesHorarios(),
             TarifasController::rules(),
         ];
-        return array_merge(self::$rules,...$merge);
+        return array_merge(self::rules(),...$merge);
     }
 
     public static function create($clientData)
@@ -50,5 +54,16 @@ class RelevantesController extends Controller
             $queryData['ID_ESTADO'] = $clientData['ID_ESTADO'];
             $queryData->save();
         }
+    }
+
+    public static function getRecord($idRelevantes)
+    {
+        $queryData = Relevantes::find($idRelevantes)->toArray();
+        $queryClima = ClimaController::getRecord($queryData['ID_CLIMA']);
+        $queryHorarios = HorariosController::getRecord($queryData['ID_HORARIO']);
+        $queryTarifas = TarifasController::getRecord($queryData['ID_TARIFA']);
+        return [
+            "CARACTERISTICAS_RELEVANTES" => array_merge($queryData,$queryClima,$queryHorarios,$queryTarifas)
+        ];
     }
 }
