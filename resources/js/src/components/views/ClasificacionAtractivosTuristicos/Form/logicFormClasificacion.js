@@ -7,7 +7,7 @@ const fetchFormClasificacion = async (values) => {
     { body: values }
   );
   if (!data.state) {
-    helpErrors(data);
+    if(data.errors) helpErrors(data);
     return data;
   }
   return data;

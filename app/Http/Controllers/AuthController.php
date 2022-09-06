@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Rules\ConfirmPassword;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -66,6 +67,12 @@ class AuthController extends Controller
         }
     }
 
+    public static function deleteTokens($idUsuario)
+    {
+        DB::table('personal_access_tokens')->where('tokenable_id','=',$idUsuario)
+        ->delete();
+    }
+
     public function update(Request $request)
     {
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
@@ -114,6 +121,7 @@ class AuthController extends Controller
             foreach ($changes as $key => $value) {
                 HistorialController::createUpdate($ID_USUARIO,'usuarios',$user->ID_USUARIO,$key,$queryData[$key],$value);
             }
+            self::deleteTokens($request->ID_USUARIO);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
             return response()->json([
@@ -176,6 +184,31 @@ class AuthController extends Controller
                 'state' => true,
                 'data' => $queryData
             ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
+    }
+
+    public function validateTokens(Request $request)
+    {
+        try {
+            $queryData = DB::table('personal_access_tokens')->select()
+            ->where('tokenable_id','=',$request->ID_USUARIO)->first();
+            if(!isset($queryData)) return response()->json(['state' => true]);
+            $idUsuario = Auth::user()->ID_USUARIO;
+            if($request->ACTUALIZANDO) return response()->json([
+                'state' => false,
+                'equal' => $idUsuario == $request->ID_USUARIO
+            ]);
+            if($idUsuario == $request->ID_USUARIO) return response()->json([
+                'state' => false,
+                'deleteMessage' => 'No es posible eliminar este usuario', 
+            ]);
+            return response()->json(['state' => false]);
         } catch (\Throwable $th) {
             return response()->json([
                 'state' => false,
@@ -250,6 +283,7 @@ class AuthController extends Controller
             HistorialController::createUpdate($ID_USUARIO,'usuarios',$queryData->ID_USUARIO,'CLAVE',$old,$queryData->CLAVE);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            self::deleteTokens($request->ID_USUARIO);
             return response()->json([
                 "state" => true
             ]);
@@ -269,8 +303,7 @@ class AuthController extends Controller
             'message' => 'No es posible el acceso'
         ]);
         try {
-            $objectUser = new User();
-            $queryData = $objectUser->where('EXIST','=',true)
+            $queryData = User::where('EXIST','=',true)
             ->where('ID_USUARIO','=',$request->ID_USUARIO)->first();
             if(!isset($queryData)) return response()->json([
                 'state' => false,
@@ -287,6 +320,7 @@ class AuthController extends Controller
             $queryData->save();
             $ID_USUARIO = Auth::user()->ID_USUARIO;
             HistorialController::createInsertDelete($ID_USUARIO,'listados_preliminares',$queryData->ID_USUARIO,0);
+            self::deleteTokens($request->ID_USUARIO);
             return response()->json([
                 "state" => true
             ]);

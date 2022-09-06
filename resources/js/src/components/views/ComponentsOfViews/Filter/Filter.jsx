@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toastMs } from "../../../../helpers/helpToastMessage";
 import Cookies from "universal-cookie";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeFilter, setDataFilter } from "../../../../features/filterSlice";
 import { StyleFilter } from "./StyleFilter";
 import ButtonHeader from "../../../common/ButtonHeader";
 import { useSearchParams } from "react-router-dom";
 import SelectDepartamentos from "../Selects/SelectDepartamentos";
 import SelectMunicipio from "../Selects/SelectMunicipio";
+import { AnimatePresence,motion } from "framer-motion";
 const cookies = new Cookies();
 
 const initialValues = {
@@ -31,6 +32,14 @@ const Filter = () => {
   const [values, setValues] = useState(filter || initialValues);
   const dispatch = useDispatch();
   const [params, setParams] = useSearchParams();
+  const stateFilter = useSelector((state) => state.filterSlice.stateFilter);
+
+  useEffect(() => {
+    return () => {
+      dispatch(closeFilter());
+    }
+  }, []);
+  
 
   const handleChange = (e) => {
     if (e.target.name === "ID_DEPARTAMENTOS") {
@@ -52,26 +61,66 @@ const Filter = () => {
     cookies.set("id_municipios", values.ID_MUNICIPIOS, { path: "/" });
     if (params.has("page")) params.delete("page");
     setParams(params);
-    dispatch(closeFilter());
     dispatch(setDataFilter(values));
   };
 
   return (
-    <StyleFilter>
-      <form onSubmit={handleSubmit}>
-        <div className="Options">
-          <SelectDepartamentos handleChange={handleChange} values={values} />
-          <SelectMunicipio handleChange={handleChange} values={values} />
-        </div>
-        <ButtonHeader
-          type="Submit"
-          imgSrc="svgAccept.svg"
-          className="filterButton"
+    <AnimatePresence>
+      {stateFilter && (
+        <StyleFilter
+          variants={{
+            initial: {
+              height: 0,
+            },
+            animate: {
+              height: "auto",
+              transition: {
+                when: "beforeChildren",
+              },
+            },
+            exit: {
+              height: 0,
+              transition: {
+                when: "afterChildren",
+              },
+            },
+          }}
+          initial="initial"
+          animate="animate"
+          exit="exit"
         >
-          Aceptar
-        </ButtonHeader>
-      </form>
-    </StyleFilter>
+          <motion.form
+            variants={{
+              initial: {
+                opacity: 0,
+              },
+              animate: {
+                opacity: 1,
+              },
+              exit: {
+                opacity: 0,
+              },
+            }}
+            onSubmit={handleSubmit}
+          >
+            <div className="Options">
+              <SelectDepartamentos
+                handleChange={handleChange}
+                values={values}
+              />
+              <SelectMunicipio handleChange={handleChange} values={values} />
+            </div>
+            <ButtonHeader
+              type="Submit"
+              imgSrc="svgAccept.svg"
+              className="filterButton"
+            >
+              Aceptar
+            </ButtonHeader>
+          </motion.form>
+        </StyleFilter>
+      )}
+    </AnimatePresence>
   );
 };
 

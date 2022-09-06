@@ -14,7 +14,6 @@ const MainClasificacionAtractivosTuristicos = ({who}) => {
       {who === 3 && (
         <GetRecordClasificacionAtractivosTuristicos
           url="sinclas"
-          back="sin-clasificar"
         />
       )}
       {who === 4 && <GetRecordClasificado />}
@@ -22,7 +21,6 @@ const MainClasificacionAtractivosTuristicos = ({who}) => {
         <GetRecordClasificacionAtractivosTuristicos
           actualizando={true}
           url="clas"
-          back="clasificado"
         />
       )}
       {who === 6 && <OptionsClasificacion />}

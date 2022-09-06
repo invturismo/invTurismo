@@ -1,6 +1,8 @@
 import {
   closeLoaderForm,
+  closeModalLayoutState,
   openLoaderForm,
+  openModalLayoutState,
 } from "../../../../features/modalsSlice";
 import { toastMs } from "../../../../helpers/helpToastMessage";
 import {
@@ -8,6 +10,7 @@ import {
   initialValuesUsuarios,
 } from "./initialValuesUsuarios";
 import { fetchFormUsuarios } from "./logicFormUsuarios";
+import { validateTokens } from "./validateTokens";
 import {
   unitValidationsUsuarios,
   validationsUsuarios,
@@ -24,7 +27,7 @@ export const handleFunctionsUsuarios = ({
   setViewPassword,
   focus,
   setFocus,
-  who
+  who,
 }) => {
   const whoData = () => {
     let data = { method: "", url: "" };
@@ -45,23 +48,26 @@ export const handleFunctionsUsuarios = ({
     return data;
   };
 
-  const actionWho = () => {
+  const actionWho = (equal) => {
+    let linkNavigate = equal
+      ? "/inicio-sesion"
+      : `/usuarios/${values.ID_USUARIO}`;
     switch (who) {
       case 1:
         setValues({ ...initialValuesUsuarios });
-        navigate(`/usuarios`, { replace: true });
         toastMs().success("El usuraio se registro correctamente");
+        navigate(`/usuarios`,{replace:true});
         break;
       case 2:
-        navigate(`/usuarios/${values.ID_USUARIO}`, { replace: true });
         toastMs().success("El usuario se actualizo correctamente");
+        navigate(linkNavigate, { replace: true });
         break;
       case 3:
-        navigate(`/usuarios/${values.ID_USUARIO}`, { replace: true });
         toastMs().success("La constraseña se actualizo correctamente");
+        navigate(linkNavigate, { replace: true });
         break;
     }
-  }
+  };
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
@@ -73,22 +79,86 @@ export const handleFunctionsUsuarios = ({
     if (response.state) setErrors({ ...errors, [name]: "" });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const response = await validationsUsuarios(values,who);
-    if (!response.state)
-      return setErrors({ ...initialErrorsUsuarios, ...response.errors });
+  const validateSchema = async (e) => {
+    const response = await validationsUsuarios(values, who);
+    if (!response.state) {
+      setErrors({ ...initialErrorsUsuarios, ...response.errors });
+      return false;
+    }
+    return true;
+  };
+
+  const sendData = async (equal) => {
     dispatch(openLoaderForm());
-    const {method,url} = whoData();
+    const { method, url } = whoData();
     const responseServe = await fetchFormUsuarios(values, method, url);
+    console.log(responseServe);
+    dispatch(closeLoaderForm());
+    dispatch(closeModalLayoutState());
     if (!responseServe.state) {
       if (responseServe.errors)
         setErrors({ ...initialErrorsUsuarios, ...responseServe.errors });
       if (responseServe.message) toastMs().error(responseServe.message);
-      return dispatch(closeLoaderForm());
+      return;
     }
+    actionWho(equal);
+  };
+
+  const sendValidateTokens = async () => {
+    dispatch(openLoaderForm());
+    const response = await validateTokens(values.ID_USUARIO, true);
     dispatch(closeLoaderForm());
-    actionWho();
+    if (response[0] === 0) toastMs().error(response[1]);
+    return response;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (who === 1) return handleCreate();
+    if (who === 2) return handleUpdate();
+    if (who === 3) return handlePassword();
+  };
+
+  const handleCreate = async () => {
+    const response = await validateSchema();
+    if (!response) return;
+    sendData();
+  };
+
+  const modalFunction = (responseTokens) => {
+    let textMessage1 =
+      responseTokens[0] == 4
+        ? `¿Estas seguro que quieres`
+        : "El usario esta en sesion";
+    let textMessage2 =
+      responseTokens[0] == 4
+        ? "Actualizar?"
+        : "¿Esta seguro que deseas actualizarlo?";
+    const handleFunction = () => sendData(responseTokens[1]);
+    const dataPayload = {
+      textMessage1,
+      textMessage2,
+      textButton: "Continuar",
+      srcImg: "svgWarning",
+      handleFunction,
+    };
+    dispatch(openModalLayoutState(dataPayload));
+  };
+
+  const handleUpdate = async () => {
+    const response = await validateSchema();
+    if (!response) return;
+    const responseTokens = await sendValidateTokens();
+    if (!responseTokens[0]) return;
+    modalFunction(responseTokens);
+  };
+
+  const handlePassword = async () => {
+    const response = await validateSchema();
+    if (!response) return;
+    const responseTokens = await sendValidateTokens();
+    if (!responseTokens[0]) return;
+    modalFunction(responseTokens);
   };
 
   const handleBlur = async (e) => {

@@ -87,7 +87,8 @@ class GeneralidadesController extends Controller
         ->select("departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
         ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first()->toArray();
         $queryData = Generalidades::join("tipos_acceso","tipos_acceso.ID_TIPO_ACCESO","=","generalidades.ID_TIPO_ACCESO")
-        ->select("generalidades.*","tipos_acceso.ACCESO")->first()->toArray();
+        ->select("generalidades.*","tipos_acceso.ACCESO")
+        ->where("generalidades.ID_GENERALIDAD","=",$idGeneralidad)->first()->toArray();
         $queryAdmin = AdminController::getRecord($queryData['ID_ADMIN']);
         return [
             "GENERALIDADES" => array_merge($queryData,$queryListado,$queryAdmin)

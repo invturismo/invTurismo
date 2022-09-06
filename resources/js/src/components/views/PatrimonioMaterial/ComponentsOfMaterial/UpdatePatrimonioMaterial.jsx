@@ -25,6 +25,7 @@ const UpdatePatrimonioMaterial = () => {
     <div className="GeneralContainer">
       <ActionBack
         to={"/patrimonio-material/completado/" + idPatrimonioMaterial}
+        replace={true}
       />
       <h2>Actualizar datos del patrimonio material</h2>
       <MainGeneralForm

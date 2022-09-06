@@ -2,8 +2,11 @@ import React from 'react';
 import MenuNavbar from './Menu/MenuNavbar';
 import { Nav } from './StyleNavbar';
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { closeMenu } from '../../../../features/mainLayoutSlice';
-import { openModalLayoutState } from '../../../../features/modalsSlice';
+import { closeLoaderForm, openLoaderForm, openModalLayoutState } from '../../../../features/modalsSlice';
+import { helpLogout } from '../../../../helpers/helpLogout';
+import { LOGIN } from '../../../router/paths';
 
 const CloseMenu = () => {
   const dispatch = useDispatch();
@@ -27,12 +30,20 @@ const HeaderMenu = () => {
 
 const ButtonLogout = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
+  const handleClickLogout = async () => {
+    dispatch(openLoaderForm());
+    await helpLogout();
+    dispatch(closeLoaderForm());
+    navigate(LOGIN, { replace: true });
+  };
   const dataPayload = {
     textMessage1: "¿Estas seguro que quieres",
     textMessage2: "Cerrar sesion?",
     textButton: "cerrar",
     srcImg: "svgLogOutPopup",
-    whoFunction: "handleClickLogout",
+    handleFunction: handleClickLogout,
   };
 
   return (

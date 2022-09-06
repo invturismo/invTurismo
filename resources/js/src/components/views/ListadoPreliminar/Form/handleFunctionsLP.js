@@ -1,8 +1,21 @@
-import { closeLoaderForm, openLoaderForm } from "../../../../features/modalsSlice";
+import {
+  closeLoaderForm,
+  closeModalLayoutState,
+  openLoaderForm,
+  openModalLayoutState,
+} from "../../../../features/modalsSlice";
+import { helpCapitalize } from "../../../../helpers/helpCapitalize";
 import { toastMs } from "../../../../helpers/helpToastMessage";
-import { initialErrors, initialValues } from "./initialValuesFormListaPreliminar";
+import {
+  initialErrors,
+  initialValues,
+} from "./initialValuesFormListaPreliminar";
 import { fetchFormListaPreliminar } from "./logicFormListaPreliminar";
-import { UnitValidationsListaPreliminar, ValidationsFormListaPreliminar } from "./ValidationsFormListaPreliminar";
+import { validateNameListado } from "./validateNameListado";
+import {
+  UnitValidationsListaPreliminar,
+  ValidationsFormListaPreliminar,
+} from "./ValidationsFormListaPreliminar";
 
 export const handleFunctionsLP = (
   values,
@@ -35,44 +48,96 @@ export const handleFunctionsLP = (
     if (response.state) setErrors({ ...errors, [e.target.name]: "" });
   };
 
-  const handleSubmit = async (e,who) => {
-    dispatch(openLoaderForm());
+  const validateSchema = async () => {
     const response = await ValidationsFormListaPreliminar(values);
     if (!response.state) {
-      dispatch(closeLoaderForm());
-      return setErrors({ ...initialErrors, ...response.errors });
+      setErrors({ ...initialErrors, ...response.errors });
+      return false;
     }
-    const method = who === 3 ? "post" : "put";
-    const url =
-      who === 3
-        ? "listados-preliminares/create"
-        : "listados-preliminares/update";
+    return true;
+  }
+
+  const sendData = async (exec,method,url) => {
+    dispatch(openLoaderForm());
     const responseServe = await fetchFormListaPreliminar(values, method, url);
+    dispatch(closeLoaderForm());
     if (!responseServe.state) {
       console.log(responseServe);
+      dispatch(closeModalLayoutState());
       if (responseServe.errors)
         setErrors({ ...initialErrors, ...responseServe.errors });
       if (responseServe.message) toastMs().error(responseServe.message);
-      return dispatch(closeLoaderForm());
+      return;
     }
+    exec(responseServe);
+    dispatch(closeModalLayoutState());
+  };
+
+  const text1 = "El nombre ya es registrado en la base de datos en este municipio";
+
+  const handleCreate = async (e) => {
+    const schemaValidate = await validateSchema();
+    if(!schemaValidate) return;
+    dispatch(openLoaderForm());
+    const nameValidate = await validateNameListado(values);
     dispatch(closeLoaderForm());
-    if (who === 3) {
+    if(nameValidate[0] == 0) return toastMs().error(nameValidate[1]);
+    const handleSend = (responseServe) => {
       setValues({ ...initialValues });
       if (e.nativeEvent.submitter.id === "buttonNext")
         navigate(
           `/clasificacion-recursos-atractivos/sin-clasificar/${responseServe.id_listado}`
         );
       toastMs().success("El resgistro se almaceno correctamente");
-    } else {
+    };
+    const handleFunction = () =>
+      sendData(handleSend, "post", "listados-preliminares/create");
+    if(nameValidate[0] == 2) return handleFunction();
+    const dataPayload = {
+      textMessage1: text1,
+      textMessage2: "¿Esta seguro que deseas crearlo?",
+      textButton: "Continuar",
+      srcImg: "svgWarning",
+      handleFunction,
+    };
+    dispatch(openModalLayoutState(dataPayload));
+  }
+
+  const handleUpdate = async () => {
+    const schemaValidate = await validateSchema();
+    if (!schemaValidate) return;
+    dispatch(openLoaderForm());
+    const nameValidate = await validateNameListado(values);
+    dispatch(closeLoaderForm());
+    if (nameValidate[0] == 0) return toastMs().error(nameValidate[1]);
+    const handleSend = () => {
       toastMs().success("El resgistro se actualizo correctamente");
-      navigate(`/listado-preliminar/${values.ID_LISTADO}`, { replace: true });
-    }
-  };
+      navigate(`/listado-preliminar/${values.ID_LISTADO}`,{replace:true});
+    };
+    const handleFunction = () =>
+      sendData(handleSend, "put", "listados-preliminares/update");
+    let textMessage1 =
+        nameValidate[0] == 2
+          ? `¿Estas seguro que quieres`
+          : text1,
+      textMessage2 =
+        nameValidate[0] == 2
+          ? "Actualizar?"
+          : "¿Esta seguro que deseas actualizarlo?";
+    const dataPayload = {
+      textMessage1,
+      textMessage2,
+      textButton: "Continuar",
+      srcImg: "svgWarning",
+      handleFunction,
+    };
+    dispatch(openModalLayoutState(dataPayload));
+  }
 
   const handleBlur = async (e) => {
     const response = await ValidateField(e.target.name, e.target.value);
     if (!response.state) return setErrors({ ...errors, ...response.errors });
   };
 
-  return { handleSubmit, handleBlur, handleChange };
+  return { handleBlur, handleChange, handleCreate, handleUpdate };
 };

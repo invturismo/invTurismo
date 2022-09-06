@@ -1,80 +1,62 @@
 import React, { useState } from "react";
 import ButtonPage from "../../../common/ButtonPage";
 import { ContainerForm } from "./StylesFormLogin";
-import { Formik } from "formik";
-import { initialValues } from "./initialValuesFormLogin";
-import { schemaErrorsFormLogin } from "./schemaErrorsFormLogin";
+import { initialErrors, initialValues } from "./initialValuesFormLogin";
 import { useNavigate } from "react-router-dom";
-import { HOME } from "../../../router/paths";
-import { fetchLogin, saveCookies } from "./LogicFormLogin";
 import { useDispatch } from "react-redux";
-import { closeLoaderForm, openLoaderForm } from "../../../../features/modalsSlice";
+import { handleFunctionsLogin } from "./handleFunctionsLogin";
 
 const FormLogin = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch();
-  
+  const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState(initialErrors);
+
+  const { handleBlur, handleChange, handleSubmit } = handleFunctionsLogin({
+    dispatch,
+    errors,
+    initialErrors,
+    navigate,
+    setErrors,
+    setValues,
+    values,
+  });
+
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={schemaErrorsFormLogin}
-      onSubmit={async (values, { setErrors, setSubmitting, resetForm }) => {
-        dispatch(openLoaderForm());
-        const data = await fetchLogin(values);
-        dispatch(closeLoaderForm());
-        if (!data.state) return setErrors(data.errors);
-        saveCookies(data);
-        setSubmitting(false);
-        resetForm();
-        navigate(HOME, { replace: true });
-      }}
-    >
-      {({
-        values,
-        errors,
-        touched,
-        handleSubmit,
-        handleChange,
-        handleBlur,
-      }) => (
-        <ContainerForm onSubmit={handleSubmit}>
-          <label htmlFor="correo">
-            <span>Email</span>
-            <input
-              type="email"
-              name="correo"
-              id="correo"
-              placeholder="Example@gmail.com"
-              autoComplete="off"
-              value={values.correo}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {touched.correo && errors.correo && (
-              <small className="errorMessage">{errors.correo}</small>
-            )}
-          </label>
-          <label htmlFor="clave">
-            <span>Contraseña</span>
-            <input
-              type="password"
-              name="clave"
-              id="clave"
-              placeholder="Tu contraseña"
-              value={values.clave}
-              onChange={handleChange}
-              onBlur={handleBlur}
-            />
-            {touched.clave && errors.clave && (
-              <small className="errorMessage">{errors.clave}</small>
-            )}
-          </label>
-          <ButtonPage type="submit" colorButton="white">
-            LOGIN
-          </ButtonPage>
-        </ContainerForm>
-      )}
-    </Formik>
+    <ContainerForm onSubmit={(e) => handleSubmit(e)}>
+      <label htmlFor="correo">
+        <span>Email</span>
+        <input
+          type="email"
+          name="correo"
+          id="correo"
+          placeholder="Example@gmail.com"
+          autoComplete="off"
+          value={values.correo}
+          onChange={(e) => handleChange(e)}
+          onBlur={(e) => handleBlur(e)}
+        />
+        {errors.correo && (
+          <small className="errorMessage">{errors.correo}</small>
+        )}
+      </label>
+      <label htmlFor="clave">
+        <span>Contraseña</span>
+        <input
+          type="password"
+          name="clave"
+          id="clave"
+          placeholder="Tu contraseña"
+          value={values.clave}
+          onChange={(e) => handleChange(e)}
+          onBlur={(e) => handleBlur(e)}
+        />
+        {errors.clave && <small className="errorMessage">{errors.clave}</small>}
+      </label>
+      <ButtonPage type="submit" colorButton="white">
+        LOGIN
+      </ButtonPage>
+    </ContainerForm>
   );
 };
 

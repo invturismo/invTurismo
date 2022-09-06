@@ -1,13 +1,14 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const StyleFilter = styled.div`
-  padding-bottom: 10px;
+const StyleFilter = styled(motion.div)`
   form {
     display: flex;
     justify-content: space-between;
     gap: 15px;
     flex-wrap: wrap;
     align-items: center;
+    padding-bottom: 10px;
   }
   .Options {
     display: flex;

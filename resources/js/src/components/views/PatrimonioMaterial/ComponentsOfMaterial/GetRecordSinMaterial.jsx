@@ -23,7 +23,7 @@ const GetRecordSinMaterial = () => {
 
   return (
     <div className="GeneralContainer">
-      <ActionBack to={"/patrimonio-material/sin-completar"} />
+      <ActionBack to={-1} />
       <h2>Completar datos del patrimonio material</h2>
       <MainGeneralForm
         who={1}

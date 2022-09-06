@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { openModalLayoutState } from "../../../../features/modalsSlice";
 import { helpCapitalize } from "../../../../helpers/helpCapitalize";
 import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
+import { helpDeleteUsuario } from "../helpers/helpDeleteUsuario";
 import useRecordUsuario from "../hooks/useRecordUsuario";
 
 const Information = ({ tittle, children }) => {
@@ -29,24 +29,17 @@ const GetRecordUsuarios = () => {
   if (!response.state) return <ErrorComponent message={response.message} />;
 
   const handleClickUpdate = () =>
-    navigate(`/usuarios/actualizar/${response.data["ID_USUARIO"]}`);
+    navigate(`/usuarios/actualizar/${response.data["ID_USUARIO"]}`, {
+      replace: true,
+    });
   const handleClickPassword = () =>
-    navigate(`/usuarios/cambiar-clave/${response.data["ID_USUARIO"]}`);
-  const handleClickDelete = () => {
-    const dataPayload = {
-      textMessage1: "¿Estas seguro que quieres",
-      textMessage2: "Eliminar este registro?",
-      textButton: "eliminar",
-      srcImg: "svgDelete",
-      whoFunction: "handleClickDelete",
-      idRegister: idUsuario,
-    };
-    dispatch(openModalLayoutState(dataPayload));
-  }
+    navigate(`/usuarios/cambiar-clave/${response.data["ID_USUARIO"]}`, {
+      replace: true,
+    });
 
   return (
     <div className="GetRecordUsuarios">
-      <ActionBack to="/usuarios" />
+      <ActionBack to={-1} />
       <h2>{response.data["USUARIO"]}</h2>
       <div className="ContainerInformation">
         <div className="MainInformation">
@@ -73,11 +66,14 @@ const GetRecordUsuarios = () => {
           <ButtonPage colorButton="green" onClick={handleClickUpdate}>
             Actualizar
           </ButtonPage>
-          <ButtonPage colorButton="red" onClick={handleClickDelete}>
+          <ButtonPage
+            colorButton="red"
+            onClick={() => helpDeleteUsuario({ dispatch, idUsuario, navigate })}
+          >
             Eliminar
           </ButtonPage>
           <ButtonPage colorButton="blue" onClick={handleClickPassword}>
-            Cambiar contraseña
+            {"Cambiar \ncontraseña"}
           </ButtonPage>
         </div>
       </div>

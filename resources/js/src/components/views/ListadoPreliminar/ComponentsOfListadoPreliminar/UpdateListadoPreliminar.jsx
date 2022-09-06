@@ -20,6 +20,7 @@ const UpdateListadoPreliminar = () => {
     <div className="UpdateListadoPreliminar">
       <ActionBack
         to={`/listado-preliminar/${response.data.ID_LISTADO}`}
+        replace={true}
       />
       <h2>Actulizar un listado preliminar</h2>
       <FormListaPreliminar

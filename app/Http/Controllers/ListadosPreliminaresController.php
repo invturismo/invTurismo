@@ -10,9 +10,44 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\PatrimoniosMaterialesController;
+use App\Models\Historial_Insert_Delete;
 
 class ListadosPreliminaresController extends Controller
 {
+    public function validateName(Request $request) 
+    {
+        try {
+            $queryData = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+            ->join('municipios', function ($join) {
+                $join->on(function($query){
+                    $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
+                    ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
+            });})
+            ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
+            ->select("departamentos.DEPARTAMENTO","municipios.MUNICIPIO")
+            ->where("listados_preliminares.EXIST","=",1)
+            ->where('departamentos.ID_DEPARTAMENTOS',$request->ID_DEPARTAMENTOS)
+            ->where('municipios.ID_MUNICIPIOS',$request->ID_MUNICIPIOS)
+            ->where('listados_preliminares.NOMBRE',$request->NOMBRE);
+            if(isset($request->ID_LISTADO)) {
+                $queryData = $queryData->where('listados_preliminares.ID_LISTADO','!=',$request->ID_LISTADO);
+            }
+            $queryData = $queryData->first();
+            if(!isset($queryData)) return response()->json([
+                'state' => true,
+            ]);
+            return response()->json([
+                'state' => false,
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
+    }
+
     public function create(Request $request) {   
         $rules = [
             'ID_DEPARTAMENTOS'=>'required|max:2',
@@ -182,8 +217,7 @@ class ListadosPreliminaresController extends Controller
                     ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
             });})
             ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->select("listados_preliminares.ID_LISTADO","listados_preliminares.ID_FUENTE","fuentes.FUENTE","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
-            ->whereNull("listados_preliminares.ID_TIPO_BIEN")
+            ->select("listados_preliminares.ID_LISTADO","listados_preliminares.ID_FUENTE","fuentes.FUENTE","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION","codigos.ID_TIPO_PATRIMONIO")
             ->where("listados_preliminares.EXIST","=",1);
             if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
             if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
@@ -214,8 +248,7 @@ class ListadosPreliminaresController extends Controller
                     ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
             });})
             ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->select("listados_preliminares.ID_LISTADO","listados_preliminares.ID_FUENTE","fuentes.FUENTE","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
-            ->whereNull("listados_preliminares.ID_TIPO_BIEN")
+            ->select("listados_preliminares.ID_LISTADO","listados_preliminares.ID_FUENTE","fuentes.FUENTE","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION","codigos.ID_TIPO_PATRIMONIO")
             ->where("listados_preliminares.EXIST","=",1)
             ->where("listados_preliminares.ID_LISTADO","=",$request->ID_LISTADO)
             ->first();
@@ -223,7 +256,17 @@ class ListadosPreliminaresController extends Controller
                 'state' => false,
                 'message' => "El registro no existe"
             ]);
+            $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
+            ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
+            ->where('historial_insert_delete.TABLA_MOVIMIENTO','=','listados_preliminares')
+            ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$request->ID_LISTADO)
+            ->first()->toArray();
+            $queryHistorial = [
+                'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
+                'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
+            ];
             $queryData = $queryData->toArray();
+            $queryData = array_merge($queryData,$queryHistorial);
             return response()->json([
                 "state" => true,
                 "data" => $queryData
@@ -260,9 +303,18 @@ class ListadosPreliminaresController extends Controller
                     ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
             });})
             ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->select("listados_preliminares.ID_LISTADO","listados_preliminares.ID_FUENTE","fuentes.FUENTE","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
+            ->select("listados_preliminares.ID_LISTADO","listados_preliminares.ID_FUENTE","fuentes.FUENTE","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION","codigos.ID_TIPO_PATRIMONIO")
+            ->where("listados_preliminares.EXIST","=",1)
             ->where("listados_preliminares.ID_LISTADO","=",$request->REGISTRO)
-            ->first()->toArray();
+            ->first();
+            if(!isset($queryData)) return response()->json([
+                'state' => false,
+                'message' => "El registro no existe"
+            ]);
+            if(isset($queryData->ID_TIPO_PATRIMONIO)) return response()->json([
+                'state' => false,
+                'message' => "No es posible actualizar, tienes que actualizarlo en su correspondiente clasificacion"
+            ]);
             return response()->json([
                 "state" => true,
                 "data" => $queryData

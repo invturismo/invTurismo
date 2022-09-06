@@ -18,7 +18,7 @@ const UpdatePassword = () => {
 
   return (
     <div className="UpdatePassword">
-      <ActionBack to={`/usuarios/${idUsuario}`} />
+      <ActionBack to={`/usuarios/${idUsuario}`} replace={true}/>
       <h2>Resetear contraseña</h2>
       <ResetPassword valuesQuery={response.data}/>
     </div>

@@ -83,6 +83,22 @@ class ExportController extends Controller
         }
     }
 
+    public static function historialClasificacion($value)
+    {
+        $id = self::WhoAtractivo($value['TIPO_BIEN'],$value['ID_LISTADO']);
+        $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
+        ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
+        ->where('historial_insert_delete.TABLA_MOVIMIENTO','=',$value['TIPO_BIEN'])
+        ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$id)
+        ->where('historial_insert_delete.TIPO_MOVIMIENTO',"=",1)
+        ->first()->toArray();
+        $queryHistorial = [
+            'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
+            'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
+        ];
+        return $queryHistorial;
+    }
+
     public function ExportClasificacion(Request $request)
     {
         try {
@@ -100,17 +116,7 @@ class ExportController extends Controller
             if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
             $queryData = $queryData->get()->toArray();
             foreach ($queryData as $key => $value) {
-                $id = self::WhoAtractivo($value['TIPO_BIEN'],$value['ID_LISTADO']);
-                $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
-                ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
-                ->where('historial_insert_delete.TABLA_MOVIMIENTO','=',$value['TIPO_BIEN'])
-                ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$id)
-                ->where('historial_insert_delete.TIPO_MOVIMIENTO',"=",1)
-                ->first()->toArray();
-                $queryHistorial = [
-                    'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
-                    'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
-                ];
+                $queryHistorial = self::historialClasificacion($value);
                 $queryData[$key] = array_merge($value,$queryHistorial);
             }
             return response()->json([

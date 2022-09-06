@@ -46,7 +46,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
   });
 
   return (
-    <form className="FormStyleR" onSubmit={(e) => handleSubmit(e)}>
+    <form className="FormStyleR" onSubmit={handleSubmit}>
       <div className="ContainerFields">
         <label htmlFor="PRIMER_NOMBRE">
           <span className="NameField">Primer nombre</span>
@@ -57,7 +57,6 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.PRIMER_NOMBRE}
-            placeholder="Pepito"
             autoComplete="off"
           />
           {errors.PRIMER_NOMBRE && (
@@ -73,7 +72,6 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.SEGUNDO_NOMBRE}
-            placeholder="Andres"
             autoComplete="off"
           />
           {errors.SEGUNDO_NOMBRE && (
@@ -89,7 +87,6 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.PRIMER_APELLIDO}
-            placeholder="Perez"
             autoComplete="off"
           />
           {errors.PRIMER_APELLIDO && (
@@ -105,7 +102,6 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.SEGUNDO_APELLIDO}
-            placeholder="Sabogal"
             autoComplete="off"
           />
           {errors.SEGUNDO_APELLIDO && (
@@ -121,7 +117,7 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.USUARIO}
-            placeholder="Pepito123"
+            placeholder="Ejemplo: Pepito123"
             autoComplete="off"
           />
           {errors.USUARIO && (
@@ -137,7 +133,6 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             onChange={(e) => handleChange(e)}
             onBlur={(e) => handleBlur(e)}
             value={values.CORREO}
-            placeholder="pepito@gmail.com"
             autoComplete="off"
           />
           {errors.CORREO && (

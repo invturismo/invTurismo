@@ -6,12 +6,10 @@ import PaginationSection from "../../ComponentsOfViews/Pagination/PaginationSect
 import RowTableListadoPreliminar from "./RowTableListadoPreliminar";
 import Filter from "../../ComponentsOfViews/Filter/Filter";
 import LabelFilter from "../../ComponentsOfViews/Filter/LabelFilter";
-import { useSelector } from "react-redux";
 import GeneralHeader from "../../ComponentsOfViews/GeneralHeader";
 
 const GetListadoPreliminar = () => {
   const { response, data } = useDataListadoPreliminar();
-  const stateFilter = useSelector((state) => state.filterSlice.stateFilter);
 
   if (!response) return <GeneralLoader />;
 
@@ -20,7 +18,7 @@ const GetListadoPreliminar = () => {
       <h2>Listado Preliminar</h2>
       <div className="ContainerMainGetListadoPreliminar">
         <GeneralHeader linkOptions="./opciones" who={1}/>
-        {stateFilter && <Filter />}
+        <Filter />
         <LabelFilter />
         <TableListadoPreliminar>
           {data?.data?.length ? (

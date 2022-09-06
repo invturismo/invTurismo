@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import Filter from "../../ComponentsOfViews/Filter/Filter";
 import LabelFilter from "../../ComponentsOfViews/Filter/LabelFilter";
@@ -8,8 +7,6 @@ import PaginationSection from "../../ComponentsOfViews/Pagination/PaginationSect
 import TableClasificacionAtractivosTuristicos from "./TableClasificacionAtractivosTuristicos";
 
 const TemplateGet = ({ children, who, others }) => {
-  const stateFilter = useSelector((state) => state.filterSlice.stateFilter);
-
   return (
     <div className="TemplateGet">
       <h2>Clasificacion de recursos y atractivos</h2>
@@ -33,7 +30,7 @@ const TemplateGet = ({ children, who, others }) => {
           </NavLink>
         </div>
         <GeneralHeader linkOptions="/clasificacion-recursos-atractivos/opciones" />
-        {stateFilter && <Filter />}
+        <Filter />
         <LabelFilter />
         <TableClasificacionAtractivosTuristicos who={who}>
           {children}

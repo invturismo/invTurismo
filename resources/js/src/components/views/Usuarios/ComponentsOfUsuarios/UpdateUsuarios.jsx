@@ -19,7 +19,7 @@ const UpdateUsuarios = () => {
 
   return (
     <div className="UpdateUsuarios">
-      <ActionBack to={`/usuarios/${response.data.ID_USUARIO}`} />
+      <ActionBack to={`/usuarios/${response.data.ID_USUARIO}`} replace={true} />
       <h2>Actualizar un usuario</h2>
       <RegistrationForm
         who={2}

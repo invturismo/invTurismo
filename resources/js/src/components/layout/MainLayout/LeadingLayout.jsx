@@ -33,9 +33,6 @@ const MovileLeandingLayout = () => {
 const LeadingLayout = () => {
   const movile = useResponsive(0, 783);
   const desktop = useResponsive(783);
-  const modalLayoutState = useSelector(
-    (state) => state.modalsSlice.modalLayoutState
-  );
   const loaderForm = useSelector((state) => state.modalsSlice.loaderForm);
 
   return (
@@ -46,7 +43,7 @@ const LeadingLayout = () => {
       <main>
         <Outlet />
       </main>
-      {modalLayoutState && <ModalPopper />}
+      <ModalPopper />
       {loaderForm && <LoaderForm />}
       <Toaster />
     </StyleLeandingLayout>

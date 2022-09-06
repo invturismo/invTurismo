@@ -12,7 +12,7 @@ const FormListaPreliminar = ({ initialValues, nameButton, who }) => {
   const [errors, setErrors] = useState(initialErrors);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { handleBlur, handleChange, handleSubmit } = handleFunctionsLP(
+  const { handleBlur, handleChange, handleCreate,handleUpdate } = handleFunctionsLP(
     values,
     setValues,
     setErrors,
@@ -26,7 +26,8 @@ const FormListaPreliminar = ({ initialValues, nameButton, who }) => {
       className="FormStyleL"
       onSubmit={(e) => {
         e.preventDefault();
-        handleSubmit(e, who);
+        if(who === 3) handleCreate(e);
+        else handleUpdate(e);
       }}
     >
       <div className="ContainerFields">

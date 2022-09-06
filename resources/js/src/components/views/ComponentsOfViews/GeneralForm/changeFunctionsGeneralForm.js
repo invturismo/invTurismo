@@ -4,21 +4,11 @@ import {
   openLoadImage,
   setUrlImage,
 } from "../../../../features/imagesSlice";
-import { toastMs } from "../../../../helpers/helpToastMessage";
 import Componentes from "./DataJson/DataComponentes.json";
 import Elementos from "./DataJson/DataElementos.json";
 import Significado from "./DataJson/DataSignificado.json";
-import { formDataTransform } from "./formDataTransform";
-import {
-  unitValidateGeneralForm,
-  validationsGeneralForm,
-} from "./validationsGeneralForm";
-import { sendDataForm } from "./sendDataForm";
-import { errorsTransform } from "./errorsTransform";
-import {
-  closeLoaderForm,
-  openLoaderForm,
-} from "../../../../features/modalsSlice";
+import { submitFunctionsGeneralForm } from "./submitFunctionsGeneralForm";
+import { unitValidateGeneralForm } from "./validationsGeneralForm";
 
 const switchCodigo = (values, e) => {
   let optionalChange = {};
@@ -52,14 +42,6 @@ const switchCodigo = (values, e) => {
 const changeInt = (number) => (isNaN(parseInt(number)) ? 0 : parseInt(number));
 const valueWho = {
   1: "PATRIMONIO_MATERIAL",
-};
-const whoLink = {
-  1: [
-    "patrimonios-materiales/insertForm",
-    "patrimonios-materiales/update",
-    "/patrimonio-material/sin-completar",
-    "/patrimonio-material/completado/",
-  ],
 };
 
 export const changeFunctionsGeneralForm = ({
@@ -368,80 +350,19 @@ export const changeFunctionsGeneralForm = ({
     normalChange(e.target.name, e.target.value, "OTROS");
   };
 
-  const templateSubmit = async (nameLink, exec, updateImage) => {
-    dispatch(openLoaderForm());
-    const response = await validationsGeneralForm(
+  const { handleSubmitCreate, handleSubmitUpdate } = submitFunctionsGeneralForm(
+    {
+      dispatch,
+      idRecord,
+      initialErrors,
+      initialValues,
+      navigate,
+      setErrors,
       values,
-      valueWho[who],
-      initialErrors
-    );
-    if (!response.state) {
-      dispatch(closeLoaderForm());
-      toastMs().error("Hay campos erroneos");
-      return setErrors({ ...response.errors });
+      valueWho,
+      who,
     }
-    console.log(values, idRecord);
-    const formData = formDataTransform({ ...values, ...idRecord });
-    if (updateImage) {
-      let rulesImage = updateImage();
-      if (rulesImage) formData.append("REGLAS", rulesImage);
-    }
-    const responseServe = await sendDataForm(nameLink, formData);
-    dispatch(closeLoaderForm());
-    console.log(responseServe);
-    if (!responseServe.state) {
-      if (responseServe.errors) {
-        let errTrans = errorsTransform(
-          responseServe,
-          valueWho[who],
-          initialErrors
-        );
-        toastMs().error("Hay campos erroneos");
-        return setErrors({ ...errTrans });
-      }
-      return toastMs().error(responseServe.message || "Error inesperado");
-    }
-    exec();
-  };
-
-  const handleSubmitCreate = async () => {
-    await templateSubmit(whoLink[who][0], () => {
-      toastMs().success("El resgistro se completo correctamente");
-      navigate(whoLink[who][2], { replace: true });
-    });
-  };
-
-  const handleSubmitUpdate = async () => {
-    let jsonInital = JSON.stringify(initialValues),
-      jsonValues = JSON.stringify(values);
-    if (jsonInital == jsonValues)
-      return toastMs().error("No modifico ningun dato");
-    await templateSubmit(
-      whoLink[who][1],
-      () => {
-        toastMs().success("El resgistro se actualizo correctamente");
-        navigate(whoLink[who][3] + Object.values(idRecord)[0], {
-          replace: true,
-        });
-      },
-      () => {
-        let ifImage1 =
-            values.CARACTERISTICAS.IMAGEN1 !=
-            initialValues.CARACTERISTICAS.IMAGEN1,
-          ifImage2 =
-            values.CARACTERISTICAS.IMAGEN2 !=
-            initialValues.CARACTERISTICAS.IMAGEN2,
-          ifFuente =
-            values.CARACTERISTICAS.FUENTE !=
-            initialValues.CARACTERISTICAS.FUENTE,
-          whoChange = [];
-        if (ifImage1) whoChange.push("IMAGEN1");
-        if (ifImage2) whoChange.push("IMAGEN2");
-        if (ifFuente) whoChange.push("FUENTE");
-        return whoChange.join("|");
-      }
-    );
-  };
+  );
 
   const handleBlur = async (e, firstParent, secondParent) => {
     const response = await unitValidateGeneralForm(

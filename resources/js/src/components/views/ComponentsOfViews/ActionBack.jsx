@@ -49,10 +49,10 @@ const SvgBack = () => {
   );
 }
 
-const ActionBack = ({to}) => {
+const ActionBack = ({to,...props}) => {
   return (
     <StyleActionBack>
-      <Link to={to} className="ButtonBack">
+      <Link to={to} className="ButtonBack" {...props}>
         <SvgBack />
         <span>Atras</span>
       </Link>

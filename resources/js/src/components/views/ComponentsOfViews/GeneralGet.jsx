@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Filter from './Filter/Filter';
 import LabelFilter from './Filter/LabelFilter';
@@ -8,8 +7,6 @@ import GeneralTable from './GeneralTable';
 import PaginationSection from './Pagination/PaginationSection';
 
 const GeneralGet = ({children,h2Text,toFirst,toLast,linkOptions,others}) => {
-  const stateFilter = useSelector((state) => state.filterSlice.stateFilter);
-
   return (
     <div className="GeneralGet">
       <h2>{h2Text}</h2>
@@ -33,7 +30,7 @@ const GeneralGet = ({children,h2Text,toFirst,toLast,linkOptions,others}) => {
           </NavLink>
         </div>
         <GeneralHeader linkOptions={linkOptions} />
-        {stateFilter && <Filter />}
+        <Filter />
         <LabelFilter />
         <GeneralTable>{children}</GeneralTable>
         <PaginationSection others={others} />

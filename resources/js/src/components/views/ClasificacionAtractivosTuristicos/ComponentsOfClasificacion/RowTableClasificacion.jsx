@@ -13,7 +13,7 @@ const RowTableClasificacion = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`./${ID_LISTADO}`, { replace: true });
+    navigate(`./${ID_LISTADO}`);
   };
 
   return (

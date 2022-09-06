@@ -10,6 +10,7 @@ use App\Models\GruposEspeciales;
 use App\Models\SitiosNaturales;
 use App\Models\ListadosPreliminares;
 use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\ExportController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UpdateController;
 
@@ -178,7 +179,6 @@ class PatrimoniosClasificacionController extends Controller
             ->join("tipos_bien","listados_preliminares.ID_TIPO_BIEN","=","tipos_bien.ID_TIPO_BIEN")
             ->select("listados_preliminares.ID_LISTADO","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","tipos_bien.ID_TIPO_BIEN","tipos_bien.TIPO_BIEN")
             ->whereNotNull("listados_preliminares.ID_TIPO_BIEN")
-            ->whereNull("codigos.ID_TIPO_PATRIMONIO")
             ->where("listados_preliminares.EXIST","=",1);
             if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
             if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
@@ -209,9 +209,8 @@ class PatrimoniosClasificacionController extends Controller
             });})
             ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
             ->join("tipos_bien","listados_preliminares.ID_TIPO_BIEN","=","tipos_bien.ID_TIPO_BIEN")
-            ->select("listados_preliminares.ID_LISTADO","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","tipos_bien.ID_TIPO_BIEN","tipos_bien.TIPO_BIEN")
+            ->select("listados_preliminares.ID_LISTADO","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","tipos_bien.ID_TIPO_BIEN","tipos_bien.TIPO_BIEN","codigos.ID_TIPO_PATRIMONIO")
             ->whereNotNull("listados_preliminares.ID_TIPO_BIEN")
-            ->whereNull("codigos.ID_TIPO_PATRIMONIO")
             ->where("listados_preliminares.EXIST","=",1)
             ->where("listados_preliminares.ID_LISTADO","=",$request->REGISTRO)
             ->first();
@@ -221,6 +220,10 @@ class PatrimoniosClasificacionController extends Controller
             ]);
             $queryData = $queryData->toArray();
             if(isset($request->ACTUALIZANDO)) {
+                if(isset($queryData['ID_TIPO_PATRIMONIO'])) return response()->json([
+                    'state' => false,
+                    'message' => "No es posible actualizar, tienes que borrar el registro en su correspondiente clasificacion"
+                ]);
                 $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
                 $response = UpdateController::stateUpdate($request->REGISTRO,1,$idTokenUser,false);
                 if($response['state']==0) throw new Error($response['message']);
@@ -228,6 +231,9 @@ class PatrimoniosClasificacionController extends Controller
                     'state' => false,
                     'message' => "El registro se esta modificando actualmente"
                 ]);
+            } else {
+                $queryHistorial = ExportController::historialClasificacion($queryData);
+                $queryData = array_merge($queryData,$queryHistorial);
             }
             return response()->json([
                 "state" => true,

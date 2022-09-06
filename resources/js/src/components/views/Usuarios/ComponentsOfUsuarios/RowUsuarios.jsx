@@ -11,7 +11,7 @@ const RowUsuarios = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`./${ID_USUARIO}`, { replace: true });
+    navigate(`./${ID_USUARIO}`);
   };
 
   return (

@@ -33,6 +33,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put("reset-password",[AuthController::class,'resetPassword']);
     Route::post("profile",[AuthController::class,'profile']);
     Route::post("logout",[AuthController::class,'logout']);
+    Route::post("validate-tokens",[AuthController::class,'validateTokens']);
     Route::delete("cancel-update",[UpdateController::class,'cancelUpdate']);
 
     Route::post("/export/listado-preliminar",[ExportController::class,'ExportListadosPreliminares']);
@@ -40,6 +41,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/export/patrimonio-material",[ExportController::class,'ExportPatrimonioMaterial']);
 
     Route::post("/listados-preliminares/create",[ListadosPreliminaresController::class,'create']);
+    Route::post("/listados-preliminares/validate-name",[ListadosPreliminaresController::class,'validateName']);
     Route::put("/listados-preliminares/update",[ListadosPreliminaresController::class,'update']);
     Route::post("/listados-preliminares/update",[ListadosPreliminaresController::class,'infoUpdate']);
     Route::delete("/listados-preliminares/delete",[ListadosPreliminaresController::class,'delete']);

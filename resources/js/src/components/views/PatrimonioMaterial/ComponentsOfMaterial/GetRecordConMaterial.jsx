@@ -19,9 +19,7 @@ const GetRecordConMaterial = () => {
   const handleClick = () => {
     navigate(
       `/patrimonio-material/completado/actualizar/${response.data.OTROS.ID_MATERIAL}`,
-      {
-        replace: true,
-      }
+      {replace:true}
     );
   };
 
@@ -32,7 +30,7 @@ const GetRecordConMaterial = () => {
         response.data
       )}
       originalData={response.data}
-      back="/patrimonio-material/completado"
+      back={-1}
       handleUpdate={handleClick}
     />
   );

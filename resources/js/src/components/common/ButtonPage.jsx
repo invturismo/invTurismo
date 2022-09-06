@@ -10,6 +10,9 @@ const ButtonStyle = styled.button`
   border: 3px solid ${(props) => props["color-button"]};
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
+  white-space: pre-line;
+  text-align: center;
+  height: max-content;
   cursor: pointer;
   &:hover {
     transform: translate(-0.05em, -0.05em);

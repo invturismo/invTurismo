@@ -13,7 +13,7 @@ const RowGeneralTable = ({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`./${ID}`, { replace: true });
+    navigate(`./${ID}`);
   };
 
   return (
