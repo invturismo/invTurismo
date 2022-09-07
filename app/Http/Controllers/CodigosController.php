@@ -24,16 +24,14 @@ class CodigosController extends Controller
         ->select("codigos.ID_CODIGO","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS")
         ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
         $codigos = Codigos::find($queryData->ID_CODIGO);
-        if($queryData->ID_MUNICIPIOS != $clientData->ID_MUNICIPIOS){
-            HistorialController::createUpdate($idUsuario,'codigos',$idListado,'ID_MUNICIPIOS',$queryData->ID_MUNICIPIOS,$clientData->ID_MUNICIPIOS);
-            $codigos->ID_MUNICIPIOS = $clientData->ID_MUNICIPIOS;
-            $codigos->save();
-        }
         if($queryData->ID_DEPARTAMENTOS != $clientData->ID_DEPARTAMENTOS){
             HistorialController::createUpdate($idUsuario,'codigos',$idListado,'ID_DEPARTAMENTOS',$queryData->ID_DEPARTAMENTOS,$clientData->ID_DEPARTAMENTOS);            
-            $codigos->ID_DEPARTAMENTOS = $clientData->ID_DEPARTAMENTOS;
-            $codigos->save();
         }
+        if($queryData->ID_MUNICIPIOS != $clientData->ID_MUNICIPIOS){
+            HistorialController::createUpdate($idUsuario,'codigos',$idListado,'ID_MUNICIPIOS',$queryData->ID_MUNICIPIOS,$clientData->ID_MUNICIPIOS);
+        }
+        $codigos->ID_DEPARTAMENTOS = $clientData->ID_DEPARTAMENTOS;
+        $codigos->ID_MUNICIPIOS = $clientData->ID_MUNICIPIOS;
         $codigos->ID_ELEMENTO = $clientData->ID_ELEMENTO;
         $codigos->ID_COMPONENTE = $clientData->ID_COMPONENTE;
         $codigos->ID_GRUPO = $clientData->ID_GRUPO;
@@ -48,26 +46,43 @@ class CodigosController extends Controller
         foreach (self::$rules as $key => $value) {
             if($queryData[$key] != $clientData[$key]) {
                 HistorialController::createUpdate($idUsuario,'codigos',$queryData->ID_CODIGO,$key,$queryData[$key],$clientData[$key]);
-                $queryData[$key] = $clientData[$key];
-                $queryData->save();
             }
         }
+        $queryData->ID_DEPARTAMENTOS = $clientData['ID_DEPARTAMENTOS'];
+        $queryData->ID_MUNICIPIOS = $clientData['ID_MUNICIPIOS'];
+        $queryData->ID_ELEMENTO = $clientData['ID_ELEMENTO'];
+        $queryData->ID_COMPONENTE = $clientData['ID_COMPONENTE'];
+        $queryData->ID_GRUPO = $clientData['ID_GRUPO'];
+        $queryData->ID_TIPO_PATRIMONIO = $clientData['ID_TIPO_PATRIMONIO'];
+        $queryData->save();
     }
 
-    public static function findRecord($idListado)
+    public static function templateQuery($queryListado)
     {
-        $queryListado = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-        ->select("codigos.*")
-        ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
-        if(!isset($queryListado)) return "";
         $queryData = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
         ->where('codigos.ID_DEPARTAMENTOS',"=",$queryListado->ID_DEPARTAMENTOS)
         ->where('codigos.ID_MUNICIPIOS',"=",$queryListado->ID_MUNICIPIOS)
         ->where('codigos.ID_TIPO_PATRIMONIO',"=",$queryListado->ID_TIPO_PATRIMONIO)
         ->where('codigos.ID_GRUPO',"=",$queryListado->ID_GRUPO)
         ->where('codigos.ID_COMPONENTE',"=",$queryListado->ID_COMPONENTE)
-        ->where('codigos.ID_ELEMENTO',"=",$queryListado->ID_ELEMENTO)
-        ->select("codigos.*","listados_preliminares.NOMBRE")
+        ->where('codigos.ID_ELEMENTO',"=",$queryListado->ID_ELEMENTO);
+        return $queryData;
+    }
+
+    public static function queryListado($idListado)
+    {
+        $queryListado = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+        ->select("codigos.*")
+        ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
+        return $queryListado;
+    }
+
+    public static function findRecord($idListado)
+    {
+        $queryListado = self::queryListado($idListado);
+        if(!isset($queryListado)) return "";
+        $queryData = self::templateQuery($queryListado);
+        $queryData = $queryData->select("codigos.*","listados_preliminares.NOMBRE")
         ->orderBy('listados_preliminares.NOMBRE','ASC')->get()->toArray();
         $joinData = "";
         foreach ($queryData as $key => $value) {
@@ -78,11 +93,9 @@ class CodigosController extends Controller
         return $joinData;
     }
 
-    public static function consultListado($idListado)
+    public static function validateListado($idListado)
     {
-        $queryListado = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-        ->select("codigos.*")
-        ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
+        $queryListado = self::queryListado($idListado);
         if(!isset($queryListado)) return false;
         $code = $queryListado->ID_DEPARTAMENTOS.".".$queryListado->ID_MUNICIPIOS.".".$queryListado->ID_TIPO_PATRIMONIO.".".$queryListado->ID_GRUPO.".".$queryListado->ID_COMPONENTE.".".$queryListado->ID_ELEMENTO;
         return [$code,$queryListado];
@@ -90,14 +103,8 @@ class CodigosController extends Controller
 
     public static function findExport($queryListado)
     {
-        $queryData = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-        ->where('codigos.ID_DEPARTAMENTOS',"=",$queryListado->ID_DEPARTAMENTOS)
-        ->where('codigos.ID_MUNICIPIOS',"=",$queryListado->ID_MUNICIPIOS)
-        ->where('codigos.ID_TIPO_PATRIMONIO',"=",$queryListado->ID_TIPO_PATRIMONIO)
-        ->where('codigos.ID_GRUPO',"=",$queryListado->ID_GRUPO)
-        ->where('codigos.ID_COMPONENTE',"=",$queryListado->ID_COMPONENTE)
-        ->where('codigos.ID_ELEMENTO',"=",$queryListado->ID_ELEMENTO)
-        ->select("codigos.*","listados_preliminares.NOMBRE")
+        $queryData = self::templateQuery($queryListado);
+        $queryData = $queryData->select("codigos.*","listados_preliminares.NOMBRE")
         ->orderBy('listados_preliminares.NOMBRE','ASC')->get()->toArray();
         $code = $queryListado->ID_DEPARTAMENTOS.".".$queryListado->ID_MUNICIPIOS.".".$queryListado->ID_TIPO_PATRIMONIO.".".$queryListado->ID_GRUPO.".".$queryListado->ID_COMPONENTE.".".$queryListado->ID_ELEMENTO;
         $finalArray = [];
@@ -131,7 +138,7 @@ class CodigosController extends Controller
     {
         $consultArray = [];
         foreach ($dataSend as $key => $value) {
-            $queryListado = self::consultListado($value['ID_LISTADO']);
+            $queryListado = self::validateListado($value['ID_LISTADO']);
             if(!$queryListado) continue;
             if(isset($consultArray[$queryListado[0]])) {
                 $dataSend[$key]['CODIGO'] = $consultArray[$queryListado[0]][$dataSend[$key]['NOMBRE']];
@@ -142,5 +149,14 @@ class CodigosController extends Controller
             }            
         }
         return $dataSend;
+    }
+
+    public static function existName($idListado,$request,$update)
+    {
+        $queryData = self::templateQuery($request);
+        $queryData = $queryData->where('listados_preliminares.NOMBRE','=',$request->NOMBRE);
+        if($update) $queryData = $queryData->where("listados_preliminares.ID_LISTADO","!=",$idListado);
+        $queryData = $queryData->first();
+        return isset($queryData);
     }
 }

@@ -24,13 +24,24 @@ const Otros = ({ data }) => {
   );
 };
 
-const GetOtros = ({data}) => {
+const Fecha = ({data}) => {
+  return (
+    <div className="ContainerGet1">
+      {console.log(data)}
+      <GetInformation1 content={data.FECHA_MOVIMIENTO} name="Fecha" />
+      <GetInformation1 content={data.USUARIO} name="Diligenciado por" />
+    </div>
+  );
+}
+
+const GetOtros = ({ data, originalData }) => {
   return (
     <>
       <Redes data={data.REDES} />
       <Otros data={data} />
+      <Fecha data={originalData} />
     </>
   );
-}
+};
 
 export default GetOtros

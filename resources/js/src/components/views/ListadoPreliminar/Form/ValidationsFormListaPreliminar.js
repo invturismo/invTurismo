@@ -10,7 +10,6 @@ let schema = yup.object({
     .max(200, "No puede superar 200 caracteres"),
   UBICACION: yup
     .string()
-    .required(messageRequire)
     .max(200, "No puede superar 200 caracteres"),
   ID_FUENTE: yup.string().required(messageRequire),
 });

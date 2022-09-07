@@ -1,5 +1,5 @@
-import React from 'react';
-import TableInformation from './TableInformation';
+import React from "react";
+import TableInformation from "./TableInformation";
 
 const Actividades = ({ data }) => {
   return (
@@ -19,13 +19,15 @@ const Servicios = ({ data }) => {
   );
 };
 
-const GetActividadesServicios = ({data}) => {
+const GetActividadesServicios = ({ data, who }) => {
   return (
     <>
       <Actividades data={data.ACTIVIDADES} />
-      <Servicios data={data.SERVICIOS} />
+      {who !== "PATRIMONIOS_INMATERIALES" && (
+        <Servicios data={data.SERVICIOS} />
+      )}
     </>
   );
-}
+};
 
-export default GetActividadesServicios
+export default GetActividadesServicios;

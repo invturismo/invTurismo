@@ -8,7 +8,7 @@ use App\Http\Controllers\PatrimoniosClasificacionController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\PatrimoniosMaterialesController;
-use App\Http\Controllers\ImagenesController;
+use App\Http\Controllers\PatrimonioInmaterialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +60,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/patrimonios-materiales/getrecordsincom",[PatrimoniosMaterialesController::class,'getRecordSinCom']);
     Route::post("/patrimonios-materiales/getdatacom",[PatrimoniosMaterialesController::class,'getDataCom']);
     Route::post("/patrimonios-materiales/getrecordcom",[PatrimoniosMaterialesController::class,'getRecordCom']);
+
+    Route::post("/patrimonios-inmateriales/insertForm",[PatrimonioInmaterialController::class,'insertForm']);
+    Route::post("/patrimonios-inmateriales/update",[PatrimonioInmaterialController::class,'update']);
+    Route::post("/patrimonios-inmateriales/getdatasincom",[PatrimonioInmaterialController::class,'getDataSinCom']);
+    Route::post("/patrimonios-inmateriales/getrecordsincom",[PatrimonioInmaterialController::class,'getRecordSinCom']);
+    Route::post("/patrimonios-inmateriales/getdatacom",[PatrimonioInmaterialController::class,'getDataCom']);
+    Route::post("/patrimonios-inmateriales/getrecordcom",[PatrimonioInmaterialController::class,'getRecordCom']);
 });

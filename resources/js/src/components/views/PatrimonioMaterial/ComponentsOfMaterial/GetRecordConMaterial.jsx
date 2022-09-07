@@ -32,6 +32,7 @@ const GetRecordConMaterial = () => {
       originalData={response.data}
       back={-1}
       handleUpdate={handleClick}
+      who="PATRIMONIO_MATERIAL"
     />
   );
 };

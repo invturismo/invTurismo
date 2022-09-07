@@ -42,6 +42,7 @@ const switchCodigo = (values, e) => {
 const changeInt = (number) => (isNaN(parseInt(number)) ? 0 : parseInt(number));
 const valueWho = {
   1: "PATRIMONIO_MATERIAL",
+  2: "PATRIMONIOS_INMATERIALES",
 };
 
 export const changeFunctionsGeneralForm = ({
@@ -278,6 +279,44 @@ export const changeFunctionsGeneralForm = ({
     );
   };
 
+  const handleChangeCalidadInmaterial = (e) => {
+    let COLECTIVA = validateExists(e, "COLECTIVA");
+    let TRADICIONAL = validateExists(e, "TRADICIONAL");
+    let ANONIMA = validateExists(e, "ANONIMA");
+    let ESPONTANEA = validateExists(e, "ESPONTANEA");
+    let POPULAR = validateExists(e, "POPULAR");
+    let ID_SIGNIFICADO = values.PUNTAJES_VALORACION.ID_SIGNIFICADO;
+    let SignificadoPuntaje = ID_SIGNIFICADO
+      ? Significado[ID_SIGNIFICADO - 1]["PUNTAJE"]
+      : "";
+    COLECTIVA = changeInt(COLECTIVA);
+    TRADICIONAL = changeInt(TRADICIONAL);
+    ANONIMA = changeInt(ANONIMA);
+    ESPONTANEA = changeInt(ESPONTANEA);
+    POPULAR = changeInt(POPULAR);
+    SignificadoPuntaje = changeInt(SignificadoPuntaje);
+    let optionalChange = {
+      SUBTOTAL: COLECTIVA + TRADICIONAL + ANONIMA + ESPONTANEA + POPULAR,
+    };
+    let optionalChange2 = {
+      TOTAL:
+        SignificadoPuntaje +
+        COLECTIVA +
+        TRADICIONAL +
+        ANONIMA +
+        ESPONTANEA +
+        POPULAR,
+    };
+    secondLevelChange(
+      e.target.name,
+      e.target.value,
+      "PUNTAJES_VALORACION",
+      "CALIDAD",
+      optionalChange,
+      optionalChange2
+    );
+  };
+
   const handleChangeCaracteristicasRelevantes = (e) => {
     normalChange(e.target.name, e.target.value, "CARACTERISTICAS_RELEVANTES");
   };
@@ -398,5 +437,6 @@ export const changeFunctionsGeneralForm = ({
     handleDeleteImage,
     handleSubmitCreate,
     handleSubmitUpdate,
+    handleChangeCalidadInmaterial,
   };
 };

@@ -7,32 +7,45 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HistorialController;
 use App\Models\ListadosPreliminares;
 use App\Models\Generalidades;
+use App\Models\Historial_Insert_Delete;
 
 class GeneralidadesController extends Controller
 {
-    public static $fieldsUpdate = [
-        'ID_TIPO_ACCESO',
-        'GEORREFERENCIACION',
-        'INDICACIONES_ACCESO',
-        'CORREGIMIENTO_VEREDA_LOCALIDAD',
-    ];
-
-    public static $rules = [
-        'NOMBRE' => 'required|max:200',
-        'UBICACION' => 'required|max:200',
-        'ID_TIPO_ACCESO' => 'required|numeric',
-        'GEORREFERENCIACION' => 'required|max:50',
-        'INDICACIONES_ACCESO' => 'max:300',
-        'CORREGIMIENTO_VEREDA_LOCALIDAD' => 'max:200'
-    ];
-
-    public static function rulesGeneralidades()
+    public static function fieldsUpdate($others)
     {
-        $rulesAdmin = AdminController::rules();
-        return array_merge(self::$rules,$rulesAdmin);
+        $generalFields = [
+            'ID_TIPO_ACCESO',
+            'GEORREFERENCIACION',
+            'CORREGIMIENTO_VEREDA_LOCALIDAD'
+        ];
+        if($others) return $generalFields;
+        return array_merge($generalFields,['INDICACIONES_ACCESO']);
     }
 
-    public static function updateListado($clientData,$idListado,$idUsuario)
+    public static function rules($others)
+    {
+        $generalRules = [
+            'NOMBRE' => 'required|max:200',
+            'ID_TIPO_ACCESO' => 'required|numeric',
+            'GEORREFERENCIACION' => 'required|max:50',
+            'CORREGIMIENTO_VEREDA_LOCALIDAD' => 'max:200'
+        ];
+        $otherRules = [
+            'UBICACION' => 'required|max:200',
+            'INDICACIONES_ACCESO' => 'max:300',
+        ];
+        if(!$others) return array_merge($generalRules,$otherRules);
+        return $generalRules;
+    }
+
+    public static function rulesGeneralidades($others=false)
+    {
+        if($others) return self::rules(true);
+        $rulesAdmin = AdminController::rules();
+        return array_merge(self::rules(false),$rulesAdmin);
+    }
+
+    public static function updateListado($clientData,$idListado,$idUsuario,$noData)
     {
         $queryData = ListadosPreliminares::find($idListado);
         if($queryData['NOMBRE'] != $clientData['NOMBRE']){
@@ -40,6 +53,7 @@ class GeneralidadesController extends Controller
             $queryData['NOMBRE'] = $clientData['NOMBRE'];
             $queryData->save();
         }
+        if($noData) return;
         if($queryData['UBICACION'] != $clientData['UBICACION']){
             HistorialController::createUpdate($idUsuario,'listados_preliminares',$idListado,'UBICACION',$queryData['UBICACION'],$clientData['UBICACION']);
             $queryData['UBICACION'] = $clientData['UBICACION'];
@@ -47,12 +61,12 @@ class GeneralidadesController extends Controller
         }
     }
 
-    public static function create($clientData,$idListado,$idUsuario)
+    public static function create($clientData,$idListado,$idUsuario,$noData=false)
     {
-        $idAdmin = AdminController::create($clientData);
-        self::updateListado($clientData->all(),$idListado,$idUsuario);
+        if(!$noData) $idAdmin = AdminController::create($clientData);
+        self::updateListado($clientData->all(),$idListado,$idUsuario,$noData);
         $generalidad = new Generalidades();
-        $generalidad->ID_ADMIN = $idAdmin;
+        if(!$noData) $generalidad->ID_ADMIN = $idAdmin;
         $generalidad->ID_TIPO_ACCESO = $clientData->ID_TIPO_ACCESO;
         $generalidad->GEORREFERENCIACION = $clientData->GEORREFERENCIACION;
         $generalidad->INDICACIONES_ACCESO = $clientData->INDICACIONES_ACCESO;
@@ -61,12 +75,12 @@ class GeneralidadesController extends Controller
         return $generalidad->ID_GENERALIDAD;
     }
 
-    public static function update($clientData,$queryUpdate,$idUsuario)
+    public static function update($clientData,$queryUpdate,$idUsuario,$noData=false)
     {
         $queryData = Generalidades::find($queryUpdate->ID_GENERALIDAD);
-        AdminController::update($clientData,$queryData,$idUsuario);
-        self::updateListado($clientData,$queryUpdate->ID_LISTADO,$idUsuario);
-        foreach (self::$fieldsUpdate as $value) {
+        if(!$noData) AdminController::update($clientData,$queryData,$idUsuario);
+        self::updateListado($clientData,$queryUpdate->ID_LISTADO,$idUsuario,$noData);
+        foreach (self::fieldsUpdate($noData) as $value) {
             if($queryData[$value] != $clientData[$value]) {
                 HistorialController::createUpdate($idUsuario,'generalidades',$queryData->ID_GENERALIDAD,$value,$queryData[$value],$clientData[$value]);
                 $queryData[$value] = $clientData[$value];
@@ -75,7 +89,7 @@ class GeneralidadesController extends Controller
         }
     }
 
-    public static function getRecord($idGeneralidad,$idListado)
+    public static function getRecord($idGeneralidad,$idListado,$noData=false)
     {
         $queryListado = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
         ->join('municipios', function ($join) {
@@ -89,9 +103,24 @@ class GeneralidadesController extends Controller
         $queryData = Generalidades::join("tipos_acceso","tipos_acceso.ID_TIPO_ACCESO","=","generalidades.ID_TIPO_ACCESO")
         ->select("generalidades.*","tipos_acceso.ACCESO")
         ->where("generalidades.ID_GENERALIDAD","=",$idGeneralidad)->first()->toArray();
+        if($noData) return ["GENERALIDADES"=>array_merge($queryData,$queryListado)];
         $queryAdmin = AdminController::getRecord($queryData['ID_ADMIN']);
         return [
             "GENERALIDADES" => array_merge($queryData,$queryListado,$queryAdmin)
+        ];
+    }
+
+    public static function getFecha($tabla,$id)
+    {
+        $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
+        ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
+        ->where('historial_insert_delete.TABLA_MOVIMIENTO','=',$tabla)
+        ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$id)
+        ->where('historial_insert_delete.TIPO_MOVIMIENTO','=',2)
+        ->first()->toArray();
+        return [
+            'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
+            'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
         ];
     }
 }

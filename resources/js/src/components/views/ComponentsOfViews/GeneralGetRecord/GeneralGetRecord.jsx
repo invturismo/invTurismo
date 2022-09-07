@@ -12,7 +12,7 @@ import GetRelevantes from "./ComponentsOfGetRecord/GetRelevantes";
 import TableInformation from "./ComponentsOfGetRecord/TableInformation";
 import { StyleGeneralGetRecord } from "./StyleGeneralGetRecord";
 
-const GeneralGetRecord = ({ data, originalData, back, handleUpdate }) => {
+const GeneralGetRecord = ({ data, originalData, back, handleUpdate, who }) => {
   return (
     <StyleGeneralGetRecord>
       <ActionBack to={back} />
@@ -23,8 +23,11 @@ const GeneralGetRecord = ({ data, originalData, back, handleUpdate }) => {
           <GetGeneralidades
             data={data.GENERALIDADES}
             originalData={originalData}
+            who={who}
           />
-          <GetAdmin data={data.GENERALIDADES["ADMIN/PROPIETARIOS"]} />
+          {who !== "PATRIMONIOS_INMATERIALES" && (
+            <GetAdmin data={data.GENERALIDADES["ADMIN/PROPIETARIOS"]} />
+          )}
         </div>
         <div className="GetContainerTittle">
           <h3>Caracteristicas</h3>
@@ -37,36 +40,40 @@ const GeneralGetRecord = ({ data, originalData, back, handleUpdate }) => {
         </div>
         <div className="GetContainerTittle">
           <h3>Puntajes de valoracion</h3>
-          <GetPuntajes
-            data={data.PUNTAJES_VALORACION}
-            who="PATRIMONIO_MATERIAL"
-          />
+          <GetPuntajes data={data.PUNTAJES_VALORACION} who={who} />
         </div>
         <div className="GetContainerTittle">
           <h3>Caracteristicas relevantes</h3>
-          <GetRelevantes data={data.CARACTERISTICAS_RELEVANTES} />
+          {who !== "PATRIMONIOS_INMATERIALES" && (
+            <GetRelevantes data={data.CARACTERISTICAS_RELEVANTES} />
+          )}
         </div>
         <div className="GetContainerTittle">
           <h3>Actividades y servicios</h3>
-          <GetActividadesServicios data={data.ACTIVIDADES_SERVICIOS} />
+          <GetActividadesServicios
+            data={data.ACTIVIDADES_SERVICIOS}
+            who={who}
+          />
         </div>
         <div className="GetContainerTittle">
           <h3>Promocion del atractivo</h3>
           <TableInformation data={data.PROMOCION} parent="PROMOCION" />
         </div>
-        <div className="GetContainerTittle">
-          <h3>
-            Servicios para personas en condición de discapacidad o condiciones
-            especiales
-          </h3>
-          <TableInformation
-            data={data.SERVICIOS_ESPECIALES}
-            parent="SERVICIOS_ESPECIALES"
-          />
-        </div>
+        {who !== "PATRIMONIOS_INMATERIALES" && (
+          <div className="GetContainerTittle">
+            <h3>
+              Servicios para personas en condición de discapacidad o condiciones
+              especiales
+            </h3>
+            <TableInformation
+              data={data.SERVICIOS_ESPECIALES}
+              parent="SERVICIOS_ESPECIALES"
+            />
+          </div>
+        )}
         <div className="GetContainerTittle">
           <h3>Otros</h3>
-          <GetOtros data={data.OTROS} />
+          <GetOtros data={data.OTROS} originalData={originalData.OTROS} />
         </div>
         <div className="ContainerButtons">
           <span onClick={handleUpdate}>

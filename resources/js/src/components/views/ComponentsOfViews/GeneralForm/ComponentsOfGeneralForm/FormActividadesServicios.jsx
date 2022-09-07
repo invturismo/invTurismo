@@ -216,6 +216,7 @@ const FormActividadesServicios = ({
   handleChangeServicios,
   handleBlur,
   errors,
+  who
 }) => {
   return (
     <section>
@@ -226,12 +227,14 @@ const FormActividadesServicios = ({
         errors={errors.ACTIVIDADES}
         handleBlur={handleBlur}
       />
-      <Servicios
-        values={values.SERVICIOS}
-        handleChange={handleChangeServicios}
-        errors={errors.SERVICIOS}
-        handleBlur={handleBlur}
-      />
+      {who !== 2 && (
+        <Servicios
+          values={values.SERVICIOS}
+          handleChange={handleChangeServicios}
+          errors={errors.SERVICIOS}
+          handleBlur={handleBlur}
+        />
+      )}
     </section>
   );
 };

@@ -7,6 +7,7 @@ const ExtraDataGeneralidades = ({
   errors,
   handleChange,
   handleBlur,
+  who
 }) => {
   return (
     <>
@@ -52,21 +53,23 @@ const ExtraDataGeneralidades = ({
           <small className="errorMessage">{errors.ID_TIPO_ACCESO}</small>
         )}
       </label>
-      <label htmlFor="INDICACIONES_ACCESO" className="LabelType1">
-        <span className="NameField">Indicaciones para el acceso:</span>
-        <input
-          type="text"
-          name="INDICACIONES_ACCESO"
-          id="INDICACIONES_ACCESO"
-          onChange={(e) => handleChange(e)}
-          onBlur={(e) => handleBlur(e, "GENERALIDADES")}
-          value={values.INDICACIONES_ACCESO}
-          autoComplete="off"
-        />
-        {errors.INDICACIONES_ACCESO && (
-          <small className="errorMessage">{errors.INDICACIONES_ACCESO}</small>
-        )}
-      </label>
+      {who !== 2 && (
+        <label htmlFor="INDICACIONES_ACCESO" className="LabelType1">
+          <span className="NameField">Indicaciones para el acceso:</span>
+          <input
+            type="text"
+            name="INDICACIONES_ACCESO"
+            id="INDICACIONES_ACCESO"
+            onChange={(e) => handleChange(e)}
+            onBlur={(e) => handleBlur(e, "GENERALIDADES")}
+            value={values.INDICACIONES_ACCESO}
+            autoComplete="off"
+          />
+          {errors.INDICACIONES_ACCESO && (
+            <small className="errorMessage">{errors.INDICACIONES_ACCESO}</small>
+          )}
+        </label>
+      )}
     </>
   );
 };
@@ -169,6 +172,7 @@ const FormGeneralidades = ({
   handleChange,
   handleChangeAdminPropietario,
   handleBlur,
+  who
 }) => {
   return (
     <section>
@@ -180,6 +184,7 @@ const FormGeneralidades = ({
           handleChange={handleChange}
           values={values}
           valuesCodigo={valuesCodigo}
+          stateWho={who===2}
         />
         <label htmlFor="CORREGIMIENTO_VEREDA_LOCALIDAD" className="LabelType1">
           <span className="NameField">Corregimiento, Vereda o Localidad</span>
@@ -203,14 +208,17 @@ const FormGeneralidades = ({
           handleBlur={handleBlur}
           handleChange={handleChange}
           values={values}
+          who={who}
         />
       </div>
-      <AdminPropietario
-        errors={errors["ADMIN/PROPIETARIOS"]}
-        handleBlur={handleBlur}
-        handleChange={handleChangeAdminPropietario}
-        values={values["ADMIN/PROPIETARIOS"]}
-      />
+      {who !== 2 && (
+        <AdminPropietario
+          errors={errors["ADMIN/PROPIETARIOS"]}
+          handleBlur={handleBlur}
+          handleChange={handleChangeAdminPropietario}
+          values={values["ADMIN/PROPIETARIOS"]}
+        />
+      )}
     </section>
   );
 };

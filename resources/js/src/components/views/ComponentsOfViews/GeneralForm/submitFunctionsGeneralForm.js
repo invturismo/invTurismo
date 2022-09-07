@@ -17,6 +17,12 @@ const whoLink = {
     "/patrimonio-material/sin-completar",
     "/patrimonio-material/completado/",
   ],
+  2: [
+    "patrimonios-inmateriales/insertForm",
+    "patrimonios-inmateriales/update",
+    "/patrimonio-inmaterial/sin-completar",
+    "/patrimonio-inmaterial/completado/",
+  ],
 };
 
 export const submitFunctionsGeneralForm = ({

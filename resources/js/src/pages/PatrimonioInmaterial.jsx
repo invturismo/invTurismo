@@ -21,6 +21,14 @@ const PatrimonioInmaterial = () => {
           path="/completado"
           element={<MainPatrimonioInmaterial who={2} />}
         />
+        <Route
+          path="/sin-completar/:idPatrimonioInmaterial"
+          element={<MainPatrimonioInmaterial who={3} />}
+        />
+        <Route
+          path="/completado/:idPatrimonioInmaterial"
+          element={<MainPatrimonioInmaterial who={4} />}
+        />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>

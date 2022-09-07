@@ -4,15 +4,24 @@ const dataCalidad = {
     CONSTITUCION: "",
     REPRESENTATIVIDAD: "",
   },
+  PATRIMONIOS_INMATERIALES: {
+    COLECTIVA: "",
+    TRADICIONAL: "",
+    ANONIMA: "",
+    ESPONTANEA: "",
+    POPULAR: "",
+  },
 };
 
-export const initialValuesGeneralForm = (Calidad, data) => ({
-  GENERALIDADES: {
+const generalidades = (Calidad,data) => {
+  const templateGeneralidades = {
     GEORREFERENCIACION: "",
     ID_TIPO_ACCESO: "",
-    INDICACIONES_ACCESO: "",
     CORREGIMIENTO_VEREDA_LOCALIDAD: "",
     NOMBRE: data?.NOMBRE || "",
+  };
+  if(Calidad === 'PATRIMONIOS_INMATERIALES') return templateGeneralidades;
+  const others = {
     UBICACION: data?.UBICACION || "",
     "ADMIN/PROPIETARIOS": {
       NOMBRE: "",
@@ -21,6 +30,78 @@ export const initialValuesGeneralForm = (Calidad, data) => ({
       TELEFONO1: "",
       TELEFONO2: "",
     },
+  };
+  return { ...templateGeneralidades, ...others };
+}
+
+const relevantes = (Calidad) => {
+  if (Calidad === "PATRIMONIOS_INMATERIALES") return {};
+  return {
+    CARACTERISTICAS_RELEVANTES: {
+      ID_TIPO_CLIMA: "",
+      TEMPERATURA: "",
+      ACCESO_HORARIOS: {
+        RESTRINGIDO: false,
+        PERMANENTE: false,
+        VISITA_EXTERIOR: false,
+        VISITA_INTERIOR: false,
+      },
+      DIAS_HORARIOS: {
+        LUNES: false,
+        MARTES: false,
+        MIERCOLES: false,
+        JUEVES: false,
+        VIERNES: false,
+        SABADO: false,
+        DOMINGO: false,
+        HORAS: "",
+      },
+      TARIFAS: {
+        NINOS: "",
+        ADULTOS: "",
+        ADULTO_MAYOR: "",
+        EXTRANJEROS: "",
+        ESTUDIANTES: "",
+        CITA_PREVIA: "",
+        GENERAL: "",
+      },
+      ID_ESTADO: "",
+    },
+  };
+};
+
+const servicios = (Calidad) => {
+  if (Calidad === "PATRIMONIOS_INMATERIALES") return {};
+  return {
+    SERVICIOS: {
+      TIENDAS: "",
+      GUIAS: "",
+      BANOS: "",
+      RESTAURANTES: "",
+      PARQUEADERO: "",
+      ALOJAMIENTO: "",
+      OTROS: "",
+    },
+  };
+};
+
+const serviciosEspeciales = (Calidad) => {
+  if (Calidad === "PATRIMONIOS_INMATERIALES") return {};
+  return {
+    SERVICIOS_ESPECIALES: {
+      ASCENSORES: "",
+      RAMPAS: "",
+      DISCAP_AUDITIVA: "",
+      BANOS: "",
+      MOVILIDAD: "",
+      OTROS: "",
+    }
+  }
+}
+
+export const initialValuesGeneralForm = (Calidad, data) => ({
+  GENERALIDADES: {
+    ...generalidades(Calidad, data),
   },
   CARACTERISTICAS: {
     CODIGOS: {
@@ -44,36 +125,7 @@ export const initialValuesGeneralForm = (Calidad, data) => ({
     ID_SIGNIFICADO: "",
     TOTAL: "",
   },
-  CARACTERISTICAS_RELEVANTES: {
-    ID_TIPO_CLIMA: "",
-    TEMPERATURA: "",
-    ACCESO_HORARIOS: {
-      RESTRINGIDO: false,
-      PERMANENTE: false,
-      VISITA_EXTERIOR: false,
-      VISITA_INTERIOR: false,
-    },
-    DIAS_HORARIOS: {
-      LUNES: false,
-      MARTES: false,
-      MIERCOLES: false,
-      JUEVES: false,
-      VIERNES: false,
-      SABADO: false,
-      DOMINGO: false,
-      HORAS: "",
-    },
-    TARIFAS: {
-      NINOS: "",
-      ADULTOS: "",
-      ADULTO_MAYOR: "",
-      EXTRANJEROS: "",
-      ESTUDIANTES: "",
-      CITA_PREVIA: "",
-      GENERAL: "",
-    },
-    ID_ESTADO: "",
-  },
+  ...relevantes(Calidad),
   ACTIVIDADES_SERVICIOS: {
     ACTIVIDADES: {
       CULTURALES: "",
@@ -82,15 +134,7 @@ export const initialValuesGeneralForm = (Calidad, data) => ({
       RECREATIVAS: "",
       OTROS: "",
     },
-    SERVICIOS: {
-      TIENDAS: "",
-      GUIAS: "",
-      BANOS: "",
-      RESTAURANTES: "",
-      PARQUEADERO: "",
-      ALOJAMIENTO: "",
-      OTROS: "",
-    },
+    ...servicios(Calidad),
   },
   PROMOCION: {
     FOLLETOS_GUIAS: "",
@@ -102,14 +146,7 @@ export const initialValuesGeneralForm = (Calidad, data) => ({
     YOUTUBE: "",
     OTROS: "",
   },
-  SERVICIOS_ESPECIALES: {
-    ASCENSORES: "",
-    RAMPAS: "",
-    DISCAP_AUDITIVA: "",
-    BANOS: "",
-    MOVILIDAD: "",
-    OTROS: "",
-  },
+  ...serviciosEspeciales(Calidad),
   OTROS: {
     REDES: {
       PAGINA_WEB: "",

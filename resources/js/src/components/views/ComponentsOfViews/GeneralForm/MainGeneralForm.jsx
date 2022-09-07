@@ -40,6 +40,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
     handleChangeRedes,
     handleChangeOtros,
     handleDeleteImage,
+    handleChangeCalidadInmaterial,
   } = changeFunctionsGeneralForm({
     values,
     errors,
@@ -54,11 +55,13 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
   });
 
   return (
-    <StyleMainGeneralForm onSubmit={(e) => {
-      e.preventDefault();
-      if(!update) return handleSubmitCreate();
-      handleSubmitUpdate();
-    }}>
+    <StyleMainGeneralForm
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (!update) return handleSubmitCreate();
+        handleSubmitUpdate();
+      }}
+    >
       <FormGeneralidades
         values={values.GENERALIDADES}
         valuesCodigo={values.CARACTERISTICAS.CODIGOS}
@@ -67,6 +70,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
         handleBlur={handleBlur}
         errors={errors.GENERALIDADES}
         errorsCod={errors.CARACTERISTICAS.CODIGOS}
+        who={who}
       />
       <FormCaracteristicas
         values={values.CARACTERISTICAS}
@@ -84,22 +88,26 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
         handleChange={handleChangePuntajes}
         handleChangeCalidadMaterial={handleChangeCalidadMaterial}
         values={values.PUNTAJES_VALORACION}
+        handleChangeCalidadInmaterial={handleChangeCalidadInmaterial}
         who={who}
       />
-      <FormCaracteristicasRelevantes
-        values={values.CARACTERISTICAS_RELEVANTES}
-        handleChange={handleChangeCaracteristicasRelevantes}
-        handleChangeCheckbox={handleChangeCheckbox}
-        handleChangeTarifas={handleChangeTarifas}
-        handleBlur={handleBlur}
-        errors={errors.CARACTERISTICAS_RELEVANTES}
-      />
+      {who !== 2 && (
+        <FormCaracteristicasRelevantes
+          values={values.CARACTERISTICAS_RELEVANTES}
+          handleChange={handleChangeCaracteristicasRelevantes}
+          handleChangeCheckbox={handleChangeCheckbox}
+          handleChangeTarifas={handleChangeTarifas}
+          handleBlur={handleBlur}
+          errors={errors.CARACTERISTICAS_RELEVANTES}
+        />
+      )}
       <FormActividadesServicios
         values={values.ACTIVIDADES_SERVICIOS}
         handleChangeActividades={handleChangeActividades}
         handleChangeServicios={handleChangeServicios}
         handleBlur={handleBlur}
         errors={errors.ACTIVIDADES_SERVICIOS}
+        who={who}
       />
       <FormPromocionAtractivo
         values={values.PROMOCION}
@@ -107,12 +115,14 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
         handleBlur={handleBlur}
         errors={errors.PROMOCION}
       />
-      <FormServiciosEspeciales
-        values={values.SERVICIOS_ESPECIALES}
-        handleChange={handleChangeServiciosEspeciales}
-        handleBlur={handleBlur}
-        errors={errors.SERVICIOS_ESPECIALES}
-      />
+      {who !== 2 && (
+        <FormServiciosEspeciales
+          values={values.SERVICIOS_ESPECIALES}
+          handleChange={handleChangeServiciosEspeciales}
+          handleBlur={handleBlur}
+          errors={errors.SERVICIOS_ESPECIALES}
+        />
+      )}
       <FormOtros
         values={values.OTROS}
         handleChange={handleChangeOtros}

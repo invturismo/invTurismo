@@ -3,7 +3,7 @@ import { helpWhoData } from "../../../../../helpers/helpWhoData";
 import TipoAcceso from "../../GeneralForm/DataJson/DataTipoAcceso.json";
 import GetInformation1 from "./GetInformation1";
 
-const GetGeneralidades = ({ data, originalData }) => {
+const GetGeneralidades = ({ data, originalData, who }) => {
   return (
     <div className="ContainerGet1">
       <GetInformation1
@@ -21,10 +21,9 @@ const GetGeneralidades = ({ data, originalData }) => {
         name="Corregimiento, Vereda o Localidad"
         help
       />
-      <GetInformation1
-        content={data.UBICACION}
-        name="Dirección/Ubicación"
-      />
+      {who !== "PATRIMONIO_INMATERIAL" && (
+        <GetInformation1 content={data.UBICACION} name="Dirección/Ubicación" />
+      )}
       <GetInformation1
         content={data.GEORREFERENCIACION}
         name="Georrefereniciación"
@@ -33,10 +32,12 @@ const GetGeneralidades = ({ data, originalData }) => {
         content={helpWhoData(TipoAcceso, data, "ID_TIPO_ACCESO")["ACCESO"]}
         name="Tipo de Acceso"
       />
-      <GetInformation1
-        content={data.INDICACIONES_ACCESO}
-        name="Indicaciones para el acceso"
-      />
+      {who !== "PATRIMONIO_INMATERIAL" && (
+        <GetInformation1
+          content={data.INDICACIONES_ACCESO}
+          name="Indicaciones para el acceso"
+        />
+      )}
     </div>
   );
 };

@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
-import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { helpHttp } from '../../../../helpers/helpHttp';
 import { toastMs } from '../../../../helpers/helpToastMessage';
 
-const useDataMaterial = (url) => {
+const useDataGeneral = (url) => {
   const [response, setResponse] = useState(false);
   const [data, setData] = useState([]);
   const [params] = useSearchParams();
@@ -26,7 +26,7 @@ const useDataMaterial = (url) => {
         if (params.has("buscar")) body.BUSCAR = params.get("buscar");
         const page = params.has("page") ? "?page=" + params.get("page") : "";
         const responseServe = await helpHttp().post(
-          "patrimonios-materiales/" + url + page,
+          url + page,
           {
             signal,
             body,
@@ -52,4 +52,4 @@ const useDataMaterial = (url) => {
   return { response, data };
 }
 
-export default useDataMaterial
+export default useDataGeneral

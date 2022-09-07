@@ -51,23 +51,39 @@ const schemaCalidad = {
     CONSTITUCION: yupCalidad(21),
     REPRESENTATIVIDAD: yupCalidad(28),
   },
+  PATRIMONIOS_INMATERIALES: {
+    COLECTIVA: yupCalidad(14),
+    TRADICIONAL: yupCalidad(14),
+    ANONIMA: yupCalidad(14),
+    ESPONTANEA: yupCalidad(14),
+    POPULAR: yupCalidad(14),
+  },
 };
 
-const schemaGeneralidades = {
-  GEORREFERENCIACION: yupMaxAndReq(50),
-  ID_TIPO_ACCESO: yupMaxAndReq(1),
-  INDICACIONES_ACCESO: yupMax(300),
-  CORREGIMIENTO_VEREDA_LOCALIDAD: yupMax(200),
-  NOMBRE: yupMaxAndReq(200),
-  UBICACION: yupMaxAndReq(200),
+const schemaGeneralidades = (who) => {
+  const templateGeneralidades = {
+    GEORREFERENCIACION: yupMaxAndReq(50),
+    ID_TIPO_ACCESO: yupMaxAndReq(1),
+    CORREGIMIENTO_VEREDA_LOCALIDAD: yupMax(200),
+    NOMBRE: yupMaxAndReq(200),
+  };
+  if (who === "PATRIMONIOS_INMATERIALES") return templateGeneralidades;
+  const others = {
+    UBICACION: yupMaxAndReq(200),
+    INDICACIONES_ACCESO: yupMax(300),
+  };
+  return { ...templateGeneralidades, ...others };
 };
 
-const schemaAdminPropietarios = {
-  NOMBRE: yupMaxAndReq(200),
-  DIRECCION_UBICACION: yupMaxAndReq(200),
-  CORREO: yup.string().email(messageEmail).max(200, maxMessage(200)),
-  TELEFONO1: yupTelefono(),
-  TELEFONO2: yupTelefono(),
+const schemaAdminPropietarios = (who) => {
+  if (who === "PATRIMONIOS_INMATERIALES") return {};
+  return {
+    NOMBRE: yupMaxAndReq(200),
+    DIRECCION_UBICACION: yupMaxAndReq(200),
+    CORREO: yup.string().email(messageEmail).max(200, maxMessage(200)),
+    TELEFONO1: yupTelefono(),
+    TELEFONO2: yupTelefono(),
+  };
 };
 
 const schemaCaracteristicas = {
@@ -90,7 +106,7 @@ const schemaPuntajes = {
   ID_SIGNIFICADO: yupMaxAndReq(1),
 };
 
-const schemaCaracteristicasRelevantes = {
+const schemaOthersRelevantes = {
   ID_TIPO_CLIMA: yupMax(1),
   TEMPERATURA: yupMax(4),
   ID_ESTADO: yupMax(1),
@@ -118,14 +134,17 @@ const schemaActividades = {
   OTROS: yupMax(300),
 };
 
-const schemaServicios = {
-  TIENDAS: yupMax(300),
-  GUIAS: yupMax(300),
-  BANOS: yupMax(300),
-  RESTAURANTES: yupMax(300),
-  PARQUEADERO: yupMax(300),
-  ALOJAMIENTO: yupMax(300),
-  OTROS: yupMax(300),
+const schemaServicios = (who) => {
+  if (who === "PATRIMONIOS_INMATERIALES") return {};
+  return {
+    TIENDAS: yupMax(300),
+    GUIAS: yupMax(300),
+    BANOS: yupMax(300),
+    RESTAURANTES: yupMax(300),
+    PARQUEADERO: yupMax(300),
+    ALOJAMIENTO: yupMax(300),
+    OTROS: yupMax(300),
+  };
 };
 
 const schemaPromocion = {
@@ -139,13 +158,16 @@ const schemaPromocion = {
   OTROS: yupMax(300),
 };
 
-const schemaServiciosEspeciales = {
-  ASCENSORES: yupMax(300),
-  RAMPAS: yupMax(300),
-  DISCAP_AUDITIVA: yupMax(300),
-  BANOS: yupMax(300),
-  MOVILIDAD: yupMax(300),
-  OTROS: yupMax(300),
+const schemaServiciosEspeciales = (who) => {
+  if (who === "PATRIMONIOS_INMATERIALES") return {};
+  return {
+    ASCENSORES: yupMax(300),
+    RAMPAS: yupMax(300),
+    DISCAP_AUDITIVA: yupMax(300),
+    BANOS: yupMax(300),
+    MOVILIDAD: yupMax(300),
+    OTROS: yupMax(300),
+  };
 };
 
 const schemaOtros = {
@@ -161,10 +183,32 @@ const schemaRedes = {
   OTRA: yupMax(300),
 };
 
+const schemaRelevantes = (who) => {
+  if (who === "PATRIMONIOS_INMATERIALES") return {};
+  return {
+    CARACTERISTICAS_RELEVANTES: {
+      ...schemaOthersRelevantes,
+      DIAS_HORARIOS: schemaDiasHorarios,
+      TARIFAS: schemaTarifas,
+    },
+  }
+};
+
+const schemaObjectRelevantes = (who) => {
+  if (who === "PATRIMONIOS_INMATERIALES") return {};
+  return {
+    CARACTERISTICAS_RELEVANTES: yup.object({
+      ...schemaOthersRelevantes,
+      DIAS_HORARIOS: yup.object(schemaDiasHorarios),
+      TARIFAS: yup.object(schemaTarifas),
+    }),
+  };
+}
+
 const unitValidateTemplate = (who) => ({
   GENERALIDADES: {
-    ...schemaGeneralidades,
-    "ADMIN/PROPIETARIOS": schemaAdminPropietarios,
+    ...schemaGeneralidades(who),
+    "ADMIN/PROPIETARIOS": schemaAdminPropietarios(who),
   },
   CARACTERISTICAS: {
     ...schemaCaracteristicas,
@@ -174,17 +218,13 @@ const unitValidateTemplate = (who) => ({
     ...schemaPuntajes,
     CALIDAD: schemaCalidad[who],
   },
-  CARACTERISTICAS_RELEVANTES: {
-    ...schemaCaracteristicasRelevantes,
-    DIAS_HORARIOS: schemaDiasHorarios,
-    TARIFAS: schemaTarifas,
-  },
+  ...schemaRelevantes(who),
   ACTIVIDADES_SERVICIOS: {
     ACTIVIDADES: schemaActividades,
-    SERVICIOS: schemaServicios,
+    SERVICIOS: schemaServicios(who),
   },
   PROMOCION: schemaPromocion,
-  SERVICIOS_ESPECIALES: schemaServiciosEspeciales,
+  SERVICIOS_ESPECIALES: schemaServiciosEspeciales(who),
   OTROS: {
     ...schemaOtros,
     REDES: schemaRedes,
@@ -194,8 +234,8 @@ const unitValidateTemplate = (who) => ({
 const schemaGeneral = (who) =>
   yup.object({
     GENERALIDADES: yup.object({
-      ...schemaGeneralidades,
-      "ADMIN/PROPIETARIOS": yup.object(schemaAdminPropietarios),
+      ...schemaGeneralidades(who),
+      "ADMIN/PROPIETARIOS": yup.object(schemaAdminPropietarios(who)),
     }),
     CARACTERISTICAS: yup.object({
       ...schemaCaracteristicas,
@@ -205,17 +245,13 @@ const schemaGeneral = (who) =>
       ...schemaPuntajes,
       CALIDAD: yup.object(schemaCalidad[who]),
     }),
-    CARACTERISTICAS_RELEVANTES: yup.object({
-      ...schemaCaracteristicasRelevantes,
-      DIAS_HORARIOS: yup.object(schemaDiasHorarios),
-      TARIFAS: yup.object(schemaTarifas),
-    }),
+    ...schemaObjectRelevantes(who),
     ACTIVIDADES_SERVICIOS: yup.object({
       ACTIVIDADES: yup.object(schemaActividades),
-      SERVICIOS: yup.object(schemaServicios),
+      SERVICIOS: yup.object(schemaServicios(who)),
     }),
     PROMOCION: yup.object(schemaPromocion),
-    SERVICIOS_ESPECIALES: yup.object(schemaServiciosEspeciales),
+    SERVICIOS_ESPECIALES: yup.object(schemaServiciosEspeciales(who)),
     OTROS: yup.object({
       ...schemaOtros,
       REDES: yup.object(schemaRedes),

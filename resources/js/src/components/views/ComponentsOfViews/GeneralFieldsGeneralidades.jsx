@@ -8,6 +8,7 @@ const GeneralFieldsGeneralidades = ({
   errors,
   handleChange,
   handleBlur,
+  stateWho
 }) => {
   return (
     <>
@@ -83,21 +84,23 @@ const GeneralFieldsGeneralidades = ({
           <small className="errorMessage">{errors.NOMBRE}</small>
         )}
       </label>
-      <label htmlFor="UBICACION" className="LabelType1">
-        <span className="NameField">Ubicación</span>
-        <input
-          type="text"
-          name="UBICACION"
-          id="UBICACION"
-          onChange={(e) => handleChange(e)}
-          onBlur={(e) => handleBlur(e, "GENERALIDADES")}
-          value={values.UBICACION}
-          autoComplete="off"
-        />
-        {errors.UBICACION && (
-          <small className="errorMessage">{errors.UBICACION}</small>
-        )}
-      </label>
+      {!stateWho && (
+        <label htmlFor="UBICACION" className="LabelType1">
+          <span className="NameField">Ubicación</span>
+          <input
+            type="text"
+            name="UBICACION"
+            id="UBICACION"
+            onChange={(e) => handleChange(e)}
+            onBlur={(e) => handleBlur(e, "GENERALIDADES")}
+            value={values.UBICACION}
+            autoComplete="off"
+          />
+          {errors.UBICACION && (
+            <small className="errorMessage">{errors.UBICACION}</small>
+          )}
+        </label>
+      )}
     </>
   );
 };

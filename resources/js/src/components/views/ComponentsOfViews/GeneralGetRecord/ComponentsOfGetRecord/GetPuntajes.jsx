@@ -9,9 +9,16 @@ const whoFields = {
     ["CONSTITUCION", "Constitucion del bien"],
     ["REPRESENTATIVIDAD", "Representatividad general"],
   ],
+  PATRIMONIOS_INMATERIALES: [
+    ["COLECTIVA", "Colectiva"],
+    ["TRADICIONAL", "Tradicional"],
+    ["ANONIMA", "Anónima"],
+    ["ESPONTANEA", "Espontánea"],
+    ["POPULAR", "Popular"],
+  ],
 };
 
-const GetPuntajes = ({data,who}) => {
+const GetPuntajes = ({ data, who }) => {
   return (
     <>
       <div className="GetContainerTittle">
@@ -20,7 +27,7 @@ const GetPuntajes = ({data,who}) => {
           {whoFields[who].map((val) => (
             <GetInformation1
               key={"CALIDAD_" + val[0]}
-              content={data.CALIDAD[val[0]]||"0"}
+              content={data.CALIDAD[val[0]] || "0"}
               name={val[1]}
             />
           ))}
@@ -53,6 +60,6 @@ const GetPuntajes = ({data,who}) => {
       </div>
     </>
   );
-}
+};
 
 export default GetPuntajes

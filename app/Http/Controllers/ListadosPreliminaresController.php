@@ -53,7 +53,7 @@ class ListadosPreliminaresController extends Controller
             'ID_DEPARTAMENTOS'=>'required|max:2',
             'ID_MUNICIPIOS'=>'required|max:3',
             'NOMBRE'=>'required|max:200',
-            'UBICACION'=>'required|max:200',
+            'UBICACION'=>'max:200',
             'ID_FUENTE'=>'required|numeric'
         ];
         $validator = Validator::make($request->all(), $rules);
@@ -142,7 +142,7 @@ class ListadosPreliminaresController extends Controller
             'ID_DEPARTAMENTOS'=>'required|max:2',
             'ID_MUNICIPIOS'=>'required|max:3',
             'NOMBRE'=>'required|max:200',
-            'UBICACION'=>'required|max:200',
+            'UBICACION'=>'max:200',
             'ID_FUENTE'=>'required|numeric',
         ];
         $validator = Validator::make($request->all(), $rules);

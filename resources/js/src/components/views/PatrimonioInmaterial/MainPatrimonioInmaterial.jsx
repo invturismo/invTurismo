@@ -1,44 +1,16 @@
 import React from 'react';
-import GeneralGet from '../ComponentsOfViews/GeneralGet';
-
-const GetSinCompletarPatrimonioInmaterial = () => {
-  return (
-    <>
-      <GeneralGet
-        h2Text="Patrimonio inmaterial"
-        toFirst="/patrimonio-inmaterial/sin-completar"
-        toLast="/patrimonio-inmaterial/completado"
-        linkOptions="/patrimonio-inmaterial/opciones"
-      >
-        <tr className="NoData">
-          <td colSpan={6}>No hay datos para completar</td>
-        </tr>
-      </GeneralGet>
-    </>
-  );
-};
-
-const GetCompletadoPatrimonioInmaterial = () => {
-  return (
-    <>
-      <GeneralGet
-        h2Text="Patrimonio inmaterial"
-        toFirst="/patrimonio-inmaterial/sin-completar"
-        toLast="/patrimonio-inmaterial/completado"
-      >
-        <tr className="NoData">
-          <td colSpan={6}>No hay datos para visualizar</td>
-        </tr>
-      </GeneralGet>
-    </>
-  );
-};
+import GetCompletadoInmaterial from './ComponentsOfInmaterial/GetCompletadoInmaterial';
+import GetRecordConInmaterial from './ComponentsOfInmaterial/GetRecordConInmaterial';
+import GetRecordSinInmaterial from './ComponentsOfInmaterial/GetRecordSinInmaterial';
+import GetSinCompletarInmaterial from './ComponentsOfInmaterial/GetSinCompletarInmaterial';
 
 const MainPatrimonioInmaterial = ({who}) => {
   return (
     <div className="ContainerMainGeneral">
-      {who === 1 && <GetSinCompletarPatrimonioInmaterial />}
-      {who === 2 && <GetCompletadoPatrimonioInmaterial />}
+      {who === 1 && <GetSinCompletarInmaterial />}
+      {who === 2 && <GetCompletadoInmaterial />}
+      {who === 3 && <GetRecordSinInmaterial />}
+      {who === 4 && <GetRecordConInmaterial />}
     </div>
   );
 }
