@@ -77,10 +77,10 @@ const GeneralGetRecord = ({ data, originalData, back, handleUpdate, who }) => {
         </div>
         <div className="ContainerButtons">
           <span onClick={handleUpdate}>
-            <ButtonPage colorButton="green">Actualizar</ButtonPage>
+            <ButtonPage colorButton="#5328fe">Actualizar</ButtonPage>
           </span>
           <span>
-            <ButtonPage colorButton="red">Eliminar</ButtonPage>
+            <ButtonPage colorButton="#220646">Eliminar</ButtonPage>
           </span>
         </div>
       </div>

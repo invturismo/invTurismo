@@ -38,7 +38,7 @@ class ServiciosController extends Controller
         foreach (self::$rules as $key => $value) {
             $valueUpdate = $key == 'OTROS1' ? "OTROS" : $key;
             if($queryData[$valueUpdate] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'servicios',$queryData->ID_SERVICIO,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
+                HistorialController::createUpdate($idUsuario,'servicios',$queryUpdate->ID_LISTADO,$queryData->ID_SERVICIO,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
                 $queryData[$valueUpdate] = $clientData[$key];
                 $queryData->save();
             }

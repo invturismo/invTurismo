@@ -40,7 +40,7 @@ class PromocionController extends Controller
         foreach (self::$rules as $key => $value) {
             $valueUpdate = $key == 'OTROS2' ? "OTROS" : $key;
             if($queryData[$valueUpdate] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'promocion',$queryData->ID_PROMOCION,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
+                HistorialController::createUpdate($idUsuario,'promocion',$queryUpdate->ID_LISTADO,$queryData->ID_PROMOCION,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
                 $queryData[$valueUpdate] = $clientData[$key];
                 $queryData->save();
             }

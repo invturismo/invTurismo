@@ -15,6 +15,7 @@ class Historial_Update extends Model
     protected $fillable = [
         'ID_USUARIO',
         'TABLA_MODIFICADA',
+        'ID_LISTADO_MODIFICADO',
         'ID_REGISTRO_MODIFICADO',
         'CAMPO_MODIFICADO',
         'VALOR_OLD',

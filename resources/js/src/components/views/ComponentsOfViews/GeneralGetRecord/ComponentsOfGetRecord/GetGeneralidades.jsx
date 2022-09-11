@@ -21,7 +21,7 @@ const GetGeneralidades = ({ data, originalData, who }) => {
         name="Corregimiento, Vereda o Localidad"
         help
       />
-      {who !== "PATRIMONIO_INMATERIAL" && (
+      {who !== "PATRIMONIOS_INMATERIALES" && (
         <GetInformation1 content={data.UBICACION} name="Dirección/Ubicación" />
       )}
       <GetInformation1
@@ -32,7 +32,7 @@ const GetGeneralidades = ({ data, originalData, who }) => {
         content={helpWhoData(TipoAcceso, data, "ID_TIPO_ACCESO")["ACCESO"]}
         name="Tipo de Acceso"
       />
-      {who !== "PATRIMONIO_INMATERIAL" && (
+      {who !== "PATRIMONIOS_INMATERIALES" && (
         <GetInformation1
           content={data.INDICACIONES_ACCESO}
           name="Indicaciones para el acceso"

@@ -1,11 +1,13 @@
 import React from 'react'
 import GeneralLoader from '../../../common/GeneralLoader';
 import GeneralGet from '../../ComponentsOfViews/GeneralGet';
+import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
 import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
-import useDataMaterial from '../hooks/useDataMaterial';
 
 const GetCompletadoMaterial = () => {
-  const { response, data } = useDataMaterial("getdatacom");
+  const { response, data } = useDataGeneral(
+    "patrimonios-materiales/getdatacom"
+  );
 
   if (!response) return <GeneralLoader />;
 

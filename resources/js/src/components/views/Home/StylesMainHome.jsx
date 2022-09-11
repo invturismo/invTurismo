@@ -6,26 +6,39 @@ const StyleMainHome = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  .ContainerImageHome {
+  position: relative;
+  gap: 30px;
+  padding: 30px;
+  &::before {
+    content: "";
+    position: fixed;
+    background-color: #331a55;
+    z-index: -1;
+    inset: 0;
+    clip-path: circle(37.8% at 90% 100%);
+  }
+  .CardsContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-grow: 1;
   }
-  img {
-    width: 90%;
-    height: auto;
-    max-width: 725px;
-  }
-  p {
+  .WelcomeMessage {
+    font-size: 3.4rem;
+    font-weight: 600;
     font-family: ${(props) => props.theme.fonts.secondary};
-    font-size: 3rem;
-    color: #072847;
-    .Color1 {
-      color: #3739fe;
-    }
-    .Color2 {
-      color: #ff0046;
-    }
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .WelcomeMessage > span:nth-child(1) {
+    color: #331a55;
+  }
+  .WelcomeMessage > span:nth-child(2) {
+    color: #3739fe;
   }
 `;
 
-export {StyleMainHome};
+export { StyleMainHome };

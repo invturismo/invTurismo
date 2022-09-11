@@ -1,7 +1,7 @@
-export const formDataTransform = (values) => {
+export const formDataTransform = (values,who) => {
   const valuesFormData = new Map(),
     arrVall = {
-      OTROS: 0,
+      OTROS: who === 2 ? 1 : 0,
       BANOS: 1,
       PAGINA_WEB: 1,
     };

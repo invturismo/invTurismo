@@ -25,6 +25,8 @@ const GetCompletadoSitiosNaturales = () => {
         h2Text="Sitios naturales"
         toFirst="/sitios-naturales/sin-completar"
         toLast="/sitios-naturales/completado"
+        linkOptions={"/sitios-naturales/opciones"}
+        others={{}}
       >
         <tr className="NoData">
           <td colSpan={6}>No hay datos para visualizar</td>

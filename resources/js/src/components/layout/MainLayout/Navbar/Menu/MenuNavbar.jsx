@@ -15,6 +15,11 @@ const MenuNavbar = () => {
   return (
     <MenuStyle>
       <OptionMenuNavbar
+        linkDirection="/"
+        linkName="Inicio"
+        srcImg="IconInicio"
+      />
+      <OptionMenuNavbar
         linkDirection="/listado-preliminar"
         linkName="Listado preliminar"
         srcImg="IconListaPreliminar"
@@ -49,13 +54,13 @@ const MenuNavbar = () => {
         linkName="Sitios naturales"
         srcImg="IconSitiosNaturales"
       />
-      { userRole == 1 &&
+      {userRole == 1 && (
         <OptionMenuNavbar
           linkDirection="/usuarios"
           linkName="Usuarios"
           srcImg="IconUsuarios"
         />
-      }
+      )}
     </MenuStyle>
   );
 }

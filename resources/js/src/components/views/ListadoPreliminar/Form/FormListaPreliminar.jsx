@@ -26,7 +26,7 @@ const FormListaPreliminar = ({ initialValues, nameButton, who }) => {
       className="FormStyleL"
       onSubmit={(e) => {
         e.preventDefault();
-        if(who === 3) handleCreate(e);
+        if (who === 3) handleCreate(e);
         else handleUpdate(e);
       }}
     >
@@ -68,11 +68,14 @@ const FormListaPreliminar = ({ initialValues, nameButton, who }) => {
         </label>
       </div>
       <div className="ContainerButtons">
-        <ButtonPage type="submit" colorButton={who === 3 ? "blue" : "green"}>
+        <ButtonPage
+          type="submit"
+          colorButton={who === 3 ? "#220646" : "#5328fe"}
+        >
           {nameButton}
         </ButtonPage>
         {who === 3 && (
-          <ButtonPage type="submit" colorButton="green" id="buttonNext">
+          <ButtonPage type="submit" colorButton="#5328fe" id="buttonNext">
             Siguiente
           </ButtonPage>
         )}

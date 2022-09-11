@@ -25,6 +25,8 @@ const GetCompletadoFestividadesEventos = () => {
         h2Text="Festividades y eventos"
         toFirst="/festividades-eventos/sin-completar"
         toLast="/festividades-eventos/completado"
+        linkOptions={"/festividades-eventos/opciones"}
+        others={{}}
       >
         <tr className="NoData">
           <td colSpan={6}>No hay datos para visualizar</td>

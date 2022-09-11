@@ -12,6 +12,7 @@ const ModalPopper = () => {
     textButton,
     srcImg,
     handleFunction,
+    noButton
   } = useSelector((state) => state.modalsSlice.dataModalPopper);
   const modalLayoutState = useSelector(
     (state) => state.modalsSlice.modalLayoutState
@@ -32,7 +33,7 @@ const ModalPopper = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="backgroundModal"
-            onClick={() => dispatch(closeModalLayoutState())}
+            onClick={() => !noButton && dispatch(closeModalLayoutState())}
           />
           <MainModalPopper
             initial={{ scale: 0 }}
@@ -50,12 +51,14 @@ const ModalPopper = () => {
             </div>
             <div className="footer">
               <div className="container">
-                <button
-                  className="bttn button-outline"
-                  onClick={() => dispatch(closeModalLayoutState())}
-                >
-                  no, cancelar
-                </button>
+                {!noButton && (
+                  <button
+                    className="bttn button-outline"
+                    onClick={() => dispatch(closeModalLayoutState())}
+                  >
+                    no, cancelar
+                  </button>
+                )}
                 <button
                   className="bttn button-inline"
                   onClick={() => handleFunction()}

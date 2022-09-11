@@ -1,6 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import styled from 'styled-components';
+import { closeMenu } from '../../../../../features/mainLayoutSlice';
 
 const OptionMenuStyle = styled.li`
   display: block;
@@ -40,11 +42,15 @@ const ContainOption = ({ linkName, srcImg }) => {
 };
 
 const OptionMenuNavbar = ({linkDirection,linkName,srcImg}) => {
+  const dispatch = useDispatch();
   return (
     <OptionMenuStyle>
       <NavLink
         to={linkDirection}
-        className={({ isActive }) => (isActive ? 'decorationActive' : undefined)}
+        className={({ isActive }) =>
+          isActive ? "decorationActive" : undefined
+        }
+        onClick={() => dispatch(closeMenu())}
       >
         <ContainOption linkName={linkName} srcImg={srcImg} />
       </NavLink>

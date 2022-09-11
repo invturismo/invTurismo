@@ -36,12 +36,12 @@ class TarifasController extends Controller
         return $tarifa->ID_TARIFA;
     }
 
-    public static function update($clientData,$queryUpdate,$idUsuario)
+    public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Tarifas::find($queryUpdate->ID_TARIFA);
         foreach (self::rules() as $key => $value) {
             if($queryData[$key] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'tarifas',$queryData->ID_TARIFA,$key,$queryData[$key],$clientData[$key]);
+                HistorialController::createUpdate($idUsuario,'tarifas',$idListado,$queryData->ID_TARIFA,$key,$queryData[$key],$clientData[$key]);
                 $queryData[$key] = $clientData[$key];
                 $queryData->save();
             }

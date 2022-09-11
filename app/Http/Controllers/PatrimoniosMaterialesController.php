@@ -18,6 +18,7 @@ use App\Http\Controllers\RedesController;
 use App\Models\PatrimoniosMateriales;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
+use App\Http\Controllers\ExportController;
 
 class PatrimoniosMaterialesController extends Controller
 {
@@ -134,7 +135,7 @@ class PatrimoniosMaterialesController extends Controller
             RedesController::update($clientData,$queryData,$ID_USUARIO);
             foreach ($fields as $value) {
                 if($queryData[$value] != $clientData[$value]) {
-                    HistorialController::createUpdate($ID_USUARIO,'Patrimonio Cultural Material',$queryData->ID_MATERIAL,$value,$queryData[$value],$clientData[$value]);
+                    HistorialController::createUpdate($ID_USUARIO,'Patrimonio Cultural Material',$queryData->ID_LISTADO,$queryData->ID_MATERIAL,$value,$queryData[$value],$clientData[$value]);
                     $queryData[$value] = $clientData[$value];
                     $queryData->save();
                 }
@@ -284,7 +285,7 @@ class PatrimoniosMaterialesController extends Controller
             $dataEspeciales =  ServiciosEspecialesController::getRecord($queryData->ID_PROMOCION);
             $dataRedes = RedesController::getRecord($queryData->ID_RED_SOCIAL);
             $dataRef_Ob = ["REF_BIBLIOGRAFICA"=>$queryData->REF_BIBLIOGRAFICA,"OBSERVACIONES"=>$queryData->OBSERVACIONES,"ID_MATERIAL"=>$queryData->ID_MATERIAL];
-            $fechaCreacion = GeneralidadesController::getFecha('Patrimonio Cultural Material',$request->REGISTRO);
+            $fechaCreacion = ExportController::templateHistorial('Patrimonio Cultural Material',$request->REGISTRO,2,$queryData->ID_LISTADO);
             $dataOtros = ["OTROS"=>array_merge($dataRedes,$dataRef_Ob,$fechaCreacion)];
             $mergeQuery = array_merge($dataGeneralidades,$dataCaracteristicas,$dataPuntajes,$dataRelevantes,$dataAc_Ser,$dataPromocion,$dataEspeciales,$dataOtros);
             if(isset($request->ACTUALIZANDO)) {

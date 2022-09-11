@@ -183,13 +183,13 @@ class ListadosPreliminaresController extends Controller
             if(!empty($changedFieldsCodigo)) {
                 $codigo->update($changedFieldsCodigo);
                 foreach ($changedFieldsCodigo as $key => $value){
-                    HistorialController::createUpdate($ID_USUARIO,'codigos',$codigo->ID_CODIGO,$key,$queryData[$key],$value);
+                    HistorialController::createUpdate($ID_USUARIO,'codigos',$clientData['ID_LISTADO'],$codigo->ID_CODIGO,$key,$queryData[$key],$value);
                 }
             }
             if(!empty($changedFieldsListadoPreliminar)) {
                 $listadoPreliminar->update($changedFieldsListadoPreliminar);
                 foreach ($changedFieldsListadoPreliminar as $key => $value){
-                    HistorialController::createUpdate($ID_USUARIO,'listados_preliminares',$listadoPreliminar->ID_LISTADO,$key,$queryData[$key],$value);
+                    HistorialController::createUpdate($ID_USUARIO,'listados_preliminares',$clientData['ID_LISTADO'],$listadoPreliminar->ID_LISTADO,$key,$queryData[$key],$value);
                 }
             }
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
@@ -256,15 +256,7 @@ class ListadosPreliminaresController extends Controller
                 'state' => false,
                 'message' => "El registro no existe"
             ]);
-            $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
-            ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
-            ->where('historial_insert_delete.TABLA_MOVIMIENTO','=','listados_preliminares')
-            ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$request->ID_LISTADO)
-            ->first()->toArray();
-            $queryHistorial = [
-                'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
-                'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
-            ];
+            $queryHistorial = ExportController::templateHistorial('listados_preliminares',$request->ID_LISTADO,1,$request->ID_LISTADO);
             $queryData = $queryData->toArray();
             $queryData = array_merge($queryData,$queryHistorial);
             return response()->json([
@@ -367,14 +359,15 @@ class ListadosPreliminaresController extends Controller
             if(!empty($changedFieldsListadoPreliminar)) {
                 $listadoPreliminar->update($changedFieldsListadoPreliminar);
                 foreach ($changedFieldsListadoPreliminar as $key => $value){
-                    HistorialController::createUpdate($ID_USUARIO,'listados_preliminares',$listadoPreliminar->ID_LISTADO,$key,$queryData[$key],$value);
+                    HistorialController::createUpdate($ID_USUARIO,'listados_preliminares',$clientData['ID_LISTADO'],$listadoPreliminar->ID_LISTADO,$key,$queryData[$key],$value);
                 }
-                PatrimoniosClasificacionController::insertForms($listadoPreliminar->ID_LISTADO,$value,$ID_USUARIO);
+                $idRecord = PatrimoniosClasificacionController::insertForms($listadoPreliminar->ID_LISTADO,$value,$ID_USUARIO);
             }
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
             return response()->json([
-                "state" => true
+                "state" => true,
+                "id" => $idRecord
             ]);
         } catch (\Throwable $th) {
             return response()->json([

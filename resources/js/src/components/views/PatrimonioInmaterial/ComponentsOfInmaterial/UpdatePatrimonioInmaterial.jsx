@@ -1,5 +1,7 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { helpConvertData } from '../../../../helpers/helpConvertData';
 import useCancelUpdate from '../../../../hooks/useCancelUpdate';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
@@ -9,12 +11,14 @@ import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/in
 import MainGeneralForm from '../../ComponentsOfViews/GeneralForm/MainGeneralForm';
 import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
 
-const GetRecordSinMaterial = () => {
-  const { idPatrimonioMaterial } = useParams();
+const UpdatePatrimonioInmaterial = () => {
+  const { idPatrimonioInmaterial } = useParams();
   const response = useRecordGeneral(
-    idPatrimonioMaterial,
-    "patrimonios-materiales/getrecordsincom"
+    idPatrimonioInmaterial,
+    "patrimonios-inmateriales/getrecordcom",
+    true
   );
+  const dispatch = useDispatch();
   useCancelUpdate(response);
 
   if (!response) return <GeneralLoader />;
@@ -23,19 +27,24 @@ const GetRecordSinMaterial = () => {
 
   return (
     <div className="GeneralContainer">
-      <ActionBack to={-1} />
-      <h2>Completar datos del patrimonio material</h2>
+      <ActionBack
+        to={"/patrimonio-inmaterial/completado/" + idPatrimonioInmaterial}
+        replace={true}
+      />
+      <h2>Actualizar datos del patrimonio inmaterial</h2>
       <MainGeneralForm
-        who={1}
-        initialErrors={initialErrorsGeneralForm("PATRIMONIO_MATERIAL")}
-        initialValues={initialValuesGeneralForm(
-          "PATRIMONIO_MATERIAL",
-          response.data
+        who={2}
+        initialErrors={initialErrorsGeneralForm("PATRIMONIOS_INMATERIALES")}
+        initialValues={helpConvertData(
+          initialValuesGeneralForm("PATRIMONIOS_INMATERIALES"),
+          response.data,
+          dispatch
         )}
-        idRecord={{ ID_MATERIAL: idPatrimonioMaterial }}
+        idRecord={{ ID_INMATERIAL: idPatrimonioInmaterial }}
+        update
       />
     </div>
   );
 }
 
-export default GetRecordSinMaterial
+export default UpdatePatrimonioInmaterial

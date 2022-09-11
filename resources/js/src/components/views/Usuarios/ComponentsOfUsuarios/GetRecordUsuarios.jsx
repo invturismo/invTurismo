@@ -63,11 +63,11 @@ const GetRecordUsuarios = () => {
           </Information>
         </div>
         <div className="ContainerButtons">
-          <ButtonPage colorButton="green" onClick={handleClickUpdate}>
+          <ButtonPage colorButton="#5328fe" onClick={handleClickUpdate}>
             Actualizar
           </ButtonPage>
           <ButtonPage
-            colorButton="red"
+            colorButton="#220646"
             onClick={() => helpDeleteUsuario({ dispatch, idUsuario, navigate })}
           >
             Eliminar

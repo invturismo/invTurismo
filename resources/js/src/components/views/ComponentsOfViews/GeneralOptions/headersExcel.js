@@ -1,3 +1,16 @@
+const arrayHeader = [
+  { label: "N°", key: "ID" },
+  { label: "Nombre", key: "NOMBRE" },
+  { label: "Departamento", key: "DEPARTAMENTO" },
+  { label: "Municipio", key: "MUNICIPIO" },
+  { label: "Código", key: "CODIGO" },
+  { label: "Calificación", key: "CALIFICACION" },
+  { label: "Ubicación", key: "UBICACION" },
+  { label: "Georreferenciación", key: "GEORREFERENCIACION" },
+  { label: "Fecha", key: "FECHA_MOVIMIENTO" },
+  { label: "Diligenciado por", key: "USUARIO" },
+];
+
 export const headersExcel = {
   "Listado-Preliminar": [
     { label: "N°", key: "ID_LISTADO" },
@@ -19,16 +32,6 @@ export const headersExcel = {
     { label: "Fecha", key: "FECHA_MOVIMIENTO" },
     { label: "Diligenciado por", key: "USUARIO" },
   ],
-  "Patrimonios-materiales": [
-    { label: "N°", key: "ID" },
-    { label: "Nombre", key: "NOMBRE" },
-    { label: "Departamento", key: "DEPARTAMENTO" },
-    { label: "Municipio", key: "MUNICIPIO" },
-    { label: "Código", key: "CODIGO" },
-    { label: "Calificación", key: "CALIFICACION" },
-    { label: "Ubicación", key: "UBICACION" },
-    { label: "Georreferenciación", key: "GEORREFERENCIACION" },
-    { label: "Fecha", key: "FECHA_MOVIMIENTO" },
-    { label: "Diligenciado por", key: "USUARIO" },
-  ],
+  "Patrimonios-materiales": arrayHeader,
+  "Patrimonios-inmateriales": arrayHeader,
 };

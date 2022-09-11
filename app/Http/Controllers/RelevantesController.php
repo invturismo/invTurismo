@@ -46,11 +46,11 @@ class RelevantesController extends Controller
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Relevantes::find($queryUpdate->ID_RELEVANTE);
-        ClimaController::update($clientData,$queryData,$idUsuario);
-        HorariosController::update($clientData,$queryData,$idUsuario);
-        TarifasController::update($clientData,$queryData,$idUsuario);
+        ClimaController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
+        HorariosController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
+        TarifasController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
         if($queryData['ID_ESTADO'] != $clientData['ID_ESTADO']) {
-            HistorialController::createUpdate($idUsuario,'caracteristicas_relevantes',$queryData->ID_RELEVANTE,'ID_ESTADO',$queryData['ID_ESTADO'],$clientData['ID_ESTADO']);
+            HistorialController::createUpdate($idUsuario,'caracteristicas_relevantes',$queryUpdate->ID_LISTADO,$queryData->ID_RELEVANTE,'ID_ESTADO',$queryData['ID_ESTADO'],$clientData['ID_ESTADO']);
             $queryData['ID_ESTADO'] = $clientData['ID_ESTADO'];
             $queryData->save();
         }

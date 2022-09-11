@@ -2,6 +2,7 @@ import React from 'react'
 import useTittle from '../../../hooks/useTittle'
 import { StyleMainHome } from './StylesMainHome';
 import { useSelector } from 'react-redux';
+import CardButton from './ComponentsOfHome/CardButton';
 
 const MainHome = () => {
   useTittle('Inicio');
@@ -10,13 +11,38 @@ const MainHome = () => {
   );
   return (
     <StyleMainHome>
-      <div className="ContainerImageHome">
-        <img src="/img/vectores/ImgInicio.png" alt="inicio" />
+      <div className='ContainerWelcome'>
+        <p className="WelcomeMessage">
+          <span>Bienvenido/a </span>
+          <span>{PRIMER_NOMBRE}!</span>
+        </p>
       </div>
-      <p>
-        <span className="Color1">Hola</span> {PRIMER_NOMBRE}{" "}
-        <span className="Color2">!</span>
-      </p>
+      <div className="CardsContainer">
+        <CardButton
+          colorBackground="#c7c7ff"
+          name1="Nuevo"
+          name2="Recurso"
+          srcImg="SvgMoreRecurso.svg"
+          colorText="rgba(149,149,255,1)"
+          linkClick="/listado-preliminar/crear"
+        />
+        <CardButton
+          colorBackground="#ffd8be"
+          name1="Metodologia"
+          name2="Inventarios"
+          srcImg="SvgDoc.svg"
+          colorText="rgba(252,161,71,1)"
+          linkClick="/"
+        />
+        <CardButton
+          colorBackground="#a9ecbf"
+          name1="Cuadro"
+          name2="Resumen"
+          srcImg="SvgResumen.svg"
+          colorText="rgba(66,193,110,1)"
+          linkClick="/"
+        />
+      </div>
     </StyleMainHome>
   );
 }

@@ -34,7 +34,7 @@ class RedesController extends Controller
         foreach (self::$rules as $key => $value) {
             $valueUpdate = $key == 'PAGINA_WEB2' ? "PAGINA_WEB" : $key;
             if($queryData[$valueUpdate] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'redes',$queryData->ID_RED_SOCIAL,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
+                HistorialController::createUpdate($idUsuario,'redes',$queryUpdate->ID_LISTADO,$queryData->ID_RED_SOCIAL,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
                 $queryData[$valueUpdate] = $clientData[$key];
                 $queryData->save();
             }

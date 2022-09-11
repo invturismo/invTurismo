@@ -1,9 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import FontLazer from "../fonts/Lazer84.ttf";
 
 export const theme = {
   fonts: {
     primary: `'Montserrat', sans-serif`,
     secondary: `"Rubik", sans-serif`,
+    tittle: "Lazer",
   },
 };
 
@@ -12,6 +14,10 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+  @font-face {
+    font-family: 'Lazer';
+    src: url(${FontLazer}) format('truetype');
   }
   body {
     font-family: ${(props) => props.theme.fonts.primary};
@@ -77,7 +83,7 @@ export const GlobalStyles = createGlobalStyle`
     overflow: hidden;
     thead {
       height: 60px;
-      background-color: #2c1742eb;
+      background-color: #2c1742;
       color: white;
       font-family: ${(props) => props.theme.fonts.secondary};
     }
@@ -96,6 +102,7 @@ export const GlobalStyles = createGlobalStyle`
       cursor: pointer;
       height: 50px;
       font-size: 1rem;
+      background-color: white;
     }
     tbody tr:nth-child(even){
       background-color: #f5f5f5;
@@ -118,6 +125,9 @@ export const GlobalStyles = createGlobalStyle`
       text-align: center;
       font-size: 1.5rem;
       cursor: default;
+    }
+    .noRowData {
+      text-align: center;
     }
   }
   .ContainerInformation {

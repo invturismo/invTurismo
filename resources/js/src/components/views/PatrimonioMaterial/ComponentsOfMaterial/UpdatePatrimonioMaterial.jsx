@@ -7,13 +7,17 @@ import ActionBack from '../../ComponentsOfViews/ActionBack';
 import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialErrorsGeneralForm';
 import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
 import MainGeneralForm from '../../ComponentsOfViews/GeneralForm/MainGeneralForm';
-import useRecordMaterial from '../hooks/useRecordMaterial';
 import { useDispatch } from "react-redux";
 import { helpConvertData } from '../../../../helpers/helpConvertData';
+import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
 
 const UpdatePatrimonioMaterial = () => {
   const { idPatrimonioMaterial } = useParams();
-  const response = useRecordMaterial(idPatrimonioMaterial, "getrecordcom", true);
+  const response = useRecordGeneral(
+    idPatrimonioMaterial,
+    "patrimonios-materiales/getrecordcom",
+    true
+  );
   const dispatch = useDispatch();
   useCancelUpdate(response);
 

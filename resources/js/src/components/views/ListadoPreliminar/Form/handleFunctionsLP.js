@@ -4,7 +4,6 @@ import {
   openLoaderForm,
   openModalLayoutState,
 } from "../../../../features/modalsSlice";
-import { helpCapitalize } from "../../../../helpers/helpCapitalize";
 import { toastMs } from "../../../../helpers/helpToastMessage";
 import {
   initialErrors,
@@ -104,6 +103,7 @@ export const handleFunctionsLP = (
   }
 
   const handleUpdate = async () => {
+    console.log(values);
     const schemaValidate = await validateSchema();
     if (!schemaValidate) return;
     dispatch(openLoaderForm());

@@ -24,30 +24,35 @@ class PatrimoniosClasificacionController extends Controller
                 $material -> ID_LISTADO = $ID_LISTADO;
                 $material -> save();
                 HistorialController::createInsertDelete($ID_USUARIO,'Patrimonio Cultural Material',$material->ID_MATERIAL,1);
+                return $material->ID_MATERIAL;
                 break;
             case 2:
                 $inmaterial = new PatrimoniosInmateriales();
                 $inmaterial -> ID_LISTADO = $ID_LISTADO;
                 $inmaterial -> save();
                 HistorialController::createInsertDelete($ID_USUARIO,'Patrimonio Cultural Inmaterial',$inmaterial->ID_INMATERIAL,1);
+                return $inmaterial->ID_INMATERIAL;
                 break;
             case 3:
                 $eventos = new FestividadesEventos();
                 $eventos -> ID_LISTADO = $ID_LISTADO;
                 $eventos -> save();
                 HistorialController::createInsertDelete($ID_USUARIO,'Festividades y Eventos',$eventos->ID_EVENTO,1);
+                return $eventos->ID_EVENTO;
                 break;
             case 4:
                 $grupos = new GruposEspeciales();
                 $grupos -> ID_LISTADO = $ID_LISTADO;
                 $grupos -> save();
                 HistorialController::createInsertDelete($ID_USUARIO,'Grupos de Especial Interés',$grupos->ID_GRUPO,1);
+                return $grupos->ID_GRUPO;
                 break;
             case 5:
                 $sitios = new SitiosNaturales();
                 $sitios -> ID_LISTADO = $ID_LISTADO;
                 $sitios -> save();
                 HistorialController::createInsertDelete($ID_USUARIO,'Sitios Naturales',$sitios->ID_SITIO,1);
+                return $sitios->ID_SITIO;
                 break;
         }
     }

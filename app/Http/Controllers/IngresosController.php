@@ -38,13 +38,13 @@ class IngresosController extends Controller
         return $ingreso->ID_INGRESO;
     }
 
-    public static function update($clientData,$queryUpdate,$idUsuario)
+    public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Ingresos::find($queryUpdate->ID_INGRESO);
         foreach (self::rules() as $key => $value) {
             $data = $key == 'HORAS' ? $clientData[$key] : $clientData[$key] == 'true';
             if($queryData[$key] != $data) {
-                HistorialController::createUpdate($idUsuario,'ingresos',$queryData->ID_INGRESO,$key,$queryData[$key],$data);
+                HistorialController::createUpdate($idUsuario,'ingresos',$idListado,$queryUpdate->ID_INGRESO,$key,$queryData[$key],$data);
                 $queryData[$key] = $data;
                 $queryData->save();
             }

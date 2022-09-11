@@ -4,6 +4,7 @@ const messageRequire = "El campo es obligatorio";
 const messageEmail = "No es un email";
 const messageTelefono = "No es un telefono valido";
 const messageTarifa = "El valor no es valido";
+const messageTemperatura = "La temperatura no es valida";
 const messageCalidad = (text) =>
   `El numero no es valido debe ser entre 0 y ${text}`;
 const maxMessage = (text) => `No puede superar ${text} caracteres`;
@@ -22,6 +23,10 @@ const testTarifa = (value) => {
   if (!value) return true;
   return /^\d+$/g.test(value);
 };
+const testTemperatura = (value) => {
+  if (!value) return true;
+  return /^\d{1,2}$/g.test(value);
+};
 
 const yupMaxAndReq = (max) =>
   yup.string().required(messageRequire).max(max, maxMessage(max));
@@ -29,6 +34,11 @@ const yupTelefono = () =>
   yup.string().test({
     test: testTelefono,
     message: messageTelefono,
+  });
+const yupTemperatura = () =>
+  yup.string().test({
+    test: testTemperatura,
+    message: messageTemperatura,
   });
 const yupMax = (max) => yup.string().max(max, maxMessage(max));
 const yupCalidad = (max) =>
@@ -108,7 +118,7 @@ const schemaPuntajes = {
 
 const schemaOthersRelevantes = {
   ID_TIPO_CLIMA: yupMax(1),
-  TEMPERATURA: yupMax(4),
+  TEMPERATURA: yupTemperatura(),
   ID_ESTADO: yupMax(1),
 };
 

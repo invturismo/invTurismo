@@ -179,7 +179,11 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
           )}
         </label>
       </div>
-      <ButtonPage type="submit" colorButton="green" className="ButtonRegistrar">
+      <ButtonPage
+        type="submit"
+        colorButton="#5328fe"
+        className="ButtonRegistrar"
+      >
         {who === 1 ? "Registrar" : "Actualizar"}
       </ButtonPage>
     </form>

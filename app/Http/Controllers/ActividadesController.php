@@ -33,7 +33,7 @@ class ActividadesController extends Controller
         $queryData = Actividades::find($queryUpdate->ID_ACTIVIDAD);
         foreach (self::$rules as $key => $value) {
             if($queryData[$key] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'actividades',$queryData->ID_ACTIVIDAD,$key,$queryData[$key],$clientData[$key]);
+                HistorialController::createUpdate($idUsuario,'actividades',$queryUpdate->ID_LISTADO,$queryData->ID_ACTIVIDAD,$key,$queryData[$key],$clientData[$key]);
                 $queryData[$key] = $clientData[$key];
                 $queryData->save();
             }

@@ -52,10 +52,13 @@ export const submitFunctionsGeneralForm = ({
 
   const templateSubmit = async (nameLink, exec, updateImage) => {
     dispatch(openLoaderForm());
-    const formData = formDataTransform({ ...values, ...idRecord });
+    const formData = formDataTransform({ ...values, ...idRecord },who);
     if (updateImage) {
       let rulesImage = updateImage();
       if (rulesImage) formData.append("REGLAS", rulesImage);
+    }
+    for (const pair of formData.entries()) {
+      console.log(`${pair[0]}, ${pair[1]}`);
     }
     const responseServe = await sendDataForm(nameLink, formData);
     dispatch(closeLoaderForm());

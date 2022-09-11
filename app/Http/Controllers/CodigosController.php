@@ -25,10 +25,10 @@ class CodigosController extends Controller
         ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
         $codigos = Codigos::find($queryData->ID_CODIGO);
         if($queryData->ID_DEPARTAMENTOS != $clientData->ID_DEPARTAMENTOS){
-            HistorialController::createUpdate($idUsuario,'codigos',$idListado,'ID_DEPARTAMENTOS',$queryData->ID_DEPARTAMENTOS,$clientData->ID_DEPARTAMENTOS);            
+            HistorialController::createUpdate($idUsuario,'codigos',$idListado,$idListado,'ID_DEPARTAMENTOS',$queryData->ID_DEPARTAMENTOS,$clientData->ID_DEPARTAMENTOS);            
         }
         if($queryData->ID_MUNICIPIOS != $clientData->ID_MUNICIPIOS){
-            HistorialController::createUpdate($idUsuario,'codigos',$idListado,'ID_MUNICIPIOS',$queryData->ID_MUNICIPIOS,$clientData->ID_MUNICIPIOS);
+            HistorialController::createUpdate($idUsuario,'codigos',$idListado,$idListado,'ID_MUNICIPIOS',$queryData->ID_MUNICIPIOS,$clientData->ID_MUNICIPIOS);
         }
         $codigos->ID_DEPARTAMENTOS = $clientData->ID_DEPARTAMENTOS;
         $codigos->ID_MUNICIPIOS = $clientData->ID_MUNICIPIOS;
@@ -45,7 +45,7 @@ class CodigosController extends Controller
         $queryData = Codigos::find($queryListado->ID_CODIGO);
         foreach (self::$rules as $key => $value) {
             if($queryData[$key] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'codigos',$queryData->ID_CODIGO,$key,$queryData[$key],$clientData[$key]);
+                HistorialController::createUpdate($idUsuario,'codigos',$queryUpdate->ID_LISTADO,$queryData->ID_CODIGO,$key,$queryData[$key],$clientData[$key]);
             }
         }
         $queryData->ID_DEPARTAMENTOS = $clientData['ID_DEPARTAMENTOS'];
@@ -65,7 +65,8 @@ class CodigosController extends Controller
         ->where('codigos.ID_TIPO_PATRIMONIO',"=",$queryListado->ID_TIPO_PATRIMONIO)
         ->where('codigos.ID_GRUPO',"=",$queryListado->ID_GRUPO)
         ->where('codigos.ID_COMPONENTE',"=",$queryListado->ID_COMPONENTE)
-        ->where('codigos.ID_ELEMENTO',"=",$queryListado->ID_ELEMENTO);
+        ->where('codigos.ID_ELEMENTO',"=",$queryListado->ID_ELEMENTO)
+        ->where('listados_preliminares.EXIST','=',true);
         return $queryData;
     }
 

@@ -4,12 +4,15 @@ import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
 import { initialValuesGeneralForm } from "../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm";
 import GeneralGetRecord from "../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord";
-import useRecordMaterial from "../hooks/useRecordMaterial";
 import { useNavigate, useParams } from "react-router-dom";
+import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
 
 const GetRecordConMaterial = () => {
   const { idPatrimonioMaterial } = useParams();
-  const response = useRecordMaterial(idPatrimonioMaterial, "getrecordcom");
+  const response = useRecordGeneral(
+    idPatrimonioMaterial,
+    "patrimonios-materiales/getrecordcom"
+  );
   const navigate = useNavigate();
 
   if (!response) return <GeneralLoader />;

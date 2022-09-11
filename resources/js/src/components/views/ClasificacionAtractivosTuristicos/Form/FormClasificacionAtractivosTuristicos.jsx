@@ -79,15 +79,15 @@ const FormClasificacionAtractivosTuristicos = ({
       </div>
       <div className="ContainerButtons">
         {actualizando ? (
-          <ButtonPage type="submit" colorButton="green">
+          <ButtonPage type="submit" colorButton="#5328fe">
             Actualizar
           </ButtonPage>
         ) : (
           <>
-            <ButtonPage type="submit" colorButton="blue">
+            <ButtonPage type="submit" colorButton="#763af1">
               Clasificar
             </ButtonPage>
-            <ButtonPage type="submit" colorButton="green" id="buttonNext">
+            <ButtonPage type="submit" colorButton="#220646" id="buttonNext">
               Siguiente
             </ButtonPage>
           </>

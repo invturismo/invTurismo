@@ -3,6 +3,8 @@ import GetCompletadoInmaterial from './ComponentsOfInmaterial/GetCompletadoInmat
 import GetRecordConInmaterial from './ComponentsOfInmaterial/GetRecordConInmaterial';
 import GetRecordSinInmaterial from './ComponentsOfInmaterial/GetRecordSinInmaterial';
 import GetSinCompletarInmaterial from './ComponentsOfInmaterial/GetSinCompletarInmaterial';
+import OptionsInmaterial from './ComponentsOfInmaterial/OptionsInmaterial';
+import UpdatePatrimonioInmaterial from './ComponentsOfInmaterial/UpdatePatrimonioInmaterial';
 
 const MainPatrimonioInmaterial = ({who}) => {
   return (
@@ -11,6 +13,8 @@ const MainPatrimonioInmaterial = ({who}) => {
       {who === 2 && <GetCompletadoInmaterial />}
       {who === 3 && <GetRecordSinInmaterial />}
       {who === 4 && <GetRecordConInmaterial />}
+      {who === 5 && <UpdatePatrimonioInmaterial />}
+      {who === 6 && <OptionsInmaterial />}
     </div>
   );
 }

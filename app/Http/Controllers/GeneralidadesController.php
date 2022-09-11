@@ -49,13 +49,13 @@ class GeneralidadesController extends Controller
     {
         $queryData = ListadosPreliminares::find($idListado);
         if($queryData['NOMBRE'] != $clientData['NOMBRE']){
-            HistorialController::createUpdate($idUsuario,'listados_preliminares',$idListado,'NOMBRE',$queryData['NOMBRE'],$clientData['NOMBRE']);
+            HistorialController::createUpdate($idUsuario,'listados_preliminares',$idListado,$idListado,'NOMBRE',$queryData['NOMBRE'],$clientData['NOMBRE']);
             $queryData['NOMBRE'] = $clientData['NOMBRE'];
             $queryData->save();
         }
         if($noData) return;
         if($queryData['UBICACION'] != $clientData['UBICACION']){
-            HistorialController::createUpdate($idUsuario,'listados_preliminares',$idListado,'UBICACION',$queryData['UBICACION'],$clientData['UBICACION']);
+            HistorialController::createUpdate($idUsuario,'listados_preliminares',$idListado,$idListado,'UBICACION',$queryData['UBICACION'],$clientData['UBICACION']);
             $queryData['UBICACION'] = $clientData['UBICACION'];
             $queryData->save();
         }
@@ -78,11 +78,11 @@ class GeneralidadesController extends Controller
     public static function update($clientData,$queryUpdate,$idUsuario,$noData=false)
     {
         $queryData = Generalidades::find($queryUpdate->ID_GENERALIDAD);
-        if(!$noData) AdminController::update($clientData,$queryData,$idUsuario);
+        if(!$noData) AdminController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
         self::updateListado($clientData,$queryUpdate->ID_LISTADO,$idUsuario,$noData);
         foreach (self::fieldsUpdate($noData) as $value) {
             if($queryData[$value] != $clientData[$value]) {
-                HistorialController::createUpdate($idUsuario,'generalidades',$queryData->ID_GENERALIDAD,$value,$queryData[$value],$clientData[$value]);
+                HistorialController::createUpdate($idUsuario,'generalidades',$queryUpdate->ID_LISTADO,$queryData->ID_GENERALIDAD,$value,$queryData[$value],$clientData[$value]);
                 $queryData[$value] = $clientData[$value];
                 $queryData->save();
             }
@@ -107,20 +107,6 @@ class GeneralidadesController extends Controller
         $queryAdmin = AdminController::getRecord($queryData['ID_ADMIN']);
         return [
             "GENERALIDADES" => array_merge($queryData,$queryListado,$queryAdmin)
-        ];
-    }
-
-    public static function getFecha($tabla,$id)
-    {
-        $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
-        ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
-        ->where('historial_insert_delete.TABLA_MOVIMIENTO','=',$tabla)
-        ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$id)
-        ->where('historial_insert_delete.TIPO_MOVIMIENTO','=',2)
-        ->first()->toArray();
-        return [
-            'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
-            'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
         ];
     }
 }

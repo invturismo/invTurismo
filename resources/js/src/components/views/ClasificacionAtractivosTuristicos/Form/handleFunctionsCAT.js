@@ -3,6 +3,14 @@ import { toastMs } from "../../../../helpers/helpToastMessage";
 import { fetchFormClasificacion } from "./logicFormClasificacion";
 import { validationClasificacion } from "./schemaErrorsFormCAT";
 
+const linksPatrimonios = {
+  1: "patrimonio-material",
+  2: "patrimonio-inmaterial",
+  3: "festividades-eventos",
+  4: "grupos-especial-interes",
+  5: "sitios-naturales",
+};
+
 export const handleFunctionsCAT = ({
   dispatch,
   ID_LISTADO,
@@ -36,14 +44,19 @@ export const handleFunctionsCAT = ({
       if(data.errors) setErrors(data.errors);
       return;
     }
-    exec();
+    exec(data.id);
     dispatch(closeModalLayoutState());
   };
 
-  const handleCreate = () => {
-    const handleSend = () => {
+  const handleCreate = (e) => {
+    const validateNext = e.nativeEvent.submitter.id === "buttonNext";
+    const handleSend = (id) => {
+      let urlNavigate = `/clasificacion-recursos-atractivos/sin-clasificar`;
       toastMs().success("Se clasifico correctamente");
-      navigate(`/clasificacion-recursos-atractivos/sin-clasificar`);
+      if (validateNext) urlNavigate = `/${
+        linksPatrimonios[values.ID_TIPO_BIEN]
+      }/sin-completar/${id}`;
+      navigate(urlNavigate);
     };
     sendData(handleSend);
   };

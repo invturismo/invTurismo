@@ -23,6 +23,7 @@ const generalidades = (Calidad,data) => {
   if(Calidad === 'PATRIMONIOS_INMATERIALES') return templateGeneralidades;
   const others = {
     UBICACION: data?.UBICACION || "",
+    INDICACIONES_ACCESO : "",
     "ADMIN/PROPIETARIOS": {
       NOMBRE: "",
       DIRECCION_UBICACION: "",

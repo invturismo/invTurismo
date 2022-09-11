@@ -1,8 +1,8 @@
-import React from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom';
-import MainPatrimonioInmaterial from '../components/views/PatrimonioInmaterial/MainPatrimonioInmaterial';
-import useTittle from '../hooks/useTittle';
-import Error404 from './Error404';
+import React from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import MainPatrimonioInmaterial from "../components/views/PatrimonioInmaterial/MainPatrimonioInmaterial";
+import useTittle from "../hooks/useTittle";
+import Error404 from "./Error404";
 
 const PatrimonioInmaterial = () => {
   useTittle("Patrimonio inmaterial");
@@ -29,10 +29,18 @@ const PatrimonioInmaterial = () => {
           path="/completado/:idPatrimonioInmaterial"
           element={<MainPatrimonioInmaterial who={4} />}
         />
+        <Route
+          path="/completado/actualizar/:idPatrimonioInmaterial"
+          element={<MainPatrimonioInmaterial who={5} />}
+        />
+        <Route
+          path="/opciones"
+          element={<MainPatrimonioInmaterial who={6} />}
+        />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
-}
+};
 
-export default PatrimonioInmaterial
+export default PatrimonioInmaterial;

@@ -39,7 +39,7 @@ class ImagenesController extends Controller
         return $imagenes->ID_IMAGEN;
     }
 
-    public static function update($clientData,$queryUpdate,$idUsuario)
+    public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {   
         $imagenes = Imagenes::find($queryUpdate->ID_IMAGEN);
         $clientData2 = $clientData->all();
@@ -51,10 +51,10 @@ class ImagenesController extends Controller
                 $textConcat = $key == 'IMAGEN1' ? "1_" : "2_";
                 $name = time().$textConcat.$clientData->file($key)->getClientOriginalName();
                 $clientData->file($key)->storeAs('imagenes_inventario',$name);
-                HistorialController::createUpdate($idUsuario,'imagenes',$imagenes->ID_IMAGEN,$key,$imagenes[$key],$name);
+                HistorialController::createUpdate($idUsuario,'imagenes',$idListado,$imagenes->ID_IMAGEN,$key,$imagenes[$key],$name);
                 $imagenes[$key] = $name;
             }else{
-                HistorialController::createUpdate($idUsuario,'imagenes',$imagenes->ID_IMAGEN,$key,$imagenes[$key],$clientData2[$key]);
+                HistorialController::createUpdate($idUsuario,'imagenes',$idListado,$imagenes->ID_IMAGEN,$key,$imagenes[$key],$clientData2[$key]);
                 $imagenes[$key] = $clientData2[$key];
             }
             $imagenes->save();

@@ -130,7 +130,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
         handleBlur={handleBlur}
         errors={errors.OTROS}
       />
-      <ButtonPage type="submit" colorButton="green">
+      <ButtonPage type="submit" colorButton="#5328fe">
         {update ? "Actualizar" : "Aceptar"}
       </ButtonPage>
     </StyleMainGeneralForm>

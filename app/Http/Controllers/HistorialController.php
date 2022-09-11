@@ -8,10 +8,11 @@ use App\Models\Historial_Insert_Delete;
 
 class HistorialController extends Controller
 {
-    public static function createUpdate($ID_USUARIO,$TABLA_MODIFICADA,$ID_REGISTRO_MODIFICADO,$CAMPO_MODIFICADO,$VALOR_OLD,$VALOR_NEW) {
+    public static function createUpdate($ID_USUARIO,$TABLA_MODIFICADA,$ID_LISTADO_MODIFICADO,$ID_REGISTRO_MODIFICADO,$CAMPO_MODIFICADO,$VALOR_OLD,$VALOR_NEW) {
         $historial = new Historial_Update();
         $historial->ID_USUARIO = $ID_USUARIO;
         $historial->TABLA_MODIFICADA = $TABLA_MODIFICADA;
+        $historial->ID_LISTADO_MODIFICADO = $ID_LISTADO_MODIFICADO;
         $historial->ID_REGISTRO_MODIFICADO = $ID_REGISTRO_MODIFICADO;
         $historial->CAMPO_MODIFICADO = $CAMPO_MODIFICADO;
         $historial->VALOR_OLD = isset($VALOR_OLD) ? $VALOR_OLD : 0;

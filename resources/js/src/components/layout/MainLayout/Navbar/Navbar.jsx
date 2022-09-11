@@ -2,11 +2,11 @@ import React from 'react';
 import MenuNavbar from './Menu/MenuNavbar';
 import { Nav } from './StyleNavbar';
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { closeMenu } from '../../../../features/mainLayoutSlice';
 import { closeLoaderForm, openLoaderForm, openModalLayoutState } from '../../../../features/modalsSlice';
 import { helpLogout } from '../../../../helpers/helpLogout';
-import { LOGIN } from '../../../router/paths';
+import { HOME, LOGIN } from '../../../router/paths';
 
 const CloseMenu = () => {
   const dispatch = useDispatch();
@@ -21,9 +21,12 @@ const CloseMenu = () => {
 }
 
 const HeaderMenu = () => {
+  const dispatch = useDispatch();
   return (
     <header className="HeaderNav">
-      <img src="/img/logos/LogoInventario.svg" alt="Logo inventario" />
+      <Link to={HOME} onClick={() => dispatch(closeMenu())}>
+        inv
+      </Link>
     </header>
   );
 }
@@ -36,7 +39,7 @@ const ButtonLogout = () => {
     dispatch(openLoaderForm());
     await helpLogout();
     dispatch(closeLoaderForm());
-    navigate(LOGIN, { replace: true });
+    navigate(LOGIN);
   };
   const dataPayload = {
     textMessage1: "¿Estas seguro que quieres",

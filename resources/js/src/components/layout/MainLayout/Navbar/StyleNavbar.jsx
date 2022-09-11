@@ -37,13 +37,33 @@ const Nav = styled(motion.nav)`
     display: grid;
     padding: 15px;
     place-items: center center;
-    img {
+    a {
       width: 100px;
-      height: 100px;
+      font-family: ${(props) => props.theme.fonts.tittle};
+      font-size: 3.5rem;
+      color: #2be6ab;
+      text-shadow: 6px 0px 1px #5328fe;
+      transition: all 0.5s;
+      cursor: pointer;
+    }
+    a:hover {
+      color: #5328fe;
+      text-shadow: 6px 0px 1px #2be6ab;
     }
   }
   .ContainerMenuNavbar {
     flex-grow: 1;
+    overflow-y: auto;
+  }
+  .ContainerMenuNavbar::-webkit-scrollbar {
+    width: 7px;
+  }
+  .ContainerMenuNavbar::-webkit-scrollbar-thumb {
+    background-color: #f7f7f740;
+    border-radius: 4px;
+  }
+  .ContainerMenuNavbar::-webkit-scrollbar-thumb:active {
+    background-color: #f7f7f75e;
   }
   .ContainerLogoutNavbar {
     background-color: #15012e;

@@ -24,17 +24,17 @@ const RowGeneralTable = ({
       <td>
         <span title={NOMBRE}>{helpCapitalize(NOMBRE)}</span>
       </td>
-      <td>
-        <span title={CODIGO}>{CODIGO}</span>
+      <td className={!CODIGO ? "noRowData" : null}>
+        <span title={CODIGO}>{CODIGO || "-"}</span>
       </td>
-      <td>
-        <span title={CALIFICACION}>{CALIFICACION}</span>
+      <td className={!CALIFICACION ? "noRowData" : null}>
+        <span title={CALIFICACION}>{CALIFICACION || "-"}</span>
       </td>
-      <td>
-        <span title={UBICACION}>{helpCapitalize(UBICACION)}</span>
+      <td className={!UBICACION ? "noRowData" : null}>
+        <span title={UBICACION}>{helpCapitalize(UBICACION) || "-"}</span>
       </td>
-      <td>
-        <span title={GEORREFERENCIACION}>{GEORREFERENCIACION}</span>
+      <td className={!GEORREFERENCIACION ? "noRowData" : null}>
+        <span title={GEORREFERENCIACION}>{GEORREFERENCIACION || "-"}</span>
       </td>
     </tr>
   );

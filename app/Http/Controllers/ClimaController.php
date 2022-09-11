@@ -13,7 +13,7 @@ class ClimaController extends Controller
     {
         return [
             'ID_TIPO_CLIMA' => [new ValidateNumber(),'max:1'],
-            'TEMPERATURA' => 'max:4',
+            'TEMPERATURA' => 'max:2',
         ];
     }
 
@@ -26,12 +26,12 @@ class ClimaController extends Controller
         return $clima->ID_CLIMA;
     }
 
-    public static function update($clientData,$queryUpdate,$idUsuario)
+    public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Climas::find($queryUpdate->ID_CLIMA);
         foreach (self::rules() as $key => $value) {
             if($queryData[$key] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'climas',$queryData->ID_CLIMA,$key,$queryData[$key],$clientData[$key]);
+                HistorialController::createUpdate($idUsuario,'climas',$idListado,$queryData->ID_CLIMA,$key,$queryData[$key],$clientData[$key]);
                 $queryData[$key] = $clientData[$key];
                 $queryData->save();
             }

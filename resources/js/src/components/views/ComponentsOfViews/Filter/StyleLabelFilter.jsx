@@ -15,10 +15,10 @@ const StyleLabelFilter = styled.div`
     border-radius: 3px;
   }
   #spanID_DEPARTAMENTOS {
-    background-color: #f25a5a;
+    background-color: #763af1;
   }
   #spanID_MUNICIPIOS {
-    background-color: #5fa7e2;
+    background-color: #5328fe;
   }
   button {
     cursor: pointer;

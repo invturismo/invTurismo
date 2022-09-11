@@ -32,13 +32,13 @@ class AdminController extends Controller
         return $admin->ID_ADMIN;
     }
 
-    public static function update($clientData,$queryUpdate,$idUsuario)
+    public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Admin::find($queryUpdate->ID_ADMIN);
         foreach (self::rules() as $key => $value) {
             $valueUpdate = $key == 'NOMBRE_ADMIN' ? "NOMBRE" : $key;
             if($queryData[$valueUpdate] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'admin_propietarios',$queryData->ID_ADMIN,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
+                HistorialController::createUpdate($idUsuario,'admin_propietarios',$idListado,$queryData->ID_ADMIN,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
                 $queryData[$valueUpdate] = $clientData[$key];
                 $queryData->save();
             }

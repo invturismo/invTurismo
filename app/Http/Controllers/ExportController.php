@@ -11,6 +11,7 @@ use App\Models\PatrimoniosInmateriales;
 use App\Models\FestividadesEventos;
 use App\Models\GruposEspeciales;
 use App\Models\SitiosNaturales;
+use App\Models\Historial_Update;
 
 class ExportController extends Controller
 {
@@ -42,6 +43,28 @@ class ExportController extends Controller
         return $id;
     }
 
+    public static function templateHistorial($tabla,$id,$movimiento,$idListado)
+    {
+        $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
+        ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
+        ->where('historial_insert_delete.TABLA_MOVIMIENTO','=',$tabla)
+        ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$id)
+        ->where('historial_insert_delete.TIPO_MOVIMIENTO',"=",$movimiento)
+        ->first()->toArray();
+        $queryUpdate = Historial_Update::join('usuarios',"historial_update.ID_USUARIO","=","usuarios.ID_USUARIO")
+        ->select('historial_update.FECHA_MODIFICACION','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
+        ->where('historial_update.ID_LISTADO_MODIFICADO',"=",$idListado)
+        ->orderBy("historial_update.FECHA_MODIFICACION","DESC")
+        ->first();
+        $queryHistorial = [
+            'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
+            'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO'],
+            'FECHA_MODIFICACION'=> isset($queryUpdate) ? $queryUpdate->FECHA_MODIFICACION : "",
+            'USUARIO_AC' => isset($queryUpdate) ? $queryUpdate->PRIMER_NOMBRE.' '.$queryUpdate->PRIMER_APELLIDO : ""
+        ];
+        return $queryHistorial;
+    }
+
     public function ExportListadosPreliminares(Request $request)
     {
         try {
@@ -59,15 +82,7 @@ class ExportController extends Controller
             if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
             $queryData = $queryData->get()->toArray();
             foreach ($queryData as $key => $value) {
-                $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
-                ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
-                ->where('historial_insert_delete.TABLA_MOVIMIENTO','=','listados_preliminares')
-                ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$value['ID_LISTADO'])
-                ->first()->toArray();
-                $queryHistorial = [
-                    'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
-                    'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
-                ];
+                $queryHistorial = $queryHistorial = self::templateHistorial('listados_preliminares',$value['ID_LISTADO'],1,$value['ID_LISTADO']);
                 $queryData[$key] = array_merge($value,$queryHistorial);
             }
             return response()->json([
@@ -86,16 +101,7 @@ class ExportController extends Controller
     public static function historialClasificacion($value)
     {
         $id = self::WhoAtractivo($value['TIPO_BIEN'],$value['ID_LISTADO']);
-        $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
-        ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
-        ->where('historial_insert_delete.TABLA_MOVIMIENTO','=',$value['TIPO_BIEN'])
-        ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$id)
-        ->where('historial_insert_delete.TIPO_MOVIMIENTO',"=",1)
-        ->first()->toArray();
-        $queryHistorial = [
-            'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
-            'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
-        ];
+        $queryHistorial = self::templateHistorial($value['TIPO_BIEN'],$id,1,$value['ID_LISTADO']);
         return $queryHistorial;
     }
 
@@ -116,7 +122,8 @@ class ExportController extends Controller
             if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
             $queryData = $queryData->get()->toArray();
             foreach ($queryData as $key => $value) {
-                $queryHistorial = self::historialClasificacion($value);
+                $id = self::WhoAtractivo($value['TIPO_BIEN'],$value['ID_LISTADO']);
+                $queryHistorial = self::templateHistorial($value['TIPO_BIEN'],$id,1,$value['ID_LISTADO']);
                 $queryData[$key] = array_merge($value,$queryHistorial);
             }
             return response()->json([
@@ -132,37 +139,65 @@ class ExportController extends Controller
         }
     }
 
+    public static function templateQuery($query,$table,$id,$valoracion)
+    {
+        $queryData = $query->join("listados_preliminares","listados_preliminares.ID_LISTADO","=","{$table}.ID_LISTADO")
+        ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+        ->join('municipios', function ($join) {
+            $join->on(function($query){
+                $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
+                ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
+        });})
+        ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
+        ->join("generalidades","generalidades.ID_GENERALIDAD","=","{$table}.ID_GENERALIDAD")
+        ->select("{$table}.{$id} as ID","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.ID_LISTADO","{$valoracion}.TOTAL as CALIFICACION","listados_preliminares.UBICACION","generalidades.GEORREFERENCIACION")
+        ->where("{$table}.EXIST","=",true)
+        ->whereNotNull("codigos.id_tipo_patrimonio");
+        return $queryData;
+    }
+
+    public static function filtersExport($request,$queryData)
+    {
+        if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
+        if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
+        return $queryData;
+    }
+
     public function ExportPatrimonioMaterial(Request $request)
     {
         try {
-            $queryData = PatrimoniosMateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_materiales.ID_LISTADO")
-            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-            ->join('municipios', function ($join) {
-                $join->on(function($query){
-                    $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
-                    ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
-            });})
-            ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->join("valoraciones_material","valoraciones_material.ID_VALORACION_MATERIAL","=","patrimonios_materiales.ID_VALORACION_MATERIAL")
-            ->join("generalidades","generalidades.ID_GENERALIDAD","=","patrimonios_materiales.ID_GENERALIDAD")
-            ->select("patrimonios_materiales.ID_MATERIAL as ID","departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.ID_LISTADO","valoraciones_material.TOTAL as CALIFICACION","listados_preliminares.UBICACION","generalidades.GEORREFERENCIACION")
-            ->where("patrimonios_materiales.EXIST","=",true)
-            ->whereNotNull("codigos.id_tipo_patrimonio");
-            if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
-            if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
+            $queryData = PatrimoniosMateriales::join("valoraciones_material","valoraciones_material.ID_VALORACION_MATERIAL","=","patrimonios_materiales.ID_VALORACION_MATERIAL");
+            $queryData = self::templateQuery($queryData,"patrimonios_materiales","ID_MATERIAL","valoraciones_material");
+            $queryData = self::filtersExport($request,$queryData);
             $queryData = $queryData->get()->toArray();
             if(count($queryData)>0) $queryData = CodigosController::getExport($queryData);
             foreach ($queryData as $key => $value) {
-                $queryHistorial = Historial_Insert_Delete::join('usuarios',"historial_insert_delete.ID_USUARIO","=","usuarios.ID_USUARIO")
-                ->select('historial_insert_delete.FECHA_MOVIMIENTO','usuarios.PRIMER_NOMBRE','usuarios.PRIMER_APELLIDO')
-                ->where('historial_insert_delete.TABLA_MOVIMIENTO','=','Patrimonio Cultural Material')
-                ->where('historial_insert_delete.ID_REGISTRO_MOVIMIENTO',"=",$value['ID'])
-                ->where('historial_insert_delete.TIPO_MOVIMIENTO',"=",2)
-                ->first()->toArray();
-                $queryHistorial = [
-                    'FECHA_MOVIMIENTO'=> $queryHistorial['FECHA_MOVIMIENTO'],
-                    'USUARIO' => $queryHistorial['PRIMER_NOMBRE'].' '.$queryHistorial['PRIMER_APELLIDO']
-                ];
+                $queryHistorial = self::templateHistorial('Patrimonio Cultural Material',$value['ID'],2,$value['ID_LISTADO']);
+                $queryData[$key] = array_merge($value,$queryHistorial);
+            }
+            return response()->json([
+                "state" => true,
+                "data" => $queryData
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
+    }
+
+    public function ExportPatrimonioInmaterial(Request $request)
+    {
+        try {
+            $queryData = PatrimoniosInmateriales::join("valoraciones_inmaterial","valoraciones_inmaterial.ID_VALORACION_INMATERIAL","=","patrimonios_inmateriales.ID_VALORACION_INMATERIAL");
+            $queryData = self::templateQuery($queryData,"patrimonios_inmateriales","ID_INMATERIAL","valoraciones_inmaterial");
+            $queryData = self::filtersExport($request,$queryData);
+            $queryData = $queryData->get()->toArray();
+            if(count($queryData)>0) $queryData = CodigosController::getExport($queryData);
+            foreach ($queryData as $key => $value) {
+                $queryHistorial = self::templateHistorial('Patrimonio Cultural Inmaterial',$value['ID'],2,$value['ID_LISTADO']);
                 $queryData[$key] = array_merge($value,$queryHistorial);
             }
             return response()->json([

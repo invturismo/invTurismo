@@ -34,10 +34,10 @@ class CaracteristicasController extends Controller
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Caracteristicas::find($queryUpdate->ID_CARACTERISTICA);
-        ImagenesController::update($clientData,$queryData,$idUsuario);
+        ImagenesController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
         $clientData = $clientData->all();
         if($queryData['DESCRIPCION'] != $clientData['DESCRIPCION']){
-            HistorialController::createUpdate($idUsuario,'caracteristicas',$queryData->ID_CARACTERISTICA,'DESCRIPCION',$queryData['DESCRIPCION'],$clientData['DESCRIPCION']);
+            HistorialController::createUpdate($idUsuario,'caracteristicas',$queryUpdate->ID_LISTADO,$queryData->ID_CARACTERISTICA,'DESCRIPCION',$queryData['DESCRIPCION'],$clientData['DESCRIPCION']);
             $queryData['DESCRIPCION'] = $clientData['DESCRIPCION'];
             $queryData->save();
         }

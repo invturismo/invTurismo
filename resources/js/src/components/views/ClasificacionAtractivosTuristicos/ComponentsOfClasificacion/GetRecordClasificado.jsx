@@ -53,15 +53,29 @@ const GetRecordClasificado = () => {
             </span>
           </p>
           <p>
-            <span className="titleInformation">Fecha: </span>
+            <span className="titleInformation">Fecha clasificacion: </span>
             <span className="information">
               {response.data["FECHA_MOVIMIENTO"]}
             </span>
           </p>
           <p>
-            <span className="titleInformation">Diligenciado por: </span>
+            <span className="titleInformation">Clasificado por: </span>
             <span className="information">{response.data["USUARIO"]}</span>
           </p>
+          {response.data["FECHA_MODIFICACION"] && (
+            <p>
+              <span className="titleInformation">Fecha actualizacion: </span>
+              <span className="information">
+                {response.data["FECHA_MODIFICACION"]}
+              </span>
+            </p>
+          )}
+          {response.data["USUARIO_AC"] && (
+            <p>
+              <span className="titleInformation">Actulizado por: </span>
+              <span className="information">{response.data["USUARIO_AC"]}</span>
+            </p>
+          )}
         </div>
         <div className="ContainerButtons">
           <span
@@ -69,7 +83,7 @@ const GetRecordClasificado = () => {
           >
             <ButtonPage
               colorButton={
-                response.data["ID_TIPO_PATRIMONIO"] ? "gray" : "green"
+                response.data["ID_TIPO_PATRIMONIO"] ? "gray" : "#5328fe"
               }
             >
               Actualizar

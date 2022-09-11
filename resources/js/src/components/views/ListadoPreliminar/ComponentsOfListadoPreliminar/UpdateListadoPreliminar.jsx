@@ -4,6 +4,7 @@ import useCancelUpdate from '../../../../hooks/useCancelUpdate';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
 import ActionBack from '../../ComponentsOfViews/ActionBack';
+import { changeNullValues } from '../Form/changeNullValues';
 import FormListaPreliminar from '../Form/FormListaPreliminar';
 import useUpdateDataListadoPreliminar from '../hooks/useUpdateDataListadoPreliminar';
 
@@ -24,7 +25,7 @@ const UpdateListadoPreliminar = () => {
       />
       <h2>Actulizar un listado preliminar</h2>
       <FormListaPreliminar
-        initialValues={response.data}
+        initialValues={changeNullValues(response.data)}
         nameButton="Actualizar"
         who={4}
       />

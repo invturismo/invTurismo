@@ -57,7 +57,7 @@ const ResetPassword = ({ valuesQuery }) => {
       </div>
       <ButtonPage
         type="submit"
-        colorButton="green"
+        colorButton="#5328fe"
         className="ButtonActualizar"
       >
         Actualizar
