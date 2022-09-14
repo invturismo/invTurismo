@@ -51,10 +51,26 @@ class ImagenesController extends Controller
                 $textConcat = $key == 'IMAGEN1' ? "1_" : "2_";
                 $name = time().$textConcat.$clientData->file($key)->getClientOriginalName();
                 $clientData->file($key)->storeAs('imagenes_inventario',$name);
-                HistorialController::createUpdate($idUsuario,'imagenes',$idListado,$imagenes->ID_IMAGEN,$key,$imagenes[$key],$name);
+                HistorialController::createUpdate(
+                    $idUsuario,
+                    'imagenes',
+                    $idListado,
+                    $imagenes->ID_IMAGEN,
+                    $key,
+                    $imagenes[$key],
+                    $name
+                );
                 $imagenes[$key] = $name;
             }else{
-                HistorialController::createUpdate($idUsuario,'imagenes',$idListado,$imagenes->ID_IMAGEN,$key,$imagenes[$key],$clientData2[$key]);
+                HistorialController::createUpdate(
+                    $idUsuario,
+                    'imagenes',
+                    $idListado,
+                    $imagenes->ID_IMAGEN,
+                    $key,
+                    $imagenes[$key],
+                    $clientData2[$key]
+                );
                 $imagenes[$key] = $clientData2[$key];
             }
             $imagenes->save();

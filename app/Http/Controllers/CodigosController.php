@@ -44,9 +44,15 @@ class CodigosController extends Controller
         $queryListado = ListadosPreliminares::find($queryUpdate->ID_LISTADO);
         $queryData = Codigos::find($queryListado->ID_CODIGO);
         foreach (self::$rules as $key => $value) {
-            if($queryData[$key] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'codigos',$queryUpdate->ID_LISTADO,$queryData->ID_CODIGO,$key,$queryData[$key],$clientData[$key]);
-            }
+            if($queryData[$key] == $clientData[$key]) continue;
+            HistorialController::createUpdate(
+                $idUsuario,
+                'codigos',
+                $queryUpdate->ID_LISTADO,
+                $queryData->ID_CODIGO,
+                $key,$queryData[$key],
+                $clientData[$key]
+            );
         }
         $queryData->ID_DEPARTAMENTOS = $clientData['ID_DEPARTAMENTOS'];
         $queryData->ID_MUNICIPIOS = $clientData['ID_MUNICIPIOS'];
@@ -72,7 +78,11 @@ class CodigosController extends Controller
 
     public static function queryListado($idListado)
     {
-        $queryListado = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+        $queryListado = ListadosPreliminares::join(
+            "codigos",
+            "codigos.ID_CODIGO",
+            "=","listados_preliminares.ID_CODIGO"
+        )
         ->select("codigos.*")
         ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
         return $queryListado;
@@ -88,7 +98,13 @@ class CodigosController extends Controller
         $joinData = "";
         foreach ($queryData as $key => $value) {
             if($queryListado->ID_CODIGO != $value['ID_CODIGO']) continue;
-            $joinData = $value['ID_DEPARTAMENTOS'].".".$value['ID_MUNICIPIOS'].".".$value['ID_TIPO_PATRIMONIO'].".".$value['ID_GRUPO'].".".$value['ID_COMPONENTE'].".".$value['ID_ELEMENTO'].".".($key+1);
+            $joinData = $value['ID_DEPARTAMENTOS'].".".
+            $value['ID_MUNICIPIOS'].".".
+            $value['ID_TIPO_PATRIMONIO'].".".
+            $value['ID_GRUPO'].".".
+            $value['ID_COMPONENTE'].".".
+            $value['ID_ELEMENTO'].".".
+            ($key+1);
             if($queryListado->ID_CODIGO == $value['ID_CODIGO']) break;
         }
         return $joinData;
@@ -98,7 +114,12 @@ class CodigosController extends Controller
     {
         $queryListado = self::queryListado($idListado);
         if(!isset($queryListado)) return false;
-        $code = $queryListado->ID_DEPARTAMENTOS.".".$queryListado->ID_MUNICIPIOS.".".$queryListado->ID_TIPO_PATRIMONIO.".".$queryListado->ID_GRUPO.".".$queryListado->ID_COMPONENTE.".".$queryListado->ID_ELEMENTO;
+        $code = $queryListado->ID_DEPARTAMENTOS.".".
+        $queryListado->ID_MUNICIPIOS.".".
+        $queryListado->ID_TIPO_PATRIMONIO.".".
+        $queryListado->ID_GRUPO.".".
+        $queryListado->ID_COMPONENTE.".".
+        $queryListado->ID_ELEMENTO;
         return [$code,$queryListado];
     }
 

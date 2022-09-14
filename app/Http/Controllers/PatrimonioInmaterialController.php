@@ -12,8 +12,11 @@ use App\Http\Controllers\PuntajesController;
 use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\RedesController;
-use App\Http\Controllers\ExportController;
 use App\Models\PatrimoniosInmateriales;
+use App\Helpers\HelperQuerys;
+use App\Helpers\HelperFilter;
+use App\Helpers\HelperValidator;
+use App\Helpers\HelpersExport;
 
 class PatrimonioInmaterialController extends Controller
 {
@@ -39,14 +42,8 @@ class PatrimonioInmaterialController extends Controller
 
     public function insertForm(Request $request) 
     {
-        $rules = $this->mergeRules(false);
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return response()->json([
-                'state' => false,
-                'errors' => $validator->errors()
-            ]);
-        }
+        $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
+        if($isValid != 1) return $isValid;
         try {
             $queryData = PatrimoniosInmateriales::find($request->ID_INMATERIAL);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
@@ -57,7 +54,9 @@ class PatrimonioInmaterialController extends Controller
                 ]
             ]);
             $ID_USUARIO = Auth::user()->ID_USUARIO;
-            $idGeneralidades = GeneralidadesController::create($request,$queryData->ID_LISTADO,$ID_USUARIO,true);
+            $idGeneralidades = GeneralidadesController::create(
+                $request,$queryData->ID_LISTADO,$ID_USUARIO,true
+            );
             $queryData->ID_GENERALIDAD = $idGeneralidades;
             $idCaracteristicas = CaracteristicasController::create($request);
             $queryData->ID_CARACTERISTICA = $idCaracteristicas;
@@ -73,7 +72,9 @@ class PatrimonioInmaterialController extends Controller
             $queryData->REF_BIBLIOGRAFICA = $request->REF_BIBLIOGRAFICA;
             $queryData->OBSERVACIONES = $request->OBSERVACIONES;
             $queryData->save();
-            HistorialController::createInsertDelete($ID_USUARIO,'Patrimonio Cultural Inmaterial',$queryData->ID_INMATERIAL,2);
+            HistorialController::createInsertDelete(
+                $ID_USUARIO,'Patrimonio Cultural Inmaterial',$queryData->ID_INMATERIAL,2
+            );
             return response()->json([
                 "state" => true,
             ]);
@@ -89,14 +90,8 @@ class PatrimonioInmaterialController extends Controller
     public function update(Request $request)
     {
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
-        $rules = $this->mergeRules($reglas);
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return response()->json([
-                'state' => false,
-                'errors' => $validator->errors()
-            ]);
-        }
+        $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
+        if($isValid != 1) return $isValid;
         try {
             $queryData = PatrimoniosInmateriales::find($request->ID_INMATERIAL);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);
@@ -117,11 +112,18 @@ class PatrimonioInmaterialController extends Controller
             PromocionController::update($clientData,$queryData,$ID_USUARIO);
             RedesController::update($clientData,$queryData,$ID_USUARIO);
             foreach ($fields as $value) {
-                if($queryData[$value] != $clientData[$value]) {
-                    HistorialController::createUpdate($ID_USUARIO,'Patrimonio Cultural Inmaterial',$queryData->ID_LISTADO,$queryData->ID_INMATERIAL,$value,$queryData[$value],$clientData[$value]);
-                    $queryData[$value] = $clientData[$value];
-                    $queryData->save();
-                }
+                if($queryData[$value] == $clientData[$value]) continue;
+                HistorialController::createUpdate(
+                    $ID_USUARIO,
+                    'Patrimonio Cultural Inmaterial',
+                    $queryData->ID_LISTADO,
+                    $queryData->ID_INMATERIAL,
+                    $value,
+                    $queryData[$value],
+                    $clientData[$value]
+                );
+                $queryData[$value] = $clientData[$value];
+                $queryData->save();
             }
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
@@ -140,22 +142,13 @@ class PatrimonioInmaterialController extends Controller
     public function getDataSinCom(Request $request)
     {
         try {
-            $queryData = PatrimoniosInmateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_inmateriales.ID_LISTADO")
-            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-            ->join('municipios', function ($join) {
-                $join->on(function($query){
-                    $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
-                    ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
-            });})
-            ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->select("patrimonios_inmateriales.ID_INMATERIAL as ID","listados_preliminares.NOMBRE")
-            ->where("patrimonios_inmateriales.EXIST","=",true)
-            ->whereNull("codigos.id_tipo_patrimonio");
-            if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
-            if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
-            if($request->BUSCAR) $queryData = $queryData->where("listados_preliminares.NOMBRE","LIKE","%".$request->BUSCAR."%");
-            $queryData = $queryData->orderBy("patrimonios_inmateriales.ID_INMATERIAL","DESC")
-            ->paginate(10)->toArray();
+            $queryData = HelperQuerys::queryPatrimonios(
+                new PatrimoniosInmateriales(),'patrimonios_inmateriales','ID_INMATERIAL'
+            )->whereNull("codigos.id_tipo_patrimonio");
+            $queryData = HelperFilter::FilterAll($request,$queryData);
+            $queryData = HelperFilter::FilterFind($request,$queryData)->orderBy(
+                "patrimonios_inmateriales.ID_INMATERIAL","DESC"
+            )->paginate(10)->toArray();
             return response()->json(array_merge(
                 $queryData,
                 ["state" => true]
@@ -172,17 +165,9 @@ class PatrimonioInmaterialController extends Controller
     public function getRecordSinCom(Request $request)
     {
         try {
-            $queryData = PatrimoniosInmateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_inmateriales.ID_LISTADO")
-            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-            ->join('municipios', function ($join) {
-                $join->on(function($query){
-                    $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
-                    ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
-            });})
-            ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->select("listados_preliminares.NOMBRE","listados_preliminares.ID_LISTADO","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS")
-            ->where("patrimonios_inmateriales.EXIST","=",true)
-            ->whereNull("codigos.id_tipo_patrimonio")
+            $queryData = HelperQuerys::queryPatrimonios(
+                new PatrimoniosInmateriales(),'patrimonios_inmateriales','ID_INMATERIAL'
+            )->whereNull("codigos.id_tipo_patrimonio")
             ->where("patrimonios_inmateriales.ID_INMATERIAL","=",$request->REGISTRO)
             ->first();
             if(!isset($queryData)) return response()->json([
@@ -212,24 +197,17 @@ class PatrimonioInmaterialController extends Controller
     public function getDataCom(Request $request)
     {
         try {
-            $queryData = PatrimoniosInmateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_inmateriales.ID_LISTADO")
-            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-            ->join('municipios', function ($join) {
-                $join->on(function($query){
-                    $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
-                    ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
-            });})
-            ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-            ->join("valoraciones_inmaterial","valoraciones_inmaterial.ID_VALORACION_INMATERIAL","=","patrimonios_inmateriales.ID_VALORACION_INMATERIAL")
-            ->join("generalidades","generalidades.ID_GENERALIDAD","=","patrimonios_inmateriales.ID_GENERALIDAD")
-            ->select("patrimonios_inmateriales.ID_INMATERIAL as ID","listados_preliminares.NOMBRE","listados_preliminares.ID_LISTADO","valoraciones_inmaterial.TOTAL as CALIFICACION","listados_preliminares.UBICACION","generalidades.GEORREFERENCIACION")
-            ->where("patrimonios_inmateriales.EXIST","=",true)
-            ->whereNotNull("codigos.id_tipo_patrimonio");
-            if($request->ID_DEPARTAMENTOS) $queryData = $queryData->where("codigos.ID_DEPARTAMENTOS","=",$request->ID_DEPARTAMENTOS);
-            if($request->ID_MUNICIPIOS) $queryData = $queryData->where("codigos.ID_MUNICIPIOS","=",$request->ID_MUNICIPIOS);
-            if($request->BUSCAR) $queryData = $queryData->where("listados_preliminares.NOMBRE","LIKE","%".$request->BUSCAR."%");
-            $queryData = $queryData->orderBy("patrimonios_inmateriales.ID_INMATERIAL","DESC")
-            ->paginate(10)->toArray();
+            $queryData = HelperQuerys::queryPatrimonios(
+                new PatrimoniosInmateriales(),
+                'patrimonios_inmateriales',
+                'ID_INMATERIAL',
+                ["valoraciones_inmaterial.TOTAL as CALIFICACION","generalidades.GEORREFERENCIACION"],
+                ["valoraciones_inmaterial","ID_VALORACION_INMATERIAL"]
+            )->whereNotNull("codigos.id_tipo_patrimonio");
+            $queryData = HelperFilter::FilterAll($request,$queryData);
+            $queryData = HelperFilter::FilterFind($request,$queryData)->orderBy(
+                "patrimonios_inmateriales.ID_INMATERIAL","DESC"
+            )->paginate(10)->toArray();
             $queryData = CodigosController::getData($queryData);
             return response()->json(array_merge(
                 $queryData,
@@ -247,27 +225,46 @@ class PatrimonioInmaterialController extends Controller
     public function getRecordCom(Request $request)
     {
         try {
-            $queryData = PatrimoniosInmateriales::join("listados_preliminares","listados_preliminares.ID_LISTADO","=","patrimonios_inmateriales.ID_LISTADO")
-            ->join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-            ->select("patrimonios_inmateriales.*")
-            ->where("patrimonios_inmateriales.EXIST","=",true)
-            ->whereNotNull("codigos.id_tipo_patrimonio")
-            ->where("patrimonios_inmateriales.ID_INMATERIAL","=",$request->REGISTRO)->first();
+            $queryData = HelperQuerys::queryValidatePatrimonios(
+                new PatrimoniosInmateriales(),
+                'patrimonios_inmateriales',
+                'ID_INMATERIAL',
+                $request
+            );
             if(!isset($queryData)) return response()->json([
                 'state' => false,
                 'message' => "El registro no existe"
             ]);
-            $dataGeneralidades = GeneralidadesController::getRecord($queryData->ID_GENERALIDAD,$queryData->ID_LISTADO,true);
-            $dataCaracteristicas = CaracteristicasController::getRecord($queryData->ID_CARACTERISTICA,$queryData->ID_LISTADO);
-            $dataPuntajes = PuntajesController::getRecord($queryData->ID_VALORACION_INMATERIAL,"PATRIMONIOS_INMATERIALES");
+            $dataGeneralidades = GeneralidadesController::getRecord(
+                $queryData->ID_GENERALIDAD,$queryData->ID_LISTADO,true
+            );
+            $dataCaracteristicas = CaracteristicasController::getRecord(
+                $queryData->ID_CARACTERISTICA,$queryData->ID_LISTADO
+            );
+            $dataPuntajes = PuntajesController::getRecord(
+                $queryData->ID_VALORACION_INMATERIAL,"PATRIMONIOS_INMATERIALES"
+            );
             $dataActividades = ActividadesController::getRecord($queryData->ID_ACTIVIDAD);
             $dataAc_Ser = ["ACTIVIDADES_SERVICIOS"=>$dataActividades];
             $dataPromocion = PromocionController::getRecord($queryData->ID_PROMOCION);
             $dataRedes = RedesController::getRecord($queryData->ID_RED_SOCIAL);
-            $dataRef_Ob = ["REF_BIBLIOGRAFICA"=>$queryData->REF_BIBLIOGRAFICA,"OBSERVACIONES"=>$queryData->OBSERVACIONES,"ID_INMATERIAL"=>$queryData->ID_INMATERIAL];
-            $fechaCreacion = ExportController::templateHistorial('Patrimonio Cultural Inmaterial',$request->REGISTRO,2,$queryData->ID_LISTADO);
+            $dataRef_Ob = [
+                "REF_BIBLIOGRAFICA"=>$queryData->REF_BIBLIOGRAFICA,
+                "OBSERVACIONES"=>$queryData->OBSERVACIONES,
+                "ID_INMATERIAL"=>$queryData->ID_INMATERIAL
+            ];
+            $fechaCreacion = HelpersExport::templateHistorial(
+                'Patrimonio Cultural Inmaterial',$request->REGISTRO,2,$queryData->ID_LISTADO
+            );
             $dataOtros = ["OTROS"=>array_merge($dataRedes,$dataRef_Ob,$fechaCreacion)];
-            $mergeQuery = array_merge($dataGeneralidades,$dataCaracteristicas,$dataPuntajes,$dataAc_Ser,$dataPromocion,$dataOtros);
+            $mergeQuery = array_merge(
+                $dataGeneralidades,
+                $dataCaracteristicas,
+                $dataPuntajes,
+                $dataAc_Ser,
+                $dataPromocion,
+                $dataOtros
+            );
             if(isset($request->ACTUALIZANDO)) {
                 $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
                 $response = UpdateController::stateUpdate($queryData->ID_LISTADO,1,$idTokenUser,false);

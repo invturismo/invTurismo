@@ -18,12 +18,10 @@ class AuthController extends Controller
             'clave' => 'required'
         ];
         $validator = Validator::make($request->all(), $rules);
-        if($validator->fails()){
-            return response()->json([
-                'state' => false,
-                'errors' => $validator->errors()
-            ]);
-        }
+        if($validator->fails()) return response()->json([
+            'state' => false,
+            'errors' => $validator->errors()
+        ]);            
         try {
             $user = User::where('correo','=',$request->correo)->where('EXIST','1')->first();
             if(!isset($user)) return response()->json([

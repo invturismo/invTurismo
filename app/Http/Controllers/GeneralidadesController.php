@@ -8,6 +8,7 @@ use App\Http\Controllers\HistorialController;
 use App\Models\ListadosPreliminares;
 use App\Models\Generalidades;
 use App\Models\Historial_Insert_Delete;
+use App\Helpers\Joins;
 
 class GeneralidadesController extends Controller
 {
@@ -49,13 +50,29 @@ class GeneralidadesController extends Controller
     {
         $queryData = ListadosPreliminares::find($idListado);
         if($queryData['NOMBRE'] != $clientData['NOMBRE']){
-            HistorialController::createUpdate($idUsuario,'listados_preliminares',$idListado,$idListado,'NOMBRE',$queryData['NOMBRE'],$clientData['NOMBRE']);
+            HistorialController::createUpdate(
+                $idUsuario,
+                'listados_preliminares',
+                $idListado,
+                $idListado,
+                'NOMBRE',
+                $queryData['NOMBRE'],
+                $clientData['NOMBRE']
+            );
             $queryData['NOMBRE'] = $clientData['NOMBRE'];
             $queryData->save();
         }
         if($noData) return;
         if($queryData['UBICACION'] != $clientData['UBICACION']){
-            HistorialController::createUpdate($idUsuario,'listados_preliminares',$idListado,$idListado,'UBICACION',$queryData['UBICACION'],$clientData['UBICACION']);
+            HistorialController::createUpdate(
+                $idUsuario,
+                'listados_preliminares',
+                $idListado,
+                $idListado,
+                'UBICACION',
+                $queryData['UBICACION'],
+                $clientData['UBICACION']
+            );
             $queryData['UBICACION'] = $clientData['UBICACION'];
             $queryData->save();
         }
@@ -81,27 +98,35 @@ class GeneralidadesController extends Controller
         if(!$noData) AdminController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
         self::updateListado($clientData,$queryUpdate->ID_LISTADO,$idUsuario,$noData);
         foreach (self::fieldsUpdate($noData) as $value) {
-            if($queryData[$value] != $clientData[$value]) {
-                HistorialController::createUpdate($idUsuario,'generalidades',$queryUpdate->ID_LISTADO,$queryData->ID_GENERALIDAD,$value,$queryData[$value],$clientData[$value]);
-                $queryData[$value] = $clientData[$value];
-                $queryData->save();
-            }
+            if($queryData[$value] == $clientData[$value]) continue;
+            HistorialController::createUpdate(
+                $idUsuario,
+                'generalidades',
+                $queryUpdate->ID_LISTADO,
+                $queryData->ID_GENERALIDAD,
+                $value,
+                $queryData[$value],
+                $clientData[$value]
+            );
+            $queryData[$value] = $clientData[$value];
+            $queryData->save();
         }
     }
 
     public static function getRecord($idGeneralidad,$idListado,$noData=false)
     {
-        $queryListado = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-        ->join('municipios', function ($join) {
-            $join->on(function($query){
-                $query->on('codigos.ID_MUNICIPIOS', '=', 'municipios.ID_MUNICIPIOS')
-                ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
-        });})
-        ->join("departamentos","municipios.ID_DEPARTAMENTOS","=","departamentos.ID_DEPARTAMENTOS")
-        ->select("departamentos.DEPARTAMENTO","municipios.MUNICIPIO","listados_preliminares.NOMBRE","listados_preliminares.UBICACION")
-        ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first()->toArray();
-        $queryData = Generalidades::join("tipos_acceso","tipos_acceso.ID_TIPO_ACCESO","=","generalidades.ID_TIPO_ACCESO")
-        ->select("generalidades.*","tipos_acceso.ACCESO")
+        $queryListado = Joins::JoinGeneral(new ListadosPreliminares)
+        ->select(
+            "departamentos.DEPARTAMENTO",
+            "municipios.MUNICIPIO",
+            "listados_preliminares.NOMBRE",
+            "listados_preliminares.UBICACION"
+        )->where("listados_preliminares.ID_LISTADO","=",$idListado)->first()->toArray();
+        $queryData = Generalidades::join(
+            "tipos_acceso",
+            "tipos_acceso.ID_TIPO_ACCESO",
+            "=","generalidades.ID_TIPO_ACCESO"
+        )->select("generalidades.*","tipos_acceso.ACCESO")
         ->where("generalidades.ID_GENERALIDAD","=",$idGeneralidad)->first()->toArray();
         if($noData) return ["GENERALIDADES"=>array_merge($queryData,$queryListado)];
         $queryAdmin = AdminController::getRecord($queryData['ID_ADMIN']);

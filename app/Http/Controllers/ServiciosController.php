@@ -37,11 +37,18 @@ class ServiciosController extends Controller
         $queryData = Servicios::find($queryUpdate->ID_SERVICIO);
         foreach (self::$rules as $key => $value) {
             $valueUpdate = $key == 'OTROS1' ? "OTROS" : $key;
-            if($queryData[$valueUpdate] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'servicios',$queryUpdate->ID_LISTADO,$queryData->ID_SERVICIO,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
-                $queryData[$valueUpdate] = $clientData[$key];
-                $queryData->save();
-            }
+            if($queryData[$valueUpdate] == $clientData[$key]) continue;
+            HistorialController::createUpdate(
+                $idUsuario,
+                'servicios',
+                $queryUpdate->ID_LISTADO,
+                $queryData->ID_SERVICIO,
+                $valueUpdate,
+                $queryData[$valueUpdate],
+                $clientData[$key]
+            );
+            $queryData[$valueUpdate] = $clientData[$key];
+            $queryData->save();
         }
     }
     

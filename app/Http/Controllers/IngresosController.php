@@ -43,11 +43,17 @@ class IngresosController extends Controller
         $queryData = Ingresos::find($queryUpdate->ID_INGRESO);
         foreach (self::rules() as $key => $value) {
             $data = $key == 'HORAS' ? $clientData[$key] : $clientData[$key] == 'true';
-            if($queryData[$key] != $data) {
-                HistorialController::createUpdate($idUsuario,'ingresos',$idListado,$queryUpdate->ID_INGRESO,$key,$queryData[$key],$data);
-                $queryData[$key] = $data;
-                $queryData->save();
-            }
+            if($queryData[$key] == $data) return;
+            HistorialController::createUpdate(
+                $idUsuario,
+                'ingresos',
+                $idListado,
+                $queryUpdate->ID_INGRESO,
+                $key,$queryData[$key],
+                $data
+            );
+            $queryData[$key] = $data;
+            $queryData->save();
         }
     }
 

@@ -40,12 +40,22 @@ class PuntajesController extends Controller
         $valoracion->save();
     }
 
-    public static function updateValoracion($valoracion,$clientData,$name,$idValoracion,$idUsuario,$idListado)
+    public static function updateValoracion(
+        $valoracion,$clientData,$name,$idValoracion,$idUsuario,$idListado
+    )
     {
         $fieldsValoracion = ['ID_SIGNIFICADO','TOTAL'];
         foreach ($fieldsValoracion as $value) {
             if($valoracion[$value] != $clientData[$value]) {
-                HistorialController::createUpdate($idUsuario,$name,$idListado,$idValoracion,$value,$valoracion[$value],$clientData[$value]);
+                HistorialController::createUpdate(
+                    $idUsuario,
+                    $name,
+                    $idListado,
+                    $idValoracion,
+                    $value,
+                    $valoracion[$value],
+                    $clientData[$value]
+                );
                 $valoracion[$value] = $clientData[$value];
                 $valoracion->save();
             }
@@ -97,25 +107,53 @@ class PuntajesController extends Controller
                 $queryData = ValoracionMaterial::find($queryUpdate->ID_VALORACION_MATERIAL);
                 $calidad = CalidadMaterial::find($queryData->ID_CALIDAD_MATERIAL);
                 foreach (self::$rulesCalidad[$who] as $key => $value) {
-                    if($calidad[$key] != $clientData[$key]) {
-                        HistorialController::createUpdate($idUsuario,'calidades_material',$queryUpdate->ID_LISTADO,$calidad->ID_CALIDAD_MATERIAL,$key,$calidad[$key],$clientData[$key]);
-                        $calidad[$key] = $clientData[$key];
-                        $calidad->save();
-                    }
+                    if($calidad[$key] == $clientData[$key]) continue;
+                    HistorialController::createUpdate(
+                        $idUsuario,
+                        'calidades_material',
+                        $queryUpdate->ID_LISTADO,
+                        $calidad->ID_CALIDAD_MATERIAL,
+                        $key,
+                        $calidad[$key],
+                        $clientData[$key]
+                    );
+                    $calidad[$key] = $clientData[$key];
+                    $calidad->save();
                 }
-                self::updateValoracion($queryData,$clientData,'valoraciones_material',$queryData->ID_VALORACION_MATERIAL,$idUsuario,$queryUpdate->ID_LISTADO);
+                self::updateValoracion(
+                    $queryData,
+                    $clientData,
+                    'valoraciones_material',
+                    $queryData->ID_VALORACION_MATERIAL,
+                    $idUsuario,
+                    $queryUpdate->ID_LISTADO
+                );
             break;
             case 'PATRIMONIOS_INMATERIALES':
                 $queryData = ValoracionInmaterial::find($queryUpdate->ID_VALORACION_INMATERIAL);
                 $calidad = CalidadInmaterial::find($queryData->ID_CALIDAD_INMATERIAL);
                 foreach (self::$rulesCalidad[$who] as $key => $value) {
-                    if($calidad[$key] != $clientData[$key]) {
-                        HistorialController::createUpdate($idUsuario,'calidades_material',$queryUpdate->ID_LISTADO,$calidad->ID_CALIDAD_INMATERIAL,$key,$calidad[$key],$clientData[$key]);
-                        $calidad[$key] = $clientData[$key];
-                        $calidad->save();
-                    }
+                    if($calidad[$key] == $clientData[$key]) continue;
+                    HistorialController::createUpdate(
+                        $idUsuario,
+                        'calidades_inmaterial',
+                        $queryUpdate->ID_LISTADO,
+                        $calidad->ID_CALIDAD_INMATERIAL,
+                        $key,
+                        $calidad[$key],
+                        $clientData[$key]
+                    );
+                    $calidad[$key] = $clientData[$key];
+                    $calidad->save();
                 }
-                self::updateValoracion($queryData,$clientData,'valoraciones_inmaterial',$queryData->ID_VALORACION_INMATERIAL,$idUsuario,$queryUpdate->ID_LISTADO);
+                self::updateValoracion(
+                    $queryData,
+                    $clientData,
+                    'valoraciones_inmaterial',
+                    $queryData->ID_VALORACION_INMATERIAL,
+                    $idUsuario,
+                    $queryUpdate->ID_LISTADO
+                );
             break;
         }
     }

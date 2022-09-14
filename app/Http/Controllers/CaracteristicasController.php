@@ -36,11 +36,18 @@ class CaracteristicasController extends Controller
         $queryData = Caracteristicas::find($queryUpdate->ID_CARACTERISTICA);
         ImagenesController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
         $clientData = $clientData->all();
-        if($queryData['DESCRIPCION'] != $clientData['DESCRIPCION']){
-            HistorialController::createUpdate($idUsuario,'caracteristicas',$queryUpdate->ID_LISTADO,$queryData->ID_CARACTERISTICA,'DESCRIPCION',$queryData['DESCRIPCION'],$clientData['DESCRIPCION']);
-            $queryData['DESCRIPCION'] = $clientData['DESCRIPCION'];
-            $queryData->save();
-        }
+        if($queryData['DESCRIPCION'] == $clientData['DESCRIPCION']) return;
+        HistorialController::createUpdate(
+            $idUsuario,
+            'caracteristicas',
+            $queryUpdate->ID_LISTADO,
+            $queryData->ID_CARACTERISTICA,
+            'DESCRIPCION',
+            $queryData['DESCRIPCION'],
+            $clientData['DESCRIPCION']
+        );
+        $queryData['DESCRIPCION'] = $clientData['DESCRIPCION'];
+        $queryData->save();
     }
 
     public static function getRecord($idCaracteristica,$idListado)

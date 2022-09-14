@@ -46,11 +46,10 @@ class ServiciosEspecialesController extends Controller
                     $valueUpdate = $key;
                 break;
             }
-            if($queryData[$valueUpdate] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'servicios_especiales',$queryUpdate->ID_LISTADO,$queryData->ID_SERVICIO_ESPECIAL,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
-                $queryData[$valueUpdate] = $clientData[$key];
-                $queryData->save();
-            }
+            if($queryData[$valueUpdate] == $clientData[$key]) continue;
+            HistorialController::createUpdate($idUsuario,'servicios_especiales',$queryUpdate->ID_LISTADO,$queryData->ID_SERVICIO_ESPECIAL,$valueUpdate,$queryData[$valueUpdate],$clientData[$key]);
+            $queryData[$valueUpdate] = $clientData[$key];
+            $queryData->save();
         }
     }
 

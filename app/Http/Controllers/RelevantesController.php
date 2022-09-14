@@ -49,11 +49,18 @@ class RelevantesController extends Controller
         ClimaController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
         HorariosController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
         TarifasController::update($clientData,$queryData,$idUsuario,$queryUpdate->ID_LISTADO);
-        if($queryData['ID_ESTADO'] != $clientData['ID_ESTADO']) {
-            HistorialController::createUpdate($idUsuario,'caracteristicas_relevantes',$queryUpdate->ID_LISTADO,$queryData->ID_RELEVANTE,'ID_ESTADO',$queryData['ID_ESTADO'],$clientData['ID_ESTADO']);
-            $queryData['ID_ESTADO'] = $clientData['ID_ESTADO'];
-            $queryData->save();
-        }
+        if($queryData['ID_ESTADO'] == $clientData['ID_ESTADO']) return;
+        HistorialController::createUpdate(
+            $idUsuario,
+            'caracteristicas_relevantes',
+            $queryUpdate->ID_LISTADO,
+            $queryData->ID_RELEVANTE,
+            'ID_ESTADO',
+            $queryData['ID_ESTADO'],
+            $clientData['ID_ESTADO']
+        );
+        $queryData['ID_ESTADO'] = $clientData['ID_ESTADO'];
+        $queryData->save();
     }
 
     public static function getRecord($idRelevantes)
@@ -63,7 +70,12 @@ class RelevantesController extends Controller
         $queryHorarios = HorariosController::getRecord($queryData['ID_HORARIO']);
         $queryTarifas = TarifasController::getRecord($queryData['ID_TARIFA']);
         return [
-            "CARACTERISTICAS_RELEVANTES" => array_merge($queryData,$queryClima,$queryHorarios,$queryTarifas)
+            "CARACTERISTICAS_RELEVANTES" => array_merge(
+                $queryData,
+                $queryClima,
+                $queryHorarios,
+                $queryTarifas
+            )
         ];
     }
 }

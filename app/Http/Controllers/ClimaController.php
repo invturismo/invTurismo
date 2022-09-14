@@ -30,11 +30,10 @@ class ClimaController extends Controller
     {
         $queryData = Climas::find($queryUpdate->ID_CLIMA);
         foreach (self::rules() as $key => $value) {
-            if($queryData[$key] != $clientData[$key]) {
-                HistorialController::createUpdate($idUsuario,'climas',$idListado,$queryData->ID_CLIMA,$key,$queryData[$key],$clientData[$key]);
-                $queryData[$key] = $clientData[$key];
-                $queryData->save();
-            }
+            if($queryData[$key] == $clientData[$key]) continue;
+            HistorialController::createUpdate($idUsuario,'climas',$idListado,$queryData->ID_CLIMA,$key,$queryData[$key],$clientData[$key]);
+            $queryData[$key] = $clientData[$key];
+            $queryData->save();
         }
     }
 

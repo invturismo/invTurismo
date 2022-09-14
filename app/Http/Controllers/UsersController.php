@@ -15,6 +15,7 @@ use App\Rules\ConfirmPassword;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
 use Illuminate\Support\Facades\DB;
+use App\Helpers\HelperValidator;
 
 class UsersController extends Controller
 {
@@ -49,13 +50,8 @@ class UsersController extends Controller
         ]);
         try {
             $rules = self::rules($request->input('CLAVE'));
-            $validator = Validator::make($request->all(), $rules);
-            if ($validator->fails()) {
-                return response()->json([
-                    'state' => false,
-                    'errors' => $validator->errors()
-                ]);
-            }
+            $isValid = HelperValidator::Validate($rules,$request);
+            if($isValid != 1) return $isValid; 
             $dataForm = $request->all();
             $dataForm['CLAVE'] = Hash::make($dataForm['CLAVE']);
             $user = new User();
@@ -88,6 +84,21 @@ class UsersController extends Controller
         ->delete();
     }
 
+    public static function templateQuery()
+    {
+        $queryData = User::select(
+            'ID_USUARIO',
+            'ID_TIPO_USUARIO',
+            'PRIMER_NOMBRE',
+            'SEGUNDO_NOMBRE',
+            'PRIMER_APELLIDO',
+            'SEGUNDO_APELLIDO',
+            'USUARIO',
+            'CORREO'
+        )->where('EXIST','=',true);
+        return $queryData;
+}
+
     public function update(Request $request)
     {
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
@@ -96,15 +107,9 @@ class UsersController extends Controller
         ]);
         try {
             $rules = self::rules($request->input('CLAVE'),$request->ID_USUARIO);
-            $validator = Validator::make($request->all(), $rules);
-            if ($validator->fails()) {
-                return response()->json([
-                    'state' => false,
-                    'errors' => $validator->errors()
-                ]);
-            }
-            $queryData = User::select('ID_USUARIO','ID_TIPO_USUARIO','PRIMER_NOMBRE','SEGUNDO_NOMBRE','PRIMER_APELLIDO','SEGUNDO_APELLIDO','USUARIO','CORREO')
-            ->where('EXIST','=',true)
+            $isValid = HelperValidator::Validate($rules,$request);
+            if($isValid != 1) return $isValid;
+            $queryData = self::templateQuery()
             ->where('ID_USUARIO','=',$request->ID_USUARIO)->first();
             if(!isset($queryData)) return response()->json([
                 'state' => false,
@@ -125,7 +130,9 @@ class UsersController extends Controller
             $user->update($changes);
             $ID_USUARIO = Auth::user()->ID_USUARIO;
             foreach ($changes as $key => $value) {
-                HistorialController::createUpdate($ID_USUARIO,'usuarios',$user->ID_USUARIO,$key,$queryData[$key],$value);
+                HistorialController::createUpdate(
+                    $ID_USUARIO,'usuarios',$user->ID_USUARIO,$key,$queryData[$key],$value
+                );
             }
             self::deleteTokens($request->ID_USUARIO);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
@@ -149,8 +156,7 @@ class UsersController extends Controller
             'message' => 'No es posible el acceso'
         ]);
         try {
-            $queryData = User::select('ID_USUARIO','ID_TIPO_USUARIO','PRIMER_NOMBRE','SEGUNDO_NOMBRE','PRIMER_APELLIDO','SEGUNDO_APELLIDO','USUARIO','CORREO')
-            ->where('EXIST','=',true);
+            $queryData = self::templateQuery();
             if($request->BUSCAR) {
                 $queryData->where("PRIMER_NOMBRE","LIKE","%".$request->BUSCAR."%")
                 ->orWhere("SEGUNDO_NOMBRE","LIKE","%".$request->BUSCAR."%")
@@ -179,8 +185,7 @@ class UsersController extends Controller
             'message' => 'No es posible el acceso'
         ]);
         try {
-            $queryData = User::select('ID_USUARIO','ID_TIPO_USUARIO','PRIMER_NOMBRE','SEGUNDO_NOMBRE','PRIMER_APELLIDO','SEGUNDO_APELLIDO','USUARIO','CORREO')
-            ->where('EXIST','=',true)
+            $queryData = self::templateQuery()
             ->where('ID_USUARIO','=',$request->ID_USUARIO)->first();
             if(!isset($queryData)) return response()->json([
                 'state' => false,
@@ -231,8 +236,7 @@ class UsersController extends Controller
             'message' => 'No es posible el acceso'
         ]);
         try {
-            $queryData = User::select('ID_USUARIO','ID_TIPO_USUARIO','PRIMER_NOMBRE','SEGUNDO_NOMBRE','PRIMER_APELLIDO','SEGUNDO_APELLIDO','USUARIO','CORREO')
-            ->where('EXIST','=',true)
+            $queryData = self::templateQuery()
             ->where('ID_USUARIO','=',$request->ID_USUARIO)->first();
             if(!isset($queryData)) return response()->json([
                 'state' => false,
@@ -269,13 +273,8 @@ class UsersController extends Controller
             'CLAVE'=>['required',new ValidatePasswordRegex()],
             'CONFIRMAR_CLAVE'=>['required',new ConfirmPassword($request->input('CLAVE'))]
         ];
-        $validator = Validator::make($request->all(), $rules);
-        if ($validator->fails()) {
-            return response()->json([
-                'state' => false,
-                'errors' => $validator->errors()
-            ]);
-        }
+        $isValid = HelperValidator::Validate($rules,$request);
+        if($isValid != 1) return $isValid;
         try {
             $queryData = User::find($request->ID_USUARIO);
             if(!isset($queryData)) return response()->json([
@@ -286,7 +285,9 @@ class UsersController extends Controller
             $queryData->CLAVE = Hash::make($request->CLAVE);
             $queryData->save();
             $ID_USUARIO = Auth::user()->ID_USUARIO;
-            HistorialController::createUpdate($ID_USUARIO,'usuarios',$queryData->ID_USUARIO,'CLAVE',$old,$queryData->CLAVE);
+            HistorialController::createUpdate(
+                $ID_USUARIO,'usuarios',$queryData->ID_USUARIO,'CLAVE',$old,$queryData->CLAVE
+            );
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
             self::deleteTokens($request->ID_USUARIO);
@@ -325,7 +326,9 @@ class UsersController extends Controller
             $queryData->EXIST = false;
             $queryData->save();
             $ID_USUARIO = Auth::user()->ID_USUARIO;
-            HistorialController::createInsertDelete($ID_USUARIO,'listados_preliminares',$queryData->ID_USUARIO,0);
+            HistorialController::createInsertDelete(
+                $ID_USUARIO,'listados_preliminares',$queryData->ID_USUARIO,0
+            );
             self::deleteTokens($request->ID_USUARIO);
             return response()->json([
                 "state" => true

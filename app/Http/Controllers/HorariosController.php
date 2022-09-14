@@ -44,11 +44,18 @@ class HorariosController extends Controller
         IngresosController::update($clientData,$queryData,$idUsuario,$idListado);
         foreach (self::rules() as $key => $value) {
             $data = $clientData[$key] == 'true';
-            if($queryData[$key] != $data) {
-                HistorialController::createUpdate($idUsuario,'horarios',$idListado,$queryData->ID_HORARIO,$key,$queryData[$key],$data);
-                $queryData[$key] = $data;
-                $queryData->save();
-            }
+            if($queryData[$key] == $data) continue;
+            HistorialController::createUpdate(
+                $idUsuario,
+                'horarios',
+                $idListado,
+                $queryData->ID_HORARIO,
+                $key,
+                $queryData[$key],
+                $data
+            );
+            $queryData[$key] = $data;
+            $queryData->save();
         }
     }
 

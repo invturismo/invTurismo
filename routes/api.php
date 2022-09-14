@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ListadosPreliminaresController;
-use App\Http\Controllers\PatrimoniosClasificacionController;
+use App\Http\Controllers\ClasificacionController;
 use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\PatrimoniosMaterialesController;
@@ -53,11 +53,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/listados-preliminares-get/",[ListadosPreliminaresController::class,'getData']);
     Route::post("/listados-preliminares/",[ListadosPreliminaresController::class,'getRecord']);
 
-    Route::post("/clasificacion-recursos-atractivos/sinclas-get",[PatrimoniosClasificacionController::class,'getDataSin']);
-    Route::post("/clasificacion-recursos-atractivos/sinclas",[PatrimoniosClasificacionController::class,'getRecordSin']);
-    Route::post("/clasificacion-recursos-atractivos/clas-get",[PatrimoniosClasificacionController::class,'getDataCon']);
-    Route::post("/clasificacion-recursos-atractivos/clas",[PatrimoniosClasificacionController::class,'getRecordCon']);
-    Route::put("/clasificacion-recursos-atractivos/create",[ListadosPreliminaresController::class,'clasificacion']);
+    Route::post("/clasificacion-recursos-atractivos/sinclas-get",[ClasificacionController::class,'getDataSin']);
+    Route::post("/clasificacion-recursos-atractivos/sinclas",[ClasificacionController::class,'getRecordSin']);
+    Route::post("/clasificacion-recursos-atractivos/clas-get",[ClasificacionController::class,'getDataCon']);
+    Route::post("/clasificacion-recursos-atractivos/clas",[ClasificacionController::class,'getRecordCon']);
+    Route::put("/clasificacion-recursos-atractivos/create",[ClasificacionController::class,'clasificacion']);
 
     Route::post("/patrimonios-materiales/insertForm",[PatrimoniosMaterialesController::class,'insertForm']);
     Route::post("/patrimonios-materiales/update",[PatrimoniosMaterialesController::class,'update']);
