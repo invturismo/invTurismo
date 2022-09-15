@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const Redes = ({ values, handleChange,errors,handleBlur }) => {
+const Redes = ({ values, handleChange, errors, handleBlur }) => {
   return (
     <div className="SectionDivType2">
       <h4>Redes sociales</h4>
@@ -83,12 +83,38 @@ const Redes = ({ values, handleChange,errors,handleBlur }) => {
   );
 };
 
+const Internacional = ({ values, handleChange, handleBlur, errors }) => {
+  return (
+    <div className="SectionDivType2">
+      <h4>Internacional</h4>
+      <div className="SectionDivType1">
+        <label htmlFor="APRO_INTERNACIONAL" className="LabelType1">
+          <select
+            name="APRO_INTERNACIONAL"
+            id="APRO_INTERNACIONAL"
+            value={values.APRO_INTERNACIONAL}
+            onChange={(e) => handleChange(e)}
+            onBlur={(e) => handleBlur(e, "OTROS")}
+          >
+            <option value="false">No</option>
+            <option value="true">Si</option>
+          </select>
+          {errors.APRO_INTERNACIONAL && (
+            <small className="errorMessage">{errors.APRO_INTERNACIONAL}</small>
+          )}
+        </label>
+      </div>
+    </div>
+  );
+};
+
 const FormOtros = ({
   values,
   handleChangeRedes,
   handleChange,
   errors,
-  handleBlur
+  handleBlur,
+  who
 }) => {
   return (
     <section>
@@ -135,8 +161,16 @@ const FormOtros = ({
           </label>
         </div>
       </div>
+      {who === 4 && (
+        <Internacional
+          errors={errors}
+          handleBlur={handleBlur}
+          handleChange={handleChange}
+          values={values}
+        />
+      )}
     </section>
   );
 };
 
-export default FormOtros
+export default FormOtros;

@@ -16,6 +16,7 @@ const whoFields = {
     ["ESPONTANEA", "Espontánea"],
     ["POPULAR", "Popular"],
   ],
+  GRUPOS_ESPECIALES: [["R_COSTUMBRES", "Respeto por las costumbres"]],
 };
 
 const GetPuntajes = ({ data, who }) => {

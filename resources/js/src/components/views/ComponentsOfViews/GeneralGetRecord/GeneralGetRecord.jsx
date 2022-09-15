@@ -73,7 +73,7 @@ const GeneralGetRecord = ({ data, originalData, back, handleUpdate, who }) => {
         )}
         <div className="GetContainerTittle">
           <h3>Otros</h3>
-          <GetOtros data={data.OTROS} originalData={originalData.OTROS} />
+          <GetOtros data={data.OTROS} originalData={originalData.OTROS} who={who}/>
         </div>
         <div className="ContainerButtons">
           <span onClick={handleUpdate}>

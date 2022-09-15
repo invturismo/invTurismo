@@ -14,8 +14,8 @@ class ImagenesController extends Controller
     {
         if($newRules == "-") return [];
         $rules = [
-            'IMAGEN1' => 'required|image|max:1000',
-            'IMAGEN2' => 'required|image|max:1000',
+            'IMAGEN1' => 'required|image|max:1024',
+            'IMAGEN2' => 'required|image|max:1024',
             'FUENTE' => 'required|max:200',
         ];
         if(!$newRules) return $rules;

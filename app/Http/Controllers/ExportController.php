@@ -160,4 +160,41 @@ class ExportController extends Controller
             ]);
         }
     }
+
+    public function ExportGruposEspeciales(Request $request)
+    {
+        try {
+            $queryData = GruposEspeciales::join(
+                "valoraciones_grupos",
+                "valoraciones_grupos.ID_VALORACION_GRUPOS",
+                "=","grupos_especiales.ID_VALORACION_GRUPOS"
+            );
+            $queryData = HelpersExport::templateQuery(
+                $queryData,
+                "grupos_especiales",
+                "ID_GRUPOS",
+                "valoraciones_grupos"
+            );
+            $queryData = HelperFilter::FilterAll($request,$queryData)->get()->toArray();
+            if(count($queryData)>0) $queryData = CodigosController::getExport($queryData);
+            foreach ($queryData as $key => $value) {
+                $queryHistorial = HelpersExport::templateHistorial(
+                    'Grupos de Especial Interés',
+                    $value['ID'],2,
+                    $value['ID_LISTADO']
+                );
+                $queryData[$key] = array_merge($value,$queryHistorial);
+            }
+            return response()->json([
+                "state" => true,
+                "data" => $queryData
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
+    }
 }

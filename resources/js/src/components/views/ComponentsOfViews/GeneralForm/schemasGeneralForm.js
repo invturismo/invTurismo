@@ -68,6 +68,9 @@ const schemaCalidad = {
     ESPONTANEA: yupCalidad(14),
     POPULAR: yupCalidad(14),
   },
+  GRUPOS_ESPECIALES: {
+    R_COSTUMBRES: yupCalidad(70),
+  },
 };
 
 const schemaGeneralidades = (who) => {
@@ -180,9 +183,18 @@ const schemaServiciosEspeciales = (who) => {
   };
 };
 
-const schemaOtros = {
-  REF_BIBLIOGRAFICA: yupMax(300),
-  OBSERVACIONES: yupMax(300),
+const schemaOtros = (who) => {
+  const templateOtros = {
+    REF_BIBLIOGRAFICA: yupMax(300),
+    OBSERVACIONES: yupMax(300),
+  };
+  if (who !== "") return templateOtros;
+  return {
+    ...templateOtros,
+    ...{
+      APRO_INTERNACIONAL: yupMaxAndReq(4),
+    },
+  };
 };
 
 const schemaRedes = {
@@ -201,7 +213,7 @@ const schemaRelevantes = (who) => {
       DIAS_HORARIOS: schemaDiasHorarios,
       TARIFAS: schemaTarifas,
     },
-  }
+  };
 };
 
 const schemaObjectRelevantes = (who) => {
@@ -213,7 +225,7 @@ const schemaObjectRelevantes = (who) => {
       TARIFAS: yup.object(schemaTarifas),
     }),
   };
-}
+};
 
 const unitValidateTemplate = (who) => ({
   GENERALIDADES: {
@@ -236,7 +248,7 @@ const unitValidateTemplate = (who) => ({
   PROMOCION: schemaPromocion,
   SERVICIOS_ESPECIALES: schemaServiciosEspeciales(who),
   OTROS: {
-    ...schemaOtros,
+    ...schemaOtros(who),
     REDES: schemaRedes,
   },
 });
@@ -263,7 +275,7 @@ const schemaGeneral = (who) =>
     PROMOCION: yup.object(schemaPromocion),
     SERVICIOS_ESPECIALES: yup.object(schemaServiciosEspeciales(who)),
     OTROS: yup.object({
-      ...schemaOtros,
+      ...schemaOtros(who),
       REDES: yup.object(schemaRedes),
     }),
   });

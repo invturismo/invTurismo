@@ -31,7 +31,7 @@ class HelpersExport
           break;
         case 'Grupos de Especial Interés':
           $query = GruposEspeciales::select()->where("ID_LISTADO",$idListado)->first();
-          $id = $query->ID_GRUPO;
+          $id = $query->ID_GRUPOS;
           break;
         case 'Sitios Naturales':
           $query = SitiosNaturales::select()->where("ID_LISTADO",$idListado)->first();

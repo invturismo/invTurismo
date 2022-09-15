@@ -10,13 +10,13 @@ class GruposEspeciales extends Model
 {
     use HasFactory,HasApiTokens;
     protected $table = "grupos_especiales";
-    protected $primaryKey = 'ID_GRUPO';
+    protected $primaryKey = 'ID_GRUPOS';
     public $timestamps = false;
     protected $fillable = [
         'ID_LISTADO',
         'ID_GENERALIDAD',
         'ID_CARACTERISTICA',
-        'ID_VALORACION_GRUPO',
+        'ID_VALORACION_GRUPOS',
         'ID_RELEVANTE',
         'ID_ACTIVIDAD',
         'ID_SERVICIO',
@@ -26,7 +26,6 @@ class GruposEspeciales extends Model
         'REF_BIBLIOGRAFICA',
         'OBSERVACIONES',
         'APROB_INTERNACIONAL',
-        'INTERNACIONAL',
         'FECHA_APROB',
         'EXIST'
     ];

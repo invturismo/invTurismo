@@ -11,6 +11,9 @@ const dataCalidad = {
     ESPONTANEA: "",
     POPULAR: "",
   },
+  GRUPOS_ESPECIALES: {
+    R_COSTUMBRES: "",
+  },
 };
 
 const generalidades = (Calidad,data) => {
@@ -100,6 +103,13 @@ const serviciosEspeciales = (Calidad) => {
   }
 }
 
+const fieldInternacional = (Calidad) => {
+  if (Calidad !== "GRUPOS_ESPECIALES") return {};
+  return {
+    APRO_INTERNACIONAL: "false",
+  };
+};
+
 export const initialValuesGeneralForm = (Calidad, data) => ({
   GENERALIDADES: {
     ...generalidades(Calidad, data),
@@ -158,5 +168,6 @@ export const initialValuesGeneralForm = (Calidad, data) => ({
     },
     REF_BIBLIOGRAFICA: "",
     OBSERVACIONES: "",
+    ...fieldInternacional(Calidad),
   },
 });

@@ -41,6 +41,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
     handleChangeOtros,
     handleDeleteImage,
     handleChangeCalidadInmaterial,
+    handleChangeCalidadGrupos,
   } = changeFunctionsGeneralForm({
     values,
     errors,
@@ -89,6 +90,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
         handleChangeCalidadMaterial={handleChangeCalidadMaterial}
         values={values.PUNTAJES_VALORACION}
         handleChangeCalidadInmaterial={handleChangeCalidadInmaterial}
+        handleChangeCalidadGrupos={handleChangeCalidadGrupos}
         who={who}
       />
       {who !== 2 && (
@@ -129,6 +131,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
         handleChangeRedes={handleChangeRedes}
         handleBlur={handleBlur}
         errors={errors.OTROS}
+        who={who}
       />
       <ButtonPage type="submit" colorButton="#5328fe">
         {update ? "Actualizar" : "Aceptar"}

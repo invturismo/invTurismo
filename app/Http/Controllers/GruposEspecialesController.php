@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rules\ValidateBoolean;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\GeneralidadesController;
 use App\Http\Controllers\CodigosController;
@@ -14,21 +15,25 @@ use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\ServiciosEspecialesController;
 use App\Http\Controllers\RedesController;
-use App\Models\PatrimoniosMateriales;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
 use App\Helpers\HelperQuerys;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelpersExport;
+use App\Models\GruposEspeciales;
 
-class PatrimoniosMaterialesController extends Controller
+class GruposEspecialesController extends Controller
 {
-    public static $rules = [
-        'ID_MATERIAL' => 'required|numeric',
-        'REF_BIBLIOGRAFICA' => 'max:300',
-        'OBSERVACIONES' => 'max:300',
-    ];
+    public static function rules()
+    {
+        return [
+            'ID_GRUPOS' => 'required|numeric',
+            'APRO_INTERNACIONAL' => [new ValidateBoolean()],
+            'REF_BIBLIOGRAFICA' => 'max:300',
+            'OBSERVACIONES' => 'max:300',
+        ];
+    }
 
     public function mergeRules($state)
     {
@@ -36,14 +41,14 @@ class PatrimoniosMaterialesController extends Controller
             GeneralidadesController::rulesGeneralidades(),
             CaracteristicasController::rulesCaracteristicas($state),
             CodigosController::$rules,
-            PuntajesController::rulesPuntajes('PATRIMONIOS_MATERIALES'),
+            PuntajesController::rulesPuntajes('GRUPOS_ESPECIALES'),
             RelevantesController::rulesRelevantes(),
             ActividadesController::$rules,
             ServiciosController::$rules,
             PromocionController::$rules,
             ServiciosEspecialesController::$rules,
             RedesController::$rules,
-            self::$rules
+            self::rules()
         );
     }
 
@@ -52,7 +57,7 @@ class PatrimoniosMaterialesController extends Controller
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
         if($isValid != 1) return $isValid;     
         try {
-            $queryData = PatrimoniosMateriales::find($request->ID_MATERIAL);
+            $queryData = GruposEspeciales::find($request->ID_GRUPOS);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
             if($validateName) return response()->json([
                 'state' => false,
@@ -68,8 +73,8 @@ class PatrimoniosMaterialesController extends Controller
             $idCaracteristicas = CaracteristicasController::create($request);
             $queryData->ID_CARACTERISTICA = $idCaracteristicas;
             CodigosController::create($request,$queryData->ID_LISTADO,$ID_USUARIO);
-            $idPuntajes = PuntajesController::create($request,"PATRIMONIOS_MATERIALES");
-            $queryData->ID_VALORACION_MATERIAL = $idPuntajes;
+            $idPuntajes = PuntajesController::create($request,"GRUPOS_ESPECIALES");
+            $queryData->ID_VALORACION_GRUPOS = $idPuntajes;
             $idRelevante = RelevantesController::create($request); 
             $queryData->ID_RELEVANTE = $idRelevante;
             $idActividad = ActividadesController::create($request);
@@ -84,9 +89,10 @@ class PatrimoniosMaterialesController extends Controller
             $queryData->ID_RED_SOCIAL = $idRedes;
             $queryData->REF_BIBLIOGRAFICA = $request->REF_BIBLIOGRAFICA;
             $queryData->OBSERVACIONES = $request->OBSERVACIONES;
+            $queryData->APRO_INTERNACIONAL = $request->APRO_INTERNACIONAL == "true";
             $queryData->save();
             HistorialController::createInsertDelete(
-                $ID_USUARIO,'Patrimonio Cultural Material',$queryData->ID_MATERIAL,2
+                $ID_USUARIO,'Grupos de Especial Interés',$queryData->ID_GRUPOS,2
             );
             return response()->json([
                 "state" => true,
@@ -106,7 +112,7 @@ class PatrimoniosMaterialesController extends Controller
         $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
         if($isValid != 1) return $isValid;
         try {
-            $queryData = PatrimoniosMateriales::find($request->ID_MATERIAL);
+            $queryData = GruposEspeciales::find($request->ID_GRUPOS);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);
             if($validateName) return response()->json([
                 'state' => false,
@@ -114,13 +120,13 @@ class PatrimoniosMaterialesController extends Controller
                     'NOMBRE' => ['El recurso ya esta en la base de datos con el mismo Codigo']
                 ]
             ]);
-            $fields = ['REF_BIBLIOGRAFICA','OBSERVACIONES'];
+            $fields = ['REF_BIBLIOGRAFICA','OBSERVACIONES','APRO_INTERNACIONAL'];
             $clientData = $request->all();
             $ID_USUARIO = Auth::user()->ID_USUARIO;
             GeneralidadesController::update($clientData,$queryData,$ID_USUARIO);
             CaracteristicasController::update($request,$queryData,$ID_USUARIO);
             CodigosController::update($clientData,$queryData,$ID_USUARIO);
-            PuntajesController::update($clientData,$queryData,$ID_USUARIO,"PATRIMONIOS_MATERIALES");
+            PuntajesController::update($clientData,$queryData,$ID_USUARIO,"GRUPOS_ESPECIALES");
             RelevantesController::update($clientData,$queryData,$ID_USUARIO); 
             ActividadesController::update($clientData,$queryData,$ID_USUARIO); 
             ServiciosController::update($clientData,$queryData,$ID_USUARIO); 
@@ -128,17 +134,19 @@ class PatrimoniosMaterialesController extends Controller
             ServiciosEspecialesController::update($clientData,$queryData,$ID_USUARIO);
             RedesController::update($clientData,$queryData,$ID_USUARIO);
             foreach ($fields as $value) {
-                if($queryData[$value] == $clientData[$value]) continue;
+                $data = $value == 'APRO_INTERNACIONAL' ? 
+                $clientData[$value] == 'true' : $clientData[$value];
+                if($queryData[$value] == $data) continue;
                 HistorialController::createUpdate(
                     $ID_USUARIO,
-                    'Patrimonio Cultural Material',
+                    'Grupos de Especial Interés',
                     $queryData->ID_LISTADO,
-                    $queryData->ID_MATERIAL,
+                    $queryData->ID_GRUPOS,
                     $value,
                     $queryData[$value],
-                    $clientData[$value]
+                    $data
                 );
-                $queryData[$value] = $clientData[$value];
+                $queryData[$value] = $data;
                 $queryData->save();
             }
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
@@ -159,11 +167,11 @@ class PatrimoniosMaterialesController extends Controller
     {
         try {
             $queryData = HelperQuerys::queryPatrimonios(
-                new PatrimoniosMateriales(),'patrimonios_materiales','ID_MATERIAL'
+                new GruposEspeciales(),'grupos_especiales','ID_GRUPOS'
             )->whereNull("codigos.id_tipo_patrimonio");
             $queryData = HelperFilter::FilterAll($request,$queryData);
             $queryData = HelperFilter::FilterFind($request,$queryData)->orderBy(
-                "patrimonios_materiales.ID_MATERIAL","DESC"
+                "grupos_especiales.ID_GRUPOS","DESC"
             )->paginate(10)->toArray();
             return response()->json(array_merge(
                 $queryData,
@@ -182,9 +190,9 @@ class PatrimoniosMaterialesController extends Controller
     {
         try {
             $queryData = HelperQuerys::queryPatrimonios(
-                new PatrimoniosMateriales(),'patrimonios_materiales','ID_MATERIAL'
+                new GruposEspeciales(),'grupos_especiales','ID_GRUPOS'
             )->whereNull("codigos.id_tipo_patrimonio")
-            ->where("patrimonios_materiales.ID_MATERIAL","=",$request->REGISTRO)
+            ->where("grupos_especiales.ID_GRUPOS","=",$request->REGISTRO)
             ->first();
             if(!isset($queryData)) return response()->json([
                 'state' => false,
@@ -214,15 +222,15 @@ class PatrimoniosMaterialesController extends Controller
     {
         try {
             $queryData = HelperQuerys::queryPatrimonios(
-                new PatrimoniosMateriales(),
-                'patrimonios_materiales',
-                'ID_MATERIAL',
-                ["valoraciones_material.TOTAL as CALIFICACION","generalidades.GEORREFERENCIACION"],
-                ["valoraciones_material","ID_VALORACION_MATERIAL"]
+                new GruposEspeciales(),
+                'grupos_especiales',
+                'ID_GRUPOS',
+                ["valoraciones_grupos.TOTAL as CALIFICACION","generalidades.GEORREFERENCIACION"],
+                ["valoraciones_grupos","ID_VALORACION_GRUPOS"]
             )->whereNotNull("codigos.id_tipo_patrimonio");
             $queryData = HelperFilter::FilterAll($request,$queryData);
             $queryData = HelperFilter::FilterFind($request,$queryData)->orderBy(
-                "patrimonios_materiales.ID_MATERIAL","DESC"
+                "grupos_especiales.ID_GRUPOS","DESC"
             )->paginate(10)->toArray();
             $queryData = CodigosController::getData($queryData);
             return response()->json(array_merge(
@@ -237,14 +245,14 @@ class PatrimoniosMaterialesController extends Controller
             ]);
         }
     }
-
+    
     public function getRecordCom(Request $request)
     {
         try {
             $queryData = HelperQuerys::queryValidatePatrimonios(
-                new PatrimoniosMateriales(),
-                'patrimonios_materiales',
-                'ID_MATERIAL',
+                new GruposEspeciales(),
+                'grupos_especiales',
+                'ID_GRUPOS',
                 $request
             );
             if(!isset($queryData)) return response()->json([
@@ -258,7 +266,7 @@ class PatrimoniosMaterialesController extends Controller
                 $queryData->ID_CARACTERISTICA,$queryData->ID_LISTADO
             );
             $dataPuntajes = PuntajesController::getRecord(
-                $queryData->ID_VALORACION_MATERIAL,"PATRIMONIOS_MATERIALES"
+                $queryData->ID_VALORACION_GRUPOS,"GRUPOS_ESPECIALES"
             );
             $dataRelevantes = RelevantesController::getRecord($queryData->ID_RELEVANTE);
             $dataActividades = ActividadesController::getRecord($queryData->ID_ACTIVIDAD);
@@ -270,10 +278,11 @@ class PatrimoniosMaterialesController extends Controller
             $dataRef_Ob = [
                 "REF_BIBLIOGRAFICA"=>$queryData->REF_BIBLIOGRAFICA,
                 "OBSERVACIONES"=>$queryData->OBSERVACIONES,
-                "ID_MATERIAL"=>$queryData->ID_MATERIAL
+                "APRO_INTERNACIONAL" =>$queryData->APRO_INTERNACIONAL ? "true" : "false",
+                "ID_GRUPOS"=>$queryData->ID_GRUPOS
             ];
             $fechaCreacion = HelpersExport::templateHistorial(
-                'Patrimonio Cultural Material',
+                'Grupos de Especial Interés',
                 $request->REGISTRO,2,
                 $queryData->ID_LISTADO
             );

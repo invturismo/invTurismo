@@ -21,6 +21,22 @@ const GruposEspecialInteres = () => {
           path="/completado"
           element={<MainGruposEspecialInteres who={2} />}
         />
+        <Route
+          path="/sin-completar/:idGruposEspeciales"
+          element={<MainGruposEspecialInteres who={3} />}
+        />
+        <Route
+          path="/completado/:idGruposEspeciales"
+          element={<MainGruposEspecialInteres who={4} />}
+        />
+        <Route
+          path="/completado/actualizar/:idGruposEspeciales"
+          element={<MainGruposEspecialInteres who={5} />}
+        />
+        <Route
+          path="/opciones"
+          element={<MainGruposEspecialInteres who={6} />}
+        />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>

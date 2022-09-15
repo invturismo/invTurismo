@@ -55,9 +55,9 @@ class HelpersClasificacion
         HistorialController::createInsertDelete(
           $ID_USUARIO,
           'Grupos de Especial Interés',
-          $grupos->ID_GRUPO,1
+          $grupos->ID_GRUPOS,1
         );
-        return $grupos->ID_GRUPO;
+        return $grupos->ID_GRUPOS;
         break;
       case 5:
         $sitios = new SitiosNaturales();
@@ -111,13 +111,13 @@ class HelpersClasificacion
           $registro -> delete();
           break;
         case 4:
-          $registro = GruposEspeciales::select("grupos_especiales.ID_GRUPO")
+          $registro = GruposEspeciales::select("grupos_especiales.ID_GRUPOS")
           ->where("grupos_especiales.ID_LISTADO","=",$ID_REGISTRO)
           ->first();;
           HistorialController::createInsertDelete(
             $ID_USUARIO,
             'Grupos de Especial Interés',
-            $registro->ID_GRUPO,0
+            $registro->ID_GRUPOS,0
           );
           $registro -> delete();
           break;

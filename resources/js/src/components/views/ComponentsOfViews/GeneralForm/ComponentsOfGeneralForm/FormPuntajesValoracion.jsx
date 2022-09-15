@@ -141,12 +141,32 @@ const CalidadInmaterial = (props) => {
   );
 };
 
+const CalidadGrupos = (props) => {
+  return (
+    <div className="SectionDivType2">
+      <h4>Calidad</h4>
+      <div className="SectionDivType1">
+        <LabelCalidad
+          NameField={"Respeto por las costumbres"}
+          max={70}
+          name="R_COSTUMBRES"
+          {...props}
+        />
+      </div>
+      <p className="Results">
+        <b>Subtotal:</b> {props.values.SUBTOTAL || "0"}
+      </p>
+    </div>
+  );
+};
+
 const FormPuntajesValoracion = ({
   values,
   errors,
   handleChange,
   handleChangeCalidadMaterial,
   handleChangeCalidadInmaterial,
+  handleChangeCalidadGrupos,
   handleBlur,
   who
 }) => {
@@ -166,6 +186,14 @@ const FormPuntajesValoracion = ({
           errors={errors.CALIDAD}
           handleBlur={handleBlur}
           handleChange={handleChangeCalidadInmaterial}
+          values={values.CALIDAD}
+        />
+      )}
+      {who === 4 && (
+        <CalidadGrupos
+          errors={errors.CALIDAD}
+          handleBlur={handleBlur}
+          handleChange={handleChangeCalidadGrupos}
           values={values.CALIDAD}
         />
       )}

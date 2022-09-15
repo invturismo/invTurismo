@@ -43,6 +43,7 @@ const changeInt = (number) => (isNaN(parseInt(number)) ? 0 : parseInt(number));
 const valueWho = {
   1: "PATRIMONIO_MATERIAL",
   2: "PATRIMONIOS_INMATERIALES",
+  4: "GRUPOS_ESPECIALES",
 };
 
 export const changeFunctionsGeneralForm = ({
@@ -317,6 +318,32 @@ export const changeFunctionsGeneralForm = ({
     );
   };
 
+  const handleChangeCalidadGrupos = (e) => {
+    let R_COSTUMBRES = validateExists(e, "R_COSTUMBRES");
+    let ID_SIGNIFICADO = values.PUNTAJES_VALORACION.ID_SIGNIFICADO;
+    let SignificadoPuntaje = ID_SIGNIFICADO
+      ? Significado[ID_SIGNIFICADO - 1]["PUNTAJE"]
+      : "";
+    R_COSTUMBRES = changeInt(R_COSTUMBRES);
+    SignificadoPuntaje = changeInt(SignificadoPuntaje);
+    let optionalChange = {
+      SUBTOTAL: R_COSTUMBRES,
+    };
+    let optionalChange2 = {
+      TOTAL:
+        SignificadoPuntaje +
+        R_COSTUMBRES,
+    };
+    secondLevelChange(
+      e.target.name,
+      e.target.value,
+      "PUNTAJES_VALORACION",
+      "CALIDAD",
+      optionalChange,
+      optionalChange2
+    );
+  };
+
   const handleChangeCaracteristicasRelevantes = (e) => {
     normalChange(e.target.name, e.target.value, "CARACTERISTICAS_RELEVANTES");
   };
@@ -438,5 +465,6 @@ export const changeFunctionsGeneralForm = ({
     handleSubmitCreate,
     handleSubmitUpdate,
     handleChangeCalidadInmaterial,
+    handleChangeCalidadGrupos,
   };
 };

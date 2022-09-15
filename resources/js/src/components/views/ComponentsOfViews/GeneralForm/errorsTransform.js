@@ -17,6 +17,9 @@ const templateCalidad = {
     ESPONTANEA: ["PUNTAJES_VALORACION", "CALIDAD", "ESPONTANEA"],
     POPULAR: ["PUNTAJES_VALORACION", "CALIDAD", "POPULAR"],
   },
+  VALORACIONES_GRUPOS: {
+    R_COSTUMBRES: ["PUNTAJES_VALORACION", "CALIDAD", "R_COSTUMBRES"],
+  },
 };
 
 const templateErrors = (who) => ({
@@ -94,6 +97,7 @@ const templateErrors = (who) => ({
   OTRA: ["OTROS", "REDES", "OTRA"],
   REF_BIBLIOGRAFICA: ["OTROS", "REF_BIBLIOGRAFICA"],
   OBSERVACIONES: ["OTROS", "OBSERVACIONES"],
+  APRO_INTERNACIONAL: ["OTROS", "APRO_INTERNACIONAL"],
 });
 
 export const errorsTransform = (data, who, initialErrors) => {

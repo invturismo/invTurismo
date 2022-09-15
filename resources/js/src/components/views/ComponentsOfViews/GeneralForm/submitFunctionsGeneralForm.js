@@ -23,6 +23,12 @@ const whoLink = {
     "/patrimonio-inmaterial/sin-completar",
     "/patrimonio-inmaterial/completado/",
   ],
+  4: [
+    "grupos-especiales/insertForm",
+    "grupos-especiales/update",
+    "/grupos-especial-interes/sin-completar",
+    "/grupos-especial-interes/completado/",
+  ],
 };
 
 export const submitFunctionsGeneralForm = ({
@@ -56,9 +62,6 @@ export const submitFunctionsGeneralForm = ({
     if (updateImage) {
       let rulesImage = updateImage();
       if (rulesImage) formData.append("REGLAS", rulesImage);
-    }
-    for (const pair of formData.entries()) {
-      console.log(`${pair[0]}, ${pair[1]}`);
     }
     const responseServe = await sendDataForm(nameLink, formData);
     dispatch(closeLoaderForm());

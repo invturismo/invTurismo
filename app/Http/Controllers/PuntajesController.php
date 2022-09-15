@@ -7,6 +7,7 @@ use App\Models\CalidadMaterial;
 use App\Models\CalidadInmaterial;
 use App\Models\ValoracionMaterial;
 use App\Models\ValoracionInmaterial;
+use App\Models\ValoracionesGrupos;
 use App\Http\Controllers\HistorialController;
 
 class PuntajesController extends Controller
@@ -30,6 +31,9 @@ class PuntajesController extends Controller
             'ESPONTANEA' => 'required|numeric|between:0,14',
             'POPULAR' => 'required|numeric|between:0,14',
             'SUBTOTAL' => 'required|numeric|between:0,70',
+        ],
+        'GRUPOS_ESPECIALES' => [
+            'R_COSTUMBRES' => 'required|numeric|between:0,70'
         ]
     ];
 
@@ -97,6 +101,14 @@ class PuntajesController extends Controller
                 self::createValoracion($valoracion,$clientData);
                 return $valoracion->ID_VALORACION_INMATERIAL;
             break;
+            case 'GRUPOS_ESPECIALES':
+                $valoracion = new ValoracionesGrupos();
+                $valoracion->R_COSTUMBRES = $clientData->R_COSTUMBRES;
+                $valoracion->ID_SIGNIFICADO = $clientData->ID_SIGNIFICADO;
+                $valoracion->TOTAL = $clientData->TOTAL;
+                $valoracion->save();
+                return $valoracion->ID_VALORACION_GRUPOS;
+            break;
         }
     }
 
@@ -155,6 +167,24 @@ class PuntajesController extends Controller
                     $queryUpdate->ID_LISTADO
                 );
             break;
+            case 'GRUPOS_ESPECIALES':
+                $queryData = ValoracionesGrupos::find($queryUpdate->ID_VALORACION_GRUPOS);
+                foreach ($queryData->toArray() as $key => $value) {
+                    if(!isset($clientData[$key])) continue;
+                    if($queryData[$key] == $clientData[$key]) continue;
+                    HistorialController::createUpdate(
+                        $idUsuario,
+                        'calidades_inmaterial',
+                        $queryUpdate->ID_LISTADO,
+                        $calidad->ID_CALIDAD_INMATERIAL,
+                        $key,
+                        $calidad[$key],
+                        $clientData[$key]
+                    );
+                    $queryData[$key] = $clientData[$key];
+                    $queryData->save();
+                }
+            break;
         }
     }
 
@@ -173,6 +203,16 @@ class PuntajesController extends Controller
                 $queryCalidad = CalidadInmaterial::find($queryData["ID_CALIDAD_INMATERIAL"]);
                 return [
                     "PUNTAJES_VALORACION" => array_merge($queryData,["CALIDAD"=>$queryCalidad])
+                ];
+            break;
+            case 'GRUPOS_ESPECIALES':
+                $queryData = ValoracionesGrupos::find($idPuntaje)->toArray();
+                return [
+                    "PUNTAJES_VALORACION" => array_merge(
+                        $queryData,["CALIDAD"=>[
+                            "R_COSTUMBRES" => $queryData['R_COSTUMBRES']
+                        ]]
+                    )
                 ];
             break;
         }

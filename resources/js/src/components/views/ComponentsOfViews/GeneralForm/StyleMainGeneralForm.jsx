@@ -189,8 +189,12 @@ const StyleMainGeneralForm = styled.form`
   .Results {
     font-size: 1.2rem;
   }
-  label[for="ID_SIGNIFICADO"] {
+  label[for="ID_SIGNIFICADO"],
+  label[for="APRO_INTERNACIONAL"] {
     max-width: 511px;
+  }
+  label[for="R_COSTUMBRES"] {
+    max-width: 317px;
   }
   .MainHorario {
     display: grid;

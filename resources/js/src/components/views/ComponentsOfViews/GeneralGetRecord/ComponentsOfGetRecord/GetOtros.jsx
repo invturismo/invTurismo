@@ -1,6 +1,6 @@
-import React from 'react';
-import GetInformation1 from './GetInformation1';
-import TableInformation from './TableInformation';
+import React from "react";
+import GetInformation1 from "./GetInformation1";
+import TableInformation from "./TableInformation";
 
 const Redes = ({ data }) => {
   return (
@@ -11,7 +11,7 @@ const Redes = ({ data }) => {
   );
 };
 
-const Otros = ({ data }) => {
+const Otros = ({ data, who }) => {
   return (
     <div className="ContainerGet1">
       <GetInformation1
@@ -20,15 +20,20 @@ const Otros = ({ data }) => {
         help
       />
       <GetInformation1 content={data.OBSERVACIONES} name="Observaciones" help />
+      {who === "GRUPOS_ESPECIALES" && (
+        <GetInformation1
+          content={data.APRO_INTERNACIONAL == "true" ? "Si" : "No"}
+          name="Internacional"
+        />
+      )}
     </div>
   );
 };
 
-const Fecha = ({data}) => {
+const Fecha = ({ data }) => {
   return (
     <>
       <div className="ContainerGet1">
-        {console.log(data)}
         <GetInformation1
           content={data.FECHA_MOVIMIENTO}
           name="Fecha creacion"
@@ -46,16 +51,16 @@ const Fecha = ({data}) => {
       )}
     </>
   );
-}
+};
 
-const GetOtros = ({ data, originalData }) => {
+const GetOtros = ({ data, originalData, who }) => {
   return (
     <>
       <Redes data={data.REDES} />
-      <Otros data={data} />
+      <Otros data={data} who={who} />
       <Fecha data={originalData} />
     </>
   );
 };
 
-export default GetOtros
+export default GetOtros;

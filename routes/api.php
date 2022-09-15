@@ -9,6 +9,7 @@ use App\Http\Controllers\UpdateController;
 use App\Http\Controllers\ExportController;
 use App\Http\Controllers\PatrimoniosMaterialesController;
 use App\Http\Controllers\PatrimonioInmaterialController;
+use App\Http\Controllers\GruposEspecialesController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -44,6 +45,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/export/clasificacion-atractivos",[ExportController::class,'ExportClasificacion']);
     Route::post("/export/patrimonio-material",[ExportController::class,'ExportPatrimonioMaterial']);
     Route::post("/export/patrimonio-inmaterial",[ExportController::class,'ExportPatrimonioInmaterial']);
+    Route::post("/export/grupos-especiales",[ExportController::class,'ExportGruposEspeciales']);
 
     Route::post("/listados-preliminares/create",[ListadosPreliminaresController::class,'create']);
     Route::post("/listados-preliminares/validate-name",[ListadosPreliminaresController::class,'validateName']);
@@ -72,4 +74,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/patrimonios-inmateriales/getrecordsincom",[PatrimonioInmaterialController::class,'getRecordSinCom']);
     Route::post("/patrimonios-inmateriales/getdatacom",[PatrimonioInmaterialController::class,'getDataCom']);
     Route::post("/patrimonios-inmateriales/getrecordcom",[PatrimonioInmaterialController::class,'getRecordCom']);
+
+    Route::post("/grupos-especiales/insertForm",[GruposEspecialesController::class,'insertForm']);
+    Route::post("/grupos-especiales/update",[GruposEspecialesController::class,'update']);
+    Route::post("/grupos-especiales/getdatasincom",[GruposEspecialesController::class,'getDataSinCom']);
+    Route::post("/grupos-especiales/getrecordsincom",[GruposEspecialesController::class,'getRecordSinCom']);
+    Route::post("/grupos-especiales/getdatacom",[GruposEspecialesController::class,'getDataCom']);
+    Route::post("/grupos-especiales/getrecordcom",[GruposEspecialesController::class,'getRecordCom']);
 });
