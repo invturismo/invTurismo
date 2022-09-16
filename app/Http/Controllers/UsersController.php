@@ -51,7 +51,7 @@ class UsersController extends Controller
         try {
             $rules = self::rules($request->input('CLAVE'));
             $isValid = HelperValidator::Validate($rules,$request);
-            if($isValid != 1) return $isValid; 
+            if($isValid != 1) return response()->json($isValid);
             $dataForm = $request->all();
             $dataForm['CLAVE'] = Hash::make($dataForm['CLAVE']);
             $user = new User();
@@ -108,7 +108,7 @@ class UsersController extends Controller
         try {
             $rules = self::rules($request->input('CLAVE'),$request->ID_USUARIO);
             $isValid = HelperValidator::Validate($rules,$request);
-            if($isValid != 1) return $isValid;
+            if($isValid != 1) return response()->json($isValid);
             $queryData = self::templateQuery()
             ->where('ID_USUARIO','=',$request->ID_USUARIO)->first();
             if(!isset($queryData)) return response()->json([
@@ -274,7 +274,7 @@ class UsersController extends Controller
             'CONFIRMAR_CLAVE'=>['required',new ConfirmPassword($request->input('CLAVE'))]
         ];
         $isValid = HelperValidator::Validate($rules,$request);
-        if($isValid != 1) return $isValid;
+        if($isValid != 1) return response()->json($isValid);
         try {
             $queryData = User::find($request->ID_USUARIO);
             if(!isset($queryData)) return response()->json([

@@ -1,5 +1,4 @@
 import React from 'react';
-import GeneralGet from '../ComponentsOfViews/GeneralGet';
 import GetCompletadoGrupos from './ComponentsOfGrupos/GetCompletadoGrupos';
 import GetRecordConGrupos from './ComponentsOfGrupos/GetRecordConGrupos';
 import GetRecordSinGrupos from './ComponentsOfGrupos/GetRecordSinGrupos';

@@ -11,8 +11,22 @@ const dataCalidad = {
     ESPONTANEA: "",
     POPULAR: "",
   },
+  FESTIVIDADES_EVENTOS: {
+    ORGANIZACION: "",
+    B_SOCIOCULTURALES: "",
+    B_ECONOMICOS: "",
+  },
   GRUPOS_ESPECIALES: {
     R_COSTUMBRES: "",
+  },
+  SITIOS_NATURALES: {
+    S_C_AIRE: "",
+    S_C_AGUA: "",
+    S_C_VISUAL: "",
+    CONSERVACION: "",
+    S_C_SONORA: "",
+    DIVERSIDAD: "",
+    SINGULARIDAD: "",
   },
 };
 

@@ -1,46 +1,20 @@
 import React from 'react';
-import GeneralGet from '../ComponentsOfViews/GeneralGet';
-
-const GetSinCompletarSitiosNaturales = () => {
-  return (
-    <>
-      <GeneralGet
-        h2Text="Sitios naturales"
-        toFirst="/sitios-naturales/sin-completar"
-        toLast="/sitios-naturales/completado"
-        linkOptions="/sitios-naturales/opciones"
-      >
-        <tr className="NoData">
-          <td colSpan={6}>No hay datos para completar</td>
-        </tr>
-      </GeneralGet>
-    </>
-  );
-};
-
-const GetCompletadoSitiosNaturales = () => {
-  return (
-    <>
-      <GeneralGet
-        h2Text="Sitios naturales"
-        toFirst="/sitios-naturales/sin-completar"
-        toLast="/sitios-naturales/completado"
-        linkOptions={"/sitios-naturales/opciones"}
-        others={{}}
-      >
-        <tr className="NoData">
-          <td colSpan={6}>No hay datos para visualizar</td>
-        </tr>
-      </GeneralGet>
-    </>
-  );
-};
+import GetCompletadoSitios from './ComponentsOfSitios/GetCompletadoSitios';
+import GetRecordConSitios from './ComponentsOfSitios/GetRecordConSitios';
+import GetRecordSinSitios from './ComponentsOfSitios/GetRecordSinSitios';
+import GetSinCompletarSitios from './ComponentsOfSitios/GetSinCompletarSitios';
+import OptionsSitios from './ComponentsOfSitios/OptionsSitios';
+import UpdateSitiosNaturales from './ComponentsOfSitios/UpdateSitiosNaturales';
 
 const MainSitiosNaturales = ({who}) => {
   return (
     <div className="ContainerMainGeneral">
-      {who === 1 && <GetSinCompletarSitiosNaturales />}
-      {who === 2 && <GetCompletadoSitiosNaturales />}
+      {who === 1 && <GetSinCompletarSitios />}
+      {who === 2 && <GetCompletadoSitios />}
+      {who === 3 && <GetRecordSinSitios />}
+      {who === 4 && <GetRecordConSitios />}
+      {who === 5 && <UpdateSitiosNaturales />}
+      {who === 6 && <OptionsSitios />}
     </div>
   );
 }

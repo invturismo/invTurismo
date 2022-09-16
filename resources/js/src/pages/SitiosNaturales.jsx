@@ -18,6 +18,19 @@ const SitiosNaturales = () => {
           element={<MainSitiosNaturales who={1} />}
         />
         <Route path="/completado" element={<MainSitiosNaturales who={2} />} />
+        <Route
+          path="/sin-completar/:idSitiosNaturales"
+          element={<MainSitiosNaturales who={3} />}
+        />
+        <Route
+          path="/completado/:idSitiosNaturales"
+          element={<MainSitiosNaturales who={4} />}
+        />
+        <Route
+          path="/completado/actualizar/:idSitiosNaturales"
+          element={<MainSitiosNaturales who={5} />}
+        />
+        <Route path="/opciones" element={<MainSitiosNaturales who={6} />} />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>

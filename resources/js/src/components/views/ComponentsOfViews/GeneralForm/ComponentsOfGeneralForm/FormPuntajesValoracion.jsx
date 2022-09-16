@@ -160,6 +160,92 @@ const CalidadGrupos = (props) => {
   );
 };
 
+const CalidadFestividades = (props) => {
+  return (
+    <div className="SectionDivType2">
+      <h4>Calidad</h4>
+      <div className="SectionDivType1">
+        <LabelCalidad
+          NameField={"Organización del evento"}
+          max={30}
+          name="ORGANIZACION"
+          {...props}
+        />
+        <LabelCalidad
+          NameField={"Beneficios socioculturales para la comunidad"}
+          max={20}
+          name="B_SOCIOCULTURALES"
+          {...props}
+        />
+        <LabelCalidad
+          NameField={"Beneficios económicos locales"}
+          max={20}
+          name="B_SOCIOCULTURALES"
+          {...props}
+        />
+      </div>
+      <p className="Results">
+        <b>Subtotal:</b> {props.values.SUBTOTAL || "0"}
+      </p>
+    </div>
+  );
+};
+
+const CalidadSitios = (props) => {
+  return (
+    <div className="SectionDivType2">
+      <h4>Calidad</h4>
+      <div className="SectionDivType1">
+        <LabelCalidad
+          NameField={"Sin contaminación del aire"}
+          max={10}
+          name="S_C_AIRE"
+          {...props}
+        />
+        <LabelCalidad
+          NameField={"Sin contaminación del agua"}
+          max={10}
+          name="S_C_AGUA"
+          {...props}
+        />
+        <LabelCalidad
+          NameField={"Sin contaminación visual"}
+          max={10}
+          name="S_C_VISUAL"
+          {...props}
+        />
+        <LabelCalidad
+          NameField={"Estado de conservación"}
+          max={10}
+          name="CONSERVACION"
+          {...props}
+        />
+        <LabelCalidad
+          NameField={"Sin contaminación sonora"}
+          max={10}
+          name="S_C_SONORA"
+          {...props}
+        />
+        <LabelCalidad
+          NameField={"Diversidad"}
+          max={10}
+          name="DIVERSIDAD"
+          {...props}
+        />
+        <LabelCalidad
+          NameField={"Singularidad"}
+          max={10}
+          name="SINGULARIDAD"
+          {...props}
+        />
+      </div>
+      <p className="Results">
+        <b>Subtotal:</b> {props.values.SUBTOTAL || "0"}
+      </p>
+    </div>
+  );
+};
+
 const FormPuntajesValoracion = ({
   values,
   errors,
@@ -167,6 +253,8 @@ const FormPuntajesValoracion = ({
   handleChangeCalidadMaterial,
   handleChangeCalidadInmaterial,
   handleChangeCalidadGrupos,
+  handleChangeCalidadSitios,
+  handleChangeCalidadFestividades,
   handleBlur,
   who
 }) => {
@@ -189,11 +277,27 @@ const FormPuntajesValoracion = ({
           values={values.CALIDAD}
         />
       )}
+      {who === 3 && (
+        <CalidadFestividades
+          errors={errors.CALIDAD}
+          handleBlur={handleBlur}
+          handleChange={handleChangeCalidadFestividades}
+          values={values.CALIDAD}
+        />
+      )}
       {who === 4 && (
         <CalidadGrupos
           errors={errors.CALIDAD}
           handleBlur={handleBlur}
           handleChange={handleChangeCalidadGrupos}
+          values={values.CALIDAD}
+        />
+      )}
+      {who === 5 && (
+        <CalidadSitios
+          errors={errors.CALIDAD}
+          handleBlur={handleBlur}
+          handleChange={handleChangeCalidadSitios}
           values={values.CALIDAD}
         />
       )}

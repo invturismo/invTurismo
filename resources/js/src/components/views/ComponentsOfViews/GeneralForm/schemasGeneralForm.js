@@ -68,8 +68,22 @@ const schemaCalidad = {
     ESPONTANEA: yupCalidad(14),
     POPULAR: yupCalidad(14),
   },
+  FESTIVIDADES_EVENTOS: {
+    ORGANIZACION: yupCalidad(30),
+    B_SOCIOCULTURALES: yupCalidad(20),
+    B_ECONOMICOS: yupCalidad(20),
+  },
   GRUPOS_ESPECIALES: {
     R_COSTUMBRES: yupCalidad(70),
+  },
+  SITIOS_NATURALES: {
+    S_C_AIRE: yupCalidad(10),
+    S_C_AGUA: yupCalidad(10),
+    S_C_VISUAL: yupCalidad(10),
+    CONSERVACION: yupCalidad(10),
+    S_C_SONORA: yupCalidad(10),
+    DIVERSIDAD: yupCalidad(10),
+    SINGULARIDAD: yupCalidad(10),
   },
 };
 

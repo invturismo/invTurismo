@@ -42,6 +42,8 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
     handleDeleteImage,
     handleChangeCalidadInmaterial,
     handleChangeCalidadGrupos,
+    handleChangeCalidadFestividades,
+    handleChangeCalidadSitios,
   } = changeFunctionsGeneralForm({
     values,
     errors,
@@ -91,6 +93,8 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
         values={values.PUNTAJES_VALORACION}
         handleChangeCalidadInmaterial={handleChangeCalidadInmaterial}
         handleChangeCalidadGrupos={handleChangeCalidadGrupos}
+        handleChangeCalidadFestividades={handleChangeCalidadFestividades}
+        handleChangeCalidadSitios={handleChangeCalidadSitios}
         who={who}
       />
       {who !== 2 && (

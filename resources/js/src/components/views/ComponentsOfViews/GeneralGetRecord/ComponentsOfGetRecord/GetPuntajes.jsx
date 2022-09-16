@@ -16,7 +16,21 @@ const whoFields = {
     ["ESPONTANEA", "Espontánea"],
     ["POPULAR", "Popular"],
   ],
+  FESTIVIDADES_EVENTOS: [
+    ["ORGANIZACION", "Organización del evento"],
+    ["B_SOCIOCULTURALES", "Beneficios socioculturales para la comunidad"],
+    ["B_ECONOMICOS", "Beneficios económicos locales"],
+  ],
   GRUPOS_ESPECIALES: [["R_COSTUMBRES", "Respeto por las costumbres"]],
+  SITIOS_NATURALES: [
+    ["S_C_AIRE", "Sin contaminación del aire"],
+    ["S_C_AGUA", "Sin contaminación del agua"],
+    ["S_C_VISUAL", "Sin contaminación visual"],
+    ["CONSERVACION", "Estado de conservación"],
+    ["S_C_SONORA", "Sin contaminación sonora"],
+    ["DIVERSIDAD", "Diversidad"],
+    ["SINGULARIDAD", "Singularidad"],
+  ],
 };
 
 const GetPuntajes = ({ data, who }) => {

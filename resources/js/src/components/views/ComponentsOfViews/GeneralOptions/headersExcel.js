@@ -35,4 +35,6 @@ export const headersExcel = {
   "Patrimonios-materiales": arrayHeader,
   "Patrimonios-inmateriales": arrayHeader,
   "Grupos-especial-interes": arrayHeader,
+  "Grupos-especial-interes": arrayHeader,
+  "Sitios-naturales": arrayHeader,
 };

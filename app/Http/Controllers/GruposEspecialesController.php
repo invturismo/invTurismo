@@ -55,7 +55,7 @@ class GruposEspecialesController extends Controller
     public function insertForm(Request $request) 
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
-        if($isValid != 1) return $isValid;     
+        if($isValid != 1) return response()->json($isValid);
         try {
             $queryData = GruposEspeciales::find($request->ID_GRUPOS);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
@@ -110,7 +110,7 @@ class GruposEspecialesController extends Controller
     {
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
         $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
-        if($isValid != 1) return $isValid;
+        if($isValid != 1) return response()->json($isValid);
         try {
             $queryData = GruposEspeciales::find($request->ID_GRUPOS);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);

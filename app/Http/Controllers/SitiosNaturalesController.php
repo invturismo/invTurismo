@@ -14,7 +14,7 @@ use App\Http\Controllers\ServiciosController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\ServiciosEspecialesController;
 use App\Http\Controllers\RedesController;
-use App\Models\PatrimoniosMateriales;
+use App\Models\SitiosNaturales;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
 use App\Helpers\HelperQuerys;
@@ -22,10 +22,10 @@ use App\Helpers\HelperFilter;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelpersExport;
 
-class PatrimoniosMaterialesController extends Controller
+class SitiosNaturalesController extends Controller
 {
     public static $rules = [
-        'ID_MATERIAL' => 'required|numeric',
+        'ID_SITIO' => 'required|numeric',
         'REF_BIBLIOGRAFICA' => 'max:300',
         'OBSERVACIONES' => 'max:300',
     ];
@@ -36,7 +36,7 @@ class PatrimoniosMaterialesController extends Controller
             GeneralidadesController::rulesGeneralidades(),
             CaracteristicasController::rulesCaracteristicas($state),
             CodigosController::$rules,
-            PuntajesController::rulesPuntajes('PATRIMONIOS_MATERIALES'),
+            PuntajesController::rulesPuntajes('SITIOS_NATURALES'),
             RelevantesController::rulesRelevantes(),
             ActividadesController::$rules,
             ServiciosController::$rules,
@@ -50,9 +50,9 @@ class PatrimoniosMaterialesController extends Controller
     public function insertForm(Request $request) 
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
-        if($isValid != 1) return response()->json($isValid);
+        if($isValid != 1) return response()->json($isValid);     
         try {
-            $queryData = PatrimoniosMateriales::find($request->ID_MATERIAL);
+            $queryData = SitiosNaturales::find($request->ID_SITIO);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
             if($validateName) return response()->json([
                 'state' => false,
@@ -68,8 +68,8 @@ class PatrimoniosMaterialesController extends Controller
             $idCaracteristicas = CaracteristicasController::create($request);
             $queryData->ID_CARACTERISTICA = $idCaracteristicas;
             CodigosController::create($request,$queryData->ID_LISTADO,$ID_USUARIO);
-            $idPuntajes = PuntajesController::create($request,"PATRIMONIOS_MATERIALES");
-            $queryData->ID_VALORACION_MATERIAL = $idPuntajes;
+            $idPuntajes = PuntajesController::create($request,"SITIOS_NATURALES");
+            $queryData->ID_VALORACION_SITIO = $idPuntajes;
             $idRelevante = RelevantesController::create($request); 
             $queryData->ID_RELEVANTE = $idRelevante;
             $idActividad = ActividadesController::create($request);
@@ -86,7 +86,7 @@ class PatrimoniosMaterialesController extends Controller
             $queryData->OBSERVACIONES = $request->OBSERVACIONES;
             $queryData->save();
             HistorialController::createInsertDelete(
-                $ID_USUARIO,'Patrimonio Cultural Material',$queryData->ID_MATERIAL,2
+                $ID_USUARIO,'Sitios Naturales',$queryData->ID_SITIO,2
             );
             return response()->json([
                 "state" => true,
@@ -106,7 +106,7 @@ class PatrimoniosMaterialesController extends Controller
         $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
         if($isValid != 1) return response()->json($isValid);
         try {
-            $queryData = PatrimoniosMateriales::find($request->ID_MATERIAL);
+            $queryData = SitiosNaturales::find($request->ID_SITIO);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);
             if($validateName) return response()->json([
                 'state' => false,
@@ -120,7 +120,7 @@ class PatrimoniosMaterialesController extends Controller
             GeneralidadesController::update($clientData,$queryData,$ID_USUARIO);
             CaracteristicasController::update($request,$queryData,$ID_USUARIO);
             CodigosController::update($clientData,$queryData,$ID_USUARIO);
-            PuntajesController::update($clientData,$queryData,$ID_USUARIO,"PATRIMONIOS_MATERIALES");
+            PuntajesController::update($clientData,$queryData,$ID_USUARIO,"SITIOS_NATURALES");
             RelevantesController::update($clientData,$queryData,$ID_USUARIO); 
             ActividadesController::update($clientData,$queryData,$ID_USUARIO); 
             ServiciosController::update($clientData,$queryData,$ID_USUARIO); 
@@ -131,9 +131,9 @@ class PatrimoniosMaterialesController extends Controller
                 if($queryData[$value] == $clientData[$value]) continue;
                 HistorialController::createUpdate(
                     $ID_USUARIO,
-                    'Patrimonio Cultural Material',
+                    'Sitios Naturales',
                     $queryData->ID_LISTADO,
-                    $queryData->ID_MATERIAL,
+                    $queryData->ID_SITIO,
                     $value,
                     $queryData[$value],
                     $clientData[$value]
@@ -159,11 +159,11 @@ class PatrimoniosMaterialesController extends Controller
     {
         try {
             $queryData = HelperQuerys::queryPatrimonios(
-                new PatrimoniosMateriales(),'patrimonios_materiales','ID_MATERIAL'
+                new SitiosNaturales(),'sitios_naturales','ID_SITIO'
             )->whereNull("codigos.id_tipo_patrimonio");
             $queryData = HelperFilter::FilterAll($request,$queryData);
             $queryData = HelperFilter::FilterFind($request,$queryData)->orderBy(
-                "patrimonios_materiales.ID_MATERIAL","DESC"
+                "sitios_naturales.ID_SITIO","DESC"
             )->paginate(10)->toArray();
             return response()->json(array_merge(
                 $queryData,
@@ -182,9 +182,9 @@ class PatrimoniosMaterialesController extends Controller
     {
         try {
             $queryData = HelperQuerys::queryPatrimonios(
-                new PatrimoniosMateriales(),'patrimonios_materiales','ID_MATERIAL'
+                new SitiosNaturales(),'sitios_naturales','ID_SITIO'
             )->whereNull("codigos.id_tipo_patrimonio")
-            ->where("patrimonios_materiales.ID_MATERIAL","=",$request->REGISTRO)
+            ->where("sitios_naturales.ID_SITIO","=",$request->REGISTRO)
             ->first();
             if(!isset($queryData)) return response()->json([
                 'state' => false,
@@ -214,15 +214,15 @@ class PatrimoniosMaterialesController extends Controller
     {
         try {
             $queryData = HelperQuerys::queryPatrimonios(
-                new PatrimoniosMateriales(),
-                'patrimonios_materiales',
-                'ID_MATERIAL',
-                ["valoraciones_material.TOTAL as CALIFICACION","generalidades.GEORREFERENCIACION"],
-                ["valoraciones_material","ID_VALORACION_MATERIAL"]
+                new SitiosNaturales(),
+                'sitios_naturales',
+                'ID_SITIO',
+                ["valoraciones_sitios.TOTAL as CALIFICACION","generalidades.GEORREFERENCIACION"],
+                ["valoraciones_sitios","ID_VALORACION_SITIO"]
             )->whereNotNull("codigos.id_tipo_patrimonio");
             $queryData = HelperFilter::FilterAll($request,$queryData);
             $queryData = HelperFilter::FilterFind($request,$queryData)->orderBy(
-                "patrimonios_materiales.ID_MATERIAL","DESC"
+                "sitios_naturales.ID_SITIO","DESC"
             )->paginate(10)->toArray();
             $queryData = CodigosController::getData($queryData);
             return response()->json(array_merge(
@@ -242,9 +242,9 @@ class PatrimoniosMaterialesController extends Controller
     {
         try {
             $queryData = HelperQuerys::queryValidatePatrimonios(
-                new PatrimoniosMateriales(),
-                'patrimonios_materiales',
-                'ID_MATERIAL',
+                new SitiosNaturales(),
+                'sitios_naturales',
+                'ID_SITIO',
                 $request
             );
             if(!isset($queryData)) return response()->json([
@@ -258,7 +258,7 @@ class PatrimoniosMaterialesController extends Controller
                 $queryData->ID_CARACTERISTICA,$queryData->ID_LISTADO
             );
             $dataPuntajes = PuntajesController::getRecord(
-                $queryData->ID_VALORACION_MATERIAL,"PATRIMONIOS_MATERIALES"
+                $queryData->ID_VALORACION_SITIO,"SITIOS_NATURALES"
             );
             $dataRelevantes = RelevantesController::getRecord($queryData->ID_RELEVANTE);
             $dataActividades = ActividadesController::getRecord($queryData->ID_ACTIVIDAD);
@@ -270,10 +270,10 @@ class PatrimoniosMaterialesController extends Controller
             $dataRef_Ob = [
                 "REF_BIBLIOGRAFICA"=>$queryData->REF_BIBLIOGRAFICA,
                 "OBSERVACIONES"=>$queryData->OBSERVACIONES,
-                "ID_MATERIAL"=>$queryData->ID_MATERIAL
+                "ID_SITIO"=>$queryData->ID_SITIO
             ];
             $fechaCreacion = HelpersExport::templateHistorial(
-                'Patrimonio Cultural Material',
+                'Sitios Naturales',
                 $request->REGISTRO,2,
                 $queryData->ID_LISTADO
             );

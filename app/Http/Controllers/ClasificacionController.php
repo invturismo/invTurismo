@@ -22,7 +22,7 @@ class ClasificacionController extends Controller
             'ID_TIPO_BIEN'=>'required|max:1',
         ];
         $isValid = HelperValidator::Validate($rules,$request);
-        if($isValid != 1) return $isValid;
+        if($isValid != 1) return response()->json($isValid);
         $ID_USUARIO = Auth::user()->ID_USUARIO;
         try {
             $queryData = ListadosPreliminares::find($request->ID_LISTADO);

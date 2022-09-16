@@ -42,8 +42,10 @@ const switchCodigo = (values, e) => {
 const changeInt = (number) => (isNaN(parseInt(number)) ? 0 : parseInt(number));
 const valueWho = {
   1: "PATRIMONIO_MATERIAL",
-  2: "PATRIMONIOS_INMATERIALES",
+  2: "FESTIVIDADES_EVENTOS",
+  3: "PATRIMONIOS_INMATERIALES",
   4: "GRUPOS_ESPECIALES",
+  5: "SITIOS_NATURALES",
 };
 
 export const changeFunctionsGeneralForm = ({
@@ -318,6 +320,35 @@ export const changeFunctionsGeneralForm = ({
     );
   };
 
+  const handleChangeCalidadFestividades = (e) => {
+    let ORGANIZACION = validateExists(e, "ORGANIZACION");
+    let B_SOCIOCULTURALES = validateExists(e, "B_SOCIOCULTURALES");
+    let B_ECONOMICOS = validateExists(e, "B_ECONOMICOS");
+    let ID_SIGNIFICADO = values.PUNTAJES_VALORACION.ID_SIGNIFICADO;
+    let SignificadoPuntaje = ID_SIGNIFICADO
+      ? Significado[ID_SIGNIFICADO - 1]["PUNTAJE"]
+      : "";
+    ORGANIZACION = changeInt(ORGANIZACION);
+    B_SOCIOCULTURALES = changeInt(B_SOCIOCULTURALES);
+    B_ECONOMICOS = changeInt(B_ECONOMICOS);
+    SignificadoPuntaje = changeInt(SignificadoPuntaje);
+    let optionalChange = {
+      SUBTOTAL: ORGANIZACION + B_SOCIOCULTURALES + B_ECONOMICOS,
+    };
+    let optionalChange2 = {
+      TOTAL:
+        SignificadoPuntaje + ORGANIZACION + B_SOCIOCULTURALES + B_ECONOMICOS,
+    };
+    secondLevelChange(
+      e.target.name,
+      e.target.value,
+      "PUNTAJES_VALORACION",
+      "CALIDAD",
+      optionalChange,
+      optionalChange2
+    );
+  };
+
   const handleChangeCalidadGrupos = (e) => {
     let R_COSTUMBRES = validateExists(e, "R_COSTUMBRES");
     let ID_SIGNIFICADO = values.PUNTAJES_VALORACION.ID_SIGNIFICADO;
@@ -330,9 +361,58 @@ export const changeFunctionsGeneralForm = ({
       SUBTOTAL: R_COSTUMBRES,
     };
     let optionalChange2 = {
+      TOTAL: SignificadoPuntaje + R_COSTUMBRES,
+    };
+    secondLevelChange(
+      e.target.name,
+      e.target.value,
+      "PUNTAJES_VALORACION",
+      "CALIDAD",
+      optionalChange,
+      optionalChange2
+    );
+  };
+
+  const handleChangeCalidadSitios = (e) => {
+    let S_C_AIRE = validateExists(e, "S_C_AIRE");
+    let S_C_AGUA = validateExists(e, "S_C_AGUA");
+    let S_C_VISUAL = validateExists(e, "S_C_VISUAL");
+    let CONSERVACION = validateExists(e, "CONSERVACION");
+    let S_C_SONORA = validateExists(e, "S_C_SONORA");
+    let DIVERSIDAD = validateExists(e, "DIVERSIDAD");
+    let SINGULARIDAD = validateExists(e, "SINGULARIDAD");
+    let ID_SIGNIFICADO = values.PUNTAJES_VALORACION.ID_SIGNIFICADO;
+    let SignificadoPuntaje = ID_SIGNIFICADO
+      ? Significado[ID_SIGNIFICADO - 1]["PUNTAJE"]
+      : "";
+    S_C_AIRE = changeInt(S_C_AIRE);
+    S_C_AGUA = changeInt(S_C_AGUA);
+    S_C_VISUAL = changeInt(S_C_VISUAL);
+    CONSERVACION = changeInt(CONSERVACION);
+    S_C_SONORA = changeInt(S_C_SONORA);
+    DIVERSIDAD = changeInt(DIVERSIDAD);
+    SINGULARIDAD = changeInt(SINGULARIDAD);
+    SignificadoPuntaje = changeInt(SignificadoPuntaje);
+    let optionalChange = {
+      SUBTOTAL:
+        S_C_AIRE +
+        S_C_AGUA +
+        S_C_VISUAL +
+        CONSERVACION +
+        S_C_SONORA +
+        DIVERSIDAD +
+        SINGULARIDAD,
+    };
+    let optionalChange2 = {
       TOTAL:
         SignificadoPuntaje +
-        R_COSTUMBRES,
+        S_C_AIRE +
+        S_C_AGUA +
+        S_C_VISUAL +
+        CONSERVACION +
+        S_C_SONORA +
+        DIVERSIDAD +
+        SINGULARIDAD,
     };
     secondLevelChange(
       e.target.name,
@@ -466,5 +546,7 @@ export const changeFunctionsGeneralForm = ({
     handleSubmitUpdate,
     handleChangeCalidadInmaterial,
     handleChangeCalidadGrupos,
+    handleChangeCalidadSitios,
+    handleChangeCalidadFestividades,
   };
 };

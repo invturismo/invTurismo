@@ -10,10 +10,10 @@ class HelperValidator
   {
     $validator = Validator::make($request->all(), $rules);
     if ($validator->fails()) {
-      return response()->json([
+      return [
         'state' => false,
         'errors' => $validator->errors()
-      ]);
+      ];
     }
     return 1;
   }

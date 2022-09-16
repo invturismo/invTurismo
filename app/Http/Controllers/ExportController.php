@@ -197,4 +197,41 @@ class ExportController extends Controller
             ]);
         }
     }
+
+    public function ExportSitiosNaturales(Request $request)
+    {
+        try {
+            $queryData = SitiosNaturales::join(
+                "valoraciones_sitios",
+                "valoraciones_sitios.ID_VALORACION_SITIO",
+                "=","sitios_naturales.ID_VALORACION_SITIO"
+            );
+            $queryData = HelpersExport::templateQuery(
+                $queryData,
+                "sitios_naturales",
+                "ID_SITIO",
+                "valoraciones_sitios"
+            );
+            $queryData = HelperFilter::FilterAll($request,$queryData)->get()->toArray();
+            if(count($queryData)>0) $queryData = CodigosController::getExport($queryData);
+            foreach ($queryData as $key => $value) {
+                $queryHistorial = HelpersExport::templateHistorial(
+                    'Sitios Naturales',
+                    $value['ID'],2,
+                    $value['ID_LISTADO']
+                );
+                $queryData[$key] = array_merge($value,$queryHistorial);
+            }
+            return response()->json([
+                "state" => true,
+                "data" => $queryData
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
+    }
 }

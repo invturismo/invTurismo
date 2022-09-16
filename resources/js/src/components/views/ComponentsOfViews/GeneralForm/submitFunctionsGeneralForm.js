@@ -23,11 +23,23 @@ const whoLink = {
     "/patrimonio-inmaterial/sin-completar",
     "/patrimonio-inmaterial/completado/",
   ],
+  3: [
+    "festividades-eventos/insertForm",
+    "festividades-eventos/update",
+    "/festividades-eventos/sin-completar",
+    "/festividades-eventos/completado/",
+  ],
   4: [
     "grupos-especiales/insertForm",
     "grupos-especiales/update",
     "/grupos-especial-interes/sin-completar",
     "/grupos-especial-interes/completado/",
+  ],
+  5: [
+    "sitios-naturales/insertForm",
+    "sitios-naturales/update",
+    "/sitios-naturales/sin-completar",
+    "/sitios-naturales/completado/",
   ],
 };
 

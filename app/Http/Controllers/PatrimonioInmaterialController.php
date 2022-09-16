@@ -42,7 +42,7 @@ class PatrimonioInmaterialController extends Controller
     public function insertForm(Request $request) 
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
-        if($isValid != 1) return $isValid;
+        if($isValid != 1) return response()->json($isValid);
         try {
             $queryData = PatrimoniosInmateriales::find($request->ID_INMATERIAL);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
@@ -90,7 +90,7 @@ class PatrimonioInmaterialController extends Controller
     {
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
         $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
-        if($isValid != 1) return $isValid;
+        if($isValid != 1) return response()->json($isValid);
         try {
             $queryData = PatrimoniosInmateriales::find($request->ID_INMATERIAL);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);

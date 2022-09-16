@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CalidadMaterial;
 use App\Models\CalidadInmaterial;
+use App\Models\CalidadSitios;
 use App\Models\ValoracionMaterial;
 use App\Models\ValoracionInmaterial;
 use App\Models\ValoracionesGrupos;
+use App\Models\ValoracionesSitios;
 use App\Http\Controllers\HistorialController;
 
 class PuntajesController extends Controller
@@ -34,6 +36,16 @@ class PuntajesController extends Controller
         ],
         'GRUPOS_ESPECIALES' => [
             'R_COSTUMBRES' => 'required|numeric|between:0,70'
+        ],
+        'SITIOS_NATURALES' => [
+            'S_C_AIRE' => 'required|numeric|between:0,10',
+            'S_C_AGUA' => 'required|numeric|between:0,10',
+            'S_C_VISUAL' => 'required|numeric|between:0,10',
+            'CONSERVACION' => 'required|numeric|between:0,10',
+            'S_C_SONORA' => 'required|numeric|between:0,10',
+            'DIVERSIDAD' => 'required|numeric|between:0,10',
+            'SINGULARIDAD' => 'required|numeric|between:0,10',
+            'SUBTOTAL' => 'required|numeric|between:0,70'
         ]
     ];
 
@@ -108,6 +120,22 @@ class PuntajesController extends Controller
                 $valoracion->TOTAL = $clientData->TOTAL;
                 $valoracion->save();
                 return $valoracion->ID_VALORACION_GRUPOS;
+            break;
+            case 'SITIOS_NATURALES':
+                $calidad = new CalidadSitios();
+                $calidad->S_C_AIRE = $clientData->S_C_AIRE;
+                $calidad->S_C_AGUA = $clientData->S_C_AGUA;
+                $calidad->S_C_VISUAL = $clientData->S_C_VISUAL;
+                $calidad->CONSERVACION = $clientData->CONSERVACION;
+                $calidad->S_C_SONORA = $clientData->S_C_SONORA;
+                $calidad->DIVERSIDAD = $clientData->DIVERSIDAD;
+                $calidad->SINGULARIDAD = $clientData->SINGULARIDAD;
+                $calidad->SUBTOTAL = $clientData->SUBTOTAL;
+                $calidad->save();
+                $valoracion = new ValoracionesSitios();
+                $valoracion->ID_CALIDAD_SITIO = $calidad->ID_CALIDAD_SITIO;
+                self::createValoracion($valoracion,$clientData);
+                return $valoracion->ID_VALORACION_SITIO;
             break;
         }
     }
@@ -185,6 +213,32 @@ class PuntajesController extends Controller
                     $queryData->save();
                 }
             break;
+            case 'SITIOS_NATURALES':
+                $queryData = ValoracionesSitios::find($queryUpdate->ID_VALORACION_SITIO);
+                $calidad = CalidadSitios::find($queryData->ID_CALIDAD_SITIO);
+                foreach (self::$rulesCalidad[$who] as $key => $value) {
+                    if($calidad[$key] == $clientData[$key]) continue;
+                    HistorialController::createUpdate(
+                        $idUsuario,
+                        'calidades_sitios',
+                        $queryUpdate->ID_LISTADO,
+                        $calidad->ID_CALIDAD_SITIO,
+                        $key,
+                        $calidad[$key],
+                        $clientData[$key]
+                    );
+                    $calidad[$key] = $clientData[$key];
+                    $calidad->save();
+                }
+                self::updateValoracion(
+                    $queryData,
+                    $clientData,
+                    'valoraciones_sitios',
+                    $queryData->ID_VALORACION_SITIO,
+                    $idUsuario,
+                    $queryUpdate->ID_LISTADO
+                );
+            break;
         }
     }
 
@@ -213,6 +267,13 @@ class PuntajesController extends Controller
                             "R_COSTUMBRES" => $queryData['R_COSTUMBRES']
                         ]]
                     )
+                ];
+            break;
+            case 'SITIOS_NATURALES':
+                $queryData = ValoracionesSitios::find($idPuntaje)->toArray();
+                $queryCalidad = CalidadSitios::find($queryData["ID_CALIDAD_SITIO"]);
+                return [
+                    "PUNTAJES_VALORACION" => array_merge($queryData,["CALIDAD"=>$queryCalidad])
                 ];
             break;
         }
