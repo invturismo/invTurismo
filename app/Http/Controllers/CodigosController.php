@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ListadosPreliminares;
 use App\Models\Codigos;
 use App\Http\Controllers\HistorialController;
+use App\Helpers\Joins;
 
 class CodigosController extends Controller
 {
@@ -20,15 +21,31 @@ class CodigosController extends Controller
 
     public static function create($clientData,$idListado,$idUsuario)
     {
-        $queryData = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
-        ->select("codigos.ID_CODIGO","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS")
-        ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
+        $queryData = Joins::JoinCodigo(new ListadosPreliminares())->select(
+            "codigos.ID_CODIGO","codigos.ID_MUNICIPIOS","codigos.ID_DEPARTAMENTOS"
+        )->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
         $codigos = Codigos::find($queryData->ID_CODIGO);
         if($queryData->ID_DEPARTAMENTOS != $clientData->ID_DEPARTAMENTOS){
-            HistorialController::createUpdate($idUsuario,'codigos',$idListado,$idListado,'ID_DEPARTAMENTOS',$queryData->ID_DEPARTAMENTOS,$clientData->ID_DEPARTAMENTOS);            
+            HistorialController::createUpdate(
+                $idUsuario,
+                'codigos',
+                $idListado,
+                $idListado,
+                'ID_DEPARTAMENTOS',
+                $queryData->ID_DEPARTAMENTOS,
+                $clientData->ID_DEPARTAMENTOS
+            );            
         }
         if($queryData->ID_MUNICIPIOS != $clientData->ID_MUNICIPIOS){
-            HistorialController::createUpdate($idUsuario,'codigos',$idListado,$idListado,'ID_MUNICIPIOS',$queryData->ID_MUNICIPIOS,$clientData->ID_MUNICIPIOS);
+            HistorialController::createUpdate(
+                $idUsuario,
+                'codigos',
+                $idListado,
+                $idListado,
+                'ID_MUNICIPIOS',
+                $queryData->ID_MUNICIPIOS,
+                $clientData->ID_MUNICIPIOS
+            );
         }
         $codigos->ID_DEPARTAMENTOS = $clientData->ID_DEPARTAMENTOS;
         $codigos->ID_MUNICIPIOS = $clientData->ID_MUNICIPIOS;
@@ -65,7 +82,7 @@ class CodigosController extends Controller
 
     public static function templateQuery($queryListado)
     {
-        $queryData = ListadosPreliminares::join("codigos","codigos.ID_CODIGO","=","listados_preliminares.ID_CODIGO")
+        $queryData = Joins::JoinCodigo(new ListadosPreliminares())
         ->where('codigos.ID_DEPARTAMENTOS',"=",$queryListado->ID_DEPARTAMENTOS)
         ->where('codigos.ID_MUNICIPIOS',"=",$queryListado->ID_MUNICIPIOS)
         ->where('codigos.ID_TIPO_PATRIMONIO',"=",$queryListado->ID_TIPO_PATRIMONIO)
@@ -78,11 +95,7 @@ class CodigosController extends Controller
 
     public static function queryListado($idListado)
     {
-        $queryListado = ListadosPreliminares::join(
-            "codigos",
-            "codigos.ID_CODIGO",
-            "=","listados_preliminares.ID_CODIGO"
-        )
+        $queryListado = Joins::JoinCodigo(new ListadosPreliminares())
         ->select("codigos.*")
         ->where("listados_preliminares.ID_LISTADO","=",$idListado)->first();
         return $queryListado;
@@ -128,11 +141,22 @@ class CodigosController extends Controller
         $queryData = self::templateQuery($queryListado);
         $queryData = $queryData->select("codigos.*","listados_preliminares.NOMBRE")
         ->orderBy('listados_preliminares.NOMBRE','ASC')->get()->toArray();
-        $code = $queryListado->ID_DEPARTAMENTOS.".".$queryListado->ID_MUNICIPIOS.".".$queryListado->ID_TIPO_PATRIMONIO.".".$queryListado->ID_GRUPO.".".$queryListado->ID_COMPONENTE.".".$queryListado->ID_ELEMENTO;
+        $code = $queryListado->ID_DEPARTAMENTOS.".".
+        $queryListado->ID_MUNICIPIOS.".".
+        $queryListado->ID_TIPO_PATRIMONIO.".".
+        $queryListado->ID_GRUPO.".".
+        $queryListado->ID_COMPONENTE.".".
+        $queryListado->ID_ELEMENTO;
         $finalArray = [];
         $finalArray[$code] = [];
         foreach ($queryData as $key => $value) {
-            $joinData = $value['ID_DEPARTAMENTOS'].".".$value['ID_MUNICIPIOS'].".".$value['ID_TIPO_PATRIMONIO'].".".$value['ID_GRUPO'].".".$value['ID_COMPONENTE'].".".$value['ID_ELEMENTO'].".".($key+1);
+            $joinData = $value['ID_DEPARTAMENTOS'].".".
+            $value['ID_MUNICIPIOS'].".".
+            $value['ID_TIPO_PATRIMONIO'].".".
+            $value['ID_GRUPO'].".".
+            $value['ID_COMPONENTE'].".".
+            $value['ID_ELEMENTO'].".".
+            ($key+1);
             $finalArray[$code][$value['NOMBRE']] = $joinData;
         }
         return $finalArray;

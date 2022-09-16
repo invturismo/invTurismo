@@ -1,46 +1,20 @@
 import React from 'react';
-import GeneralGet from '../ComponentsOfViews/GeneralGet';
-
-const GetSinCompletarFestividadesEventos = () => {
-  return (
-    <>
-      <GeneralGet
-        h2Text="Festividades y eventos"
-        toFirst="/festividades-eventos/sin-completar"
-        toLast="/festividades-eventos/completado"
-        linkOptions="/festividades-eventos/opciones"
-      >
-        <tr className="NoData">
-          <td colSpan={6}>No hay datos para completar</td>
-        </tr>
-      </GeneralGet>
-    </>
-  );
-};
-
-const GetCompletadoFestividadesEventos = () => {
-  return (
-    <>
-      <GeneralGet
-        h2Text="Festividades y eventos"
-        toFirst="/festividades-eventos/sin-completar"
-        toLast="/festividades-eventos/completado"
-        linkOptions={"/festividades-eventos/opciones"}
-        others={{}}
-      >
-        <tr className="NoData">
-          <td colSpan={6}>No hay datos para visualizar</td>
-        </tr>
-      </GeneralGet>
-    </>
-  );
-};
+import GetCompletadoFestividades from './ComponentsOfFestividades/GetCompletadoFestividades';
+import GetRecordConFestividades from './ComponentsOfFestividades/GetRecordConFestividades';
+import GetRecordSinFestividades from './ComponentsOfFestividades/GetRecordSinFestividades';
+import GetSinCompletarFestividades from './ComponentsOfFestividades/GetSinCompletarFestividades';
+import OptionsFestividades from './ComponentsOfFestividades/OptionsFestividades';
+import UpdateFestividadesEventos from './ComponentsOfFestividades/UpdateFestividadesEventos';
 
 const MainFestividadesEventos = ({who}) => {
   return (
     <div className="ContainerMainGeneral">
-      {who === 1 && <GetSinCompletarFestividadesEventos />}
-      {who === 2 && <GetCompletadoFestividadesEventos />}
+      {who === 1 && <GetSinCompletarFestividades />}
+      {who === 2 && <GetCompletadoFestividades />}
+      {who === 3 && <GetRecordSinFestividades />}
+      {who === 4 && <GetRecordConFestividades />}
+      {who === 5 && <UpdateFestividadesEventos />}
+      {who === 6 && <OptionsFestividades />}
     </div>
   );
 }

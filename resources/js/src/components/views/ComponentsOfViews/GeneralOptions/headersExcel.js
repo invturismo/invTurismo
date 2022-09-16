@@ -37,4 +37,5 @@ export const headersExcel = {
   "Grupos-especial-interes": arrayHeader,
   "Grupos-especial-interes": arrayHeader,
   "Sitios-naturales": arrayHeader,
+  "Festividades-eventos": arrayHeader,
 };

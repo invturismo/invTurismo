@@ -11,6 +11,7 @@ use App\Http\Controllers\PatrimoniosMaterialesController;
 use App\Http\Controllers\PatrimonioInmaterialController;
 use App\Http\Controllers\GruposEspecialesController;
 use App\Http\Controllers\SitiosNaturalesController;
+use App\Http\Controllers\FestividadesController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -48,6 +49,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/export/patrimonio-inmaterial",[ExportController::class,'ExportPatrimonioInmaterial']);
     Route::post("/export/grupos-especiales",[ExportController::class,'ExportGruposEspeciales']);
     Route::post("/export/sitios-naturales",[ExportController::class,'ExportSitiosNaturales']);
+    Route::post("/export/festividades-eventos",[ExportController::class,'ExportFestividadesEventos']);
 
     Route::post("/listados-preliminares/create",[ListadosPreliminaresController::class,'create']);
     Route::post("/listados-preliminares/validate-name",[ListadosPreliminaresController::class,'validateName']);
@@ -90,4 +92,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/sitios-naturales/getrecordsincom",[SitiosNaturalesController::class,'getRecordSinCom']);
     Route::post("/sitios-naturales/getdatacom",[SitiosNaturalesController::class,'getDataCom']);
     Route::post("/sitios-naturales/getrecordcom",[SitiosNaturalesController::class,'getRecordCom']);
+
+    Route::post("/festividades-eventos/insertForm",[FestividadesController::class,'insertForm']);
+    Route::post("/festividades-eventos/update",[FestividadesController::class,'update']);
+    Route::post("/festividades-eventos/getdatasincom",[FestividadesController::class,'getDataSinCom']);
+    Route::post("/festividades-eventos/getrecordsincom",[FestividadesController::class,'getRecordSinCom']);
+    Route::post("/festividades-eventos/getdatacom",[FestividadesController::class,'getDataCom']);
+    Route::post("/festividades-eventos/getrecordcom",[FestividadesController::class,'getRecordCom']);
 });

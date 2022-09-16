@@ -180,7 +180,7 @@ const CalidadFestividades = (props) => {
         <LabelCalidad
           NameField={"Beneficios económicos locales"}
           max={20}
-          name="B_SOCIOCULTURALES"
+          name="B_ECONOMICOS"
           {...props}
         />
       </div>

@@ -42,8 +42,8 @@ const switchCodigo = (values, e) => {
 const changeInt = (number) => (isNaN(parseInt(number)) ? 0 : parseInt(number));
 const valueWho = {
   1: "PATRIMONIO_MATERIAL",
-  2: "FESTIVIDADES_EVENTOS",
-  3: "PATRIMONIOS_INMATERIALES",
+  2: "PATRIMONIOS_INMATERIALES",
+  3: "FESTIVIDADES_EVENTOS",
   4: "GRUPOS_ESPECIALES",
   5: "SITIOS_NATURALES",
 };

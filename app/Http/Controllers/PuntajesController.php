@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Models\CalidadMaterial;
 use App\Models\CalidadInmaterial;
 use App\Models\CalidadSitios;
+use App\Models\CalidadFestividades;
 use App\Models\ValoracionMaterial;
 use App\Models\ValoracionInmaterial;
 use App\Models\ValoracionesGrupos;
 use App\Models\ValoracionesSitios;
+use App\Models\ValoracionesFestividades;
 use App\Http\Controllers\HistorialController;
 
 class PuntajesController extends Controller
@@ -32,6 +34,12 @@ class PuntajesController extends Controller
             'ANONIMA' => 'required|numeric|between:0,14',
             'ESPONTANEA' => 'required|numeric|between:0,14',
             'POPULAR' => 'required|numeric|between:0,14',
+            'SUBTOTAL' => 'required|numeric|between:0,70',
+        ],
+        'FESTIVIDADES_EVENTOS' => [
+            'ORGANIZACION' => 'required|numeric|between:0,30',
+            'B_SOCIOCULTURALES' => 'required|numeric|between:0,20',
+            'B_ECONOMICOS' => 'required|numeric|between:0,20',
             'SUBTOTAL' => 'required|numeric|between:0,70',
         ],
         'GRUPOS_ESPECIALES' => [
@@ -137,6 +145,18 @@ class PuntajesController extends Controller
                 self::createValoracion($valoracion,$clientData);
                 return $valoracion->ID_VALORACION_SITIO;
             break;
+            case 'FESTIVIDADES_EVENTOS':
+                $calidad = new CalidadFestividades();
+                $calidad->ORGANIZACION = $clientData->ORGANIZACION;
+                $calidad->B_SOCIOCULTURALES = $clientData->B_SOCIOCULTURALES;
+                $calidad->B_ECONOMICOS = $clientData->B_ECONOMICOS;
+                $calidad->SUBTOTAL = $clientData->SUBTOTAL;
+                $calidad->save();
+                $valoracion = new ValoracionesFestividades();
+                $valoracion->ID_CALIDAD_FESTIVIDAD = $calidad->ID_CALIDAD_FESTIVIDAD;
+                self::createValoracion($valoracion,$clientData);
+                return $valoracion->ID_VALORACION_FESTIVIDAD;
+            break;
         }
     }
 
@@ -239,6 +259,32 @@ class PuntajesController extends Controller
                     $queryUpdate->ID_LISTADO
                 );
             break;
+            case 'FESTIVIDADES_EVENTOS':
+                $queryData = ValoracionesFestividades::find($queryUpdate->ID_VALORACION_FESTIVIDAD);
+                $calidad = CalidadFestividades::find($queryData->ID_CALIDAD_FESTIVIDAD);
+                foreach (self::$rulesCalidad[$who] as $key => $value) {
+                    if($calidad[$key] == $clientData[$key]) continue;
+                    HistorialController::createUpdate(
+                        $idUsuario,
+                        'calidades_festividades',
+                        $queryUpdate->ID_LISTADO,
+                        $calidad->ID_CALIDAD_FESTIVIDAD,
+                        $key,
+                        $calidad[$key],
+                        $clientData[$key]
+                    );
+                    $calidad[$key] = $clientData[$key];
+                    $calidad->save();
+                }
+                self::updateValoracion(
+                    $queryData,
+                    $clientData,
+                    'valoraciones_festividad',
+                    $queryData->ID_VALORACION_FESTIVIDAD,
+                    $idUsuario,
+                    $queryUpdate->ID_LISTADO
+                );
+            break;
         }
     }
 
@@ -272,6 +318,13 @@ class PuntajesController extends Controller
             case 'SITIOS_NATURALES':
                 $queryData = ValoracionesSitios::find($idPuntaje)->toArray();
                 $queryCalidad = CalidadSitios::find($queryData["ID_CALIDAD_SITIO"]);
+                return [
+                    "PUNTAJES_VALORACION" => array_merge($queryData,["CALIDAD"=>$queryCalidad])
+                ];
+            break;
+            case 'FESTIVIDADES_EVENTOS':
+                $queryData = ValoracionesFestividades::find($idPuntaje)->toArray();
+                $queryCalidad = CalidadFestividades::find($queryData["ID_CALIDAD_FESTIVIDAD"]);
                 return [
                     "PUNTAJES_VALORACION" => array_merge($queryData,["CALIDAD"=>$queryCalidad])
                 ];

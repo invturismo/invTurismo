@@ -21,6 +21,19 @@ const FestividadesEventos = () => {
           path="/completado"
           element={<MainFestividadesEventos who={2} />}
         />
+        <Route
+          path="/sin-completar/:idFestividadesEventos"
+          element={<MainFestividadesEventos who={3} />}
+        />
+        <Route
+          path="/completado/:idFestividadesEventos"
+          element={<MainFestividadesEventos who={4} />}
+        />
+        <Route
+          path="/completado/actualizar/:idFestividadesEventos"
+          element={<MainFestividadesEventos who={5} />}
+        />
+        <Route path="/opciones" element={<MainFestividadesEventos who={6} />} />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>

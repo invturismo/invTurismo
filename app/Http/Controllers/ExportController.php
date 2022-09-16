@@ -70,8 +70,10 @@ class ExportController extends Controller
             )->where('EXIST','=',true);
             $queryData = HelperFilter::FilterAll($request,$queryData)->get()->toArray();
             foreach ($queryData as $key => $value) {
-                $id = self::WhoAtractivo($value['TIPO_BIEN'],$value['ID_LISTADO']);
-                $queryHistorial = self::templateHistorial($value['TIPO_BIEN'],$id,1,$value['ID_LISTADO']);
+                $id = HelpersExport::WhoAtractivo($value['TIPO_BIEN'],$value['ID_LISTADO']);
+                $queryHistorial = HelpersExport::templateHistorial(
+                    $value['TIPO_BIEN'],$id,1,$value['ID_LISTADO']
+                );
                 $queryData[$key] = array_merge($value,$queryHistorial);
             }
             return response()->json([
@@ -217,6 +219,43 @@ class ExportController extends Controller
             foreach ($queryData as $key => $value) {
                 $queryHistorial = HelpersExport::templateHistorial(
                     'Sitios Naturales',
+                    $value['ID'],2,
+                    $value['ID_LISTADO']
+                );
+                $queryData[$key] = array_merge($value,$queryHistorial);
+            }
+            return response()->json([
+                "state" => true,
+                "data" => $queryData
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
+    }
+
+    public function ExportFestividadesEventos(Request $request)
+    {
+        try {
+            $queryData = FestividadesEventos::join(
+                "valoraciones_festividad",
+                "valoraciones_festividad.ID_VALORACION_FESTIVIDAD",
+                "=","festividades_eventos.ID_VALORACION_FESTIVIDAD"
+            );
+            $queryData = HelpersExport::templateQuery(
+                $queryData,
+                "festividades_eventos",
+                "ID_EVENTO",
+                "valoraciones_festividad"
+            );
+            $queryData = HelperFilter::FilterAll($request,$queryData)->get()->toArray();
+            if(count($queryData)>0) $queryData = CodigosController::getExport($queryData);
+            foreach ($queryData as $key => $value) {
+                $queryHistorial = HelpersExport::templateHistorial(
+                    'Festividades y Eventos',
                     $value['ID'],2,
                     $value['ID_LISTADO']
                 );
