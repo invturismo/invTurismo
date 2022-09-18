@@ -21,6 +21,7 @@ use App\Helpers\HelperQuerys;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelpersExport;
+use App\Helpers\HelperDelete;
 
 class FestividadesController extends Controller
 {
@@ -98,6 +99,17 @@ class FestividadesController extends Controller
                 'phpMessage' => $th->getMessage()
             ]);
         }
+    }
+
+    public function delete(Request $request)
+    {
+        $arrayMessage = HelperDelete::delete(
+            $request,
+            'ID_EVENTO',
+            new FestividadesEventos(),
+            "Festividades y Eventos"
+        );
+        return response()->json($arrayMessage);
     }
 
     public function update(Request $request)

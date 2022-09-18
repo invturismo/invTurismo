@@ -1,10 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { helpConvertData } from '../../../../helpers/helpConvertData';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
 import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
 import GeneralGetRecord from '../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord';
+import { helpDeleteRecurso } from '../../ComponentsOfViews/helpers/helpDeleteRecurso';
 import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
 
 const GetRecordConGrupos = () => {
@@ -14,6 +16,7 @@ const GetRecordConGrupos = () => {
     "grupos-especiales/getrecordcom"
   );
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   if (!response) return <GeneralLoader />;
 
@@ -26,6 +29,17 @@ const GetRecordConGrupos = () => {
     );
   };
 
+  const handleDelete = () => {
+    const body = { REGISTRO: idGruposEspeciales };
+    helpDeleteRecurso({
+      body,
+      dispatch,
+      navigate,
+      linkNavigate: "/grupos-especial-interes/completado",
+      url: "grupos-especiales/delete",
+    });
+  };
+
   return (
     <GeneralGetRecord
       data={helpConvertData(
@@ -36,6 +50,7 @@ const GetRecordConGrupos = () => {
       back={-1}
       handleUpdate={handleClick}
       who="GRUPOS_ESPECIALES"
+      handleDelete={handleDelete}
     />
   );
 }

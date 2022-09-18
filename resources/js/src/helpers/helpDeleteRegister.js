@@ -1,10 +1,9 @@
 import { helpHttp } from "./helpHttp";
 import { toastMs } from "./helpToastMessage";
 
-export const helpDeleteRegister = async (idRegister) => {
+export const helpDeleteRegister = async (url, body) => {
   try {
-    const body = { ID_USUARIO: idRegister };
-    const response = await helpHttp().del("user-delete", {
+    const response = await helpHttp().del(url, {
       body,
     });
     if (!response.state) toastMs().error(response.message);

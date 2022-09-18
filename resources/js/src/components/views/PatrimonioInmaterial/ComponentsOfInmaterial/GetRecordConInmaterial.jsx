@@ -6,6 +6,8 @@ import ErrorComponent from '../../../common/ErrorComponent';
 import { helpConvertData } from '../../../../helpers/helpConvertData';
 import GeneralGetRecord from '../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord';
 import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
+import { helpDeleteRecurso } from '../../ComponentsOfViews/helpers/helpDeleteRecurso';
+import { useDispatch } from 'react-redux';
 
 const GetRecordConInmaterial = () => {
   const { idPatrimonioInmaterial } = useParams();
@@ -14,6 +16,7 @@ const GetRecordConInmaterial = () => {
     "patrimonios-inmateriales/getrecordcom"
   );
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   if (!response) return <GeneralLoader />;
 
@@ -26,6 +29,17 @@ const GetRecordConInmaterial = () => {
     );
   };
 
+  const handleDelete = () => {
+    const body = { REGISTRO: idPatrimonioInmaterial };
+    helpDeleteRecurso({
+      body,
+      dispatch,
+      navigate,
+      linkNavigate: "/patrimonio-inmaterial/completado",
+      url: "patrimonios-inmateriales/delete",
+    });
+  };
+
   return (
     <GeneralGetRecord
       data={helpConvertData(
@@ -36,6 +50,7 @@ const GetRecordConInmaterial = () => {
       back={-1}
       handleUpdate={handleClick}
       who="PATRIMONIOS_INMATERIALES"
+      handleDelete={handleDelete}
     />
   );
 }

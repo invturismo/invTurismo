@@ -1,23 +1,14 @@
-import { closeLoaderForm, closeModalLayoutState, openLoaderForm, openModalLayoutState } from "../../../../features/modalsSlice";
-import { helpHttp } from "../../../../helpers/helpHttp";
+import {
+  closeLoaderForm,
+  closeModalLayoutState,
+  openLoaderForm,
+  openModalLayoutState,
+} from "../../../../features/modalsSlice";
+import { helpDeleteRegister } from "../../../../helpers/helpDeleteRegister";
 import { toastMs } from "../../../../helpers/helpToastMessage";
 import { validateTokens } from "../Form/validateTokens";
 
-const sendData = async (idRegister) => {
-  try {
-    const body = { ID_USUARIO: idRegister };
-    const response = await helpHttp().del("user-delete", {
-      body,
-    });
-    if (!response.state) toastMs().error(response.message);
-    return response;
-  } catch (error) {
-    toastMs().error(error.message);
-    return error;
-  }
-};
-
-export const helpDeleteUsuario = async ({ idUsuario, dispatch,navigate }) => {
+export const helpDeleteUsuario = async ({ idUsuario, dispatch, navigate }) => {
   console.log(idUsuario);
   dispatch(openLoaderForm());
   const tokensValidate = await validateTokens(idUsuario);
@@ -34,7 +25,9 @@ export const helpDeleteUsuario = async ({ idUsuario, dispatch,navigate }) => {
       : "¿Esta seguro que deseas eliminarlo?";
   const handleFunction = async () => {
     dispatch(openLoaderForm());
-    const response = await sendData(idUsuario);
+    const body = { ID_USUARIO: idRegister },
+      url = "user-delete";
+    const response = await helpDeleteRegister(url, body);
     dispatch(closeLoaderForm());
     dispatch(closeModalLayoutState());
     if (!response.state) return toastMs().error(response.message);
@@ -46,7 +39,6 @@ export const helpDeleteUsuario = async ({ idUsuario, dispatch,navigate }) => {
     textMessage2,
     textButton: "Eliminar",
     srcImg: "svgDelete",
-    whoFunction: "handleClickDelete",
     handleFunction,
   };
   dispatch(openModalLayoutState(dataPayload));

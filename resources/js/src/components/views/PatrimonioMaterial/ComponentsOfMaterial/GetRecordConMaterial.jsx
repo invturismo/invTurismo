@@ -6,6 +6,8 @@ import { initialValuesGeneralForm } from "../../ComponentsOfViews/GeneralForm/in
 import GeneralGetRecord from "../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord";
 import { useNavigate, useParams } from "react-router-dom";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
+import { useDispatch } from "react-redux";
+import { helpDeleteRecurso } from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
 
 const GetRecordConMaterial = () => {
   const { idPatrimonioMaterial } = useParams();
@@ -14,6 +16,7 @@ const GetRecordConMaterial = () => {
     "patrimonios-materiales/getrecordcom"
   );
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   if (!response) return <GeneralLoader />;
 
@@ -26,6 +29,18 @@ const GetRecordConMaterial = () => {
     );
   };
 
+  const handleDelete = () => {
+    const body = { REGISTRO: idPatrimonioMaterial };
+    helpDeleteRecurso({
+      body,
+      dispatch,
+      navigate,
+      linkNavigate: "/patrimonio-material/completado",
+      url: "patrimonios-materiales/delete",
+    });
+  };
+
+
   return (
     <GeneralGetRecord
       data={helpConvertData(
@@ -35,6 +50,7 @@ const GetRecordConMaterial = () => {
       originalData={response.data}
       back={-1}
       handleUpdate={handleClick}
+      handleDelete={handleDelete}
       who="PATRIMONIO_MATERIAL"
     />
   );

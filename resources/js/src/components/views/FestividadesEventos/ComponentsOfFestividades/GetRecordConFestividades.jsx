@@ -1,10 +1,12 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { helpConvertData } from '../../../../helpers/helpConvertData';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
 import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
 import GeneralGetRecord from '../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord';
+import { helpDeleteRecurso } from '../../ComponentsOfViews/helpers/helpDeleteRecurso';
 import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
 
 const GetRecordConFestividades = () => {
@@ -14,6 +16,7 @@ const GetRecordConFestividades = () => {
     "festividades-eventos/getrecordcom"
   );
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   if (!response) return <GeneralLoader />;
 
@@ -26,6 +29,17 @@ const GetRecordConFestividades = () => {
     );
   };
 
+  const handleDelete = () => {
+    const body = { REGISTRO: idFestividadesEventos };
+    helpDeleteRecurso({
+      body,
+      dispatch,
+      navigate,
+      linkNavigate: "/festividades-eventos/completado",
+      url: "festividades-eventos/delete",
+    });
+  };
+
   return (
     <GeneralGetRecord
       data={helpConvertData(
@@ -36,6 +50,7 @@ const GetRecordConFestividades = () => {
       back={-1}
       handleUpdate={handleClick}
       who="FESTIVIDADES_EVENTOS"
+      handleDelete={handleDelete}
     />
   );
 }

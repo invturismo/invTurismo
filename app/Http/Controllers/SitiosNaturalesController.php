@@ -21,6 +21,7 @@ use App\Helpers\HelperQuerys;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelpersExport;
+use App\Helpers\HelperDelete;
 
 class SitiosNaturalesController extends Controller
 {
@@ -98,6 +99,17 @@ class SitiosNaturalesController extends Controller
                 'phpMessage' => $th->getMessage()
             ]);
         }
+    }
+
+    public function delete(Request $request)
+    {
+        $arrayMessage = HelperDelete::delete(
+            $request,
+            'ID_SITIO',
+            new SitiosNaturales(),
+            "Sitios Naturales"
+        );
+        return response()->json($arrayMessage);
     }
 
     public function update(Request $request)

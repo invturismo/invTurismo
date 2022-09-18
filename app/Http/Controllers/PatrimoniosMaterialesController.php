@@ -21,6 +21,7 @@ use App\Helpers\HelperQuerys;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelpersExport;
+use App\Helpers\HelperDelete;
 
 class PatrimoniosMaterialesController extends Controller
 {
@@ -98,6 +99,17 @@ class PatrimoniosMaterialesController extends Controller
                 'phpMessage' => $th->getMessage()
             ]);
         }
+    }
+
+    public function delete(Request $request)
+    {
+        $arrayMessage = HelperDelete::delete(
+            $request,
+            'ID_MATERIAL',
+            new PatrimoniosMateriales(),
+            "Patrimonio Cultural Material"
+        );
+        return response()->json($arrayMessage);
     }
 
     public function update(Request $request)

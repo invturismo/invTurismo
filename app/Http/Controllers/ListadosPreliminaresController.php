@@ -101,22 +101,19 @@ class ListadosPreliminaresController extends Controller
         if($isValid != 1) return response()->json($isValid);
         $ID_USUARIO = Auth::user()->ID_USUARIO;
         try {
-            $queryData = ListadosPreliminares::select(
-                "listados_preliminares.ID_LISTADO",
-                "listados_preliminares.ACTUALIZANDO",
-                "listados_preliminares.EXIST"
-            )->where("listados_preliminares.ID_LISTADO","=",$request->ID_LISTADO)
-            ->where("listados_preliminares.ID_TIPO_BIEN","=",NULL)
-            ->where("listados_preliminares.EXIST","=",true)
-            ->first();
-            if(!isset($queryData)) return response()->json([
+            $listadoPreliminar = ListadosPreliminares::where('EXIST','=',true)
+            ->where('ID_LISTADO','=',$request->ID_LISTADO)
+            ->whereNull('ID_TIPO_BIEN')->first();
+            if(!isset($listadoPreliminar)) return response()->json([
                 'state' => false,
-                'message' => "El registro no existe"
+                'message' => "El registro no existe o no se puede eliminar"
             ]);
-            $listadoPreliminar = ListadosPreliminares::find($request['ID_LISTADO']);
-            if($listadoPreliminar->ACTUALIZANDO == true) return response()->json([
-                "state" => false,
-                "message" => "El registro está siendo actualizado"
+            $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
+            $response = UpdateController::stateUpdate($request->ID_LISTADO,1,$idTokenUser,true);
+            if($response['state']==0) throw new Error($response['message']);
+            if($response['state']==1) return response()->json([
+                'state' => false,
+                'message' => "El registro se esta actualizando"
             ]);                
             $listadoPreliminar->EXIST = false;
             $listadoPreliminar->save();
@@ -222,6 +219,7 @@ class ListadosPreliminaresController extends Controller
             "municipios.MUNICIPIO",
             "listados_preliminares.NOMBRE",
             "listados_preliminares.UBICACION",
+            "listados_preliminares.ID_TIPO_BIEN",
             "codigos.ID_TIPO_PATRIMONIO"
         )->where("listados_preliminares.EXIST","=",1);
         return $queryData;

@@ -71,13 +71,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/patrimonios-materiales/getrecordsincom",[PatrimoniosMaterialesController::class,'getRecordSinCom']);
     Route::post("/patrimonios-materiales/getdatacom",[PatrimoniosMaterialesController::class,'getDataCom']);
     Route::post("/patrimonios-materiales/getrecordcom",[PatrimoniosMaterialesController::class,'getRecordCom']);
-
+    Route::delete("/patrimonios-materiales/delete",[PatrimoniosMaterialesController::class,'delete']);
+    
     Route::post("/patrimonios-inmateriales/insertForm",[PatrimonioInmaterialController::class,'insertForm']);
     Route::post("/patrimonios-inmateriales/update",[PatrimonioInmaterialController::class,'update']);
     Route::post("/patrimonios-inmateriales/getdatasincom",[PatrimonioInmaterialController::class,'getDataSinCom']);
     Route::post("/patrimonios-inmateriales/getrecordsincom",[PatrimonioInmaterialController::class,'getRecordSinCom']);
     Route::post("/patrimonios-inmateriales/getdatacom",[PatrimonioInmaterialController::class,'getDataCom']);
     Route::post("/patrimonios-inmateriales/getrecordcom",[PatrimonioInmaterialController::class,'getRecordCom']);
+    Route::delete("/patrimonios-inmateriales/delete",[PatrimonioInmaterialController::class,'delete']);
 
     Route::post("/grupos-especiales/insertForm",[GruposEspecialesController::class,'insertForm']);
     Route::post("/grupos-especiales/update",[GruposEspecialesController::class,'update']);
@@ -85,6 +87,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/grupos-especiales/getrecordsincom",[GruposEspecialesController::class,'getRecordSinCom']);
     Route::post("/grupos-especiales/getdatacom",[GruposEspecialesController::class,'getDataCom']);
     Route::post("/grupos-especiales/getrecordcom",[GruposEspecialesController::class,'getRecordCom']);
+    Route::delete("/grupos-especiales/delete",[GruposEspecialesController::class,'delete']);
 
     Route::post("/sitios-naturales/insertForm",[SitiosNaturalesController::class,'insertForm']);
     Route::post("/sitios-naturales/update",[SitiosNaturalesController::class,'update']);
@@ -92,6 +95,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/sitios-naturales/getrecordsincom",[SitiosNaturalesController::class,'getRecordSinCom']);
     Route::post("/sitios-naturales/getdatacom",[SitiosNaturalesController::class,'getDataCom']);
     Route::post("/sitios-naturales/getrecordcom",[SitiosNaturalesController::class,'getRecordCom']);
+    Route::delete("/sitios-naturales/delete",[SitiosNaturalesController::class,'delete']);
 
     Route::post("/festividades-eventos/insertForm",[FestividadesController::class,'insertForm']);
     Route::post("/festividades-eventos/update",[FestividadesController::class,'update']);
@@ -99,4 +103,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/festividades-eventos/getrecordsincom",[FestividadesController::class,'getRecordSinCom']);
     Route::post("/festividades-eventos/getdatacom",[FestividadesController::class,'getDataCom']);
     Route::post("/festividades-eventos/getrecordcom",[FestividadesController::class,'getRecordCom']);
+    Route::delete("/festividades-eventos/delete",[FestividadesController::class,'delete']);
 });

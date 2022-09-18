@@ -12,7 +12,14 @@ import GetRelevantes from "./ComponentsOfGetRecord/GetRelevantes";
 import TableInformation from "./ComponentsOfGetRecord/TableInformation";
 import { StyleGeneralGetRecord } from "./StyleGeneralGetRecord";
 
-const GeneralGetRecord = ({ data, originalData, back, handleUpdate, who }) => {
+const GeneralGetRecord = ({
+  data,
+  originalData,
+  back,
+  handleUpdate,
+  who,
+  handleDelete,
+}) => {
   return (
     <StyleGeneralGetRecord>
       <ActionBack to={back} />
@@ -73,13 +80,17 @@ const GeneralGetRecord = ({ data, originalData, back, handleUpdate, who }) => {
         )}
         <div className="GetContainerTittle">
           <h3>Otros</h3>
-          <GetOtros data={data.OTROS} originalData={originalData.OTROS} who={who}/>
+          <GetOtros
+            data={data.OTROS}
+            originalData={originalData.OTROS}
+            who={who}
+          />
         </div>
         <div className="ContainerButtons">
           <span onClick={handleUpdate}>
             <ButtonPage colorButton="#5328fe">Actualizar</ButtonPage>
           </span>
-          <span>
+          <span onClick={handleDelete}>
             <ButtonPage colorButton="#220646">Eliminar</ButtonPage>
           </span>
         </div>

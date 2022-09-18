@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { helpCapitalize } from "../../../../helpers/helpCapitalize";
 import { toastMs } from "../../../../helpers/helpToastMessage";
@@ -6,11 +7,13 @@ import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
+import { helpDeleteRecurso } from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
 import useRecordListadoPreliminar from "../hooks/useRecordListadoPreliminar";
 
 const GetRecordListadoPreliminar = () => {
   const { idListado } = useParams();
   const response = useRecordListadoPreliminar(idListado);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   if (!response) return <GeneralLoader />;
@@ -24,6 +27,21 @@ const GetRecordListadoPreliminar = () => {
       );
     navigate(`/listado-preliminar/actualizar/${response.data.ID_LISTADO}`, {
       replace: true,
+    });
+  };
+
+  const handleDelete = (condition) => {
+    if (condition)
+      return toastMs().error(
+        "No es posible eliminar, porque ya los has clasificado"
+      );
+    const body = { ID_LISTADO: idListado };
+    helpDeleteRecurso({
+      body,
+      dispatch,
+      navigate,
+      linkNavigate: "/listado-preliminar",
+      url: "listados-preliminares/delete",
     });
   };
 
@@ -94,11 +112,9 @@ const GetRecordListadoPreliminar = () => {
               Actualizar
             </ButtonPage>
           </span>
-          <span>
+          <span onClick={() => handleDelete(response.data["ID_TIPO_BIEN"])}>
             <ButtonPage
-              colorButton={
-                response.data["ID_TIPO_PATRIMONIO"] ? "gray" : "#220646"
-              }
+              colorButton={response.data["ID_TIPO_BIEN"] ? "gray" : "#220646"}
             >
               Eliminar
             </ButtonPage>
