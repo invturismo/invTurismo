@@ -176,6 +176,7 @@ export const GlobalStyles = createGlobalStyle`
       gap: 8px;
       flex-wrap: wrap;
       height: max-content;
+      align-items: center;
     }
     .buttonNormal {
       font-size: 1rem;
@@ -188,6 +189,11 @@ export const GlobalStyles = createGlobalStyle`
       display: flex;
       align-items: center;
       justify-content: flex-end;
+    }
+    .updateImg{
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
     }
   }
   .FormStyleR,.FormStyleL {

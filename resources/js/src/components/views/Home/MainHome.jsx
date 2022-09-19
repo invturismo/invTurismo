@@ -3,6 +3,7 @@ import useTittle from '../../../hooks/useTittle'
 import { StyleMainHome } from './StylesMainHome';
 import { useSelector } from 'react-redux';
 import CardButton from './ComponentsOfHome/CardButton';
+import { Link } from 'react-router-dom';
 
 const MainHome = () => {
   useTittle('Inicio');
@@ -11,7 +12,7 @@ const MainHome = () => {
   );
   return (
     <StyleMainHome>
-      <div className='ContainerWelcome'>
+      <div className="ContainerWelcome">
         <p className="WelcomeMessage">
           <span>Bienvenido/a </span>
           <span>{PRIMER_NOMBRE}!</span>
@@ -32,7 +33,8 @@ const MainHome = () => {
           name2="Inventarios"
           srcImg="SvgDoc.svg"
           colorText="rgba(252,161,71,1)"
-          linkClick="/"
+          linkClick="/documents/Guía_elaboración_inventario.pdf"
+          target="_blank"
         />
         <CardButton
           colorBackground="#a9ecbf"

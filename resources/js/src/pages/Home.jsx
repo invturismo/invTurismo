@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route,Routes } from "react-router-dom";
 import LeadingLayout from '../components/layout/MainLayout/LeadingLayout';
+import MainBuscar from '../components/views/Buscar/MainBuscar';
 import MainHome from '../components/views/Home/MainHome';
 import useTittle from '../hooks/useTittle';
 import ClasificacionRecursosAtractivos from './ClasificacionRecursosAtractivos';
@@ -40,6 +41,7 @@ const Home = () => {
         />
         <Route path="sitios-naturales/*" element={<SitiosNaturales />} />
         <Route path="usuarios/*" element={<Usuarios />} />
+        <Route path="buscar/:find" element={<MainBuscar />} />
         <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>

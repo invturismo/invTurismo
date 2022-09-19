@@ -1,18 +1,20 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyleCardButton = styled.div`
-  border-radius: 10px;
-  width: 200px;
-  height: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: ${(props) => props.colorBackground};
-  cursor: pointer;
-  &:hover {
+  .Link {
+    border-radius: 10px;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: ${(props) => props.colorBackground};
+    cursor: pointer;
+  }
+  .Link:hover {
     transform: scale(0.95);
     transition: all 0.3s;
   }
@@ -36,18 +38,15 @@ const StyleCardButton = styled.div`
   }
 `;
 
-const CardButton = ({ colorBackground, srcImg, name1, name2,colorText,linkClick }) => {
+const CardButton = ({ colorBackground, srcImg, name1, name2,colorText,linkClick,...props }) => {
   const navigate = useNavigate();
-  const handleClick = () => navigate(linkClick);
   return (
-    <StyleCardButton
-      colorBackground={colorBackground}
-      colorText={colorText}
-      onClick={handleClick}
-    >
-      <img src={"/img/iconsGeneral/" + srcImg} alt="icon" />
-      <span className="quantity"> {name1} </span>
-      {name2 && <span className="text"> {name2} </span>}
+    <StyleCardButton colorBackground={colorBackground} colorText={colorText}>
+      <Link className="Link" to={linkClick} {...props}>
+        <img src={"/img/iconsGeneral/" + srcImg} alt="icon" />
+        <span className="quantity"> {name1} </span>
+        {name2 && <span className="text"> {name2} </span>}
+      </Link>
     </StyleCardButton>
   );
 };

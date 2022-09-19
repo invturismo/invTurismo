@@ -1,4 +1,4 @@
-const TextTitle = "- PruebaApi";
+const TextTitle = "- InvTurismo";
 
 const useTittle = (titleName) => (document.title = `${titleName} ${TextTitle}`);
 

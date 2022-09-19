@@ -30,10 +30,10 @@ const GetRecordListadoPreliminar = () => {
     });
   };
 
-  const handleDelete = (condition) => {
-    if (condition)
+  const handleDelete = (idPatrimonio) => {
+    if (idPatrimonio)
       return toastMs().error(
-        "No es posible eliminar, porque ya los has clasificado"
+        "No es posible eliminar, tienes que eliminarlo en su correspondiente clasificacion"
       );
     const body = { ID_LISTADO: idListado };
     helpDeleteRecurso({
@@ -112,9 +112,11 @@ const GetRecordListadoPreliminar = () => {
               Actualizar
             </ButtonPage>
           </span>
-          <span onClick={() => handleDelete(response.data["ID_TIPO_BIEN"])}>
+          <span onClick={() =>handleDelete(response.data["ID_TIPO_PATRIMONIO"])}>
             <ButtonPage
-              colorButton={response.data["ID_TIPO_BIEN"] ? "gray" : "#220646"}
+              colorButton={
+                response.data["ID_TIPO_PATRIMONIO"] ? "gray" : "#220646"
+              }
             >
               Eliminar
             </ButtonPage>

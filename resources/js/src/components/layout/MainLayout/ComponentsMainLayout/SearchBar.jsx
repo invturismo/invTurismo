@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { changeSearch } from '../../../../features/filterSlice';
 
 const StyleSearch = styled.form`
   max-width: 350px;
@@ -39,11 +42,32 @@ const StyleSearch = styled.form`
 `;
 
 const SearchBar = () => {
-  const [search, setSearch] = useState("");
+  const location = useLocation();
+  const search = useSelector((state) => state.filterSlice.searchState);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleChange = (e) => setSearch(e.target.value);
-  const handleDelete = () => setSearch("");
-  const handleSubmit = (e) => e.preventDefault();
+  useEffect(() => {
+    const {pathname} = location;
+    (()=> {
+      if (!pathname.includes("/buscar/")) return "";
+      const arrPath = pathname.split("/");
+      dispatch(changeSearch(arrPath[2]));
+    })();
+  }, [location]);
+  
+
+  const handleChange = (e) => dispatch(changeSearch(e.target.value));
+  const handleDelete = () => {
+    const {pathname} = window.location;
+    dispatch(changeSearch(""));
+    if (pathname.includes("/buscar/")) navigate("/");
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!search) return;
+    navigate("/buscar/" + search);
+  };
 
   return (
     <StyleSearch onSubmit={handleSubmit} className="ContainerSearchBar">
@@ -55,7 +79,7 @@ const SearchBar = () => {
           type="text"
           name="SerachBar"
           id="SerachBar"
-          placeholder="Buscar en todo"
+          placeholder="Buscar recurso"
           value={search}
           onChange={handleChange}
           autoComplete="off"

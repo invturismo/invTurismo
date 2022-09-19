@@ -13,6 +13,7 @@ use App\Http\Controllers\GruposEspecialesController;
 use App\Http\Controllers\SitiosNaturalesController;
 use App\Http\Controllers\FestividadesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\FindController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("validate-tokens",[UsersController::class,'validateTokens']);
 
     Route::delete("cancel-update",[UpdateController::class,'cancelUpdate']);
+    Route::post("find",[FindController::class,'find']);
 
     Route::post("/export/listado-preliminar",[ExportController::class,'ExportListadosPreliminares']);
     Route::post("/export/clasificacion-atractivos",[ExportController::class,'ExportClasificacion']);

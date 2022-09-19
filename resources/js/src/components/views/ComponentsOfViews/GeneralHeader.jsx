@@ -1,21 +1,21 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { closeFilter, openFilter } from '../../../features/filterSlice';
-import ButtonHeader from '../../common/ButtonHeader';
-import SearchViews from './Filter/SearchViews';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { closeFilter, openFilter, updateWindow } from "../../../features/filterSlice";
+import ButtonHeader from "../../common/ButtonHeader";
+import SearchViews from "./Filter/SearchViews";
 
-const GeneralHeader = ({linkOptions,who}) => {
+const GeneralHeader = ({ linkOptions, who }) => {
   const dispatch = useDispatch();
   const stateFilter = useSelector((state) => state.filterSlice.stateFilter);
 
   const handleClickFilter = () => {
-    if(stateFilter) dispatch(closeFilter());
+    if (stateFilter) dispatch(closeFilter());
     else dispatch(openFilter());
-  }
+  };
 
   return (
-    <div className='StyleHeader'>
+    <div className="StyleHeader">
       <div className="ContainerOptions">
         {who === 1 && (
           <Link to="./crear">
@@ -36,12 +36,18 @@ const GeneralHeader = ({linkOptions,who}) => {
             Opciones
           </ButtonHeader>
         </Link>
+        <img
+          src="/img/iconsGeneral/svgUpdate.svg"
+          alt="update"
+          onClick={() => dispatch(updateWindow())}
+          className="updateImg"
+        />
       </div>
       <div className="ContainerSearch">
         <SearchViews />
       </div>
     </div>
   );
-}
+};
 
-export default GeneralHeader
+export default GeneralHeader;

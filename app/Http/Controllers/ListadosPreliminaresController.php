@@ -15,6 +15,7 @@ use App\Helpers\Joins;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelpersExport;
+use App\Helpers\HelpersClasificacion;
 
 class ListadosPreliminaresController extends Controller
 {
@@ -101,9 +102,11 @@ class ListadosPreliminaresController extends Controller
         if($isValid != 1) return response()->json($isValid);
         $ID_USUARIO = Auth::user()->ID_USUARIO;
         try {
-            $listadoPreliminar = ListadosPreliminares::where('EXIST','=',true)
-            ->where('ID_LISTADO','=',$request->ID_LISTADO)
-            ->whereNull('ID_TIPO_BIEN')->first();
+            $listadoPreliminar = Joins::JoinCodigo(new ListadosPreliminares())
+            ->select("listados_preliminares.*")
+            ->where('listados_preliminares.EXIST','=',true)
+            ->where('listados_preliminares.ID_LISTADO','=',$request->ID_LISTADO)
+            ->whereNull('codigos.ID_TIPO_PATRIMONIO')->first();
             if(!isset($listadoPreliminar)) return response()->json([
                 'state' => false,
                 'message' => "El registro no existe o no se puede eliminar"
@@ -114,7 +117,12 @@ class ListadosPreliminaresController extends Controller
             if($response['state']==1) return response()->json([
                 'state' => false,
                 'message' => "El registro se esta actualizando"
-            ]);                
+            ]);
+            HelpersClasificacion::deleteForms(
+                $listadoPreliminar['ID_TIPO_BIEN'],
+                $request->ID_LISTADO,
+                $ID_USUARIO
+            );              
             $listadoPreliminar->EXIST = false;
             $listadoPreliminar->save();
             HistorialController::createInsertDelete(

@@ -97,7 +97,7 @@ class UsersController extends Controller
             'CORREO'
         )->where('EXIST','=',true);
         return $queryData;
-}
+    }
 
     public function update(Request $request)
     {
@@ -131,7 +131,7 @@ class UsersController extends Controller
             $ID_USUARIO = Auth::user()->ID_USUARIO;
             foreach ($changes as $key => $value) {
                 HistorialController::createUpdate(
-                    $ID_USUARIO,'usuarios',$user->ID_USUARIO,$key,$queryData[$key],$value
+                    $ID_USUARIO,'usuarios',0,$user->ID_USUARIO,$key,$queryData[$key],$value
                 );
             }
             self::deleteTokens($request->ID_USUARIO);

@@ -9,7 +9,9 @@ const initialState = {
     ID_DEPARTAMENTOS: ID_DEPARTAMENTOS || "",
     ID_MUNICIPIOS: ID_MUNICIPIOS || "",
   },
-  stateFilter: false
+  stateFilter: false,
+  updateState: false,
+  searchState : ""
 };
 
 export const filterSlice = createSlice({
@@ -19,7 +21,7 @@ export const filterSlice = createSlice({
     setDataFilter: (state, action) => {
       state.dataFilter = {
         ...state.dataFilter,
-        ...action.payload
+        ...action.payload,
       };
     },
     openFilter: (state) => {
@@ -28,8 +30,15 @@ export const filterSlice = createSlice({
     closeFilter: (state) => {
       state.stateFilter = false;
     },
+    updateWindow: (state) => {
+      state.updateState = state.updateState ? false : true;
+    },
+    changeSearch: (state,{payload}) => {
+      state.searchState = payload;
+    }
   },
 });
 
-export const { setDataFilter, openFilter, closeFilter } = filterSlice.actions;
+export const { setDataFilter, openFilter, closeFilter, updateWindow, changeSearch } =
+  filterSlice.actions;
 export default filterSlice.reducer;

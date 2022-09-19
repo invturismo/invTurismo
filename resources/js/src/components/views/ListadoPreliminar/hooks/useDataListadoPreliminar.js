@@ -8,7 +8,7 @@ const useDataListadoPreliminar = () => {
   const [response, setResponse] = useState(false);
   const [data, setData] = useState([]);
   const [params] = useSearchParams();
-  const dataFilter = useSelector((state) => state.filterSlice.dataFilter);
+  const { dataFilter, updateState } = useSelector((state) => state.filterSlice);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -47,7 +47,7 @@ const useDataListadoPreliminar = () => {
       abortController.abort();
       isMounted = false;
     };
-  }, [params, dataFilter]);
+  }, [params, dataFilter, updateState]);
 
   return { response, data };
 };
