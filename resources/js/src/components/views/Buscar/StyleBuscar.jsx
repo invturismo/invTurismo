@@ -22,6 +22,7 @@ const StyleBuscar = styled.div`
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
+    width: max-content;
   }
   .ContainerPagination {
     display: flex;

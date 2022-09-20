@@ -4,7 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { helpConvertData } from '../../../../helpers/helpConvertData';
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
-import { initialValuesGeneralForm } from "../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm";
+import { ACTUALIZAR, COMPLETADO, SITIOS } from '../../../router/paths';
+import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
 import GeneralGetRecord from '../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord';
 import { helpDeleteRecurso } from '../../ComponentsOfViews/helpers/helpDeleteRecurso';
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
@@ -24,7 +25,7 @@ const GetRecordConSitios = () => {
 
   const handleClick = () => {
     navigate(
-      `/sitios-naturales/completado/actualizar/${response.data.OTROS.ID_SITIO}`,
+      `${SITIOS}${COMPLETADO}${ACTUALIZAR}/${response.data.OTROS.ID_SITIO}`,
       { replace: true }
     );
   };
@@ -35,7 +36,7 @@ const GetRecordConSitios = () => {
       body,
       dispatch,
       navigate,
-      linkNavigate: "/sitios-naturales/completado",
+      linkNavigate: `${SITIOS}${COMPLETADO}`,
       url: "sitios-naturales/delete",
     });
   };

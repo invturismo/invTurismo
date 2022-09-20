@@ -6,6 +6,7 @@ import {
 } from "../../../../features/modalsSlice";
 import { helpDeleteRegister } from "../../../../helpers/helpDeleteRegister";
 import { toastMs } from "../../../../helpers/helpToastMessage";
+import { USUARIOS } from "../../../router/paths";
 import { validateTokens } from "../Form/validateTokens";
 
 export const helpDeleteUsuario = async ({ idUsuario, dispatch, navigate }) => {
@@ -31,7 +32,7 @@ export const helpDeleteUsuario = async ({ idUsuario, dispatch, navigate }) => {
     dispatch(closeLoaderForm());
     dispatch(closeModalLayoutState());
     if (!response.state) return toastMs().error(response.message);
-    navigate("/usuarios");
+    navigate(`${USUARIOS}`);
     toastMs().success("El registro se elimino con exito");
   };
   const dataPayload = {

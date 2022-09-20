@@ -4,12 +4,13 @@ import useCancelUpdate from '../../../../hooks/useCancelUpdate';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
 import ActionBack from '../../ComponentsOfViews/ActionBack';
-import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialErrorsGeneralForm';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
 import MainGeneralForm from '../../ComponentsOfViews/GeneralForm/MainGeneralForm';
 import { useDispatch } from "react-redux";
 import { helpConvertData } from '../../../../helpers/helpConvertData';
 import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
+import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm';
+import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
+import { COMPLETADO, MATERIAL } from '../../../router/paths';
 
 const UpdatePatrimonioMaterial = () => {
   const { idPatrimonioMaterial } = useParams();
@@ -28,7 +29,7 @@ const UpdatePatrimonioMaterial = () => {
   return (
     <div className="GeneralContainer">
       <ActionBack
-        to={"/patrimonio-material/completado/" + idPatrimonioMaterial}
+        to={`${MATERIAL}${COMPLETADO}/${idPatrimonioMaterial}`}
         replace={true}
       />
       <h2>Actualizar datos del patrimonio material</h2>

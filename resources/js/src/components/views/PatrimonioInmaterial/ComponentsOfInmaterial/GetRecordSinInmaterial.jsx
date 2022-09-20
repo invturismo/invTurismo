@@ -4,8 +4,8 @@ import useCancelUpdate from '../../../../hooks/useCancelUpdate';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
 import ActionBack from '../../ComponentsOfViews/ActionBack';
-import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialErrorsGeneralForm';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
+import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm';
+import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
 import MainGeneralForm from '../../ComponentsOfViews/GeneralForm/MainGeneralForm';
 import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
 

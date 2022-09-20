@@ -24,7 +24,6 @@ class UsersController extends Controller
         $unique = new ValidateUserNameAndEmail();
         if($id) $unique = new ValidateUserNameAndEmail($id);
         $rules = [
-            'ID_TIPO_USUARIO'=>'required|numeric',
             'PRIMER_NOMBRE'=>'required|max:50',
             'SEGUNDO_NOMBRE'=>'max:50',
             'PRIMER_APELLIDO'=>'required|alpha|max:50',
@@ -62,7 +61,7 @@ class UsersController extends Controller
             $user->USUARIO = $dataForm['USUARIO'];
             $user->CORREO = $dataForm['CORREO'];
             $user->CLAVE = $dataForm['CLAVE'];
-            $user->ID_TIPO_USUARIO = $dataForm['ID_TIPO_USUARIO'];
+            $user->ID_TIPO_USUARIO = 2;
             $user->save();
             $ID_USUARIO = Auth::user()->ID_USUARIO;
             HistorialController::createInsertDelete($ID_USUARIO,'usuarios',$user->ID_USUARIO,1);
@@ -119,6 +118,7 @@ class UsersController extends Controller
             $clientData = $request->all();
             $changes = array();
             foreach ($queryData as $key => $value) {
+                if(!isset($clientData[$key])) continue;
                 if($clientData[$key]==$value) continue;
                 $changes[$key] = $clientData[$key];
             }

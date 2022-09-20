@@ -4,7 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { helpConvertData } from '../../../../helpers/helpConvertData';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
+import { ACTUALIZAR, COMPLETADO, GRUPOS } from '../../../router/paths';
+import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
 import GeneralGetRecord from '../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord';
 import { helpDeleteRecurso } from '../../ComponentsOfViews/helpers/helpDeleteRecurso';
 import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
@@ -24,7 +25,7 @@ const GetRecordConFestividades = () => {
 
   const handleClick = () => {
     navigate(
-      `/festividades-eventos/completado/actualizar/${response.data.OTROS.ID_EVENTO}`,
+      `${GRUPOS}${COMPLETADO}${ACTUALIZAR}/${response.data.OTROS.ID_EVENTO}`,
       { replace: true }
     );
   };
@@ -35,7 +36,7 @@ const GetRecordConFestividades = () => {
       body,
       dispatch,
       navigate,
-      linkNavigate: "/festividades-eventos/completado",
+      linkNavigate: `${GRUPOS}${COMPLETADO}`,
       url: "festividades-eventos/delete",
     });
   };

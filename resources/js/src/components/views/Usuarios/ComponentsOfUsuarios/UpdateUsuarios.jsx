@@ -4,6 +4,7 @@ import { helpDropNull } from '../../../../helpers/helpDropNull';
 import useCancelUpdate from '../../../../hooks/useCancelUpdate';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
+import { USUARIOS } from '../../../router/paths';
 import ActionBack from '../../ComponentsOfViews/ActionBack';
 import RegistrationForm from '../Form/RegistrationForm';
 import useRecordUsuario from '../hooks/useRecordUsuario';
@@ -19,7 +20,7 @@ const UpdateUsuarios = () => {
 
   return (
     <div className="UpdateUsuarios">
-      <ActionBack to={`/usuarios/${response.data.ID_USUARIO}`} replace={true} />
+      <ActionBack to={`${USUARIOS}/${response.data.ID_USUARIO}`} replace={true} />
       <h2>Actualizar un usuario</h2>
       <RegistrationForm
         who={2}

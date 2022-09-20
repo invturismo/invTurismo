@@ -5,9 +5,10 @@ import GeneralLoader from '../../../common/GeneralLoader';
 import ErrorComponent from '../../../common/ErrorComponent';
 import { helpConvertData } from '../../../../helpers/helpConvertData';
 import GeneralGetRecord from '../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
 import { helpDeleteRecurso } from '../../ComponentsOfViews/helpers/helpDeleteRecurso';
 import { useDispatch } from 'react-redux';
+import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
+import { ACTUALIZAR, COMPLETADO, INMATERIAL } from '../../../router/paths';
 
 const GetRecordConInmaterial = () => {
   const { idPatrimonioInmaterial } = useParams();
@@ -24,7 +25,7 @@ const GetRecordConInmaterial = () => {
 
   const handleClick = () => {
     navigate(
-      `/patrimonio-inmaterial/completado/actualizar/${response.data.OTROS.ID_INMATERIAL}`,
+      `${INMATERIAL}${COMPLETADO}${ACTUALIZAR}/${response.data.OTROS.ID_INMATERIAL}`,
       { replace: true }
     );
   };
@@ -35,7 +36,7 @@ const GetRecordConInmaterial = () => {
       body,
       dispatch,
       navigate,
-      linkNavigate: "/patrimonio-inmaterial/completado",
+      linkNavigate: `${INMATERIAL}${COMPLETADO}`,
       url: "patrimonios-inmateriales/delete",
     });
   };

@@ -1,5 +1,6 @@
 import React from 'react';
 import GeneralLoader from '../../../common/GeneralLoader';
+import { COMPLETADO, EXPORTS, MATERIAL, SINCOMPLETAR } from '../../../router/paths';
 import GeneralGet from '../../ComponentsOfViews/GeneralGet';
 import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
 import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
@@ -15,19 +16,14 @@ const GetSinCompletarMaterial = () => {
     <>
       <GeneralGet
         h2Text="Patrimonio material"
-        toFirst="/patrimonio-material/sin-completar"
-        toLast="/patrimonio-material/completado"
-        linkOptions="/patrimonio-material/opciones"
+        toFirst={`${MATERIAL}${SINCOMPLETAR}`}
+        toLast={`${MATERIAL}${COMPLETADO}`}
+        linkOptions={`${MATERIAL}${EXPORTS}`}
         others={data}
       >
         {data?.data?.length > 0 ? (
           data.data.map((val, key) => {
-            return (
-              <RowGeneralTable
-                key={"RowSinCompletar" + key}
-                {...val}
-              />
-            );
+            return <RowGeneralTable key={"RowSinCompletar" + key} {...val} />;
           })
         ) : (
           <tr className="NoData">

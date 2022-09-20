@@ -7,11 +7,12 @@ import GetRecordListadoPreliminar from './ComponentsOfListadoPreliminar/GetRecor
 import UpdateListadoPreliminar from './ComponentsOfListadoPreliminar/UpdateListadoPreliminar';
 import ActionBack from '../ComponentsOfViews/ActionBack';
 import OptionsListadoPreliminar from "./ComponentsOfListadoPreliminar/OptionsListadoPreliminar";
+import { LISTADO } from '../../router/paths';
 
 const CreateListadoPreliminar = () => {
   return (
     <div className="CreateListadoPreliminar">
-      <ActionBack to="/listado-preliminar" />
+      <ActionBack to={`${LISTADO}`} />
       <h2>Crear un listado preliminar</h2>
       <FormListaPreliminar
         initialValues={initialValues}

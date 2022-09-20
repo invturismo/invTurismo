@@ -6,9 +6,10 @@ import { useParams } from "react-router-dom";
 import useRecordClasificacion from "../hooks/useRecordClasificacion";
 import GeneralLoader from "../../../common/GeneralLoader";
 import useCancelUpdate from "../../../../hooks/useCancelUpdate";
+import { CLASIFICACION, CLASIFICADO } from "../../../router/paths";
 
 const linkUpdate = (idListado) =>
-  "/clasificacion-recursos-atractivos/clasificado/" + idListado;
+  `${CLASIFICACION}${CLASIFICADO}/${idListado}`;
 
 const GetRecordClasificacionAtractivosTuristicos = ({ actualizando, url }) => {
   const { idRecursoAtractivo } = useParams();

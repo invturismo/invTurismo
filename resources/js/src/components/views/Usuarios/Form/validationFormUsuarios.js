@@ -8,7 +8,6 @@ messageConfirmar = "Las contraseñas no coinciden",
 messageCorreo = "No es un correo valido";
 
 let schema = yup.object({
-  ID_TIPO_USUARIO: yup.string().required(messageRequire),
   PRIMER_NOMBRE: yup.string().required(messageRequire).max(50, messageMax(50)),
   SEGUNDO_NOMBRE: yup.string().max(50, messageMax(50)),
   PRIMER_APELLIDO: yup
@@ -33,7 +32,6 @@ let schema = yup.object({
 });
 
 let schemaUpdate = schema.pick([
-  "ID_TIPO_USUARIO",
   "PRIMER_NOMBRE",
   "SEGUNDO_NOMBRE",
   "PRIMER_APELLIDO",
@@ -44,20 +42,15 @@ let schemaUpdate = schema.pick([
 
 let schemaPassword = schema.pick(["CLAVE", "CONFIRMAR_CLAVE"]);
 
-const whoSchema = (who) => {
-  switch (who) {
-    case 1:
-      return schema;
-    case 2:
-      return schemaUpdate;
-    case 3:
-      return schemaPassword;
-  }
+const whoSchema = {
+  1 : schema,
+  2 : schemaUpdate,
+  3 : schemaPassword
 }
 
 export const validationsUsuarios = async (values,who) => {
   try {
-    const schemaWho = whoSchema(who);
+    const schemaWho = whoSchema[who];
     await schemaWho.validate(values, { abortEarly: false });
     return { state: true };
   } catch (err) {

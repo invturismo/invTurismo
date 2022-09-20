@@ -5,6 +5,7 @@ import {
   openModalLayoutState,
 } from "../../../../features/modalsSlice";
 import { toastMs } from "../../../../helpers/helpToastMessage";
+import { CLASIFICACION, LISTADO, SINCLASIFICAR } from "../../../router/paths";
 import {
   initialErrors,
   initialValues,
@@ -85,7 +86,7 @@ export const handleFunctionsLP = (
       setValues({ ...initialValues });
       if (e.nativeEvent.submitter.id === "buttonNext")
         navigate(
-          `/clasificacion-recursos-atractivos/sin-clasificar/${responseServe.id_listado}`
+          `${CLASIFICACION}${SINCLASIFICAR}/${responseServe.id_listado}`
         );
       toastMs().success("El resgistro se almaceno correctamente");
     };
@@ -112,7 +113,7 @@ export const handleFunctionsLP = (
     if (nameValidate[0] == 0) return toastMs().error(nameValidate[1]);
     const handleSend = () => {
       toastMs().success("El resgistro se actualizo correctamente");
-      navigate(`/listado-preliminar/${values.ID_LISTADO}`,{replace:true});
+      navigate(`${LISTADO}/${values.ID_LISTADO}`,{replace:true});
     };
     const handleFunction = () =>
       sendData(handleSend, "put", "listados-preliminares/update");

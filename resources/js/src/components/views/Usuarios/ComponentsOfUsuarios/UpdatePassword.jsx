@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import useCancelUpdate from '../../../../hooks/useCancelUpdate';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
+import { USUARIOS } from '../../../router/paths';
 import ActionBack from '../../ComponentsOfViews/ActionBack';
 import ResetPassword from '../Form/ComponentsOfFormUsuarios/ResetPassword';
 import useRecordUsuario from '../hooks/useRecordUsuario';
@@ -18,7 +19,7 @@ const UpdatePassword = () => {
 
   return (
     <div className="UpdatePassword">
-      <ActionBack to={`/usuarios/${idUsuario}`} replace={true}/>
+      <ActionBack to={`${USUARIOS}/${idUsuario}`} replace={true}/>
       <h2>Resetear contraseña</h2>
       <ResetPassword valuesQuery={response.data}/>
     </div>

@@ -5,6 +5,7 @@ import { helpCapitalize } from "../../../../helpers/helpCapitalize";
 import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
+import { ACTUALIZAR, CAMBIARCLAVE, USUARIOS } from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
 import { helpDeleteUsuario } from "../helpers/helpDeleteUsuario";
 import useRecordUsuario from "../hooks/useRecordUsuario";
@@ -29,11 +30,11 @@ const GetRecordUsuarios = () => {
   if (!response.state) return <ErrorComponent message={response.message} />;
 
   const handleClickUpdate = () =>
-    navigate(`/usuarios/actualizar/${response.data["ID_USUARIO"]}`, {
+    navigate(`${USUARIOS}${ACTUALIZAR}/${response.data["ID_USUARIO"]}`, {
       replace: true,
     });
   const handleClickPassword = () =>
-    navigate(`/usuarios/cambiar-clave/${response.data["ID_USUARIO"]}`, {
+    navigate(`${USUARIOS}${CAMBIARCLAVE}/${response.data["ID_USUARIO"]}`, {
       replace: true,
     });
 

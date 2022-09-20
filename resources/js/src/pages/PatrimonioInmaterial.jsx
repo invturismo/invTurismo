@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { ACTUALIZAR, COMPLETADO, EXPORTS, SINCOMPLETAR } from "../components/router/paths";
 import MainPatrimonioInmaterial from "../components/views/PatrimonioInmaterial/MainPatrimonioInmaterial";
 import useTittle from "../hooks/useTittle";
 import Error404 from "./Error404";
@@ -11,30 +12,30 @@ const PatrimonioInmaterial = () => {
       <Route path="/">
         <Route
           index
-          element={<Navigate to="./sin-completar" replace={true} />}
+          element={<Navigate to={`.${SINCOMPLETAR}`} replace={true} />}
         />
         <Route
-          path="/sin-completar"
+          path={`${SINCOMPLETAR}`}
           element={<MainPatrimonioInmaterial who={1} />}
         />
         <Route
-          path="/completado"
+          path={`${COMPLETADO}`}
           element={<MainPatrimonioInmaterial who={2} />}
         />
         <Route
-          path="/sin-completar/:idPatrimonioInmaterial"
+          path={`${SINCOMPLETAR}/:idPatrimonioInmaterial`}
           element={<MainPatrimonioInmaterial who={3} />}
         />
         <Route
-          path="/completado/:idPatrimonioInmaterial"
+          path={`${COMPLETADO}/:idPatrimonioInmaterial`}
           element={<MainPatrimonioInmaterial who={4} />}
         />
         <Route
-          path="/completado/actualizar/:idPatrimonioInmaterial"
+          path={`${COMPLETADO}${ACTUALIZAR}/:idPatrimonioInmaterial`}
           element={<MainPatrimonioInmaterial who={5} />}
         />
         <Route
-          path="/opciones"
+          path={`${EXPORTS}`}
           element={<MainPatrimonioInmaterial who={6} />}
         />
       </Route>

@@ -1,5 +1,6 @@
 import React from 'react'
 import GeneralLoader from '../../../common/GeneralLoader';
+import { COMPLETADO, EXPORTS, GRUPOS, SINCOMPLETAR } from '../../../router/paths';
 import GeneralGet from '../../ComponentsOfViews/GeneralGet';
 import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
 import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
@@ -13,9 +14,9 @@ const GetSinCompletarGrupos = () => {
     <>
       <GeneralGet
         h2Text="Grupos de especial interés"
-        toFirst="/grupos-especial-interes/sin-completar"
-        toLast="/grupos-especial-interes/completado"
-        linkOptions="/grupos-especial-interes/opciones"
+        toFirst={`${GRUPOS}${SINCOMPLETAR}`}
+        toLast={`${GRUPOS}${COMPLETADO}`}
+        linkOptions={`${GRUPOS}${EXPORTS}`}
         others={data}
       >
         {data?.data?.length > 0 ? (

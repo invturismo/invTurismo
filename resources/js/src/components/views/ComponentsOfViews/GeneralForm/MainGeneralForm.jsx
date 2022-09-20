@@ -8,10 +8,10 @@ import FormOtros from "./ComponentsOfGeneralForm/FormOtros";
 import FormPromocionAtractivo from "./ComponentsOfGeneralForm/FormPromocionAtractivo";
 import FormPuntajesValoracion from "./ComponentsOfGeneralForm/FormPuntajesValoracion";
 import FormServiciosEspeciales from "./ComponentsOfGeneralForm/FormServiciosEspeciales";
-import { changeFunctionsGeneralForm } from "./changeFunctionsGeneralForm";
 import { StyleMainGeneralForm } from "./StyleMainGeneralForm";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { handleFunctionsGeneralForm } from "./HandleFunctions/handleFunctionsGeneralForm";
 
 const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }) => {
   const [values, setValues] = useState(initialValues);
@@ -44,7 +44,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
     handleChangeCalidadGrupos,
     handleChangeCalidadFestividades,
     handleChangeCalidadSitios,
-  } = changeFunctionsGeneralForm({
+  } = handleFunctionsGeneralForm({
     values,
     errors,
     setValues,

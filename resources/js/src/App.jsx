@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LOGIN } from "./components/router/paths";
+import { HOME, LOGIN } from "./components/router/paths";
 import {
   PrivateRouteHome,
   PrivateRouteLogin,
@@ -17,7 +17,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route
-          path="/*"
+          path={`${HOME}*`}
           element={
             <PrivateRouteHome>
               <Home />

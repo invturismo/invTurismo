@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import useCancelUpdate from '../../../../hooks/useCancelUpdate';
 import ErrorComponent from '../../../common/ErrorComponent';
 import GeneralLoader from '../../../common/GeneralLoader';
+import { LISTADO } from '../../../router/paths';
 import ActionBack from '../../ComponentsOfViews/ActionBack';
 import { changeNullValues } from '../Form/changeNullValues';
 import FormListaPreliminar from '../Form/FormListaPreliminar';
@@ -20,7 +21,7 @@ const UpdateListadoPreliminar = () => {
   return (
     <div className="UpdateListadoPreliminar">
       <ActionBack
-        to={`/listado-preliminar/${response.data.ID_LISTADO}`}
+        to={`${LISTADO}/${response.data.ID_LISTADO}`}
         replace={true}
       />
       <h2>Actulizar un listado preliminar</h2>

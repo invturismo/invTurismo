@@ -1,5 +1,6 @@
 import React from "react";
 import Cookies from "universal-cookie";
+import { USUARIOS } from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
 import RegistrationForm from "../Form/RegistrationForm";
 const cookies = new Cookies();
@@ -12,7 +13,7 @@ const CreateUsuarios = () => {
 
   return (
     <div className="CreateUsuarios">
-      <ActionBack to="/usuarios" />
+      <ActionBack to={`${USUARIOS}`} />
       <h2>Registrar un usuario</h2>
       <RegistrationForm who={1} />
     </div>

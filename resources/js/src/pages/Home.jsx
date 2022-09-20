@@ -1,51 +1,53 @@
-import React from 'react';
-import { Route,Routes } from "react-router-dom";
-import LeadingLayout from '../components/layout/MainLayout/LeadingLayout';
-import MainBuscar from '../components/views/Buscar/MainBuscar';
-import MainHome from '../components/views/Home/MainHome';
-import useTittle from '../hooks/useTittle';
-import ClasificacionRecursosAtractivos from './ClasificacionRecursosAtractivos';
-import Error404 from './Error404';
-import FestividadesEventos from './FestividadesEventos';
-import GruposEspecialInteres from './GruposEspecialInteres';
-import ListadoPreliminar from './ListadoPreliminar';
-import PatrimonioInmaterial from './PatrimonioInmaterial';
-import PatrimonioMaterial from './PatrimonioMaterial';
-import SitiosNaturales from './SitiosNaturales';
-import Usuarios from './Usuarios';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import LeadingLayout from "../components/layout/MainLayout/LeadingLayout";
+import {
+  BUSCAR,
+  CLASIFICACION,
+  FESTIVIDADES,
+  GRUPOS,
+  INMATERIAL,
+  LISTADO,
+  MATERIAL,
+  SITIOS,
+  USUARIOS,
+} from "../components/router/paths";
+import MainBuscar from "../components/views/Buscar/MainBuscar";
+import MainHome from "../components/views/Home/MainHome";
+import useTittle from "../hooks/useTittle";
+import ClasificacionRecursosAtractivos from "./ClasificacionRecursosAtractivos";
+import Error404 from "./Error404";
+import FestividadesEventos from "./FestividadesEventos";
+import GruposEspecialInteres from "./GruposEspecialInteres";
+import ListadoPreliminar from "./ListadoPreliminar";
+import PatrimonioInmaterial from "./PatrimonioInmaterial";
+import PatrimonioMaterial from "./PatrimonioMaterial";
+import SitiosNaturales from "./SitiosNaturales";
+import Usuarios from "./Usuarios";
 
 const Home = () => {
-  useTittle('Inicio');
+  useTittle("Inicio");
 
   return (
     <Routes>
       <Route path="/" element={<LeadingLayout />}>
         <Route index element={<MainHome />} />
-        <Route path="listado-preliminar/*" element={<ListadoPreliminar />} />
+        <Route path={`${LISTADO}/*`} element={<ListadoPreliminar />} />
         <Route
-          path="clasificacion-recursos-atractivos/*"
+          path={`${CLASIFICACION}/*`}
           element={<ClasificacionRecursosAtractivos />}
         />
-        <Route path="patrimonio-material/*" element={<PatrimonioMaterial />} />
-        <Route
-          path="patrimonio-inmaterial/*"
-          element={<PatrimonioInmaterial />}
-        />
-        <Route
-          path="festividades-eventos/*"
-          element={<FestividadesEventos />}
-        />
-        <Route
-          path="grupos-especial-interes/*"
-          element={<GruposEspecialInteres />}
-        />
-        <Route path="sitios-naturales/*" element={<SitiosNaturales />} />
-        <Route path="usuarios/*" element={<Usuarios />} />
-        <Route path="buscar/:find" element={<MainBuscar />} />
+        <Route path={`${MATERIAL}/*`} element={<PatrimonioMaterial />} />
+        <Route path={`${INMATERIAL}/*`} element={<PatrimonioInmaterial />} />
+        <Route path={`${FESTIVIDADES}/*`} element={<FestividadesEventos />} />
+        <Route path={`${GRUPOS}/*`} element={<GruposEspecialInteres />} />
+        <Route path={`${SITIOS}/*`} element={<SitiosNaturales />} />
+        <Route path={`${USUARIOS}/*`} element={<Usuarios />} />
+        <Route path={`${BUSCAR}/:find`} element={<MainBuscar />} />
         <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>
   );
-}
+};
 
 export default Home;

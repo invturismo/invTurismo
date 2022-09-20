@@ -30,16 +30,17 @@ const dataCalidad = {
   },
 };
 
-const generalidades = (Calidad) => {
+const generalidades = (Calidad, data) => {
   const templateGeneralidades = {
     GEORREFERENCIACION: "",
     ID_TIPO_ACCESO: "",
     CORREGIMIENTO_VEREDA_LOCALIDAD: "",
-    NOMBRE: "",
+    NOMBRE: data?.NOMBRE || "",
   };
   if (Calidad === "PATRIMONIOS_INMATERIALES") return templateGeneralidades;
   const others = {
-    UBICACION: "",
+    UBICACION: data?.UBICACION || "",
+    INDICACIONES_ACCESO: "",
     "ADMIN/PROPIETARIOS": {
       NOMBRE: "",
       DIRECCION_UBICACION: "",
@@ -51,15 +52,54 @@ const generalidades = (Calidad) => {
   return { ...templateGeneralidades, ...others };
 };
 
-const relevantes = (Calidad) => {
+const caracteristicas = (data) => {
+  return {
+    CODIGOS: {
+      ID_MUNICIPIOS: data?.ID_MUNICIPIOS || "",
+      ID_DEPARTAMENTOS: data?.ID_DEPARTAMENTOS || "",
+      ID_ELEMENTO: "",
+      ID_COMPONENTE: "",
+      ID_GRUPO: "",
+      ID_TIPO_PATRIMONIO: "",
+    },
+    DESCRIPCION: "",
+    FUENTE: "",
+  };
+}
+
+const relevantesBoolean = (boolean) => {
+  if(!boolean) return {
+    DIAS_HORARIOS: {
+      HORAS: "",
+    },
+  };
+  return {
+    ACCESO_HORARIOS: {
+      RESTRINGIDO: false,
+      PERMANENTE: false,
+      VISITA_EXTERIOR: false,
+      VISITA_INTERIOR: false,
+    },
+    DIAS_HORARIOS: {
+      LUNES: false,
+      MARTES: false,
+      MIERCOLES: false,
+      JUEVES: false,
+      VIERNES: false,
+      SABADO: false,
+      DOMINGO: false,
+      HORAS: "",
+    },
+  };
+};
+
+const relevantes = (Calidad,boolean = false) => {
   if (Calidad === "PATRIMONIOS_INMATERIALES") return {};
   return {
     CARACTERISTICAS_RELEVANTES: {
+      ...relevantesBoolean(boolean),
       ID_TIPO_CLIMA: "",
       TEMPERATURA: "",
-      DIAS_HORARIOS: {
-        HORAS: "",
-      },
       TARIFAS: {
         NINOS: "",
         ADULTOS: "",
@@ -72,6 +112,16 @@ const relevantes = (Calidad) => {
       ID_ESTADO: "",
     },
   };
+};
+
+const actividades = {
+  ACTIVIDADES: {
+    CULTURALES: "",
+    ARTISTICAS: "",
+    FISICAS: "",
+    RECREATIVAS: "",
+    OTROS: "",
+  },
 };
 
 const servicios = (Calidad) => {
@@ -89,6 +139,19 @@ const servicios = (Calidad) => {
   };
 };
 
+const promocion = {
+  PROMOCION: {
+    FOLLETOS_GUIAS: "",
+    PUBLICACIONES: "",
+    TRIPADVISOR: "",
+    CTRAVEL: "",
+    GOOGLEM: "",
+    PAGINA_WEB: "",
+    YOUTUBE: "",
+    OTROS: "",
+  },
+};
+
 const serviciosEspeciales = (Calidad) => {
   if (Calidad === "PATRIMONIOS_INMATERIALES") return {};
   return {
@@ -103,69 +166,37 @@ const serviciosEspeciales = (Calidad) => {
   };
 };
 
-const fieldInternacional = (Calidad) => {
-  if(Calidad !== "GRUPOS_ESPECIALES") return {};
-  return {
-    APRO_INTERNACIONAL : "",
-  };
-}
-
-export const initialErrorsGeneralForm = (Calidad) => ({
-  GENERALIDADES: {
-    ...generalidades(Calidad),
-  },
-  CARACTERISTICAS: {
-    CODIGOS: {
-      ID_MUNICIPIOS: "",
-      ID_DEPARTAMENTOS: "",
-      ID_ELEMENTO: "",
-      ID_COMPONENTE: "",
-      ID_GRUPO: "",
-      ID_TIPO_PATRIMONIO: "",
-    },
-    DESCRIPCION: "",
-    IMAGEN1: "",
-    IMAGEN2: "",
-    FUENTE: "",
-  },
-  PUNTAJES_VALORACION: {
-    CALIDAD: {
-      ...dataCalidad[Calidad],
-    },
-    ID_SIGNIFICADO: "",
-  },
-  ...relevantes(Calidad),
-  ACTIVIDADES_SERVICIOS: {
-    ACTIVIDADES: {
-      CULTURALES: "",
-      ARTISTICAS: "",
-      FISICAS: "",
-      RECREATIVAS: "",
-      OTROS: "",
-    },
-    ...servicios(Calidad),
-  },
-  PROMOCION: {
-    FOLLETOS_GUIAS: "",
-    PUBLICACIONES: "",
-    TRIPADVISOR: "",
-    CTRAVEL: "",
-    GOOGLEM: "",
+const otros = {
+  REDES: {
     PAGINA_WEB: "",
-    YOUTUBE: "",
-    OTROS: "",
+    FACEBOOK: "",
+    TWITTER: "",
+    INSTAGRAM: "",
+    OTRA: "",
   },
-  ...serviciosEspeciales(Calidad),
-  OTROS: {
-    REDES: {
-      PAGINA_WEB: "",
-      FACEBOOK: "",
-      TWITTER: "",
-      INSTAGRAM: "",
-      OTRA: "",
-    },
-    REF_BIBLIOGRAFICA: "",
-    OBSERVACIONES: "",
-    ...fieldInternacional(Calidad),
-  },
-});
+  REF_BIBLIOGRAFICA: "",
+  OBSERVACIONES: "",
+};
+
+const fieldInternacional = (Calidad,initial=false) => {
+  if (Calidad !== "GRUPOS_ESPECIALES") return {};
+  return {
+    APRO_INTERNACIONAL: initial ? "false" : "",
+  };
+};
+
+const funtionalData = (data) => JSON.parse(JSON.stringify(data));
+
+export {
+  dataCalidad,
+  generalidades,
+  caracteristicas,
+  relevantes,
+  actividades,
+  servicios,
+  promocion,
+  serviciosEspeciales,
+  otros,
+  fieldInternacional,
+  funtionalData,
+};

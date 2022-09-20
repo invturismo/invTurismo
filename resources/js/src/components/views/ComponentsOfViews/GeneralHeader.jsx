@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { closeFilter, openFilter, updateWindow } from "../../../features/filterSlice";
 import ButtonHeader from "../../common/ButtonHeader";
+import { CREAR } from "../../router/paths";
 import SearchViews from "./Filter/SearchViews";
 
 const GeneralHeader = ({ linkOptions, who }) => {
@@ -18,7 +19,7 @@ const GeneralHeader = ({ linkOptions, who }) => {
     <div className="StyleHeader">
       <div className="ContainerOptions">
         {who === 1 && (
-          <Link to="./crear">
+          <Link to={`.${CREAR}`}>
             <ButtonHeader imgSrc="svgMore.svg" className="buttonNormal">
               Nuevo
             </ButtonHeader>
@@ -32,8 +33,8 @@ const GeneralHeader = ({ linkOptions, who }) => {
           Filtros
         </ButtonHeader>
         <Link to={linkOptions}>
-          <ButtonHeader imgSrc="svgOptions.svg" className="buttonNormal">
-            Opciones
+          <ButtonHeader imgSrc="svgExport.svg" className="buttonNormal">
+            Exportar
           </ButtonHeader>
         </Link>
         <img
@@ -41,6 +42,7 @@ const GeneralHeader = ({ linkOptions, who }) => {
           alt="update"
           onClick={() => dispatch(updateWindow())}
           className="updateImg"
+          title="Actualizar"
         />
       </div>
       <div className="ContainerSearch">

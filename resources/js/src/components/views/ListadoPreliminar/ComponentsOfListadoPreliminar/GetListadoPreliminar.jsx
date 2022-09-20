@@ -7,6 +7,7 @@ import RowTableListadoPreliminar from "./RowTableListadoPreliminar";
 import Filter from "../../ComponentsOfViews/Filter/Filter";
 import LabelFilter from "../../ComponentsOfViews/Filter/LabelFilter";
 import GeneralHeader from "../../ComponentsOfViews/GeneralHeader";
+import { EXPORTS } from "../../../router/paths";
 
 const GetListadoPreliminar = () => {
   const { response, data } = useDataListadoPreliminar();
@@ -17,7 +18,7 @@ const GetListadoPreliminar = () => {
     <div className="GetListadoPreliminar">
       <h2>Listado Preliminar</h2>
       <div className="ContainerMainGetListadoPreliminar">
-        <GeneralHeader linkOptions="./opciones" who={1}/>
+        <GeneralHeader linkOptions={`.${EXPORTS}`} who={1}/>
         <Filter />
         <LabelFilter />
         <TableListadoPreliminar>

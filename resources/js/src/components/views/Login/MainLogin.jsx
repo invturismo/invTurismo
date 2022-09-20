@@ -17,7 +17,7 @@ const MainLogin = () => {
           <FormLogin />
         </div>
         <div className="ContainerWhiteBackground">
-          <p>Terms & Conditions</p>
+          <p>Inventario de atractivos turisticos</p>
         </div>
       </LoginStyle>
     </ContainerLogin>

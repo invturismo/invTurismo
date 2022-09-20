@@ -1,7 +1,18 @@
-import React from 'react';
-import OptionMenuNavbar from './OptionMenuNavbar';
+import React from "react";
+import OptionMenuNavbar from "./OptionMenuNavbar";
 import styled from "styled-components";
-import Cookies from 'universal-cookie';
+import Cookies from "universal-cookie";
+import {
+  CLASIFICACION,
+  FESTIVIDADES,
+  GRUPOS,
+  HOME,
+  INMATERIAL,
+  LISTADO,
+  MATERIAL,
+  SITIOS,
+  USUARIOS,
+} from "../../../../router/paths";
 const cookies = new Cookies();
 
 const MenuStyle = styled.ul`
@@ -15,54 +26,54 @@ const MenuNavbar = () => {
   return (
     <MenuStyle>
       <OptionMenuNavbar
-        linkDirection="/"
+        linkDirection={HOME}
         linkName="Inicio"
         srcImg="IconInicio"
       />
       <OptionMenuNavbar
-        linkDirection="/listado-preliminar"
+        linkDirection={LISTADO}
         linkName="Listado preliminar"
         srcImg="IconListaPreliminar"
       />
       <OptionMenuNavbar
-        linkDirection="/clasificacion-recursos-atractivos"
+        linkDirection={CLASIFICACION}
         linkName="Clasificacion recursos y atractivos"
         srcImg="IconClasificacionRecursos"
       />
       <OptionMenuNavbar
-        linkDirection="/patrimonio-material"
+        linkDirection={MATERIAL}
         linkName="Patrimonio material"
         srcImg="IconPatrimonioMaterial"
       />
       <OptionMenuNavbar
-        linkDirection="/patrimonio-inmaterial"
+        linkDirection={INMATERIAL}
         linkName="Patrimonio inmaterial"
         srcImg="IconPatrimonioInmaterial"
       />
       <OptionMenuNavbar
-        linkDirection="/festividades-eventos"
+        linkDirection={FESTIVIDADES}
         linkName="Festividades y eventos"
         srcImg="IconFestividades"
       />
       <OptionMenuNavbar
-        linkDirection="/grupos-especial-interes"
+        linkDirection={GRUPOS}
         linkName="Grupos especial interes"
         srcImg="IconGruposInteres"
       />
       <OptionMenuNavbar
-        linkDirection="/sitios-naturales"
+        linkDirection={SITIOS}
         linkName="Sitios naturales"
         srcImg="IconSitiosNaturales"
       />
       {userRole == 1 && (
         <OptionMenuNavbar
-          linkDirection="/usuarios"
+          linkDirection={USUARIOS}
           linkName="Usuarios"
           srcImg="IconUsuarios"
         />
       )}
     </MenuStyle>
   );
-}
+};
 
 export default MenuNavbar;

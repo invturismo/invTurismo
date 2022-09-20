@@ -6,8 +6,8 @@ import GeneralLoader from "../../../common/GeneralLoader";
 import ErrorComponent from '../../../common/ErrorComponent';
 import ActionBack from '../../ComponentsOfViews/ActionBack';
 import MainGeneralForm from '../../ComponentsOfViews/GeneralForm/MainGeneralForm';
-import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialErrorsGeneralForm';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm';
+import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm';
+import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
 
 const GetRecordSinGrupos = () => {
   const { idGruposEspeciales } = useParams();

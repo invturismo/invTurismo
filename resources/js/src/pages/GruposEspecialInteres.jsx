@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { ACTUALIZAR, COMPLETADO, EXPORTS, SINCOMPLETAR } from '../components/router/paths';
 import MainGruposEspecialInteres from '../components/views/GruposEspecialInteres/MainGruposEspecialInteres';
 import useTittle from '../hooks/useTittle';
 import Error404 from './Error404';
@@ -11,30 +12,30 @@ const GruposEspecialInteres = () => {
       <Route path="/">
         <Route
           index
-          element={<Navigate to="./sin-completar" replace={true} />}
+          element={<Navigate to={`.${SINCOMPLETAR}`} replace={true} />}
         />
         <Route
-          path="/sin-completar"
+          path={`${SINCOMPLETAR}`}
           element={<MainGruposEspecialInteres who={1} />}
         />
         <Route
-          path="/completado"
+          path={`${COMPLETADO}`}
           element={<MainGruposEspecialInteres who={2} />}
         />
         <Route
-          path="/sin-completar/:idGruposEspeciales"
+          path={`${SINCOMPLETAR}/:idGruposEspeciales`}
           element={<MainGruposEspecialInteres who={3} />}
         />
         <Route
-          path="/completado/:idGruposEspeciales"
+          path={`${COMPLETADO}/:idGruposEspeciales`}
           element={<MainGruposEspecialInteres who={4} />}
         />
         <Route
-          path="/completado/actualizar/:idGruposEspeciales"
+          path={`${COMPLETADO}${ACTUALIZAR}/:idGruposEspeciales`}
           element={<MainGruposEspecialInteres who={5} />}
         />
         <Route
-          path="/opciones"
+          path={`${EXPORTS}`}
           element={<MainGruposEspecialInteres who={6} />}
         />
       </Route>

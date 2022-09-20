@@ -1,5 +1,6 @@
 import React from 'react'
 import GeneralLoader from '../../../common/GeneralLoader';
+import { COMPLETADO, EXPORTS, SINCOMPLETAR, SITIOS } from '../../../router/paths';
 import GeneralGet from '../../ComponentsOfViews/GeneralGet';
 import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
 import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
@@ -13,9 +14,9 @@ const GetSinCompletarSitios = () => {
     <>
       <GeneralGet
         h2Text="Sitios naturales"
-        toFirst="/sitios-naturales/sin-completar"
-        toLast="/sitios-naturales/completado"
-        linkOptions="/sitios-naturales/opciones"
+        toFirst={`${SITIOS}${SINCOMPLETAR}`}
+        toLast={`${SITIOS}${COMPLETADO}`}
+        linkOptions={`${SITIOS}${EXPORTS}`}
         others={data}
       >
         {data?.data?.length > 0 ? (

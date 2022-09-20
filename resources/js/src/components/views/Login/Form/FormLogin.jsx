@@ -24,21 +24,19 @@ const FormLogin = () => {
 
   return (
     <ContainerForm onSubmit={(e) => handleSubmit(e)}>
-      <label htmlFor="correo">
-        <span>Email</span>
+      <label htmlFor="user">
+        <span>Email o Usuario</span>
         <input
-          type="email"
-          name="correo"
-          id="correo"
+          type="text"
+          name="user"
+          id="user"
           placeholder="Example@gmail.com"
           autoComplete="off"
-          value={values.correo}
+          value={values.user}
           onChange={(e) => handleChange(e)}
           onBlur={(e) => handleBlur(e)}
         />
-        {errors.correo && (
-          <small className="errorMessage">{errors.correo}</small>
-        )}
+        {errors.user && <small className="errorMessage">{errors.user}</small>}
       </label>
       <label htmlFor="clave">
         <span>Contraseña</span>

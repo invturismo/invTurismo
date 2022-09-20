@@ -5,6 +5,7 @@ import {
   openModalLayoutState,
 } from "../../../../features/modalsSlice";
 import { toastMs } from "../../../../helpers/helpToastMessage";
+import { LOGIN, USUARIOS } from "../../../router/paths";
 import {
   initialErrorsUsuarios,
   initialValuesUsuarios,
@@ -29,34 +30,21 @@ export const handleFunctionsUsuarios = ({
   setFocus,
   who,
 }) => {
-  const whoData = () => {
-    let data = { method: "", url: "" };
-    switch (who) {
-      case 1:
-        data.method = "post";
-        data.url = "register";
-        break;
-      case 2:
-        data.method = "put";
-        data.url = "user-update";
-        break;
-      case 3:
-        data.method = "put";
-        data.url = "reset-password";
-        break;
-    }
-    return data;
+  const whoData = {
+    1: ["post", "register"],
+    2: ["put", "user-update"],
+    3: ["put", "reset-password"],
   };
 
   const actionWho = (equal) => {
     let linkNavigate = equal
-      ? "/inicio-sesion"
-      : `/usuarios/${values.ID_USUARIO}`;
+      ? `${LOGIN}`
+      : `${USUARIOS}/${values.ID_USUARIO}`;
     switch (who) {
       case 1:
         setValues({ ...initialValuesUsuarios });
-        toastMs().success("El usuraio se registro correctamente");
-        navigate(`/usuarios`,{replace:true});
+        toastMs().success("El usuario se registro correctamente");
+        navigate(`${USUARIOS}`,{replace:true});
         break;
       case 2:
         toastMs().success("El usuario se actualizo correctamente");
@@ -90,7 +78,7 @@ export const handleFunctionsUsuarios = ({
 
   const sendData = async (equal) => {
     dispatch(openLoaderForm());
-    const { method, url } = whoData();
+    const [method, url] = whoData[who];
     const responseServe = await fetchFormUsuarios(values, method, url);
     console.log(responseServe);
     dispatch(closeLoaderForm());

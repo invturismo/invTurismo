@@ -6,6 +6,7 @@ import { toastMs } from "../../../../helpers/helpToastMessage";
 import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
+import { ACTUALIZAR, LISTADO } from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
 import { helpDeleteRecurso } from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
 import useRecordListadoPreliminar from "../hooks/useRecordListadoPreliminar";
@@ -25,7 +26,7 @@ const GetRecordListadoPreliminar = () => {
       return toastMs().error(
         "No es posible actualizar, tienes que actualizarlo en su correspondiente clasificacion"
       );
-    navigate(`/listado-preliminar/actualizar/${response.data.ID_LISTADO}`, {
+    navigate(`${LISTADO}${ACTUALIZAR}/${response.data.ID_LISTADO}`, {
       replace: true,
     });
   };
@@ -40,7 +41,7 @@ const GetRecordListadoPreliminar = () => {
       body,
       dispatch,
       navigate,
-      linkNavigate: "/listado-preliminar",
+      linkNavigate: `${LISTADO}`,
       url: "listados-preliminares/delete",
     });
   };

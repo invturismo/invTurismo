@@ -5,6 +5,7 @@ import { toastMs } from "../../../../helpers/helpToastMessage";
 import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
+import { ACTUALIZAR, CLASIFICACION, CLASIFICADO } from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
 import useRecordClasificacion from "../hooks/useRecordClasificacion";
 
@@ -23,7 +24,7 @@ const GetRecordClasificado = () => {
         "No es posible actualizar, tienes que borrar el registro en su correspondiente clasificacion"
       );
     navigate(
-      `/clasificacion-recursos-atractivos/clasificado/actualizar/${response.data.ID_LISTADO}`,
+      `${CLASIFICACION}${CLASIFICADO}${ACTUALIZAR}/${response.data.ID_LISTADO}`,
       {replace:true}
     );
   };

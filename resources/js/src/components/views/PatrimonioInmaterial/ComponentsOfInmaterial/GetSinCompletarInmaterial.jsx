@@ -1,5 +1,6 @@
 import React from 'react'
 import GeneralLoader from '../../../common/GeneralLoader';
+import { COMPLETADO, EXPORTS, INMATERIAL, SINCOMPLETAR } from '../../../router/paths';
 import GeneralGet from '../../ComponentsOfViews/GeneralGet';
 import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
 import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
@@ -15,9 +16,9 @@ const GetSinCompletarInmaterial = () => {
     <>
       <GeneralGet
         h2Text="Patrimonio inmaterial"
-        toFirst="/patrimonio-inmaterial/sin-completar"
-        toLast="/patrimonio-inmaterial/completado"
-        linkOptions="/patrimonio-inmaterial/opciones"
+        toFirst={`${INMATERIAL}${SINCOMPLETAR}`}
+        toLast={`${INMATERIAL}${COMPLETADO}`}
+        linkOptions={`${INMATERIAL}${EXPORTS}`}
         others={data}
       >
         {data?.data?.length > 0 ? (

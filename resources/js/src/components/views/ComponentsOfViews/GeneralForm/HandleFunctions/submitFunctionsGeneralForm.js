@@ -3,43 +3,52 @@ import {
   closeModalLayoutState,
   openLoaderForm,
   openModalLayoutState,
-} from "../../../../features/modalsSlice";
-import { toastMs } from "../../../../helpers/helpToastMessage";
-import { errorsTransform } from "./errorsTransform";
-import { formDataTransform } from "./formDataTransform";
-import { sendDataForm } from "./sendDataForm";
-import { validationsGeneralForm } from "./validationsGeneralForm";
+} from "../../../../../features/modalsSlice";
+import { toastMs } from "../../../../../helpers/helpToastMessage";
+import {
+  COMPLETADO,
+  FESTIVIDADES,
+  GRUPOS,
+  INMATERIAL,
+  MATERIAL,
+  SINCOMPLETAR,
+  SITIOS,
+} from "../../../../router/paths";
+import { errorsTransform } from "../errorsTransform";
+import { formDataTransform } from "../formDataTransform";
+import { sendDataForm } from "../sendDataForm";
+import { validationsGeneralForm } from "../validationsGeneralForm";
 
 const whoLink = {
   1: [
     "patrimonios-materiales/insertForm",
     "patrimonios-materiales/update",
-    "/patrimonio-material/sin-completar",
-    "/patrimonio-material/completado/",
+    `${MATERIAL}${SINCOMPLETAR}`,
+    `${MATERIAL}${COMPLETADO}`,
   ],
   2: [
     "patrimonios-inmateriales/insertForm",
     "patrimonios-inmateriales/update",
-    "/patrimonio-inmaterial/sin-completar",
-    "/patrimonio-inmaterial/completado/",
+    `${INMATERIAL}${SINCOMPLETAR}`,
+    `${INMATERIAL}${COMPLETADO}`,
   ],
   3: [
     "festividades-eventos/insertForm",
     "festividades-eventos/update",
-    "/festividades-eventos/sin-completar",
-    "/festividades-eventos/completado/",
+    `${FESTIVIDADES}${SINCOMPLETAR}`,
+    `${FESTIVIDADES}${COMPLETADO}`,
   ],
   4: [
     "grupos-especiales/insertForm",
     "grupos-especiales/update",
-    "/grupos-especial-interes/sin-completar",
-    "/grupos-especial-interes/completado/",
+    `${GRUPOS}${SINCOMPLETAR}`,
+    `${GRUPOS}${COMPLETADO}`,
   ],
   5: [
     "sitios-naturales/insertForm",
     "sitios-naturales/update",
-    "/sitios-naturales/sin-completar",
-    "/sitios-naturales/completado/",
+    `${SITIOS}${SINCOMPLETAR}`,
+    `${SITIOS}${COMPLETADO}`,
   ],
 };
 
@@ -70,7 +79,7 @@ export const submitFunctionsGeneralForm = ({
 
   const templateSubmit = async (nameLink, exec, updateImage) => {
     dispatch(openLoaderForm());
-    const formData = formDataTransform({ ...values, ...idRecord },who);
+    const formData = formDataTransform({ ...values, ...idRecord }, who);
     if (updateImage) {
       let rulesImage = updateImage();
       if (rulesImage) formData.append("REGLAS", rulesImage);
@@ -112,7 +121,7 @@ export const submitFunctionsGeneralForm = ({
     if (!response) return;
     const finalSucces = () => {
       toastMs().success("El resgistro se actualizo correctamente");
-      navigate(whoLink[who][3] + Object.values(idRecord)[0], {
+      navigate(whoLink[who][3] + "/" + Object.values(idRecord)[0], {
         replace: true,
       });
     };

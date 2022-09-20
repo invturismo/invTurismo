@@ -1,11 +1,12 @@
 import { helpCapitalize } from "../../../../helpers/helpCapitalize";
+import { CLASIFICACION, CLASIFICADO, FESTIVIDADES, GRUPOS, INMATERIAL, LISTADO, MATERIAL, SINCLASIFICAR, SINCOMPLETAR, SITIOS } from "../../../router/paths";
 
 const nameUrl = {
-  1: ["Patrimonio cultural material", "patrimonio-material"],
-  2: ["Patrimonio cultural inmaterial", "patrimonio-inmaterial"],
-  3: ["Festividades y eventos", "festividades-eventos"],
-  4: ["Grupos de especial interes", "grupos-especial-interes"],
-  5: ["Sitios naturales", "sitios-naturales"],
+  1: ["Patrimonio cultural material", MATERIAL],
+  2: ["Patrimonio cultural inmaterial", INMATERIAL],
+  3: ["Festividades y eventos", FESTIVIDADES],
+  4: ["Grupos de especial interes", GRUPOS],
+  5: ["Sitios naturales", SITIOS],
 };
 
 export const helpUrl = ({
@@ -19,26 +20,26 @@ export const helpUrl = ({
   const whoData = nameUrl[ID_TIPO_BIEN];
   if (ID_TIPO_PATRIMONIO)
     return [
-      [name + " - " + whoData[0], `/${whoData[1]}/completado/${ID_RECURSO}`],
+      [name + " - " + whoData[0], `${whoData[1]}/completado/${ID_RECURSO}`],
     ];
   const urlArr = [];
   urlArr.push([
     name + " - " + "Listado preliminar",
-    `/listado-preliminar/${ID_LISTADO}`,
+    `${LISTADO}/${ID_LISTADO}`,
   ]);
   if (whoData) {
     urlArr.push([
       name + " - " + "Clasificacion recursos, Clasificado",
-      `/clasificacion-recursos-atractivos/clasificado/${ID_LISTADO}`,
+      `${CLASIFICACION}${CLASIFICADO}/${ID_LISTADO}`,
     ]);
     urlArr.push([
       name + " - " + whoData[0] + ", Sin completar",
-      `/${whoData[1]}/sin-completar/${ID_RECURSO}`,
+      `${whoData[1]}${SINCOMPLETAR}/${ID_RECURSO}`,
     ]);
   } else
     urlArr.push([
       name + " - " + "Clasificacion recursos, Sin clasificar",
-      `/clasificacion-recursos-atractivos/sin-clasificar/${ID_LISTADO}`,
+      `${CLASIFICACION}${SINCLASIFICAR}/${ID_LISTADO}`,
     ]);
   return urlArr;
 };

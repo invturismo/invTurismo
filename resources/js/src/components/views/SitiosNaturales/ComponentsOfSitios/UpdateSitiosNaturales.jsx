@@ -5,9 +5,10 @@ import { helpConvertData } from '../../../../helpers/helpConvertData';
 import useCancelUpdate from "../../../../hooks/useCancelUpdate";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
+import { COMPLETADO, SITIOS } from '../../../router/paths';
 import ActionBack from "../../ComponentsOfViews/ActionBack";
-import { initialErrorsGeneralForm } from "../../ComponentsOfViews/GeneralForm/initialErrorsGeneralForm";
-import { initialValuesGeneralForm } from "../../ComponentsOfViews/GeneralForm/initialValuesGeneralForm";
+import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm';
+import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
 import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
 
@@ -28,7 +29,7 @@ const UpdateSitiosNaturales = () => {
   return (
     <div className="GeneralContainer">
       <ActionBack
-        to={"/sitios-naturales/completado/" + idSitiosNaturales}
+        to={`${SITIOS}${COMPLETADO}/${idSitiosNaturales}`}
         replace={true}
       />
       <h2>Actualizar datos de los sitios naturales</h2>

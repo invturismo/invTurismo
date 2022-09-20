@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { CLASIFICACION, CLASIFICADO, SINCLASIFICAR } from "../../../router/paths";
 import Filter from "../../ComponentsOfViews/Filter/Filter";
 import LabelFilter from "../../ComponentsOfViews/Filter/LabelFilter";
 import GeneralHeader from "../../ComponentsOfViews/GeneralHeader";
@@ -13,7 +14,7 @@ const TemplateGet = ({ children, who, others }) => {
       <div className="ContainerMainTemplateGet">
         <div className="ContainerOptionsTemplateGet">
           <NavLink
-            to="/clasificacion-recursos-atractivos/sin-clasificar"
+            to={`${CLASIFICACION}${SINCLASIFICAR}`}
             className={({ isActive }) =>
               isActive ? "activeOptionTemplateGet" : undefined
             }
@@ -21,7 +22,7 @@ const TemplateGet = ({ children, who, others }) => {
             Sin clasificar
           </NavLink>
           <NavLink
-            to="/clasificacion-recursos-atractivos/clasificado"
+            to={`${CLASIFICACION}${CLASIFICADO}`}
             className={({ isActive }) =>
               isActive ? "activeOptionTemplateGet" : undefined
             }

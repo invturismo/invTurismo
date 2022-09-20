@@ -1,9 +1,12 @@
-export const initialValues = {
-  correo: "",
+const fieldsValues = {
+  user: "",
   clave: "",
 };
 
+export const initialValues = {
+  ...fieldsValues
+};
+
 export const initialErrors = {
-  correo: "",
-  clave: "",
+  ...fieldsValues,
 };

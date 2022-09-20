@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function login(Request $request){
         $rules = [
-            'correo' => 'required|email',
+            'user' => 'required',
             'clave' => 'required'
         ];
         $validator = Validator::make($request->all(), $rules);
@@ -23,7 +23,8 @@ class AuthController extends Controller
             'errors' => $validator->errors()
         ]);            
         try {
-            $user = User::where('correo','=',$request->correo)->where('EXIST','1')->first();
+            $user = User::where('correo','=',$request->user)
+            ->orWhere('usuario',"=",$request->user)->where('EXIST','1')->first();
             if(!isset($user)) return response()->json([
                 'state' => false,
                 'errors' => [

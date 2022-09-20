@@ -3,7 +3,7 @@ import useTittle from '../../../hooks/useTittle'
 import { StyleMainHome } from './StylesMainHome';
 import { useSelector } from 'react-redux';
 import CardButton from './ComponentsOfHome/CardButton';
-import { Link } from 'react-router-dom';
+import { CREAR, LISTADO } from '../../router/paths';
 
 const MainHome = () => {
   useTittle('Inicio');
@@ -25,7 +25,7 @@ const MainHome = () => {
           name2="Recurso"
           srcImg="SvgMoreRecurso.svg"
           colorText="rgba(149,149,255,1)"
-          linkClick="/listado-preliminar/crear"
+          linkClick={`${LISTADO}${CREAR}`}
         />
         <CardButton
           colorBackground="#ffd8be"

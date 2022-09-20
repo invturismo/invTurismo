@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Cookies from "universal-cookie";
 import { setDataFilter } from "../../../../features/filterSlice";
 import { helpCapitalize } from "../../../../helpers/helpCapitalize";
-import { toastMs } from "../../../../helpers/helpToastMessage";
 import Departamentos from "../../ListadoPreliminar/Form/DataJson/DataDepartamentos.json";
 import Municipios from "../../ListadoPreliminar/Form/DataJson/DataMunicipio.json";
 import { StyleLabelFilter } from "./StyleLabelFilter";

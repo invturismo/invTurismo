@@ -7,7 +7,6 @@ import {
   initialErrorsUsuarios,
   initialValuesUsuarios,
 } from "./initialValuesUsuarios";
-import TipoUsuario from "./DataJson/DataTipoUsuario.json";
 import FieldsPassword from "./ComponentsOfFormUsuarios/FieldsPassword";
 
 const dataPassword = {
@@ -151,33 +150,6 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
             viewPassword={viewPassword}
           />
         )}
-        <label htmlFor="ID_TIPO_USUARIO">
-          <span className="NameField">Tipo de usuario</span>
-          <select
-            name="ID_TIPO_USUARIO"
-            id="ID_TIPO_USUARIO"
-            value={values.ID_TIPO_USUARIO}
-            onBlur={(e) => handleBlur(e)}
-            onChange={(e) => handleChange(e)}
-          >
-            <option value="" disabled>
-              Selecione un tipo de usuario
-            </option>
-            {TipoUsuario.map((val) => {
-              return (
-                <option
-                  value={val.ID_TIPO_USUARIO}
-                  key={val.ID_TIPO_USUARIO + val.TIPO}
-                >
-                  {val.TIPO}
-                </option>
-              );
-            })}
-          </select>
-          {errors.ID_TIPO_USUARIO && (
-            <small className="errorMessage">{errors.ID_TIPO_USUARIO}</small>
-          )}
-        </label>
       </div>
       <ButtonPage
         type="submit"

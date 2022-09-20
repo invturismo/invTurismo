@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { changeSearch } from '../../../../features/filterSlice';
+import { BUSCAR, HOME } from '../../../router/paths';
 
 const StyleSearch = styled.form`
   max-width: 350px;
@@ -61,12 +62,12 @@ const SearchBar = () => {
   const handleDelete = () => {
     const {pathname} = window.location;
     dispatch(changeSearch(""));
-    if (pathname.includes("/buscar/")) navigate("/");
+    if (pathname.includes("/buscar/")) navigate(HOME);
   }
   const handleSubmit = (e) => {
     e.preventDefault();
     if(!search) return;
-    navigate("/buscar/" + search);
+    navigate(`${BUSCAR}/${search}`);
   };
 
   return (

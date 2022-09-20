@@ -1,4 +1,4 @@
-export const initialValues = {
+const templateValues = {
   ID_DEPARTAMENTOS: "",
   ID_MUNICIPIOS: "",
   NOMBRE: "",
@@ -6,10 +6,10 @@ export const initialValues = {
   ID_FUENTE: "",
 };
 
+export const initialValues = {
+  ...templateValues,
+};
+
 export const initialErrors = {
-  ID_DEPARTAMENTOS: "",
-  ID_MUNICIPIOS: "",
-  NOMBRE: "",
-  UBICACION: "",
-  ID_FUENTE: "",
+  ...templateValues,
 };

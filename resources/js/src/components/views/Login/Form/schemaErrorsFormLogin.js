@@ -1,9 +1,7 @@
 import * as Yup from "yup";
 
 const schema = Yup.object().shape({
-  correo: Yup.string()
-    .email("El campo debe ser una dirección de correo válida")
-    .required("El campo es obligatorio"),
+  user: Yup.string().required("El campo es obligatorio"),
   clave: Yup.string().required("El campo es obligatorio"),
 });
 

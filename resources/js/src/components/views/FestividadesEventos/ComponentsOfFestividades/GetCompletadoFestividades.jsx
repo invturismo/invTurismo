@@ -1,5 +1,6 @@
 import React from 'react'
 import GeneralLoader from '../../../common/GeneralLoader';
+import { COMPLETADO, EXPORTS, FESTIVIDADES, SINCOMPLETAR } from '../../../router/paths';
 import GeneralGet from '../../ComponentsOfViews/GeneralGet';
 import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
 import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
@@ -13,9 +14,9 @@ const GetCompletadoFestividades = () => {
     <>
       <GeneralGet
         h2Text="Festividades y eventos"
-        toFirst="/festividades-eventos/sin-completar"
-        toLast="/festividades-eventos/completado"
-        linkOptions="/festividades-eventos/opciones"
+        toFirst={`${FESTIVIDADES}${SINCOMPLETAR}`}
+        toLast={`${FESTIVIDADES}${COMPLETADO}`}
+        linkOptions={`${FESTIVIDADES}${EXPORTS}`}
         others={data}
       >
         {data?.data?.length > 0 ? (
