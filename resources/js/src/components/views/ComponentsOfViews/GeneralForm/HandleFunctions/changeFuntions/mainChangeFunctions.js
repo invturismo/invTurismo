@@ -7,6 +7,7 @@ import { handleChangeFiles } from "./handleChangeFile";
 import { handleChangesGeneralidades } from "./handleChangeGeneralidades";
 import Significado from "../../DataJson/DataSignificado.json"
 import { helpChangeInt } from "../helpers/helpChangeInt";
+import { deleteUrlImage } from "../../../../../../features/imagesSlice";
 
 export const mainChangeFunctions = ({
   values,

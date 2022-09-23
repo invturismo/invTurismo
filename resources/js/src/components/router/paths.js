@@ -20,3 +20,4 @@ export const COMPLETADO = "/completado";
 export const SINCOMPLETAR = "/sin-completar";
 export const REGISTRAR = "/registrar";
 export const CAMBIARCLAVE = "/cambiar-clave";
+export const CUADRORESUMEN = "/cuadro-resumen";

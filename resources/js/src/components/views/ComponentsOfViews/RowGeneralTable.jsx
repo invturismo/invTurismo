@@ -8,12 +8,13 @@ const RowGeneralTable = ({
   CODIGO,
   CALIFICACION,
   UBICACION,
-  GEORREFERENCIACION
+  GEORREFERENCIACION,
+  linkNavigate
 }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`./${ID}`);
+    navigate(linkNavigate || `./${ID}`);
   };
 
   return (

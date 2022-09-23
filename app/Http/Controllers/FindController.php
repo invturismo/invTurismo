@@ -6,48 +6,17 @@ use Illuminate\Http\Request;
 use App\Models\ListadosPreliminares;
 use App\Helpers\Joins;
 use App\Helpers\HelperFilter;
-use App\Models\PatrimoniosMateriales;
-use App\Models\PatrimoniosInmateriales;
-use App\Models\FestividadesEventos;
-use App\Models\GruposEspeciales;
-use App\Models\SitiosNaturales;
+use App\Helpers\HelperDataRecurso;
 
 class FindController extends Controller
 {
-
-    public static function WhoAtractivo($tipoBien,$idListado)
-    {
-        $id = "";
-        switch ($tipoBien) {
-            case 1:
-            $query = PatrimoniosMateriales::select()->where("ID_LISTADO",$idListado)->first();
-            $id = $query->ID_MATERIAL;
-            break;
-            case 2:
-            $query = PatrimoniosInmateriales::select()->where("ID_LISTADO",$idListado)->first();
-            $id = $query->ID_INMATERIAL;
-            break;
-            case 3:
-            $query = FestividadesEventos::select()->where("ID_LISTADO",$idListado)->first();
-            $id = $query->ID_EVENTO;
-            break;
-            case 4:
-            $query = GruposEspeciales::select()->where("ID_LISTADO",$idListado)->first();
-            $id = $query->ID_GRUPOS;
-            break;
-            case 5:
-            $query = SitiosNaturales::select()->where("ID_LISTADO",$idListado)->first();
-            $id = $query->ID_SITIO;
-            break;
-        }
-        return $id;
-    }
-
     public static function whoId($data)
     {
         foreach ($data as $key => $value) {
             if(!isset($value['ID_TIPO_BIEN'])) continue;
-            $data[$key]['ID_RECURSO'] = self::WhoAtractivo($value['ID_TIPO_BIEN'],$value['ID_LISTADO']);
+            $data[$key]['ID_RECURSO'] = HelperDataRecurso::WhoAtractivo(
+                $value['ID_TIPO_BIEN'],$value['ID_LISTADO']
+            )['id'];
         }
         return $data;
     }

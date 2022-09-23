@@ -14,6 +14,7 @@ use App\Http\Controllers\SitiosNaturalesController;
 use App\Http\Controllers\FestividadesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FindController;
+use App\Http\Controllers\CuadroResumenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::delete("cancel-update",[UpdateController::class,'cancelUpdate']);
     Route::post("find",[FindController::class,'find']);
+    Route::post("cuadro-resumen",[CuadroResumenController::class,'getData']);
 
     Route::post("/export/listado-preliminar",[ExportController::class,'ExportListadosPreliminares']);
     Route::post("/export/clasificacion-atractivos",[ExportController::class,'ExportClasificacion']);
@@ -52,6 +54,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post("/export/grupos-especiales",[ExportController::class,'ExportGruposEspeciales']);
     Route::post("/export/sitios-naturales",[ExportController::class,'ExportSitiosNaturales']);
     Route::post("/export/festividades-eventos",[ExportController::class,'ExportFestividadesEventos']);
+    Route::post("/export/cuadro-resumen",[CuadroResumenController::class,'ExportCuadroResumen']);
 
     Route::post("/listados-preliminares/create",[ListadosPreliminaresController::class,'create']);
     Route::post("/listados-preliminares/validate-name",[ListadosPreliminaresController::class,'validateName']);

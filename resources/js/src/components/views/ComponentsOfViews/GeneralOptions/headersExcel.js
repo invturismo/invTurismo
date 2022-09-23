@@ -38,4 +38,7 @@ export const headersExcel = {
   "Grupos-especial-interes": arrayHeader,
   "Sitios-naturales": arrayHeader,
   "Festividades-eventos": arrayHeader,
+  "Cuadro-resumen": arrayHeader.concat([
+    { label: "Tipo de bien", key: "TIPO_BIEN" },
+  ]),
 };
