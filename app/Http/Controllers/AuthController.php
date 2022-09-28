@@ -28,7 +28,7 @@ class AuthController extends Controller
             if(!isset($user)) return response()->json([
                 'state' => false,
                 'errors' => [
-                    'correo' => ['El usuario no existe']
+                    'user' => ['El usuario no existe']
                 ]
             ]);
             if(!Hash::check($request->clave,$user->CLAVE)) return response()->json([

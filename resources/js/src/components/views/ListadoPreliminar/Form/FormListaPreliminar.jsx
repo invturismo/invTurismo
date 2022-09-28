@@ -1,30 +1,25 @@
-import React, { useState } from 'react';
-import Fuentes from './DataJson/DataFuentes.json';
-import { handleFunctionsLP } from "./handleFunctionsLP";
-import { initialErrors } from './initialValuesFormListaPreliminar';
-import ButtonPage from '../../../common/ButtonPage';
-import { useNavigate } from 'react-router-dom';
-import GeneralFieldsGeneralidades from '../../ComponentsOfViews/GeneralFieldsGeneralidades';
-import { useDispatch } from 'react-redux';
+import React, {useState} from "react";
+import Fuentes from "./DataJson/DataFuentes.json";
+import {handleFunctionsLP} from "./handleFunctionsLP";
+import {initialErrors} from "./initialValuesFormListaPreliminar";
+import ButtonPage from "../../../common/ButtonPage";
+import {useNavigate} from "react-router-dom";
+import GeneralFieldsGeneralidades from "../../ComponentsOfViews/GeneralFieldsGeneralidades";
+import {useDispatch} from "react-redux";
+import LabelSelect from "../../ComponentsOfViews/FieldsForm/LabelSelect";
 
-const FormListaPreliminar = ({ initialValues, nameButton, who }) => {
+const FormListaPreliminar = ({initialValues, nameButton, who}) => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { handleBlur, handleChange, handleCreate,handleUpdate } = handleFunctionsLP(
-    values,
-    setValues,
-    setErrors,
-    errors,
-    navigate,
-    dispatch
-  );
+  const {handleBlur, handleChange, handleCreate, handleUpdate} =
+    handleFunctionsLP(values, setValues, setErrors, errors, navigate, dispatch);
 
   return (
     <form
       className="FormStyleL"
-      onSubmit={(e) => {
+      onSubmit={e => {
         e.preventDefault();
         if (who === 3) handleCreate(e);
         else handleUpdate(e);
@@ -38,34 +33,30 @@ const FormListaPreliminar = ({ initialValues, nameButton, who }) => {
           values={values}
           valuesCodigo={values}
         />
-        <label htmlFor="ID_FUENTE">
-          <span className="NameField">Fuente</span>
-          <select
-            name="ID_FUENTE"
-            id="ID_FUENTE"
-            value={values.ID_FUENTE}
-            onBlur={(e) => handleBlur(e)}
-            onChange={(e) => handleChange(e)}
-          >
-            <option value="" disabled>
-              Selecione una fuente
-            </option>
-            {Fuentes.map((val) => {
-              return (
-                <option
-                  value={val.id_tipos_bien}
-                  key={val.id_tipos_bien + val.tipo_bien}
-                >
-                  {val.tipo_bien[0].toUpperCase() +
-                    val.tipo_bien.slice(1).toLocaleLowerCase()}
-                </option>
-              );
-            })}
-          </select>
-          {errors.ID_FUENTE && (
-            <small className="errorMessage">{errors.ID_FUENTE}</small>
-          )}
-        </label>
+        <LabelSelect
+          errors={errors.ID_FUENTE}
+          name="ID_FUENTE"
+          nameField="Fuente"
+          onBlur={e => handleBlur(e)}
+          onChange={e => handleChange(e)}
+          value={values.ID_FUENTE}
+          req
+        >
+          <option value="" disabled>
+            Selecione una fuente
+          </option>
+          {Fuentes.map(val => {
+            return (
+              <option
+                value={val.id_tipos_bien}
+                key={val.id_tipos_bien + val.tipo_bien}
+              >
+                {val.tipo_bien[0].toUpperCase() +
+                  val.tipo_bien.slice(1).toLocaleLowerCase()}
+              </option>
+            );
+          })}
+        </LabelSelect>
       </div>
       <div className="ContainerButtons">
         <ButtonPage
@@ -84,4 +75,4 @@ const FormListaPreliminar = ({ initialValues, nameButton, who }) => {
   );
 };
 
-export default FormListaPreliminar
+export default FormListaPreliminar;

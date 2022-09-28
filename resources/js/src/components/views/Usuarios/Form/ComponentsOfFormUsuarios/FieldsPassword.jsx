@@ -1,4 +1,7 @@
-import React from 'react'
+import React from "react";
+import ErrorMessage from "../../../ComponentsOfViews/FieldsForm/ErrorMessage";
+import FieldInput from "../../../ComponentsOfViews/FieldsForm/FieldInput";
+import NameField from "../../../ComponentsOfViews/FieldsForm/NameField";
 
 const FieldsPassword = ({
   viewPassword,
@@ -13,14 +16,13 @@ const FieldsPassword = ({
   return (
     <>
       <label htmlFor="CLAVE">
-        <span className="NameField">Contraseña</span>
+        <NameField name="Contraseña" req />
         <div className={`ContainerInput ${focus.CLAVE ? "FocusPassword" : ""}`}>
-          <input
+          <FieldInput
             type={viewPassword.CLAVE ? "text" : "password"}
             name="CLAVE"
-            id="CLAVE"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e)}
+            onChange={e => handleChange(e)}
+            onBlur={e => handleBlur(e)}
             onFocus={handleFocus}
             value={values.CLAVE}
             placeholder="Minimo 8 caracteres"
@@ -36,24 +38,23 @@ const FieldsPassword = ({
             </span>
           )}
         </div>
-        {errors.CLAVE && <small className="errorMessage">{errors.CLAVE}</small>}
+        <ErrorMessage errors={errors.CLAVE} />
       </label>
       <label htmlFor="CONFIRMAR_CLAVE">
-        <span className="NameField">Confimar contraseña</span>
+        <NameField name="Confimar contraseña" req />
         <div
           className={`ContainerInput ${
             focus.CONFIRMAR_CLAVE ? "FocusPassword" : ""
           }`}
         >
-          <input
+          <FieldInput
             type={viewPassword.CONFIRMAR_CLAVE ? "text" : "password"}
             name="CONFIRMAR_CLAVE"
-            id="CONFIRMAR_CLAVE"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e)}
+            onChange={e => handleChange(e)}
+            onBlur={e => handleBlur(e)}
             onFocus={handleFocus}
-            placeholder="Minimo 8 caracteres"
             value={values.CONFIRMAR_CLAVE}
+            placeholder="Minimo 8 caracteres"
             className="notInput"
           />
           {values.CONFIRMAR_CLAVE && (
@@ -66,12 +67,10 @@ const FieldsPassword = ({
             </span>
           )}
         </div>
-        {errors.CONFIRMAR_CLAVE && (
-          <small className="errorMessage">{errors.CONFIRMAR_CLAVE}</small>
-        )}
+        <ErrorMessage errors={errors.CONFIRMAR_CLAVE} />
       </label>
     </>
   );
 };
 
-export default FieldsPassword
+export default FieldsPassword;

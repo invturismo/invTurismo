@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react';
+import React, {useEffect} from "react";
 import TiposPatrimonio from "../DataJson/DataTiposPatrimonio.json";
 import Grupos from "../DataJson/DataGrupos.json";
 import Componentes from "../DataJson/DataComponentes.json";
 import Elementos from "../DataJson/DataElementos.json";
-import { useDispatch, useSelector } from "react-redux";
-import LoaderImage from './LoaderImage';
-import { deleteUrlImage } from '../../../../../features/imagesSlice';
+import {useDispatch, useSelector} from "react-redux";
+import LoaderImage from "./LoaderImage";
+import {deleteUrlImage} from "../../../../../features/imagesSlice";
+import LabelSelect from "../../FieldsForm/LabelSelect";
+import LabelTextarea from "../../FieldsForm/LabelTextarea";
+import ErrorMessage from "../../FieldsForm/ErrorMessage";
+import NameField from "../../FieldsForm/NameField";
+import LabelInput from "../../FieldsForm/LabelInput";
 
 const Codigo = ({
   values,
@@ -29,102 +34,91 @@ const Codigo = ({
           <span>{values.ID_ELEMENTO || "--"}</span>
         </p>
         <div className="SectionDivType1">
-          <label htmlFor="ID_TIPO_PATRIMONIO" className="LabelType1">
-            <span className="NameField">Tipo de patrimonio</span>
-            <select
-              name="ID_TIPO_PATRIMONIO"
-              id="ID_TIPO_PATRIMONIO"
-              value={values.ID_TIPO_PATRIMONIO}
-              onChange={(e) => handleChange(e)}
-              onBlur={(e) => handleBlur(e, "CARACTERISTICAS", "CODIGOS")}
-              disabled={values.ID_MUNICIPIOS ? false : true}
-            >
-              <option value="" disabled>
-                {values.ID_MUNICIPIOS
-                  ? "Seleccione un tipo de patrimonio"
-                  : "Primero seleccione un municipio"}
-              </option>
-              {values.ID_MUNICIPIOS &&
-                TiposPatrimonio.map((val) => {
-                  return (
-                    <option
-                      value={val["ID_TIPO_PATRIMONIO"]}
-                      key={val["ID_TIPO_PATRIMONIO"] + val["PATROMONIO"]}
-                    >
-                      {val["PATROMONIO"]}
-                    </option>
-                  );
-                })}
-            </select>
-            {errors.ID_TIPO_PATRIMONIO && (
-              <small className="errorMessage">
-                {errors.ID_TIPO_PATRIMONIO}
-              </small>
-            )}
-          </label>
-          <label htmlFor="ID_GRUPO" className="LabelType1">
-            <span className="NameField">Grupo</span>
-            <select
-              name="ID_GRUPO"
-              id="ID_GRUPO"
-              value={values.ID_GRUPO}
-              onChange={(e) => handleChange(e)}
-              onBlur={(e) => handleBlur(e, "CARACTERISTICAS", "CODIGOS")}
-              disabled={values.ID_TIPO_PATRIMONIO ? false : true}
-            >
-              <option value="" disabled>
-                {values.ID_TIPO_PATRIMONIO
-                  ? "Seleccione un grupo"
-                  : "Primero seleccione tipo de patrimonio"}
-              </option>
-              {values.ID_TIPO_PATRIMONIO &&
-                Grupos[values.ID_TIPO_PATRIMONIO].map((val) => {
-                  return (
-                    <option
-                      value={val["ID_GRUPO"]}
-                      key={val["ID_GRUPO"] + val["GRUPO"]}
-                    >
-                      {val["GRUPO"]}
-                    </option>
-                  );
-                })}
-            </select>
-            {errors.ID_GRUPO && (
-              <small className="errorMessage">{errors.ID_GRUPO}</small>
-            )}
-          </label>
+          <LabelSelect
+            nameField="Tipo de patrimonio"
+            name="ID_TIPO_PATRIMONIO"
+            value={values.ID_TIPO_PATRIMONIO}
+            onChange={e => handleChange(e)}
+            onBlur={e => handleBlur(e, "CARACTERISTICAS", "CODIGOS")}
+            disabled={values.ID_MUNICIPIOS ? false : true}
+            errors={errors.ID_TIPO_PATRIMONIO}
+            className="LabelType1"
+            req
+          >
+            <option value="" disabled>
+              {values.ID_MUNICIPIOS
+                ? "Seleccione un tipo de patrimonio"
+                : "Primero seleccione un municipio"}
+            </option>
+            {values.ID_MUNICIPIOS &&
+              TiposPatrimonio.map(val => {
+                return (
+                  <option
+                    value={val["ID_TIPO_PATRIMONIO"]}
+                    key={val["ID_TIPO_PATRIMONIO"] + val["PATROMONIO"]}
+                  >
+                    {val["PATROMONIO"]}
+                  </option>
+                );
+              })}
+          </LabelSelect>
+          <LabelSelect
+            nameField="Grupo"
+            name="ID_GRUPO"
+            value={values.ID_GRUPO}
+            onChange={e => handleChange(e)}
+            onBlur={e => handleBlur(e, "CARACTERISTICAS", "CODIGOS")}
+            disabled={values.ID_TIPO_PATRIMONIO ? false : true}
+            errors={errors.ID_GRUPO}
+            className="LabelType1"
+            req
+          >
+            <option value="" disabled>
+              {values.ID_TIPO_PATRIMONIO
+                ? "Seleccione un grupo"
+                : "Primero seleccione tipo de patrimonio"}
+            </option>
+            {values.ID_TIPO_PATRIMONIO &&
+              Grupos[values.ID_TIPO_PATRIMONIO].map(val => {
+                return (
+                  <option
+                    value={val["ID_GRUPO"]}
+                    key={val["ID_GRUPO"] + val["GRUPO"]}
+                  >
+                    {val["GRUPO"]}
+                  </option>
+                );
+              })}
+          </LabelSelect>
           {values.ID_TIPO_PATRIMONIO &&
             values.ID_GRUPO &&
             Componentes[values.ID_TIPO_PATRIMONIO][values.ID_GRUPO] && (
-              <label htmlFor="ID_COMPONENTE" className="LabelType1">
-                <span className="NameField">Componente</span>
-                <select
-                  name="ID_COMPONENTE"
-                  id="ID_COMPONENTE"
-                  value={values.ID_COMPONENTE}
-                  onChange={(e) => handleChange(e)}
-                  onBlur={(e) => handleBlur(e, "CARACTERISTICAS", "CODIGOS")}
-                >
-                  <option value="" disabled>
-                    Seleccione un componente
-                  </option>
-                  {Componentes[values.ID_TIPO_PATRIMONIO][values.ID_GRUPO].map(
-                    (val) => {
-                      return (
-                        <option
-                          value={val["ID_COMPONENTE"]}
-                          key={val["ID_COMPONENTE"] + val["COMPONENTE"]}
-                        >
-                          {val["COMPONENTE"]}
-                        </option>
-                      );
-                    }
-                  )}
-                </select>
-                {errors.ID_COMPONENTE && (
-                  <small className="errorMessage">{errors.ID_COMPONENTE}</small>
+              <LabelSelect
+                nameField="Componente"
+                name="ID_COMPONENTE"
+                value={values.ID_COMPONENTE}
+                onChange={e => handleChange(e)}
+                onBlur={e => handleBlur(e, "CARACTERISTICAS", "CODIGOS")}
+                errors={errors.ID_COMPONENTE}
+                className="LabelType1"
+                req
+              >
+                <option value="" disabled>
+                  Seleccione un componente
+                </option>
+                {Componentes[values.ID_TIPO_PATRIMONIO][values.ID_GRUPO].map(
+                  val => {
+                    return (
+                      <option
+                        value={val["ID_COMPONENTE"]}
+                        key={val["ID_COMPONENTE"] + val["COMPONENTE"]}
+                      >
+                        {val["COMPONENTE"]}
+                      </option>
+                    );
+                  }
                 )}
-              </label>
+              </LabelSelect>
             )}
           {values.ID_TIPO_PATRIMONIO &&
             values.ID_GRUPO &&
@@ -133,56 +127,91 @@ const Codigo = ({
             Elementos[values.ID_TIPO_PATRIMONIO][values.ID_GRUPO][
               values.ID_COMPONENTE
             ] && (
-              <label htmlFor="ID_ELEMENTO" className="LabelType1">
-                <span className="NameField">Elemento</span>
-                <select
-                  name="ID_ELEMENTO"
-                  id="ID_ELEMENTO"
-                  value={values.ID_ELEMENTO}
-                  onChange={(e) => handleChange(e)}
-                  onBlur={(e) => handleBlur(e, "CARACTERISTICAS", "CODIGOS")}
-                >
-                  <option value="" disabled>
-                    Seleccione un elemento
-                  </option>
-                  {Elementos[values.ID_TIPO_PATRIMONIO][values.ID_GRUPO][
-                    values.ID_COMPONENTE
-                  ].map((val) => {
-                    return (
-                      <option
-                        value={val["ID_ELEMENTO"]}
-                        key={val["ID_ELEMENTO"] + val["ELEMENTO"]}
-                      >
-                        {val["ELEMENTO"]}
-                      </option>
-                    );
-                  })}
-                </select>
-                {errors.ID_ELEMENTO && (
-                  <small className="errorMessage">{errors.ID_ELEMENTO}</small>
-                )}
-              </label>
+              <LabelSelect
+                nameField="Elemento"
+                name="ID_ELEMENTO"
+                value={values.ID_ELEMENTO}
+                onChange={e => handleChange(e)}
+                onBlur={e => handleBlur(e, "CARACTERISTICAS", "CODIGOS")}
+                errors={errors.ID_ELEMENTO}
+                className="LabelType1"
+                req
+              >
+                <option value="" disabled>
+                  Seleccione un elemento
+                </option>
+                {Elementos[values.ID_TIPO_PATRIMONIO][values.ID_GRUPO][
+                  values.ID_COMPONENTE
+                ].map(val => {
+                  return (
+                    <option
+                      value={val["ID_ELEMENTO"]}
+                      key={val["ID_ELEMENTO"] + val["ELEMENTO"]}
+                    >
+                      {val["ELEMENTO"]}
+                    </option>
+                  );
+                })}
+              </LabelSelect>
             )}
         </div>
-        <label
-          htmlFor="DESCRIPCION_CARACTERISTICAS"
+        <LabelTextarea
           className="LabelType1 ContainerTextArea"
-        >
-          <span className="NameField">Descripción</span>
-          <textarea
-            name="DESCRIPCION"
-            id="DESCRIPCION_CARACTERISTICAS"
-            onChange={(e) => handleChangeDes(e)}
-            onBlur={(e) => handleBlur(e, "CARACTERISTICAS")}
-            placeholder="Introduce una descripcion"
-            value={valuesDes.DESCRIPCION}
-            rows={3}
-          />
-          {errorDescripcion && (
-            <small className="errorMessage">{errorDescripcion}</small>
-          )}
-        </label>
+          errors={errorDescripcion}
+          name="DESCRIPCION"
+          id="DESCRIPCION_CARACTERISTICAS"
+          onChange={e => handleChangeDes(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS")}
+          placeholder="Introduce una descripcion"
+          value={valuesDes.DESCRIPCION}
+          rows={3}
+          nameField="Descripción"
+        />
       </div>
+    </div>
+  );
+};
+
+const FieldImage = ({
+  nameField,
+  name,
+  handleChangeFile,
+  handleBlur,
+  loadImage,
+  imagen,
+  handleDeleteImage,
+  errors,
+}) => {
+  return (
+    <div className="LabelType1 ContainerInputFile">
+      <NameField name={nameField} req />
+      {!imagen && !loadImage[name] && (
+        <label htmlFor={name} className="LabelFile">
+          <input
+            type="file"
+            name={name}
+            id={name}
+            onChange={e => handleChangeFile(e)}
+            onBlur={e => handleBlur(e, "CARACTERISTICAS")}
+          />
+        </label>
+      )}
+      {loadImage[name] && <LoaderImage />}
+      {imagen && (
+        <div className="containerImage">
+          <span>
+            <i onClick={handleDeleteImage} className={name}>
+              <img
+                src="/img/iconsGeneral/svgCloseImage.svg"
+                alt="close"
+                className={name}
+              />
+            </i>
+          </span>
+          <img src={imagen} alt="imagen1" />
+        </div>
+      )}
+      <ErrorMessage errors={errors[name]} />
     </div>
   );
 };
@@ -195,100 +224,52 @@ const Images = ({
   handleBlur,
   handleDeleteImage,
 }) => {
-  const { urlImage, loadImage } = useSelector((state) => state.imagesSlice),
-    { IMAGEN1, IMAGEN2 } = urlImage;
+  const {urlImage, loadImage} = useSelector(state => state.imagesSlice),
+    {IMAGEN1, IMAGEN2} = urlImage;
   const dispatch = useDispatch();
 
-  useEffect(() => {  
+  useEffect(() => {
     return () => {
       dispatch(deleteUrlImage("IMAGEN1"));
       dispatch(deleteUrlImage("IMAGEN2"));
-    }
-  }, []);  
+    };
+  }, []);
 
   return (
     <div className="SectionDivType2">
       <h4>Imagenes</h4>
       <div className="SectionDivType1">
-        <div className="LabelType1 ContainerInputFile">
-          <span className="NameField">Imágen 1 </span>
-          {!IMAGEN1 && !loadImage.IMAGEN1 && (
-            <label htmlFor="IMAGEN1" className="LabelFile">
-              <input
-                type="file"
-                name="IMAGEN1"
-                id="IMAGEN1"
-                onChange={(e) => handleChangeFile(e)}
-                onBlur={(e) => handleBlur(e, "CARACTERISTICAS")}
-              />
-            </label>
-          )}
-          {loadImage.IMAGEN1 && <LoaderImage />}
-          {IMAGEN1 && (
-            <div className="containerImage">
-              <span>
-                <i onClick={handleDeleteImage} className="IMAGEN1">
-                  <img
-                    src="/img/iconsGeneral/svgCloseImage.svg"
-                    alt="close"
-                    className="IMAGEN1"
-                  />
-                </i>
-              </span>
-              <img src={IMAGEN1} alt="imagen1" />
-            </div>
-          )}
-          {errors.IMAGEN1 && (
-            <small className="errorMessage">{errors.IMAGEN1}</small>
-          )}
-        </div>
-        <div className="LabelType1 ContainerInputFile">
-          <span className="NameField">Imágen 2 </span>
-          {!IMAGEN2 && !loadImage.IMAGEN2 && (
-            <label htmlFor="IMAGEN2" className="LabelFile">
-              <input
-                type="file"
-                name="IMAGEN2"
-                id="IMAGEN2"
-                onChange={(e) => handleChangeFile(e)}
-                onBlur={(e) => handleBlur(e, "CARACTERISTICAS")}
-              />
-            </label>
-          )}
-          {loadImage.IMAGEN2 && <LoaderImage />}
-          {IMAGEN2 && (
-            <div className="containerImage">
-              <span>
-                <i onClick={handleDeleteImage} className="IMAGEN2">
-                  <img
-                    src="/img/iconsGeneral/svgCloseImage.svg"
-                    alt="close"
-                    className="IMAGEN2"
-                  />
-                </i>
-              </span>
-              <img src={IMAGEN2} alt="imagen1" />
-            </div>
-          )}
-          {errors.IMAGEN2 && (
-            <small className="errorMessage">{errors.IMAGEN2}</small>
-          )}
-        </div>
-        <label htmlFor="FUENTE" className="LabelType1">
-          <span className="NameField">Fuente de las imagenes</span>
-          <input
-            type="text"
-            name="FUENTE"
-            id="FUENTE"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "CARACTERISTICAS")}
-            value={values.FUENTE}
-            autoComplete="off"
-          />
-          {errors.FUENTE && (
-            <small className="errorMessage">{errors.FUENTE}</small>
-          )}
-        </label>
+        <FieldImage
+          nameField="Imágen 1"
+          handleBlur={handleBlur}
+          handleChangeFile={handleChangeFile}
+          handleDeleteImage={handleDeleteImage}
+          imagen={IMAGEN1}
+          loadImage={loadImage}
+          name="IMAGEN1"
+          errors={errors}
+        />
+        <FieldImage
+          nameField="Imágen 2"
+          handleBlur={handleBlur}
+          handleChangeFile={handleChangeFile}
+          handleDeleteImage={handleDeleteImage}
+          imagen={IMAGEN2}
+          loadImage={loadImage}
+          name="IMAGEN2"
+          errors={errors}
+        />
+        <LabelInput
+          nameField="Fuente de las imagenes"
+          className="LabelType1"
+          name="FUENTE"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS")}
+          value={values.FUENTE}
+          errors={errors.FUENTE}
+          req
+          autOff
+        />
       </div>
     </div>
   );

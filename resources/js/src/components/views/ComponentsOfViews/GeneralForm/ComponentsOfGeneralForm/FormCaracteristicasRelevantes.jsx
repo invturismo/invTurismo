@@ -3,69 +3,66 @@ import TipoClima from "../DataJson/DataTipoClima.json";
 import AccesoHorarios from "../DataJson/DataAccesoHorarios.json";
 import DiasHorarios from "../DataJson/DataDiasHorarios.json";
 import TipoEstado from "../DataJson/DataTipoEstadoAtractivo.json";
-import { helpCapitalize } from "../../../../../helpers/helpCapitalize";
+import {helpCapitalize} from "../../../../../helpers/helpCapitalize";
+import LabelSelect from "../../FieldsForm/LabelSelect";
+import NameField from "../../FieldsForm/NameField";
+import LabelTextarea from "../../FieldsForm/LabelTextarea";
+import FieldSelect from "../../FieldsForm/FieldSelect";
+import ErrorMessage from "../../FieldsForm/ErrorMessage";
+import LabelInput from "../../FieldsForm/LabelInput";
 
-const Clima = ({ values, errors, handleChange, handleBlur }) => {
+const Clima = ({values, errors, handleChange, handleBlur}) => {
   return (
     <div className="SectionDivType2">
       <h4>Clima</h4>
       <div className="SectionDivType1">
-        <label htmlFor="ID_TIPO_CLIMA" className="LabelType1">
-          <span className="NameField">Tipo de clima</span>
-          <select
-            name="ID_TIPO_CLIMA"
-            id="ID_TIPO_CLIMA"
-            value={values.ID_TIPO_CLIMA}
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "CARACTERISTICAS_RELEVANTES")}
-          >
-            <option value="" disabled>
-              Seleccione un tipo de clima
-            </option>
-            {TipoClima.map((val) => {
-              return (
-                <option
-                  value={val["ID_TIPO_CLIMA"]}
-                  key={val["ID_TIPO_CLIMA"] + val["TIPO_CLIMA"]}
-                >
-                  {val["TIPO_CLIMA"]}
-                </option>
-              );
-            })}
-          </select>
-          {errors.ID_TIPO_CLIMA && (
-            <small className="errorMessage">{errors.ID_TIPO_CLIMA}</small>
-          )}
-        </label>
-        <label htmlFor="TEMPERATURA" className="LabelType1">
-          <span className="NameField">Temperatura</span>
-          <input
-            type="text"
-            name="TEMPERATURA"
-            id="TEMPERATURA"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "CARACTERISTICAS_RELEVANTES")}
-            value={values.TEMPERATURA}
-            autoComplete="off"
-          />
-          {errors.TEMPERATURA && (
-            <small className="errorMessage">{errors.TEMPERATURA}</small>
-          )}
-        </label>
+        <LabelSelect
+          nameField="Tipo de clima"
+          name="ID_TIPO_CLIMA"
+          value={values.ID_TIPO_CLIMA}
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES")}
+          errors={errors.ID_TIPO_CLIMA}
+          className="LabelType1"
+        >
+          <option value="" disabled>
+            Seleccione un tipo de clima
+          </option>
+          {TipoClima.map(val => {
+            return (
+              <option
+                value={val["ID_TIPO_CLIMA"]}
+                key={val["ID_TIPO_CLIMA"] + val["TIPO_CLIMA"]}
+              >
+                {val["TIPO_CLIMA"]}
+              </option>
+            );
+          })}
+        </LabelSelect>
+        <LabelInput
+          nameField="Temperatura"
+          name="TEMPERATURA"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES")}
+          value={values.TEMPERATURA}
+          className="LabelType1"
+          errors={errors.TEMPERATURA}
+          autOff
+        />
       </div>
     </div>
   );
 };
 
-const Horario = ({ values, handleChange,errors,handleBlur }) => {
+const Horario = ({values, handleChange, errors, handleBlur}) => {
   return (
     <div className="SectionDivType2">
       <h4>Horario</h4>
       <div className="MainHorario">
         <div className="LabelType1 ContainerCheckbox">
-          <span className="NameField">Acceso</span>
+          <NameField name="Acceso" />
           <div>
-            {AccesoHorarios.map(({ NOMBRE }) => {
+            {AccesoHorarios.map(({NOMBRE}) => {
               return (
                 <div
                   className="ContainerOptionAcceso"
@@ -77,7 +74,7 @@ const Horario = ({ values, handleChange,errors,handleBlur }) => {
                     name="ACCESO_HORARIOS"
                     value={NOMBRE}
                     checked={values.ACCESO_HORARIOS[NOMBRE]}
-                    onChange={(e) => handleChange(e)}
+                    onChange={e => handleChange(e)}
                   />
                   <label htmlFor={"ACCESO_HORARIOS" + NOMBRE}>
                     {helpCapitalize(NOMBRE)}
@@ -88,9 +85,9 @@ const Horario = ({ values, handleChange,errors,handleBlur }) => {
           </div>
         </div>
         <div className="LabelType1 ContainerCheckbox">
-          <span className="NameField">Dias de visita</span>
+          <NameField name="Dias de visita" />
           <div>
-            {DiasHorarios.map(({ NOMBRE }) => {
+            {DiasHorarios.map(({NOMBRE}) => {
               return (
                 <div
                   className="ContainerOptionAcceso"
@@ -102,7 +99,7 @@ const Horario = ({ values, handleChange,errors,handleBlur }) => {
                     name="DIAS_HORARIOS"
                     value={NOMBRE}
                     checked={values.DIAS_HORARIOS[NOMBRE]}
-                    onChange={(e) => handleChange(e)}
+                    onChange={e => handleChange(e)}
                   />
                   <label htmlFor={"DIAS_HORARIOS" + NOMBRE}>
                     {helpCapitalize(NOMBRE)}
@@ -112,173 +109,119 @@ const Horario = ({ values, handleChange,errors,handleBlur }) => {
             })}
           </div>
         </div>
-        <label htmlFor="HORAS" className="LabelType1">
-          <span className="NameField">Descripcion del horario</span>
-          <textarea
-            name="HORAS"
-            id="HORAS"
-            onChange={(e) => handleChange(e)}
-            value={values.DIAS_HORARIOS.HORAS}
-            onBlur={(e) =>
-              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "DIAS_HORARIOS")
-            }
-            rows={3}
-          />
-          {errors.HORAS && (
-            <small className="errorMessage">{errors.HORAS}</small>
-          )}
-        </label>
+        <LabelTextarea
+          nameField="Descripcion del horario"
+          name="HORAS"
+          onChange={e => handleChange(e)}
+          value={values.DIAS_HORARIOS.HORAS}
+          onBlur={e =>
+            handleBlur(e, "CARACTERISTICAS_RELEVANTES", "DIAS_HORARIOS")
+          }
+          rows={3}
+          errors={errors.HORAS}
+          className="LabelType1"
+        />
       </div>
     </div>
   );
 };
 
-const Tarifas = ({ values, handleChange, handleBlur, errors }) => {
+const Tarifas = ({values, handleChange, handleBlur, errors}) => {
   return (
     <div className="SectionDivType2">
       <h4>Tarifas</h4>
       <div className="SectionDivType1">
-        <label htmlFor="NINOS" className="LabelType1">
-          <span className="NameField">Niños</span>
-          <input
-            type="text"
-            name="NINOS"
-            id="NINOS"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) =>
-              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")
-            }
-            value={values.NINOS}
-            autoComplete="off"
-          />
-          {errors.NINOS && (
-            <small className="errorMessage">{errors.NINOS}</small>
-          )}
-        </label>
-        <label htmlFor="ADULTOS" className="LabelType1">
-          <span className="NameField">Adulto</span>
-          <input
-            type="text"
-            name="ADULTOS"
-            id="ADULTOS"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) =>
-              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")
-            }
-            value={values.ADULTOS}
-            autoComplete="off"
-          />
-          {errors.ADULTOS && (
-            <small className="errorMessage">{errors.ADULTOS}</small>
-          )}
-        </label>
-        <label htmlFor="ADULTO_MAYOR" className="LabelType1">
-          <span className="NameField">Adulto mayor</span>
-          <input
-            type="text"
-            name="ADULTO_MAYOR"
-            id="ADULTO_MAYOR"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) =>
-              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")
-            }
-            value={values.ADULTO_MAYOR}
-            autoComplete="off"
-          />
-          {errors.ADULTO_MAYOR && (
-            <small className="errorMessage">{errors.ADULTO_MAYOR}</small>
-          )}
-        </label>
-        <label htmlFor="EXTRANJEROS" className="LabelType1">
-          <span className="NameField">Extranjeros</span>
-          <input
-            type="text"
-            name="EXTRANJEROS"
-            id="EXTRANJEROS"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) =>
-              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")
-            }
-            value={values.EXTRANJEROS}
-            autoComplete="off"
-          />
-          {errors.EXTRANJEROS && (
-            <small className="errorMessage">{errors.EXTRANJEROS}</small>
-          )}
-        </label>
-        <label htmlFor="ESTUDIANTES" className="LabelType1">
-          <span className="NameField">Estudiantes</span>
-          <input
-            type="text"
-            name="ESTUDIANTES"
-            id="ESTUDIANTES"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) =>
-              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")
-            }
-            value={values.ESTUDIANTES}
-            autoComplete="off"
-          />
-          {errors.ESTUDIANTES && (
-            <small className="errorMessage">{errors.ESTUDIANTES}</small>
-          )}
-        </label>
-        <label htmlFor="CITA_PREVIA" className="LabelType1">
-          <span className="NameField">Cita previa</span>
-          <input
-            type="text"
-            name="CITA_PREVIA"
-            id="CITA_PREVIA"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) =>
-              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")
-            }
-            value={values.CITA_PREVIA}
-            autoComplete="off"
-          />
-          {errors.CITA_PREVIA && (
-            <small className="errorMessage">{errors.CITA_PREVIA}</small>
-          )}
-        </label>
-        <label htmlFor="GENERAL" className="LabelType1">
-          <span className="NameField">General</span>
-          <input
-            type="text"
-            name="GENERAL"
-            id="GENERAL"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) =>
-              handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")
-            }
-            value={values.GENERAL}
-            autoComplete="off"
-          />
-          {errors.GENERAL && (
-            <small className="errorMessage">{errors.GENERAL}</small>
-          )}
-        </label>
+        <LabelInput
+          nameField="Niños"
+          name="NINOS"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")}
+          value={values.NINOS}
+          className="LabelType1"
+          errors={errors.NINOS}
+          autOff
+        />
+        <LabelInput
+          nameField="Adultos"
+          name="ADULTOS"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")}
+          value={values.ADULTOS}
+          className="LabelType1"
+          errors={errors.ADULTOS}
+          autOff
+        />
+        <LabelInput
+          nameField="Adulto mayor"
+          name="ADULTO_MAYOR"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")}
+          value={values.ADULTO_MAYOR}
+          className="LabelType1"
+          errors={errors.ADULTO_MAYOR}
+          autOff
+        />
+        <LabelInput
+          nameField="Extranjeros"
+          name="EXTRANJEROS"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")}
+          value={values.EXTRANJEROS}
+          className="LabelType1"
+          errors={errors.EXTRANJEROS}
+          autOff
+        />
+        <LabelInput
+          nameField="Estudiantes"
+          name="ESTUDIANTES"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")}
+          value={values.ESTUDIANTES}
+          className="LabelType1"
+          errors={errors.ESTUDIANTES}
+          autOff
+        />
+        <LabelInput
+          nameField="Cita previa"
+          name="CITA_PREVIA"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")}
+          value={values.CITA_PREVIA}
+          className="LabelType1"
+          errors={errors.CITA_PREVIA}
+          autOff
+        />
+        <LabelInput
+          nameField="General"
+          name="GENERAL"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES", "TARIFAS")}
+          value={values.GENERAL}
+          className="LabelType1"
+          errors={errors.GENERAL}
+          autOff
+        />
       </div>
     </div>
   );
 };
 
-const EstadoAtractivo = ({ values, errors, handleChange, handleBlur }) => {
+const EstadoAtractivo = ({values, errors, handleChange, handleBlur}) => {
   return (
     <div className="SectionDivType2">
       <h4>Estado del atractivo</h4>
       <div className="SectionDivType1">
         <label htmlFor="ID_ESTADO" className="LabelType1">
-          <select
+          <FieldSelect
             name="ID_ESTADO"
-            id="ID_ESTADO"
             value={values.ID_ESTADO}
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "CARACTERISTICAS_RELEVANTES")}
+            onChange={e => handleChange(e)}
+            onBlur={e => handleBlur(e, "CARACTERISTICAS_RELEVANTES")}
           >
             <option value="" disabled>
               Seleccione un tipo de estado
             </option>
-            {TipoEstado.map((val) => {
+            {TipoEstado.map(val => {
               return (
                 <option
                   value={val["ID_ESTADO"]}
@@ -288,10 +231,8 @@ const EstadoAtractivo = ({ values, errors, handleChange, handleBlur }) => {
                 </option>
               );
             })}
-          </select>
-          {errors.ID_ESTADO && (
-            <small className="errorMessage">{errors.ID_ESTADO}</small>
-          )}
+          </FieldSelect>
+          <ErrorMessage errors={errors.ID_ESTADO} />
         </label>
         <small className="textEstado">
           {values.ID_ESTADO && TipoEstado[values.ID_ESTADO - 1]["DESCRIPCION"]}

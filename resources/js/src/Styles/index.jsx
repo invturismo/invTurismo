@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import {createGlobalStyle} from "styled-components";
 import FontLazer from "../fonts/Lazer84.ttf";
 
 export const theme = {
@@ -20,7 +20,7 @@ export const GlobalStyles = createGlobalStyle`
     src: url(${FontLazer}) format('truetype');
   }
   body {
-    font-family: ${(props) => props.theme.fonts.primary};
+    font-family: ${props => props.theme.fonts.primary};
   }
   button,a,input[type="submit"],input[type="text"],input[type="password"],input[type="email"],input[type="number"]{
     all: unset;
@@ -53,7 +53,7 @@ export const GlobalStyles = createGlobalStyle`
     h2 {
       text-align: center;
       font-size: 2.3rem;
-      font-family: ${(props) => props.theme.fonts.secondary};
+      font-family: ${props => props.theme.fonts.secondary};
     }
   }
   .ContainerOptionsGeneralGet,.ContainerOptionsTemplateGet{
@@ -64,7 +64,7 @@ export const GlobalStyles = createGlobalStyle`
   }
   .ContainerOptionsGeneralGet a,.ContainerOptionsTemplateGet a {
     cursor: pointer;
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     font-size: 1.3rem;
   }
   .activeOptionGeneralGet,.activeOptionTemplateGet{
@@ -85,7 +85,7 @@ export const GlobalStyles = createGlobalStyle`
       height: 60px;
       background-color: #2c1742;
       color: white;
-      font-family: ${(props) => props.theme.fonts.secondary};
+      font-family: ${props => props.theme.fonts.secondary};
     }
     th {
       font-weight: 100;
@@ -148,7 +148,7 @@ export const GlobalStyles = createGlobalStyle`
       gap: 5px;
     }
     .titleInformation {
-      font-family: ${(props) => props.theme.fonts.secondary};
+      font-family: ${props => props.theme.fonts.secondary};
       font-weight: 600;
       color: #15012e;
       font-size: 1.4rem;
@@ -216,6 +216,14 @@ export const GlobalStyles = createGlobalStyle`
       margin-bottom: 8px;
       font-weight: 600;
       color: #15012e;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 2px;
+    }
+    .NameField small {
+      font-size: 0.6rem;
+      color: #5328fe;
     }
     select {
       background-color: #2c1742eb;
@@ -295,7 +303,7 @@ export const GlobalStyles = createGlobalStyle`
     h2 {
       text-align: center;
       font-size: 2.3rem;
-      font-family: ${(props) => props.theme.fonts.secondary};
+      font-family: ${props => props.theme.fonts.secondary};
     }
   }
 `;

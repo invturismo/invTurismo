@@ -7,6 +7,20 @@ const StyleFormClasificacionAtractivosTuristicos = styled.form`
   width: 95%;
   max-width: 740px;
   margin: 0 auto;
+  .NameField {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #15012e;
+    gap: 2px;
+  }
+  .NameField small {
+    font-size: 0.6rem;
+    color: #5328fe;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
   .MainInformation {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -19,7 +33,7 @@ const StyleFormClasificacionAtractivosTuristicos = styled.form`
     gap: 5px;
   }
   .titleInformation {
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     font-weight: 600;
     color: #15012e;
     font-size: 1.4rem;
@@ -57,4 +71,4 @@ const StyleFormClasificacionAtractivosTuristicos = styled.form`
   }
 `;
 
-export { StyleFormClasificacionAtractivosTuristicos };
+export {StyleFormClasificacionAtractivosTuristicos};

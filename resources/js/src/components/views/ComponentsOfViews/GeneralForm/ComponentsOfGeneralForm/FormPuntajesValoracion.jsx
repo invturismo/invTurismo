@@ -1,23 +1,25 @@
 import React from "react";
+import ErrorMessage from "../../FieldsForm/ErrorMessage";
+import FieldSelect from "../../FieldsForm/FieldSelect";
+import LabelInput from "../../FieldsForm/LabelInput";
 import DataSignificado from "../DataJson/DataSignificado.json";
 
-const Significado = ({ values, errors, handleChange, handleBlur }) => {
+const Significado = ({values, errors, handleChange, handleBlur}) => {
   return (
     <div className="SectionDivType2">
       <h4>Significado</h4>
       <div className="SectionDivType1">
         <label htmlFor="ID_SIGNIFICADO" className="LabelType1">
-          <select
+          <FieldSelect
             name="ID_SIGNIFICADO"
-            id="ID_SIGNIFICADO"
             value={values.ID_SIGNIFICADO}
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "PUNTAJES_VALORACION")}
+            onChange={e => handleChange(e)}
+            onBlur={e => handleBlur(e, "PUNTAJES_VALORACION")}
           >
             <option value="" disabled>
               Seleccione un significado
             </option>
-            {DataSignificado.map((val) => {
+            {DataSignificado.map(val => {
               return (
                 <option
                   value={val["ID_SIGNIFICADO"]}
@@ -27,10 +29,8 @@ const Significado = ({ values, errors, handleChange, handleBlur }) => {
                 </option>
               );
             })}
-          </select>
-          {errors.ID_SIGNIFICADO && (
-            <small className="errorMessage">{errors.ID_SIGNIFICADO}</small>
-          )}
+          </FieldSelect>
+          <ErrorMessage errors={errors.ID_SIGNIFICADO} />
         </label>
       </div>
       <p className="Results">
@@ -50,24 +50,24 @@ const LabelCalidad = ({
   errors,
 }) => {
   return (
-    <label htmlFor={name} className="LabelType1">
-      <span className="NameField">{`${NameField} (${max})`}</span>
-      <input
-        type="number"
-        name={name}
-        id={name}
-        onChange={(e) => handleChange(e)}
-        onBlur={(e) => handleBlur(e, "PUNTAJES_VALORACION", "CALIDAD")}
-        value={values[name]}
-        min={0}
-        max={max}
-      />
-      {errors[name] && <small className="errorMessage">{errors[name]}</small>}
-    </label>
+    <LabelInput
+      type="number"
+      name={name}
+      id={name}
+      onChange={e => handleChange(e)}
+      onBlur={e => handleBlur(e, "PUNTAJES_VALORACION", "CALIDAD")}
+      value={values[name]}
+      min={0}
+      max={max}
+      className="LabelType1"
+      nameField={`${NameField} (${max})`}
+      errors={errors[name]}
+      req
+    />
   );
 };
 
-const CalidadMaterial = (props) => {
+const CalidadMaterial = props => {
   return (
     <div className="SectionDivType2">
       <h4>Calidad</h4>
@@ -98,7 +98,7 @@ const CalidadMaterial = (props) => {
   );
 };
 
-const CalidadInmaterial = (props) => {
+const CalidadInmaterial = props => {
   return (
     <div className="SectionDivType2">
       <h4>Calidad</h4>
@@ -141,7 +141,7 @@ const CalidadInmaterial = (props) => {
   );
 };
 
-const CalidadGrupos = (props) => {
+const CalidadGrupos = props => {
   return (
     <div className="SectionDivType2">
       <h4>Calidad</h4>
@@ -160,7 +160,7 @@ const CalidadGrupos = (props) => {
   );
 };
 
-const CalidadFestividades = (props) => {
+const CalidadFestividades = props => {
   return (
     <div className="SectionDivType2">
       <h4>Calidad</h4>
@@ -191,7 +191,7 @@ const CalidadFestividades = (props) => {
   );
 };
 
-const CalidadSitios = (props) => {
+const CalidadSitios = props => {
   return (
     <div className="SectionDivType2">
       <h4>Calidad</h4>
@@ -256,7 +256,7 @@ const FormPuntajesValoracion = ({
   handleChangeCalidadSitios,
   handleChangeCalidadFestividades,
   handleBlur,
-  who
+  who,
 }) => {
   return (
     <section>

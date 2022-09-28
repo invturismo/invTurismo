@@ -4,7 +4,7 @@ import {
   openLoaderForm,
   openModalLayoutState,
 } from "../../../../../features/modalsSlice";
-import { toastMs } from "../../../../../helpers/helpToastMessage";
+import {toastMs} from "../../../../../helpers/helpToastMessage";
 import {
   COMPLETADO,
   FESTIVIDADES,
@@ -14,10 +14,10 @@ import {
   SINCOMPLETAR,
   SITIOS,
 } from "../../../../router/paths";
-import { errorsTransform } from "../errorsTransform";
-import { formDataTransform } from "../formDataTransform";
-import { sendDataForm } from "../sendDataForm";
-import { validationsGeneralForm } from "../validationsGeneralForm";
+import {errorsTransform} from "../errorsTransform";
+import {formDataTransform} from "../formDataTransform";
+import {sendDataForm} from "../sendDataForm";
+import {validationsGeneralForm} from "../validationsGeneralForm";
 
 const whoLink = {
   1: [
@@ -71,7 +71,7 @@ export const submitFunctionsGeneralForm = ({
     );
     if (!response.state) {
       toastMs().error("Hay campos erroneos");
-      setErrors({ ...response.errors });
+      setErrors({...response.errors});
       return false;
     }
     return true;
@@ -79,7 +79,7 @@ export const submitFunctionsGeneralForm = ({
 
   const templateSubmit = async (nameLink, exec, updateImage) => {
     dispatch(openLoaderForm());
-    const formData = formDataTransform({ ...values, ...idRecord }, who);
+    const formData = formDataTransform({...values, ...idRecord}, who);
     if (updateImage) {
       let rulesImage = updateImage();
       if (rulesImage) formData.append("REGLAS", rulesImage);
@@ -96,7 +96,7 @@ export const submitFunctionsGeneralForm = ({
           initialErrors
         );
         toastMs().error("Hay campos erroneos");
-        return setErrors({ ...errTrans });
+        return setErrors({...errTrans});
       }
       return toastMs().error(responseServe.message || "Error inesperado");
     }
@@ -107,7 +107,7 @@ export const submitFunctionsGeneralForm = ({
     const response = await validateSchema();
     if (!response) return;
     templateSubmit(whoLink[who][0], () => {
-      toastMs().success("El resgistro se completo correctamente");
+      toastMs().success("El registro se completó correctamente");
       navigate(whoLink[who][2]);
     });
   };
@@ -120,7 +120,7 @@ export const submitFunctionsGeneralForm = ({
     const response = await validateSchema();
     if (!response) return;
     const finalSucces = () => {
-      toastMs().success("El resgistro se actualizo correctamente");
+      toastMs().success("El registro se actualizo correctamente");
       navigate(whoLink[who][3] + "/" + Object.values(idRecord)[0], {
         replace: true,
       });

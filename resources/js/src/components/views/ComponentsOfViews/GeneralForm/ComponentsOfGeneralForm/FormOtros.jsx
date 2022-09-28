@@ -1,108 +1,88 @@
 import React from "react";
+import ErrorMessage from "../../FieldsForm/ErrorMessage";
+import LabelInput from "../../FieldsForm/LabelInput";
+import LabelSelect from "../../FieldsForm/LabelSelect";
+import TextArea from "../../FieldsForm/TextArea";
 
-const Redes = ({ values, handleChange, errors, handleBlur }) => {
+const Redes = ({values, handleChange, errors, handleBlur}) => {
   return (
     <div className="SectionDivType2">
       <h4>Redes sociales</h4>
       <div className="SectionDivType1">
-        <label htmlFor="PAGINA_WEB_OTROS" className="LabelType1">
-          <span className="NameField">Pagina web</span>
-          <input
-            type="text"
-            name="PAGINA_WEB"
-            id="PAGINA_WEB_OTROS"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "OTROS", "REDES")}
-            value={values.PAGINA_WEB}
-            autoComplete="off"
-          />
-          {errors.PAGINA_WEB && (
-            <small className="errorMessage">{errors.PAGINA_WEB}</small>
-          )}
-        </label>
-        <label htmlFor="FACEBOOK" className="LabelType1">
-          <span className="NameField">Facebook</span>
-          <input
-            type="text"
-            name="FACEBOOK"
-            id="FACEBOOK"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "OTROS", "REDES")}
-            value={values.FACEBOOK}
-            autoComplete="off"
-          />
-          {errors.FACEBOOK && (
-            <small className="errorMessage">{errors.FACEBOOK}</small>
-          )}
-        </label>
-        <label htmlFor="TWITTER" className="LabelType1">
-          <span className="NameField">Twitter</span>
-          <input
-            type="text"
-            name="TWITTER"
-            id="TWITTER"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "OTROS", "REDES")}
-            value={values.TWITTER}
-            autoComplete="off"
-          />
-          {errors.TWITTER && (
-            <small className="errorMessage">{errors.TWITTER}</small>
-          )}
-        </label>
-        <label htmlFor="INSTAGRAM" className="LabelType1">
-          <span className="NameField">Instagram</span>
-          <input
-            type="text"
-            name="INSTAGRAM"
-            id="INSTAGRAM"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "OTROS", "REDES")}
-            value={values.INSTAGRAM}
-            autoComplete="off"
-          />
-          {errors.INSTAGRAM && (
-            <small className="errorMessage">{errors.INSTAGRAM}</small>
-          )}
-        </label>
-        <label htmlFor="OTRA_OTROS" className="LabelType1">
-          <span className="NameField">Otra</span>
-          <input
-            type="text"
-            name="OTRA"
-            id="OTRA_OTROS"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "OTROS", "REDES")}
-            value={values.OTRA}
-            autoComplete="off"
-          />
-          {errors.OTRA && <small className="errorMessage">{errors.OTRA}</small>}
-        </label>
+        <LabelInput
+          nameField="Pagina web"
+          name="PAGINA_WEB"
+          id="PAGINA_WEB_OTROS"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "OTROS", "REDES")}
+          value={values.PAGINA_WEB}
+          className="LabelType1"
+          errors={errors.PAGINA_WEB}
+          autOff
+        />
+        <LabelInput
+          nameField="Facebook"
+          name="FACEBOOK"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "OTROS", "REDES")}
+          value={values.FACEBOOK}
+          className="LabelType1"
+          errors={errors.FACEBOOK}
+          autOff
+        />
+        <LabelInput
+          nameField="Twitter"
+          name="TWITTER"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "OTROS", "REDES")}
+          value={values.TWITTER}
+          className="LabelType1"
+          errors={errors.TWITTER}
+          autOff
+        />
+        <LabelInput
+          nameField="Instagram"
+          name="INSTAGRAM"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "OTROS", "REDES")}
+          value={values.INSTAGRAM}
+          className="LabelType1"
+          errors={errors.INSTAGRAM}
+          autOff
+        />
+        <LabelInput
+          nameField="Otra"
+          name="OTRA"
+          id="OTRA_OTROS"
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "OTROS", "REDES")}
+          value={values.OTRA}
+          className="LabelType1"
+          errors={errors.OTRA}
+          autOff
+        />
       </div>
     </div>
   );
 };
 
-const Internacional = ({ values, handleChange, handleBlur, errors }) => {
+const Internacional = ({values, handleChange, handleBlur, errors}) => {
   return (
     <div className="SectionDivType2">
       <h4>Internacional</h4>
       <div className="SectionDivType1">
-        <label htmlFor="APRO_INTERNACIONAL" className="LabelType1">
-          <select
-            name="APRO_INTERNACIONAL"
-            id="APRO_INTERNACIONAL"
-            value={values.APRO_INTERNACIONAL}
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e, "OTROS")}
-          >
-            <option value="false">No</option>
-            <option value="true">Si</option>
-          </select>
-          {errors.APRO_INTERNACIONAL && (
-            <small className="errorMessage">{errors.APRO_INTERNACIONAL}</small>
-          )}
-        </label>
+        <LabelSelect
+          nameField="Tipo de Acceso"
+          name="APRO_INTERNACIONAL"
+          value={values.APRO_INTERNACIONAL}
+          onChange={e => handleChange(e)}
+          onBlur={e => handleBlur(e, "OTROS")}
+          errors={errors.APRO_INTERNACIONAL}
+          className="LabelType1"
+        >
+          <option value="false">No</option>
+          <option value="true">Si</option>
+        </LabelSelect>
       </div>
     </div>
   );
@@ -114,7 +94,7 @@ const FormOtros = ({
   handleChange,
   errors,
   handleBlur,
-  who
+  who,
 }) => {
   return (
     <section>
@@ -129,14 +109,14 @@ const FormOtros = ({
         <h4>Referencias bibliograficas</h4>
         <div>
           <label htmlFor="REF_BIBLIOGRAFICA" className="LabelType1">
-            <textarea
+            <TextArea
               name="REF_BIBLIOGRAFICA"
-              id="REF_BIBLIOGRAFICA"
-              onChange={(e) => handleChange(e)}
+              onChange={e => handleChange(e)}
               value={values.REF_BIBLIOGRAFICA}
-              onBlur={(e) => handleBlur(e, "OTROS")}
+              onBlur={e => handleBlur(e, "OTROS")}
               rows={3}
             />
+            <ErrorMessage errors={errors.REF_BIBLIOGRAFICA} />
             {errors.REF_BIBLIOGRAFICA && (
               <small className="errorMessage">{errors.REF_BIBLIOGRAFICA}</small>
             )}
@@ -147,17 +127,14 @@ const FormOtros = ({
         <h4>Observaciones</h4>
         <div>
           <label htmlFor="OBSERVACIONES" className="LabelType1">
-            <textarea
+            <TextArea
               name="OBSERVACIONES"
-              id="OBSERVACIONES"
-              onChange={(e) => handleChange(e)}
-              onBlur={(e) => handleBlur(e, "OTROS")}
+              onChange={e => handleChange(e)}
               value={values.OBSERVACIONES}
+              onBlur={e => handleBlur(e, "OTROS")}
               rows={3}
             />
-            {errors.OBSERVACIONES && (
-              <small className="errorMessage">{errors.OBSERVACIONES}</small>
-            )}
+            <ErrorMessage errors={errors.OBSERVACIONES} />
           </label>
         </div>
       </div>

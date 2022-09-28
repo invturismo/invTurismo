@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import ButtonPage from "../../../common/ButtonPage";
-import { handleFunctionsUsuarios } from "./handleFunctionsUsuarios";
+import {handleFunctionsUsuarios} from "./handleFunctionsUsuarios";
 import {
   initialErrorsUsuarios,
   initialValuesUsuarios,
 } from "./initialValuesUsuarios";
 import FieldsPassword from "./ComponentsOfFormUsuarios/FieldsPassword";
+import LabelInput from "../../ComponentsOfViews/FieldsForm/LabelInput";
 
 const dataPassword = {
   CONFIRMAR_CLAVE: false,
   CLAVE: false,
 };
 
-const RegistrationForm = ({ initialValuesUpdate,who }) => {
+const RegistrationForm = ({initialValuesUpdate, who}) => {
   const [values, setValues] = useState(
     initialValuesUpdate || initialValuesUsuarios
   );
@@ -24,120 +25,83 @@ const RegistrationForm = ({ initialValuesUpdate,who }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const {
-    handleBlur,
-    handleChange,
-    handleSubmit,
-    handleFocus,
-    handleClickView,
-  } = handleFunctionsUsuarios({
-    dispatch,
-    errors,
-    navigate,
-    setErrors,
-    setValues,
-    values,
-    viewPassword,
-    setViewPassword,
-    focus,
-    setFocus,
-    who
-  });
+  const {handleBlur, handleChange, handleSubmit, handleFocus, handleClickView} =
+    handleFunctionsUsuarios({
+      dispatch,
+      errors,
+      navigate,
+      setErrors,
+      setValues,
+      values,
+      viewPassword,
+      setViewPassword,
+      focus,
+      setFocus,
+      who,
+    });
 
   return (
     <form className="FormStyleR" onSubmit={handleSubmit}>
       <div className="ContainerFields">
-        <label htmlFor="PRIMER_NOMBRE">
-          <span className="NameField">Primer nombre</span>
-          <input
-            type="text"
-            name="PRIMER_NOMBRE"
-            id="PRIMER_NOMBRE"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e)}
-            value={values.PRIMER_NOMBRE}
-            autoComplete="off"
-          />
-          {errors.PRIMER_NOMBRE && (
-            <small className="errorMessage">{errors.PRIMER_NOMBRE}</small>
-          )}
-        </label>
-        <label htmlFor="SEGUNDO_NOMBRE">
-          <span className="NameField">Segundo nombre</span>
-          <input
-            type="text"
-            name="SEGUNDO_NOMBRE"
-            id="SEGUNDO_NOMBRE"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e)}
-            value={values.SEGUNDO_NOMBRE}
-            autoComplete="off"
-          />
-          {errors.SEGUNDO_NOMBRE && (
-            <small className="errorMessage">{errors.SEGUNDO_NOMBRE}</small>
-          )}
-        </label>
-        <label htmlFor="PRIMER_APELLIDO">
-          <span className="NameField">Primer apellido</span>
-          <input
-            type="text"
-            name="PRIMER_APELLIDO"
-            id="PRIMER_APELLIDO"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e)}
-            value={values.PRIMER_APELLIDO}
-            autoComplete="off"
-          />
-          {errors.PRIMER_APELLIDO && (
-            <small className="errorMessage">{errors.PRIMER_APELLIDO}</small>
-          )}
-        </label>
-        <label htmlFor="SEGUNDO_APELLIDO">
-          <span className="NameField">Segundo apellido</span>
-          <input
-            type="text"
-            name="SEGUNDO_APELLIDO"
-            id="SEGUNDO_APELLIDO"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e)}
-            value={values.SEGUNDO_APELLIDO}
-            autoComplete="off"
-          />
-          {errors.SEGUNDO_APELLIDO && (
-            <small className="errorMessage">{errors.SEGUNDO_APELLIDO}</small>
-          )}
-        </label>
-        <label htmlFor="USUARIO">
-          <span className="NameField">Usuario</span>
-          <input
-            type="text"
-            name="USUARIO"
-            id="USUARIO"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e)}
-            value={values.USUARIO}
-            placeholder="Ejemplo: Pepito123"
-            autoComplete="off"
-          />
-          {errors.USUARIO && (
-            <small className="errorMessage">{errors.USUARIO}</small>
-          )}
-        </label>
-        <label htmlFor="CORREO">
-          <span className="NameField">Correo</span>
-          <input
-            type="email"
-            name="CORREO"
-            id="CORREO"
-            onChange={(e) => handleChange(e)}
-            onBlur={(e) => handleBlur(e)}
-            value={values.CORREO}
-            autoComplete="off"
-          />
-          {errors.CORREO && (
-            <small className="errorMessage">{errors.CORREO}</small>
-          )}
-        </label>
+        <LabelInput
+          errors={errors.PRIMER_NOMBRE}
+          name="PRIMER_NOMBRE"
+          nameField="Primer nombre"
+          onBlur={e => handleChange(e)}
+          onChange={e => handleChange(e)}
+          value={values.PRIMER_NOMBRE}
+          req
+          autOff
+        />
+        <LabelInput
+          errors={errors.SEGUNDO_NOMBRE}
+          name="SEGUNDO_NOMBRE"
+          nameField="Segundo nombre"
+          onBlur={e => handleChange(e)}
+          onChange={e => handleChange(e)}
+          value={values.SEGUNDO_NOMBRE}
+          autOff
+        />
+        <LabelInput
+          errors={errors.PRIMER_APELLIDO}
+          name="PRIMER_APELLIDO"
+          nameField="Primer apellido"
+          onBlur={e => handleChange(e)}
+          onChange={e => handleChange(e)}
+          value={values.PRIMER_APELLIDO}
+          req
+          autOff
+        />
+        <LabelInput
+          errors={errors.SEGUNDO_APELLIDO}
+          name="SEGUNDO_APELLIDO"
+          nameField="Segundo apellido"
+          onBlur={e => handleChange(e)}
+          onChange={e => handleChange(e)}
+          value={values.SEGUNDO_APELLIDO}
+          autOff
+        />
+        <LabelInput
+          errors={errors.USUARIO}
+          name="USUARIO"
+          nameField="Usuario"
+          onBlur={e => handleChange(e)}
+          onChange={e => handleChange(e)}
+          value={values.USUARIO}
+          placeholder="Ejemplo: Pepito123"
+          autOff
+        />
+        <LabelInput
+          type="email"
+          errors={errors.CORREO}
+          name="CORREO"
+          nameField="Correo"
+          onBlur={e => handleChange(e)}
+          onChange={e => handleChange(e)}
+          value={values.CORREO}
+          autOff
+          req
+        />
         {who === 1 && (
           <FieldsPassword
             errors={errors}

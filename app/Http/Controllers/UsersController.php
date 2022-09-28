@@ -286,7 +286,7 @@ class UsersController extends Controller
             $queryData->save();
             $ID_USUARIO = Auth::user()->ID_USUARIO;
             HistorialController::createUpdate(
-                $ID_USUARIO,'usuarios',$queryData->ID_USUARIO,'CLAVE',$old,$queryData->CLAVE
+                $ID_USUARIO,'usuarios',0,$queryData->ID_USUARIO,'CLAVE',$old,$queryData->CLAVE
             );
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);

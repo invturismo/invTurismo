@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { DOMAIN } from "../../../router/paths";
+import {DOMAIN} from "../../../router/paths";
 
 const StyleMainGeneralForm = styled.form`
   display: flex;
@@ -88,7 +88,7 @@ const StyleMainGeneralForm = styled.form`
   }
   h3,
   h4 {
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
   }
   h3 {
     text-align: center;
@@ -182,6 +182,17 @@ const StyleMainGeneralForm = styled.form`
     margin-bottom: 8px;
     font-weight: 600;
     color: #15012e;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+  }
+  .LabelType1 .NameField small {
+    font-size: 0.6rem;
+    color: #5328fe;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
   }
   .ContainerTextArea {
     margin-top: 15px;

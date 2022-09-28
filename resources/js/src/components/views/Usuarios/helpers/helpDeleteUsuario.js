@@ -4,12 +4,12 @@ import {
   openLoaderForm,
   openModalLayoutState,
 } from "../../../../features/modalsSlice";
-import { helpDeleteRegister } from "../../../../helpers/helpDeleteRegister";
-import { toastMs } from "../../../../helpers/helpToastMessage";
-import { USUARIOS } from "../../../router/paths";
-import { validateTokens } from "../Form/validateTokens";
+import {helpDeleteRegister} from "../../../../helpers/helpDeleteRegister";
+import {toastMs} from "../../../../helpers/helpToastMessage";
+import {USUARIOS} from "../../../router/paths";
+import {validateTokens} from "../Form/validateTokens";
 
-export const helpDeleteUsuario = async ({ idUsuario, dispatch, navigate }) => {
+export const helpDeleteUsuario = async ({idUsuario, dispatch, navigate}) => {
   console.log(idUsuario);
   dispatch(openLoaderForm());
   const tokensValidate = await validateTokens(idUsuario);
@@ -26,14 +26,14 @@ export const helpDeleteUsuario = async ({ idUsuario, dispatch, navigate }) => {
       : "¿Esta seguro que deseas eliminarlo?";
   const handleFunction = async () => {
     dispatch(openLoaderForm());
-    const body = { ID_USUARIO: idRegister },
+    const body = {ID_USUARIO: idUsuario},
       url = "user-delete";
     const response = await helpDeleteRegister(url, body);
     dispatch(closeLoaderForm());
     dispatch(closeModalLayoutState());
     if (!response.state) return toastMs().error(response.message);
     navigate(`${USUARIOS}`);
-    toastMs().success("El registro se elimino con exito");
+    toastMs().success("El usuario se elimino con exito");
   };
   const dataPayload = {
     textMessage1,

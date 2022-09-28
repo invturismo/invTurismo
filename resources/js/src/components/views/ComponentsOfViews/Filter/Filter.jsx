@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { toastMs } from "../../../../helpers/helpToastMessage";
+import React, {useEffect, useState} from "react";
+import {toastMs} from "../../../../helpers/helpToastMessage";
 import Cookies from "universal-cookie";
-import { useDispatch, useSelector } from "react-redux";
-import { closeFilter, setDataFilter } from "../../../../features/filterSlice";
-import { StyleFilter } from "./StyleFilter";
+import {useDispatch, useSelector} from "react-redux";
+import {closeFilter, setDataFilter} from "../../../../features/filterSlice";
+import {StyleFilter} from "./StyleFilter";
 import ButtonHeader from "../../../common/ButtonHeader";
-import { useSearchParams } from "react-router-dom";
+import {useSearchParams} from "react-router-dom";
 import SelectDepartamentos from "../Selects/SelectDepartamentos";
 import SelectMunicipio from "../Selects/SelectMunicipio";
-import { AnimatePresence,motion } from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 const cookies = new Cookies();
 
 const initialValues = {
@@ -32,33 +32,32 @@ const Filter = () => {
   const [values, setValues] = useState(filter || initialValues);
   const dispatch = useDispatch();
   const [params, setParams] = useSearchParams();
-  const stateFilter = useSelector((state) => state.filterSlice.stateFilter);
+  const stateFilter = useSelector(state => state.filterSlice.stateFilter);
 
   useEffect(() => {
     return () => {
       dispatch(closeFilter());
-    }
+    };
   }, []);
-  
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     if (e.target.name === "ID_DEPARTAMENTOS") {
-      const valueMunicipio = { ID_MUNICIPIOS: "" };
+      const valueMunicipio = {ID_MUNICIPIOS: ""};
       if (e.target.value === "11") valueMunicipio.ID_MUNICIPIOS = "001";
       setValues({
         ...values,
         [e.target.name]: e.target.value,
         ...valueMunicipio,
       });
-    } else setValues({ ...values, [e.target.name]: e.target.value });
+    } else setValues({...values, [e.target.name]: e.target.value});
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (!values.ID_DEPARTAMENTOS && !values.ID_MUNICIPIOS)
       return toastMs().error("No selecciono ningun filtro");
-    cookies.set("id_departamentos", values.ID_DEPARTAMENTOS, { path: "/" });
-    cookies.set("id_municipios", values.ID_MUNICIPIOS, { path: "/" });
+    cookies.set("id_departamentos", values.ID_DEPARTAMENTOS, {path: "/"});
+    cookies.set("id_municipios", values.ID_MUNICIPIOS, {path: "/"});
     if (params.has("page")) params.delete("page");
     setParams(params);
     dispatch(setDataFilter(values));
