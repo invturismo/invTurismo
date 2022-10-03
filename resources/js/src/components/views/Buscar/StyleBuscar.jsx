@@ -6,7 +6,7 @@ const StyleBuscar = styled.div`
   flex-direction: column;
   height: 100%;
   h2 {
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     font-size: 2.2rem;
     margin-bottom: 10px;
   }
@@ -22,7 +22,7 @@ const StyleBuscar = styled.div`
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
-    width: max-content;
+    width: fit-content;
   }
   .ContainerPagination {
     display: flex;
@@ -38,7 +38,7 @@ const StyleBuscar = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     text-align: center;
     font-size: 1.5rem;
     gap: 15px;

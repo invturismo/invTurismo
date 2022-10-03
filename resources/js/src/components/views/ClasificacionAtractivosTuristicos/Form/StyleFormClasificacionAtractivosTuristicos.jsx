@@ -13,6 +13,10 @@ const StyleFormClasificacionAtractivosTuristicos = styled.form`
     font-weight: 600;
     color: #15012e;
     gap: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
   }
   .NameField small {
     font-size: 0.6rem;

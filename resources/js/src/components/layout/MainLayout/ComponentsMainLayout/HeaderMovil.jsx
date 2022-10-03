@@ -1,10 +1,17 @@
-import React from 'react';
-import { useDispatch } from "react-redux";
-import styled from 'styled-components';
-import { openMenu } from '../../../../features/mainLayoutSlice';
-import { openModalLayoutState } from '../../../../features/modalsSlice';
-import SvgHamburgerMenu from '../SvgComponents/SvgHamburgerMenu';
-import SvgLogout from '../SvgComponents/SvgLogout';
+import React from "react";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import styled from "styled-components";
+import {openMenu} from "../../../../features/mainLayoutSlice";
+import {
+  closeLoaderForm,
+  openLoaderForm,
+  openModalLayoutState,
+} from "../../../../features/modalsSlice";
+import {helpLogout} from "../../../../helpers/helpLogout";
+import {LOGIN} from "../../../router/paths";
+import SvgHamburgerMenu from "../SvgComponents/SvgHamburgerMenu";
+import SvgLogout from "../SvgComponents/SvgLogout";
 import SearchBar from "./SearchBar";
 
 const StyleHeaderMovil = styled.header`
@@ -12,7 +19,7 @@ const StyleHeaderMovil = styled.header`
   padding: 15px;
   background-color: #220646;
   gap: 10px;
-  .ContainerSearchBar{
+  .ContainerSearchBar {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,12 +37,21 @@ const StyleHeaderMovil = styled.header`
 
 const HeaderMovil = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleClickLogout = async () => {
+    dispatch(openLoaderForm());
+    await helpLogout();
+    dispatch(closeLoaderForm());
+    navigate(LOGIN);
+  };
+
   const dataPayload = {
     textMessage1: "¿Estas seguro que quieres",
     textMessage2: "Cerrar sesion?",
     textButton: "cerrar",
     srcImg: "svgLogOutPopup",
-    whoFunction: "handleClickLogout",
+    handleFunction: handleClickLogout,
   };
 
   return (

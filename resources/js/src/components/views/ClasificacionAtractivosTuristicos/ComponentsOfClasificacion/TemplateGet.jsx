@@ -1,13 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { CLASIFICACION, CLASIFICADO, SINCLASIFICAR } from "../../../router/paths";
+import {NavLink} from "react-router-dom";
+import {
+  CLASIFICACION,
+  CLASIFICADO,
+  EXPORTS,
+  SINCLASIFICAR,
+} from "../../../router/paths";
 import Filter from "../../ComponentsOfViews/Filter/Filter";
 import LabelFilter from "../../ComponentsOfViews/Filter/LabelFilter";
 import GeneralHeader from "../../ComponentsOfViews/GeneralHeader";
 import PaginationSection from "../../ComponentsOfViews/Pagination/PaginationSection";
 import TableClasificacionAtractivosTuristicos from "./TableClasificacionAtractivosTuristicos";
 
-const TemplateGet = ({ children, who, others }) => {
+const TemplateGet = ({children, who, others}) => {
   return (
     <div className="TemplateGet">
       <h2>Clasificacion de recursos y atractivos</h2>
@@ -15,7 +20,7 @@ const TemplateGet = ({ children, who, others }) => {
         <div className="ContainerOptionsTemplateGet">
           <NavLink
             to={`${CLASIFICACION}${SINCLASIFICAR}`}
-            className={({ isActive }) =>
+            className={({isActive}) =>
               isActive ? "activeOptionTemplateGet" : undefined
             }
           >
@@ -23,14 +28,14 @@ const TemplateGet = ({ children, who, others }) => {
           </NavLink>
           <NavLink
             to={`${CLASIFICACION}${CLASIFICADO}`}
-            className={({ isActive }) =>
+            className={({isActive}) =>
               isActive ? "activeOptionTemplateGet" : undefined
             }
           >
             Clasificado
           </NavLink>
         </div>
-        <GeneralHeader linkOptions="/clasificacion-recursos-atractivos/opciones" />
+        <GeneralHeader linkOptions={`${CLASIFICACION}${EXPORTS}`} />
         <Filter />
         <LabelFilter />
         <TableClasificacionAtractivosTuristicos who={who}>

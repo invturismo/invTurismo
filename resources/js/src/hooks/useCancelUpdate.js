@@ -1,8 +1,7 @@
-import { useEffect } from "react";
-import { helpHttp } from "../helpers/helpHttp";
-import { toastMs } from "../helpers/helpToastMessage";
+import {useEffect} from "react";
+import {helpHttp} from "../helpers/helpHttp";
 
-const useCancelUpdate = (response) => {
+const useCancelUpdate = response => {
   useEffect(() => {
     return () => {
       if (!response) return false;
@@ -13,12 +12,11 @@ const useCancelUpdate = (response) => {
           console.log(response, "del");
           if (!response.state) throw response;
         } catch (error) {
-          if(error.status === 401) return;
-          toastMs().error('Error al cancelar la actualizacion');
+          if (error.status === 401) return;
         }
       }, 500);
     };
   });
-}
+};
 
-export default useCancelUpdate
+export default useCancelUpdate;
