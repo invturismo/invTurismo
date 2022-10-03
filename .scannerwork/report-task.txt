@@ -1,0 +1,6 @@
+projectKey=invturismo
+serverUrl=http://127.0.0.1:9000
+serverVersion=9.6.1.59531
+dashboardUrl=http://127.0.0.1:9000/dashboard?id=invturismo
+ceTaskId=AYOevh31IvF3Tw98AIU3
+ceTaskUrl=http://127.0.0.1:9000/api/ce/task?id=AYOevh31IvF3Tw98AIU3
