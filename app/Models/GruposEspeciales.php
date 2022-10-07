@@ -25,8 +25,7 @@ class GruposEspeciales extends Model
         'ID_RED_SOCIAL',
         'REF_BIBLIOGRAFICA',
         'OBSERVACIONES',
-        'APROB_INTERNACIONAL',
-        'FECHA_APROB',
+        'APRO_INTERNACIONAL',
         'EXIST'
     ];
 }

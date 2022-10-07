@@ -15,7 +15,7 @@ class Servicios extends Model
     protected $fillable = [
         'TIENDAS',
         'GUIAS',
-        'BAÑOS',
+        'BANOS',
         'RESTAURANTES',
         'PARQUEADERO',
         'ALOJAMIENTO',

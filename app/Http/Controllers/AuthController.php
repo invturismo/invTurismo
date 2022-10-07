@@ -65,26 +65,50 @@ class AuthController extends Controller
 
     public function updateSession()
     {
-        self::addTime();
-        return [
-            'state' => true,
-        ];
+        try {
+            self::addTime();
+            return [
+                'state' => true,
+            ];
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
     }
 
     public function profile () {
-        $user = self::addTime();
-        DB::table('personal_access_tokens')->where('expires_at','<',now())->delete();
-        return [
-            'state' => true,
-            'data' => $user
-        ];
+        try {
+            $user = self::addTime();
+            DB::table('personal_access_tokens')->where('expires_at','<',now())->delete();
+            return [
+                'state' => true,
+                'data' => $user
+            ];
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        }
     }
 
     public function logout () {
-        Auth::user()->currentAccessToken()->delete();
-        return response()->json([
-            'state' => true,
-            'message' => ['Cerro sesion correctamente']
-        ]); 
+        try {
+            Auth::user()->currentAccessToken()->delete();
+            return response()->json([
+                'state' => true,
+                'message' => ['Cerro sesion correctamente']
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'state' => false,
+                'message' => 'Error en la base de datos',
+                'phpMessage' => $th->getMessage(),
+            ]);
+        } 
     }
 }
