@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use App\Models\User;
 use Tests\Helpers\HelpToken;
-use Faker\Factory;
+use Illuminate\Support\Facades\Hash;
 
 class UserApiTest extends TestCase
 {
@@ -29,8 +29,7 @@ class UserApiTest extends TestCase
 
     public function test_actualizar_usuario()
     {
-        $faker = Factory::create();
-        $clave = $faker->md5;
+        $clave = Hash::make('Prueba123*');
         $idUser = User::factory()->create(['CLAVE' => $clave])->toArray()['ID_USUARIO'];
         $dataSend = $this->sendData();
         $dataSend = array_merge($dataSend,['ID_USUARIO'=>$idUser]);
