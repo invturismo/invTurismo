@@ -1,5 +1,5 @@
-export const API = `${window.location.protocol}//invturismo.jptecnologia.com/api/`;
-export const DOMAIN = `${window.location.protocol}//invturismo.jptecnologia.com/`;
+export const API = `${window.location.protocol}//127.0.0.1:8000/api/`;
+export const DOMAIN = `${window.location.protocol}//127.0.0.1:8000/`;
 export const HOME = "/";
 export const LOGIN = "/inicio-sesion";
 export const CREAR = "/crear";

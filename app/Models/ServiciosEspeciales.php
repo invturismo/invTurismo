@@ -16,7 +16,7 @@ class ServiciosEspeciales extends Model
         'ASCENSORES',
         'RAMPAS',
         'DISCAP_AUDITIVA',
-        'BAÑOS',
+        'BANOS',
         'MOVILIDAD',
         'OTROS'
     ];
