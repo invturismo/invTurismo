@@ -4,7 +4,7 @@ namespace Tests\Helpers;
 
 class HelpToken
 {
-  public static $token = '6|dO6nKUKSy89FfOesNBDoGDMNglCAnypPdFkOZ6sC';
+  public static $token = '38|qiPEG01HINDW1kl5XXMrbwhDO6GwosAd6ijWkI4v';
 
   public static function headers()
   {
