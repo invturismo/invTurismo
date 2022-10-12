@@ -1,15 +1,18 @@
 <?php
 
 namespace Tests\Helpers;
+use App\Models\User;
 
 class HelpToken
 {
-  public static $token = '5|5mKca983P8Hm0rnKn3iTWdFosrNfaw52Y7GqH9zw';
-
   public static function headers()
   {
+    $user = User::find(1);
+    $token = $user->createToken('auth_token');
+    $token->accessToken->expires_at = now()->addMinutes(3);
+    $token->accessToken->save();
     return [
-      'Authorization'=>'Bearer '.self::$token,
+      'Authorization'=>'Bearer '.$token->plainTextToken,
 			'Accept' => 'application/json'
     ];
   }
