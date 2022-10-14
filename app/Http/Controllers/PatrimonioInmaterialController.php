@@ -12,6 +12,8 @@ use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\RedesController;
 use App\Models\PatrimoniosInmateriales;
+use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\UpdateController;
 use App\Helpers\HelperQuerys;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperValidator;
