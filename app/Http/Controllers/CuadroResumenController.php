@@ -11,6 +11,7 @@ use App\Helpers\HelperDataRecurso;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperQuerys;
 use App\Helpers\HelpersExport;
+use App\Helpers\HelperLogs;
 
 class CuadroResumenController extends Controller
 {
@@ -79,11 +80,7 @@ class CuadroResumenController extends Controller
                 ["state" => true]
             ));
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -99,11 +96,7 @@ class CuadroResumenController extends Controller
                 "data" => $queryData
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 }

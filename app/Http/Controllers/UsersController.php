@@ -16,6 +16,7 @@ use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
 use Illuminate\Support\Facades\DB;
 use App\Helpers\HelperValidator;
+use App\Helpers\HelperLogs;
 
 class UsersController extends Controller
 {
@@ -69,11 +70,7 @@ class UsersController extends Controller
                 'state' => true
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -141,11 +138,7 @@ class UsersController extends Controller
                 "state" => true
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -170,11 +163,7 @@ class UsersController extends Controller
                 ['state' => true]
             ));
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -196,11 +185,7 @@ class UsersController extends Controller
                 'data' => $queryData
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -221,11 +206,7 @@ class UsersController extends Controller
             ]);
             return response()->json(['state' => false]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -254,11 +235,7 @@ class UsersController extends Controller
                 'data' => $queryData
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -295,11 +272,7 @@ class UsersController extends Controller
                 "state" => true
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -334,11 +307,7 @@ class UsersController extends Controller
                 "state" => true
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\UpdateController;
 use App\Models\ListadosPreliminares;
 use App\Http\Controllers\HistorialController;
+use App\Helpers\HelperLogs;
 
 class HelperDelete 
 {
@@ -49,11 +50,7 @@ class HelperDelete
         "state" => true
       ];
     } catch (\Throwable $th) {
-      return [
-        "state" => false,
-        "message" => "Error en la base de datos",
-        'phpMessage' => $th->getMessage()
-      ];
+      return response()->json(HelperLogs::Log($th));
     }
   }
 }
