@@ -6,6 +6,7 @@ import {
   EXPORTS,
   SINCLASIFICAR,
 } from "../../../router/paths";
+import CountData from "../../ComponentsOfViews/CountData";
 import Filter from "../../ComponentsOfViews/Filter/Filter";
 import LabelFilter from "../../ComponentsOfViews/Filter/LabelFilter";
 import GeneralHeader from "../../ComponentsOfViews/GeneralHeader";
@@ -41,6 +42,7 @@ const TemplateGet = ({children, who, others}) => {
         <TableClasificacionAtractivosTuristicos who={who}>
           {children}
         </TableClasificacionAtractivosTuristicos>
+        <CountData otherData={others} />
         <PaginationSection others={others} />
       </div>
     </div>

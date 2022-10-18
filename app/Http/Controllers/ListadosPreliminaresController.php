@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
-use App\Http\Controllers\PatrimoniosMaterialesController;
-use App\Models\Historial_Insert_Delete;
 use App\Helpers\Joins;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelperFilter;

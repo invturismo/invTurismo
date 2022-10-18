@@ -222,11 +222,11 @@ class PuntajesController extends Controller
                     if($queryData[$key] == $clientData[$key]) continue;
                     HistorialController::createUpdate(
                         $idUsuario,
-                        'calidades_inmaterial',
+                        'valoraciones_grupos',
                         $queryUpdate->ID_LISTADO,
-                        $calidad->ID_CALIDAD_INMATERIAL,
+                        $queryData->ID_VALORACION_GRUPOS,
                         $key,
-                        $calidad[$key],
+                        $queryData[$key],
                         $clientData[$key]
                     );
                     $queryData[$key] = $clientData[$key];

@@ -1,7 +1,8 @@
 import Cookies from "universal-cookie";
 import {API} from "../components/router/paths";
 
-export const helpHttp = login => {
+export const helpHttp = (data = {}) => {
+  const {login, profile} = data;
   const customFetch = (endpoint, options) => {
     const defaultHeader = {
       Accept: "application/json",
@@ -38,7 +39,10 @@ export const helpHttp = login => {
               message: res.statusText || "Ocurrió un error",
             })
       )
-      .catch(err => err);
+      .catch(err => {
+        if (!profile && err.status == 401) window.location.reload();
+        return err;
+      });
   };
 
   const get = (url, options = {}) => customFetch(url, options);

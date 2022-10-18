@@ -1,32 +1,37 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Cookies from 'universal-cookie';
-import { LOGIN } from "../components/router/paths";
-import { storeDataProfile } from "../features/dataProfileSlice";
-import { closeLoaderForm, closeModalLayoutState, openLoaderForm, openModalLayoutState } from "../features/modalsSlice";
-import { helpAddTimeSession } from "../helpers/helpAddTimeSession";
-import { helpDropCookies } from "../helpers/helpDropCookies";
-import { helpHttp } from "../helpers/helpHttp";
+import {useEffect, useState} from "react";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import Cookies from "universal-cookie";
+import {LOGIN} from "../components/router/paths";
+import {storeDataProfile} from "../features/dataProfileSlice";
+import {
+  closeLoaderForm,
+  closeModalLayoutState,
+  openLoaderForm,
+  openModalLayoutState,
+} from "../features/modalsSlice";
+import {helpAddTimeSession} from "../helpers/helpAddTimeSession";
+import {helpDropCookies} from "../helpers/helpDropCookies";
+import {helpHttp} from "../helpers/helpHttp";
 
 const initialAuth = {
   state: 0,
-  message: '' 
-}
+  message: "",
+};
 
-const execTimeOut = (dispatch,navigate) => {
-  const cancelSession = setTimeout(()=>{
-    console.log('cancelar');
+const execTimeOut = (dispatch, navigate) => {
+  const cancelSession = setTimeout(() => {
+    console.log("cancelar");
     navigate(LOGIN);
     dispatch(closeModalLayoutState());
-  },1000*60+1000);
+  }, 1000 * 60 + 1000);
   const handleFunction = async () => {
     clearTimeout(cancelSession);
     dispatch(openLoaderForm());
     const response = await helpAddTimeSession();
     dispatch(closeLoaderForm());
     dispatch(closeModalLayoutState());
-    if(!response.state) return navigate(LOGIN);
+    if (!response.state) return navigate(LOGIN);
     setTimeout(() => execTimeOut(dispatch, navigate), 1000 * 60 * 60);
   };
   const dataPayload = {
@@ -47,24 +52,24 @@ const useAuth = () => {
 
   useEffect(() => {
     const cookies = new Cookies();
-    const token = cookies.get('accecs_token');
+    const token = cookies.get("accecs_token");
     (async () => {
       try {
-        const data = await helpHttp().post("profile");
+        const data = await helpHttp({profile: true}).post("profile");
         if (data.status) throw data;
-        if (!data.state) return setAuth({ state: 1, message: data.message });
-        const { PRIMER_NOMBRE, PRIMER_APELLIDO } = data.data;
-        dispatch(storeDataProfile({ PRIMER_NOMBRE, PRIMER_APELLIDO }));
-        setAuth({ state: 2, message: "" });
+        if (!data.state) return setAuth({state: 1, message: data.message});
+        const {PRIMER_NOMBRE, PRIMER_APELLIDO} = data.data;
+        dispatch(storeDataProfile({PRIMER_NOMBRE, PRIMER_APELLIDO}));
+        setAuth({state: 2, message: ""});
         setTimeout(() => execTimeOut(dispatch, navigate), 1000 * 60 * 60);
       } catch (error) {
         if (token) helpDropCookies();
-        setAuth({ state: 1, message: error.message });
+        setAuth({state: 1, message: error.message});
       }
     })();
   }, []);
-  
+
   return auth;
-}
+};
 
 export default useAuth;

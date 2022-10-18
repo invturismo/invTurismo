@@ -1,12 +1,20 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Filter from './Filter/Filter';
-import LabelFilter from './Filter/LabelFilter';
-import GeneralHeader from './GeneralHeader';
-import GeneralTable from './GeneralTable';
-import PaginationSection from './Pagination/PaginationSection';
+import React from "react";
+import {NavLink} from "react-router-dom";
+import CountData from "./CountData";
+import Filter from "./Filter/Filter";
+import LabelFilter from "./Filter/LabelFilter";
+import GeneralHeader from "./GeneralHeader";
+import GeneralTable from "./GeneralTable";
+import PaginationSection from "./Pagination/PaginationSection";
 
-const GeneralGet = ({children,h2Text,toFirst,toLast,linkOptions,others}) => {
+const GeneralGet = ({
+  children,
+  h2Text,
+  toFirst,
+  toLast,
+  linkOptions,
+  others,
+}) => {
   return (
     <div className="GeneralGet">
       <h2>{h2Text}</h2>
@@ -14,7 +22,7 @@ const GeneralGet = ({children,h2Text,toFirst,toLast,linkOptions,others}) => {
         <div className="ContainerOptionsGeneralGet">
           <NavLink
             to={toFirst}
-            className={({ isActive }) =>
+            className={({isActive}) =>
               isActive ? "activeOptionGeneralGet" : undefined
             }
           >
@@ -22,7 +30,7 @@ const GeneralGet = ({children,h2Text,toFirst,toLast,linkOptions,others}) => {
           </NavLink>
           <NavLink
             to={toLast}
-            className={({ isActive }) =>
+            className={({isActive}) =>
               isActive ? "activeOptionGeneralGet" : undefined
             }
           >
@@ -33,10 +41,11 @@ const GeneralGet = ({children,h2Text,toFirst,toLast,linkOptions,others}) => {
         <Filter />
         <LabelFilter />
         <GeneralTable>{children}</GeneralTable>
+        <CountData otherData={others} />
         <PaginationSection others={others} />
       </div>
     </div>
   );
-}
+};
 
 export default GeneralGet;

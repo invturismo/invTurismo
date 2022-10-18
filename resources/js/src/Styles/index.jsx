@@ -76,7 +76,7 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: auto;
   }
   .StyleTable{
-    width: 1029px;
+    width: 100%;
     margin: 0 auto;
     border-collapse: collapse;
     border-radius: 10px;

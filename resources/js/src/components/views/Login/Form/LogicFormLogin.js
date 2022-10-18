@@ -3,7 +3,7 @@ import {helpHttp} from "../../../../helpers/helpHttp";
 import {helpErrors} from "../../../../helpers/helpErrors";
 
 const fetchLogin = async values => {
-  const data = await helpHttp(true).post("login", {body: values});
+  const data = await helpHttp({login: true}).post("login", {body: values});
   if (!data.state) {
     helpErrors(data);
     return data;
