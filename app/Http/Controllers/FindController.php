@@ -7,6 +7,7 @@ use App\Models\ListadosPreliminares;
 use App\Helpers\Joins;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperDataRecurso;
+use App\Helpers\HelperLogs;
 
 class FindController extends Controller
 {
@@ -36,11 +37,7 @@ class FindController extends Controller
                 ["state" => true]
             ));
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 }
