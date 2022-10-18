@@ -18,7 +18,6 @@ class Codigos extends Model
         'ID_ELEMENTO',
         'ID_COMPONENTE',
         'ID_GRUPO',
-        'ID_TIPO_PATRIMONIO',
-        'ORDEN_ALFABETICO'
+        'ID_TIPO_PATRIMONIO'
     ];
 }

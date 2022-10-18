@@ -89,8 +89,7 @@ class CuadroResumenController extends Controller
 
     public function ExportCuadroResumen(Request $request)
     {
-        try {
-            $queryData = self::templateQuery();
+        $queryData = self::templateQuery();
             $queryData = HelperFilter::FilterAll($request,$queryData)->get()->toArray();
             if(count($queryData)>0) $queryData = self::otherData($queryData);
             if(count($queryData)>0) $queryData = CodigosController::getExport($queryData);
@@ -98,12 +97,5 @@ class CuadroResumenController extends Controller
                 "state" => true,
                 "data" => $queryData
             ]);
-        } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
-        }
     }
 }
