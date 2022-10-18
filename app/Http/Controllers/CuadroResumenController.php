@@ -11,6 +11,7 @@ use App\Helpers\HelperDataRecurso;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperQuerys;
 use App\Helpers\HelpersExport;
+use App\Helpers\HelperLogs;
 
 class CuadroResumenController extends Controller
 {
@@ -79,17 +80,14 @@ class CuadroResumenController extends Controller
                 ["state" => true]
             ));
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
     public function ExportCuadroResumen(Request $request)
     {
-        $queryData = self::templateQuery();
+        try {
+            $queryData = self::templateQuery();
             $queryData = HelperFilter::FilterAll($request,$queryData)->get()->toArray();
             if(count($queryData)>0) $queryData = self::otherData($queryData);
             if(count($queryData)>0) $queryData = CodigosController::getExport($queryData);
@@ -97,5 +95,8 @@ class CuadroResumenController extends Controller
                 "state" => true,
                 "data" => $queryData
             ]);
+        } catch (\Throwable $th) {
+            return response()->json(HelperLogs::Log($th));
+        }
     }
 }

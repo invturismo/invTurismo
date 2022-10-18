@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Helpers\HelperLogs;
 
 class AuthController extends Controller
 {
@@ -47,11 +48,7 @@ class AuthController extends Controller
                 'user_role' => $role
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -71,11 +68,7 @@ class AuthController extends Controller
                 'state' => true,
             ];
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -88,11 +81,7 @@ class AuthController extends Controller
                 'data' => $user
             ];
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -104,11 +93,7 @@ class AuthController extends Controller
                 'message' => ['Cerro sesion correctamente']
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         } 
     }
 }

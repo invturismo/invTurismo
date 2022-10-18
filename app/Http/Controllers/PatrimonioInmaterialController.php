@@ -12,11 +12,14 @@ use App\Http\Controllers\ActividadesController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\RedesController;
 use App\Models\PatrimoniosInmateriales;
+use App\Http\Controllers\HistorialController;
+use App\Http\Controllers\UpdateController;
 use App\Helpers\HelperQuerys;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelpersExport;
 use App\Helpers\HelperDelete;
+use App\Helpers\HelperLogs;
 
 class PatrimonioInmaterialController extends Controller
 {
@@ -79,11 +82,7 @@ class PatrimonioInmaterialController extends Controller
                 "state" => true,
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -142,11 +141,7 @@ class PatrimonioInmaterialController extends Controller
                 "state" => true,
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -165,11 +160,7 @@ class PatrimonioInmaterialController extends Controller
                 ["state" => true]
             ));
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -197,11 +188,7 @@ class PatrimonioInmaterialController extends Controller
                 "data" => $queryData
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -225,11 +212,7 @@ class PatrimonioInmaterialController extends Controller
                 ["state" => true]
             ));
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -290,11 +273,7 @@ class PatrimonioInmaterialController extends Controller
                 "data" => $mergeQuery
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 }

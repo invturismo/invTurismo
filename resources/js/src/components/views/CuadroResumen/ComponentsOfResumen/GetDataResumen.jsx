@@ -10,6 +10,7 @@ import {
   MATERIAL,
   SITIOS,
 } from "../../../router/paths";
+import CountData from "../../ComponentsOfViews/CountData";
 import Filter from "../../ComponentsOfViews/Filter/Filter";
 import LabelFilter from "../../ComponentsOfViews/Filter/LabelFilter";
 import GeneralHeader from "../../ComponentsOfViews/GeneralHeader";
@@ -27,7 +28,7 @@ const whoLink = {
 };
 
 const GetDataResumen = () => {
-  const { response, data } = useDataGeneral("cuadro-resumen");
+  const {response, data} = useDataGeneral("cuadro-resumen");
 
   if (!response) return <GeneralLoader />;
 
@@ -55,6 +56,7 @@ const GetDataResumen = () => {
             </tr>
           )}
         </GeneralTable>
+        <CountData otherData={data} />
         <PaginationSection others={data} />
       </div>
     </div>

@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'SEGUNDO_NOMBRE' => $this->faker->firstName(),
             'PRIMER_APELLIDO' => $this->faker->lastName,
             'SEGUNDO_APELLIDO' => $this->faker->lastName,
-            'USUARIO' => $this->faker->userName.$this->faker->word,
+            'USUARIO' => $this->faker->word.$this->faker->word,
             'CORREO' => $this->faker->email
         ];
     }

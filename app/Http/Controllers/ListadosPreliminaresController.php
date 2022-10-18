@@ -9,13 +9,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\HistorialController;
 use App\Http\Controllers\UpdateController;
-use App\Http\Controllers\PatrimoniosMaterialesController;
-use App\Models\Historial_Insert_Delete;
 use App\Helpers\Joins;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelperFilter;
 use App\Helpers\HelpersExport;
 use App\Helpers\HelpersClasificacion;
+use App\Helpers\HelperLogs;
 
 class ListadosPreliminaresController extends Controller
 {
@@ -53,11 +52,7 @@ class ListadosPreliminaresController extends Controller
                 'state' => false,
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -87,11 +82,7 @@ class ListadosPreliminaresController extends Controller
                 'id_listado' => $listadosPreliminares->ID_LISTADO
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                'state' => false,
-                'message' => 'Error en la base de datos',
-                'phpMessage' => $th->getMessage(),
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -134,11 +125,7 @@ class ListadosPreliminaresController extends Controller
                 "state" => true
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -202,11 +189,7 @@ class ListadosPreliminaresController extends Controller
                 "state" => true
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -246,11 +229,7 @@ class ListadosPreliminaresController extends Controller
                 ["state" => true]
             ));
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -276,11 +255,7 @@ class ListadosPreliminaresController extends Controller
                 "data" => $queryData
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 
@@ -310,11 +285,7 @@ class ListadosPreliminaresController extends Controller
                 "data" => $queryData
             ]);
         } catch (\Throwable $th) {
-            return response()->json([
-                "state" => false,
-                "message" => "Error en la base de datos",
-                'phpMessage' => $th->getMessage()
-            ]);
+            return response()->json(HelperLogs::Log($th));
         }
     }
 }
