@@ -47,7 +47,6 @@ class ClimaController extends Controller
 
     public static function getRecord($idClima)
     {
-        $queryData = Climas::find($idClima)->toArray();
-        return $queryData;
+        return Climas::find($idClima)->toArray();
     }
 }

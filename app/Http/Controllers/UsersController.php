@@ -82,7 +82,7 @@ class UsersController extends Controller
 
     public static function templateQuery()
     {
-        $queryData = User::select(
+        return User::select(
             'ID_USUARIO',
             'ID_TIPO_USUARIO',
             'PRIMER_NOMBRE',
@@ -92,7 +92,6 @@ class UsersController extends Controller
             'USUARIO',
             'CORREO'
         )->where('EXIST','=',true);
-        return $queryData;
     }
 
     public function update(Request $request)

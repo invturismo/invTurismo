@@ -79,7 +79,6 @@ class ImagenesController extends Controller
 
     public static function getRecord($idImagen)
     {
-        $queryData = Imagenes::find($idImagen)->toArray();
-        return $queryData;
+        return Imagenes::find($idImagen)->toArray();
     }
 }
