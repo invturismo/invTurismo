@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Helpers;
-use App\Models\Logs_App;
+use App\Models\LogsApp;
 
 class HelperLogs
 {
   public static function Log($error)
   {
-    $log = new Logs_App();
+    $log = new LogsApp();
     $log->MESSAGE_LOG = $error->getMessage();
     $log->FILE = $error->getFile();
     $log->LINE = $error->getLine();

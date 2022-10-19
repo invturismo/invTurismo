@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://invturismo.jptecnologia.com'],
+    'allowed_origins' => ['http://invturismo.jptecnologia.com'],
 
     'allowed_origins_patterns' => [],
 
