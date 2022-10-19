@@ -43,7 +43,7 @@ class HelpersExport
 
   public static function JoinUsuarioFecha($query,$table,$nameKey)
   {
-      $queryData = $query->join(
+      return $query->join(
         'usuarios',
         "{$table}.ID_USUARIO",
         "=","usuarios.ID_USUARIO"
@@ -52,7 +52,6 @@ class HelpersExport
         'usuarios.PRIMER_NOMBRE',
         'usuarios.PRIMER_APELLIDO'
       );
-      return $queryData;
   }
 
   public static function templateHistorial($tabla,$id,$movimiento,$idListado)

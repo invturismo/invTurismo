@@ -54,7 +54,7 @@ class CuadroResumenController extends Controller
 
     public static function templateQuery()
     {
-        $queryData = Joins::JoinGeneral(new ListadosPreliminares())
+        return Joins::JoinGeneral(new ListadosPreliminares())
         ->select(
             'listados_preliminares.*',
             'tipos_bien.TIPO_BIEN',
@@ -63,7 +63,6 @@ class CuadroResumenController extends Controller
         )->join( "tipos_bien","listados_preliminares.ID_TIPO_BIEN","=","tipos_bien.ID_TIPO_BIEN")
         ->whereNotNull('codigos.ID_TIPO_PATRIMONIO')
         ->where('listados_preliminares.EXIST','=',true);
-        return $queryData;
     }
 
     public function getData(Request $request)

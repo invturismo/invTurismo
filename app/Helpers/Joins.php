@@ -6,12 +6,11 @@ class Joins
 {
   public static function JoinCodigo($query)
   {
-    $queryData = $query->join(
+    return $query->join(
       "codigos",
       "codigos.ID_CODIGO",
       "=","listados_preliminares.ID_CODIGO"
     );
-    return $queryData;
   }
 
   public static function JoinMunicipio($query)
@@ -22,21 +21,19 @@ class Joins
           ->on("codigos.ID_DEPARTAMENTOS",'municipios.ID_DEPARTAMENTOS');
       });
     };
-    $queryData = $query->join(
+    return $query->join(
       'municipios',
       $sendFunction
     );
-    return $queryData;
   }
 
   public static function JoinDepartamento($query)
   {
-    $queryData = $query->join(
+    return $query->join(
       "departamentos",
       "municipios.ID_DEPARTAMENTOS",
       "=","departamentos.ID_DEPARTAMENTOS"
     );
-    return $queryData;
   }
 
   public static function JoinGeneral($query)

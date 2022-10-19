@@ -11,7 +11,7 @@ use App\Http\Controllers\HistorialController;
 class HorariosController extends Controller
 {
     public static function rules() {
-        return $rules = [
+        return [
             'RESTRINGIDO' => [new ValidateBoolean()],
             'PERMANENTE' => [new ValidateBoolean()],
             'VISITA_EXTERIOR' => [new ValidateBoolean()],
