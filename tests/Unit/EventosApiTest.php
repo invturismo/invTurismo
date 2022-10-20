@@ -13,6 +13,7 @@ use App\Models\Codigos;
 
 class EventosApiTest extends TestCase
 {
+    /*Metodo que retorna los datos necesarios para crear o actualizar alguna festividad o evento */
     private function sendData($idEvento)
     {
         $dataCalidad = CalidadFestividades::factory()->make()->toArray();
@@ -23,6 +24,7 @@ class EventosApiTest extends TestCase
         return [$dataPuntaje,$otherData];
     }
 
+    /*Metodo para testear el completar los datos necesarios de las festividades y eventos */
     public function test_completar_recurso_festividades_eventos()
     {
         $listado = ListadosPreliminares::factory()->create(['ID_TIPO_BIEN' => 3]);
@@ -36,6 +38,7 @@ class EventosApiTest extends TestCase
         ->assertJson(['state'=>true]);        
     }
 
+    /*Metodo para testear la actualizacion de los datos necesarios para las festividades y eventos */
     public function test_actualizar_recurso_festividades_eventos()
     {
         $listado = ListadosPreliminares::factory()->create([

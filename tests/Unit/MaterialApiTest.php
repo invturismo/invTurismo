@@ -13,6 +13,7 @@ use App\Models\Codigos;
 
 class MaterialApiTest extends TestCase
 {
+    /*Metodo que retorna los datos necesarios para crear o actualizar algun patrimonio material */
     private function sendData($idMaterial)
     {
         $dataCalidad = CalidadMaterial::factory()->make()->toArray();
@@ -23,6 +24,7 @@ class MaterialApiTest extends TestCase
         return [$dataPuntaje,$otherData];
     }
 
+    /*Metodo para testear el completar los datos necesarios de los patrimonios materiales */
     public function test_completar_recurso_patrimonio_material()
     {
         $listado = ListadosPreliminares::factory()->create(['ID_TIPO_BIEN' => 1]);
@@ -36,6 +38,7 @@ class MaterialApiTest extends TestCase
         ->assertJson(['state'=>true]);        
     }
 
+    /*Metodo para testear la actualizacion de los datos necesarios para los patrimonios materiales */
     public function test_actualizar_recurso_patrimonio_material()
     {
         $listado = ListadosPreliminares::factory()->create([

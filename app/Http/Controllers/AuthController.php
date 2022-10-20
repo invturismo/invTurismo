@@ -13,6 +13,7 @@ use App\Helpers\HelperLogs;
 
 class AuthController extends Controller
 {
+    /*Metodo para iniciar sesion en la aplicacion */
     public function login(Request $request){
         $rules = [
             'user' => 'required',
@@ -52,6 +53,7 @@ class AuthController extends Controller
         }
     }
 
+    /*Metodo para añadir tiempo a la sesion del usuario */
     public static function addTime()
     {
         $user = Auth::user();
@@ -60,6 +62,7 @@ class AuthController extends Controller
         return $user;
     }
 
+    /*Metodo para actualizar la sesion del usuario con ayuda del metodo addTime */
     public function updateSession()
     {
         try {
@@ -72,6 +75,7 @@ class AuthController extends Controller
         }
     }
 
+    /*Metodo para consultar los datos del usuario y eliminar los tokens vencidos */
     public function profile () {
         try {
             $user = self::addTime();
@@ -85,6 +89,7 @@ class AuthController extends Controller
         }
     }
 
+    /*Metodo para cerrar cesion */
     public function logout () {
         try {
             Auth::user()->currentAccessToken()->delete();

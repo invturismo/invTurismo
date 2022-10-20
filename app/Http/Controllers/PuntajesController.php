@@ -16,11 +16,14 @@ use App\Http\Controllers\HistorialController;
 
 class PuntajesController extends Controller
 {
+    /*Variable que define algunas reglas para los puntajes del recurso turistico */
     public static $rules = [
         'TOTAL' => 'required|numeric|between:0,100',
         'ID_SIGNIFICADO' => 'required|max:1',
     ];
 
+    /*Variable que define las reglas para todos los tipos de calidad segun la clasificacion
+    del recurso turistico */
     public static $rulesCalidad = [
         'PATRIMONIOS_MATERIALES' => [
             'ESTADO_CONSERVACION' => 'required|numeric|between:0,21',
@@ -57,6 +60,8 @@ class PuntajesController extends Controller
         ]
     ];
 
+    /*Metodo para crear un nuevo registro en la tabla de valoracion dependiendo
+    de la clasificacion del recurso turistico*/
     public static function createValoracion($valoracion,$clientData)
     {
         $valoracion->ID_SIGNIFICADO = $clientData->ID_SIGNIFICADO;
@@ -64,6 +69,8 @@ class PuntajesController extends Controller
         $valoracion->save();
     }
 
+    /*Metodo para actualizar un registro en la tabla de valoracion dependiendo
+    de la clasificacion del recurso turistico*/
     public static function updateValoracion(
         $valoracion,$clientData,$name,$idValoracion,$idUsuario,$idListado
     )
@@ -86,12 +93,14 @@ class PuntajesController extends Controller
         }
     }
 
+    /*Metodo que une todas las reglas necesarias para dar puntaje a los recursos turisticos */
     public static function rulesPuntajes($who)
     {
         $rulesWho = self::$rulesCalidad[$who];
         return array_merge(self::$rules,$rulesWho);
     }
 
+    /*Metodo para dar puntaje a un recurso turistico segun la clasificacion del mismo */
     public static function create($clientData,$who)
     {
         switch ($who) {
@@ -160,6 +169,7 @@ class PuntajesController extends Controller
         }
     }
 
+    /*Metodo para actualizar el puntaje de un recurso turistico segun la clasificacion del mismo */
     public static function update($clientData,$queryUpdate,$idUsuario,$who)
     {
         switch ($who) {
@@ -288,6 +298,7 @@ class PuntajesController extends Controller
         }
     }
 
+    /*Metodo para consultar el puntaje de un registro especifico segun la clasificacion del mismo */
     public static function getRecord($idPuntaje,$who)
     {
         switch ($who) {

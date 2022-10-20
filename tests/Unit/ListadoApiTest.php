@@ -10,6 +10,7 @@ use App\Models\Codigos;
 
 class ListadoApiTest extends TestCase
 {
+    /*Metodo que retorna los datos necesarios para crear o actualizar un recurso turistico */
     private function dataSend($id = false)
     {
         $faker = Factory::create();
@@ -25,6 +26,7 @@ class ListadoApiTest extends TestCase
         return $templateData;
     }
 
+    /*Metodo que testea la creacion de un nuevo recurso turistico */
     public function test_crear_recurso()
     {
         $dataCreate = $this->dataSend();
@@ -34,6 +36,7 @@ class ListadoApiTest extends TestCase
         ->assertJson(['state'=>true]); 
     }
 
+    /*Metodo que testea la actualizacion un recurso turistico en listado preliminar */
     public function test_actualizar_recurso_listado()
     {
         $listado = ListadosPreliminares::factory()->create();

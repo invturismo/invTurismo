@@ -29,6 +29,7 @@ use App\Models\Historial_Insert_Delete;
 
 class HelpDataRecursos
 {
+  /*Metodo que un objeto dependiendo del tipo de bien */
   public static function objectClasificacion($idClasificacion)
   {
     $typesClasificacion = [
@@ -41,11 +42,13 @@ class HelpDataRecursos
     return $typesClasificacion[$idClasificacion];
   }
 
+  /*Metodo que retorna los datos de un nuevo registro dependiendo del tipo de bien */
   public static function factoryClasificacion($idClasificacion,$data)
   {
     return self::objectClasificacion($idClasificacion)->factory()->create($data);
   }
 
+  /*Metodo que descarta los valores nulos de un array asociativo */
   public static function convertData(...$data)
   {
     $finalData = [];
@@ -61,6 +64,7 @@ class HelpDataRecursos
     return $finalData;
   }
 
+  /*Metodo que retorna los datos para crear o actulizar un registro en la tabla de imagenes */
   public static function imagenesData()
   {
     $faker = Factory::create();
@@ -71,6 +75,7 @@ class HelpDataRecursos
     ];
   }
 
+  /*Metodo que retorna los datos de un puntaje para un recurso turistico */
   public static function puntajeData($valoracion,$calidad)
   {
     $arraySignificado = [6,12,18,30];
@@ -82,6 +87,7 @@ class HelpDataRecursos
     return array_merge($calidad,$dataValoracion);
   }
 
+  /*Metodo que retorna el id del nuevo registro en la tabla de caracteristicas */
   public static function caracteristicasData()
   {
     $faker = Factory::create();
@@ -98,6 +104,7 @@ class HelpDataRecursos
     return $dataCaracteristicas->ID_CARACTERISTICA;
   }
 
+  /*Metodo que crea el historal de un nuevo registro */
   public static function dataFecha($idRecurso,$tabla)
   {
     Historial_Insert_Delete::factory()->create([
@@ -107,6 +114,8 @@ class HelpDataRecursos
     ]);
   }
 
+  /*Metodo que retorna los datos necesarios para completar un recurso turistico dependiendo de su
+  clasificacion */
   public static function dataSend($dataListado,$dataPuntaje,$otherData)
   {
     $dataAdmin = Admin::factory()->withMake()->make()->toArray();

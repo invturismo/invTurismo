@@ -26,12 +26,14 @@ use App\Helpers\HelperLogs;
 
 class FestividadesController extends Controller
 {
+    /*Variable que define algunas reglas para las festividades y eventos */
     public static $rules = [
         'ID_EVENTO' => 'required|numeric',
         'REF_BIBLIOGRAFICA' => 'max:300',
         'OBSERVACIONES' => 'max:300',
     ];
 
+    /*Metodo que une todas las reglas necesarias para las festividades y eventos */
     public function mergeRules($state)
     {
         return array_merge(
@@ -49,6 +51,7 @@ class FestividadesController extends Controller
         );
     }
 
+    /*Metodo para completar un registro en la tabla de festividades y eventos */
     public function insertForm(Request $request) 
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
@@ -98,6 +101,7 @@ class FestividadesController extends Controller
         }
     }
 
+    /*Metodo para eliminar un registro en la tabla de festividades y eventos */
     public function delete(Request $request)
     {
         $arrayMessage = HelperDelete::delete(
@@ -109,6 +113,7 @@ class FestividadesController extends Controller
         return response()->json($arrayMessage);
     }
 
+    /*Metodo para actualizar un registro de la tabla de festividades y eventos */
     public function update(Request $request)
     {
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
@@ -160,6 +165,7 @@ class FestividadesController extends Controller
         }
     }
 
+    /*Metodo para consultar los registros de festividades y eventos que no se han clasificado */
     public function getDataSinCom(Request $request)
     {
         try {
@@ -179,6 +185,8 @@ class FestividadesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de festividades y eventos 
+    que no se han clasificado */
     public function getRecordSinCom(Request $request)
     {
         try {
@@ -207,6 +215,7 @@ class FestividadesController extends Controller
         }
     }
 
+    /*Metodo para consultar los registros de festividades y eventos que ya se clasificaron */
     public function getDataCom(Request $request)
     {
         try {
@@ -231,6 +240,8 @@ class FestividadesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de festividades y eventos 
+    que ya se clasifico */
     public function getRecordCom(Request $request)
     {
         try {

@@ -10,6 +10,7 @@ use App\Helpers\Joins;
 
 class CodigosController extends Controller
 {
+    /*Variable que define las reglas para los codigos del recurso turistico */
     public static $rules = [
         'ID_DEPARTAMENTOS'=>'required|max:2',
         'ID_MUNICIPIOS'=>'required|max:3',
@@ -19,6 +20,7 @@ class CodigosController extends Controller
         'ID_TIPO_PATRIMONIO' => 'required|max:1',
     ];
 
+    /*Metodo para crear un nuevo registro en la tabla de codigos */
     public static function create($clientData,$idListado,$idUsuario)
     {
         $queryData = Joins::JoinCodigo(new ListadosPreliminares())->select(
@@ -56,6 +58,7 @@ class CodigosController extends Controller
         $codigos->save();
     }
 
+    /*Metodo para actualizar un registro de la tabla de codigos */
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryListado = ListadosPreliminares::find($queryUpdate->ID_LISTADO);
@@ -80,6 +83,7 @@ class CodigosController extends Controller
         $queryData->save();
     }
 
+    /*Metodo que contiene la plantilla de consulta de la tabla de codigo */
     public static function templateQuery($queryListado)
     {
         $queryData = Joins::JoinCodigo(new ListadosPreliminares())
@@ -93,6 +97,8 @@ class CodigosController extends Controller
         return $queryData;
     }
 
+    /*Metodo que consulta un registro especifico de la tabla de listados preliminares y 
+    que concatena con la tabla de codigos */
     public static function queryListado($idListado)
     {
         $queryListado = Joins::JoinCodigo(new ListadosPreliminares())
@@ -101,6 +107,7 @@ class CodigosController extends Controller
         return $queryListado;
     }
 
+    /*Metodo para generar el codigo de 7 digitos de un recurso especifico */
     public static function findRecord($idListado)
     {
         $queryListado = self::queryListado($idListado);
@@ -123,6 +130,7 @@ class CodigosController extends Controller
         return $joinData;
     }
 
+    /*Metodo que retorna los codigos y otros datos de un recurso turistico en especifico */
     public static function validateListado($idListado)
     {
         $queryListado = self::queryListado($idListado);
@@ -136,6 +144,7 @@ class CodigosController extends Controller
         return [$code,$queryListado];
     }
 
+    /*Metodo para generar el codigo de 7 digitos de los recursos turisticos para exportar a excel */
     public static function findExport($queryListado)
     {
         $queryData = self::templateQuery($queryListado);
@@ -162,6 +171,7 @@ class CodigosController extends Controller
         return $finalArray;
     }
 
+    /*Metodo que retorna los codigos de 7 digitos de unos recursos turisticos en especifico */
     public static function getData($dataSend)
     {
         foreach ($dataSend['data'] as $key => $value) {
@@ -171,6 +181,7 @@ class CodigosController extends Controller
         return $dataSend;
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de codigos */
     public static function getRecord($idListado,$idCodigo)
     {
         $codigo = self::findRecord($idListado);
@@ -180,6 +191,8 @@ class CodigosController extends Controller
         ];
     }
 
+    /*Metodo que agrega el codigo de 7 digitos a una consulta previa con el fin de exportar 
+    dichos datos a excel */
     public static function getExport($dataSend)
     {
         $consultArray = [];
@@ -197,6 +210,8 @@ class CodigosController extends Controller
         return $dataSend;
     }
 
+    /*Metodo para validar que el nombre del recurso turistico no exista en la base de datos 
+    con el mismo codigo */
     public static function existName($idListado,$request,$update)
     {
         $queryData = self::templateQuery($request);

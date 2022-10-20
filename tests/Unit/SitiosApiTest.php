@@ -13,6 +13,7 @@ use App\Models\Codigos;
 
 class SitiosApiTest extends TestCase
 {
+    /*Metodo que retorna los datos necesarios para crear o actualizar algun sitio natural */
     private function sendData($idSitio)
     {
         $dataCalidad = CalidadSitios::factory()->make()->toArray();
@@ -23,6 +24,7 @@ class SitiosApiTest extends TestCase
         return [$dataPuntaje,$otherData];
     }
 
+    /*Metodo para testear el completar los datos necesarios de los sitios naturales */
     public function test_completar_recurso_sitios_naturales()
     {
         $listado = ListadosPreliminares::factory()->create(['ID_TIPO_BIEN' => 5]);
@@ -36,6 +38,7 @@ class SitiosApiTest extends TestCase
         ->assertJson(['state'=>true]);        
     }
 
+    /*Metodo para testear la actualizacion de los datos necesarios para los sitios naturales */
     public function test_actualizar_recurso_sitios_naturales()
     {
         $listado = ListadosPreliminares::factory()->create([

@@ -8,6 +8,7 @@ use App\Http\Controllers\HistorialController;
 
 class ServiciosEspecialesController extends Controller
 {
+    /*Variable que define las reglas para los servicios especiales del recurso turistico */
     public static $rules = [
         'ASCENSORES' => 'max:300',
         'RAMPAS' => 'max:300',
@@ -17,6 +18,7 @@ class ServiciosEspecialesController extends Controller
         'OTROS3' => 'max:300',
     ];
 
+    /*Metodo para crear un nuevo registro en la tabla de servicios especiales */
     public static function create($clientData)
     {
         $especial = new ServiciosEspeciales();
@@ -30,6 +32,7 @@ class ServiciosEspecialesController extends Controller
         return $especial->ID_SERVICIO_ESPECIAL;
     }
 
+    /*Metodo para actualizar un registro de la tabla de servicios especiales */
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = ServiciosEspeciales::find($queryUpdate->ID_SERVICIO_ESPECIAL);
@@ -53,6 +56,7 @@ class ServiciosEspecialesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de servicios especiales */
     public static function getRecord($idEspecial)
     {
         $queryData = ServiciosEspeciales::find($idEspecial)->toArray();

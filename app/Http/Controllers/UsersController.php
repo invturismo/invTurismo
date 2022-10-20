@@ -20,6 +20,7 @@ use App\Helpers\HelperLogs;
 
 class UsersController extends Controller
 {
+    /*Metodo que retorna las reglas para los usuarios de la app */
     public static function rules($clave,$id=false)
     {
         $unique = new ValidateUserNameAndEmail();
@@ -43,6 +44,7 @@ class UsersController extends Controller
         return array_merge($rulesCreate,$rules);
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de usuarios */
     public function register(Request $request) {
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
             'state' => false,
@@ -74,12 +76,14 @@ class UsersController extends Controller
         }
     }
 
+    /*Metodo para eliminar el token de sesion del usuario que se este manipulando */
     public static function deleteTokens($idUsuario)
     {
         DB::table('personal_access_tokens')->where('tokenable_id','=',$idUsuario)
         ->delete();
     }
 
+    /*Metodo que contiene la plantilla para consultar un usuario */
     public static function templateQuery()
     {
         return User::select(
@@ -94,6 +98,7 @@ class UsersController extends Controller
         )->where('EXIST','=',true);
     }
 
+    /*Metodo para actualizar un registro de la tabla de usuarios */
     public function update(Request $request)
     {
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
@@ -141,6 +146,7 @@ class UsersController extends Controller
         }
     }
 
+    /*Metodo para consultar los usuarios registrados en la base de datos */
     public function getData(Request $request)
     {
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
@@ -166,6 +172,7 @@ class UsersController extends Controller
         }
     }
 
+    /*Metodo para consultar un usuario especifico registrado en la base de datos */
     public function getRecord(Request $request)
     {  
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
@@ -188,6 +195,7 @@ class UsersController extends Controller
         }
     }
 
+    /*Metodo para saber si el usuario que se desea manipular se encuentra en sesion */
     public function validateTokens(Request $request)
     {
         try {
@@ -209,6 +217,8 @@ class UsersController extends Controller
         }
     }
 
+    /*Metodo para consultar un usuario registrado en la base de datos e informar 
+    a la base de datos que ese registro se esta actualizando */
     public function infoUpdate(Request $request)
     {
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
@@ -238,6 +248,7 @@ class UsersController extends Controller
         }
     }
 
+    /*Metodo para cambiar la contraseña de algun usuario */
     public function resetPassword(Request $request)
     {
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([
@@ -275,6 +286,7 @@ class UsersController extends Controller
         }
     }
 
+    /*Metodo eliminar un usuario de la base de datos */
     public function delete(Request $request)
     {
         if(Auth::user()->ID_TIPO_USUARIO != 1) return response()->json([

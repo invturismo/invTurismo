@@ -18,6 +18,7 @@ use App\Helpers\HelperLogs;
 
 class ListadosPreliminaresController extends Controller
 {
+    /*Metodo que retorna las reglas para los listados preliminares del recurso turistico */
     public static function rules($update=false)
     {
         $templateRules = [
@@ -32,6 +33,7 @@ class ListadosPreliminaresController extends Controller
         return array_merge($updateRules,$templateRules);
     }
 
+    /*Metodo para validar si el nombre del recurso turistico ya se encuntra en la base de datos */
     public function validateName(Request $request) 
     {
         try {
@@ -56,6 +58,7 @@ class ListadosPreliminaresController extends Controller
         }
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de listados preliminares */
     public function create(Request $request) { 
         $isValid = HelperValidator::Validate(self::rules(),$request);
         if($isValid != 1) return response()->json($isValid);
@@ -86,6 +89,7 @@ class ListadosPreliminaresController extends Controller
         }
     }
 
+    /*Metodo para eliminar un registro en la tabla de lisatados preliminares */
     public function delete(Request $request)
     {
         $rules = ['ID_LISTADO' => 'required|numeric'];
@@ -129,6 +133,7 @@ class ListadosPreliminaresController extends Controller
         }
     }
 
+    /*Metodo para actualizar un registro de la tabla de listados preliminares */
     public function update(Request $request) 
     {
         $isValid = HelperValidator::Validate(self::rules(true),$request);
@@ -193,6 +198,7 @@ class ListadosPreliminaresController extends Controller
         }
     }
 
+    /*Metodo que contiene la plantilla para consultar un listado preliminar */
     public static function templateQuery()
     {
         $queryData = ListadosPreliminares::join(
@@ -216,6 +222,7 @@ class ListadosPreliminaresController extends Controller
         return $queryData;
     }
 
+    /*Metodo para consultar los registros de listados preliminares */
     public function getData(Request $request) 
     {
         try {
@@ -233,6 +240,7 @@ class ListadosPreliminaresController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de listados preliminares */
     public function getRecord(Request $request)
     {
         try {
@@ -259,6 +267,8 @@ class ListadosPreliminaresController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de listados preliminares e informar 
+    a la base de datos que ese registro se esta actualizando*/
     public function infoUpdate(Request $request)
     {
         try {

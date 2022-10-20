@@ -9,6 +9,7 @@ use App\Models\ListadosPreliminares;
 
 class ClasificadoApiTest extends TestCase
 {
+    /*Metodo para generar un numero aleatorio */
     private function randomNumber($idBien)
     {
         $randomId = rand(1, 5);
@@ -19,6 +20,8 @@ class ClasificadoApiTest extends TestCase
         return $randomId;
     }
 
+    /*Metodo que retorna los datos necesarios para clasificar o actulizar una
+    clasificacion de algun recurso turistico */
     private function dataSend($idListado,$idBien = false)
     {
         return [
@@ -27,6 +30,7 @@ class ClasificadoApiTest extends TestCase
         ];
     }
 
+    /*Metodo para testear la clasificacion de un recurso turistico */
     public function test_clasificar_recurso()
     {
         $listado = ListadosPreliminares::factory()->create();
@@ -37,6 +41,7 @@ class ClasificadoApiTest extends TestCase
         ->assertJson(['state'=>true]);
     }
 
+    /*Metodo para testear la actualizacion de la clasificacion de un recurso turistico */
     public function test_actulizar_clasificacion()
     {
         $idRandom = rand(1,5);

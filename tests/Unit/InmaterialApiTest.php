@@ -13,6 +13,7 @@ use App\Models\Codigos;
 
 class InmaterialApiTest extends TestCase
 {
+    /*Metodo que retorna los datos necesarios para crear o actualizar algun patrimonio inmaterial */
     private function sendData($idInmaterial)
     {
         $dataCalidad = CalidadInmaterial::factory()->make()->toArray();
@@ -23,6 +24,7 @@ class InmaterialApiTest extends TestCase
         return [$dataPuntaje,$otherData];
     }
 
+    /*Metodo para testear el completar los datos necesarios de los patrimonios inmateriales */
     public function test_completar_recurso_patrimonio_inmaterial()
     {
         $listado = ListadosPreliminares::factory()->create(['ID_TIPO_BIEN' => 2]);
@@ -36,6 +38,7 @@ class InmaterialApiTest extends TestCase
         ->assertJson(['state'=>true]);
     }
 
+    /*Metodo para testear la actualizacion de los datos necesarios para los patrimonios inmateriales */
     public function test_actualizar_recurso_patrimonio_material()
     {
         $listado = ListadosPreliminares::factory()->create([

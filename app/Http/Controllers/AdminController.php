@@ -9,6 +9,7 @@ use App\Http\Controllers\HistorialController;
 
 class AdminController extends Controller
 {
+    /*Metodo que retorna las reglas para el administrador o propietario del recurso turistico */
     public static function rules()
     {
         return [
@@ -20,6 +21,7 @@ class AdminController extends Controller
         ];
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de admin */
     public static function create($clientData)
     {
         $admin = new Admin();
@@ -32,6 +34,7 @@ class AdminController extends Controller
         return $admin->ID_ADMIN;
     }
 
+    /*Metodo para actualizar un registro de la tabla de admin */
     public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Admin::find($queryUpdate->ID_ADMIN);
@@ -52,6 +55,7 @@ class AdminController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de admin */
     public static function getRecord($idAdmin)
     {
         $queryData = Admin::find($idAdmin)->toArray();

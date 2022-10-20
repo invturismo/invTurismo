@@ -5,6 +5,7 @@ use App\Models\User;
 
 class HelpToken
 {
+  /*Metodo que retorna las cabeceras para realizar una peticion al servidor */
   public static function headers()
   {
     $user = User::find(1);

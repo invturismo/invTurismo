@@ -12,6 +12,8 @@ use App\Http\Controllers\HistorialController;
 
 class HelpersClasificacion
 {
+  /*Metodo que inserta en la base de datos un nuevo registro dependiendo de la clasificacion que
+  provee el usuario */
   public static function insertForms ($ID_LISTADO,$ID_TIPO_BIEN,$ID_USUARIO)
   {
     switch ($ID_TIPO_BIEN) {
@@ -73,6 +75,7 @@ class HelpersClasificacion
     }
   }
 
+  /*Metodo que ayuda a cambiar la clasificacion del recurso, eliminando el registro anterior */
   public static function deleteForms($FORMULARIO,$ID_REGISTRO,$ID_USUARIO)
   {
     if (!empty($FORMULARIO)){

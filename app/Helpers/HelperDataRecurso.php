@@ -10,6 +10,8 @@ use App\Models\SitiosNaturales;
 
 class HelperDataRecurso 
 {
+  /*Metodo para saber con cual atractivo se esta interactuando actualmete,
+  crea un objeto del mismo y retorna datos relevantes para posterior uso*/
   public static function WhoAtractivo($tipoBien,$idListado)
   {
     switch ($tipoBien) {

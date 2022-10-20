@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserApiTest extends TestCase
 {
+    /*Metodo que retorna los datos necesarios para crear o actualizar algun usuario */
     private function sendData()
     {
         $clave = 'Prueba123*';
@@ -18,6 +19,7 @@ class UserApiTest extends TestCase
         ])->toArray();
     }
 
+    /*Metodo que testea la creacion de algun usuario */
     public function test_crear_usuario()
     {
         $dataSend = $this->sendData();
@@ -27,6 +29,7 @@ class UserApiTest extends TestCase
         ->assertJson(['state'=>true]); 
     }
 
+    /*Metodo que testea la actualizacion de algun usuario */
     public function test_actualizar_usuario()
     {
         $clave = Hash::make('Prueba123*');

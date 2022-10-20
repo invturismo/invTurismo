@@ -11,6 +11,7 @@ use App\Helpers\HelperLogs;
 
 class HelperDelete 
 {
+  /* Metodo que centraliza la opcion de eliminar algun registro segun su clasifiacion */
   public static function delete($request,$id,$queryData,$table)
   {
     try {
@@ -50,7 +51,7 @@ class HelperDelete
         "state" => true
       ];
     } catch (\Throwable $th) {
-      return response()->json(HelperLogs::Log($th));
+      return HelperLogs::Log($th);
     }
   }
 }

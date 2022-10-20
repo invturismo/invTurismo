@@ -9,6 +9,7 @@ use App\Rules\ValidateNumber;
 
 class ClimaController extends Controller
 {
+    /*Metodo que retorna las reglas para el clima del recurso turistico */
     public static function rules()
     {
         return [
@@ -17,6 +18,7 @@ class ClimaController extends Controller
         ];
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de climas */
     public static function create($clientData)
     {
         $clima = new Climas();
@@ -26,6 +28,7 @@ class ClimaController extends Controller
         return $clima->ID_CLIMA;
     }
 
+    /*Metodo para actualizar un registro de la tabla de climas */
     public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Climas::find($queryUpdate->ID_CLIMA);
@@ -45,6 +48,7 @@ class ClimaController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de climas */
     public static function getRecord($idClima)
     {
         return Climas::find($idClima)->toArray();

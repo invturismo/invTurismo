@@ -6,11 +6,7 @@ use Tests\TestCase;
 
 class AuthApiTest extends TestCase
 {
-    /**
-     * A basic unit test example.
-     *
-     * @return void
-     */
+    /*Metodo para testear la funcion de iniciar sesion */
     public function test_login()
     {
         $response = $this->postJson(

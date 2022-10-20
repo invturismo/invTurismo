@@ -7,6 +7,8 @@ use App\Helpers\Joins;
 
 class HelperQuerys
 {
+  /*Metodo que permite consultar los datos relevantes de los recursos turisticos ya clasificados, 
+  dependiendo del tipo de bien */
   public static function queryPatrimonios($query,$table,$idKey,$selectArguments = [],$puntajeArguments = [])
   {
     $queryData = $query->join(
@@ -36,6 +38,8 @@ class HelperQuerys
     return $queryData;
   }
 
+  /*Metodo que valida si el registro existe y retorna la informacion necesaria,
+  dependiendo del tipo de bien  */
   public static function queryValidatePatrimonios($query,$table,$idKey,$request)
   {
     $queryData = $query->join(

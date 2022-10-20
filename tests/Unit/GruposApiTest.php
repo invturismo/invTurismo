@@ -12,6 +12,7 @@ use App\Models\Codigos;
 
 class GruposApiTest extends TestCase
 {
+    /*Metodo que retorna los datos necesarios para crear o actualizar algun grupo de especial interes */
     private function sendData($idGrupo)
     {
         $dataPuntaje = ValoracionesGrupos::factory()->make()->toArray();
@@ -21,6 +22,7 @@ class GruposApiTest extends TestCase
         return [$dataPuntaje,$otherData];
     }
 
+    /*Metodo para testear el completar los datos necesarios de los grupos de especial interes */
     public function test_completar_recurso_grupos_especiales()
     {
         $listado = ListadosPreliminares::factory()->create(['ID_TIPO_BIEN' => 4]);
@@ -34,6 +36,7 @@ class GruposApiTest extends TestCase
         ->assertJson(['state'=>true]);        
     }
 
+    /*Metodo para testear la actualizacion de los datos necesarios para los grupos de especial interes */
     public function test_actualizar_recurso_grupos_especiales()
     {
         $listado = ListadosPreliminares::factory()->create([

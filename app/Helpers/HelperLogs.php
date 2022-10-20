@@ -5,6 +5,7 @@ use App\Models\Logs_App;
 
 class HelperLogs
 {
+  /*Metodo que permite guardar en la base de datos los errores inesperados que puedan surgir */
   public static function Log($error)
   {
     $log = new Logs_App();

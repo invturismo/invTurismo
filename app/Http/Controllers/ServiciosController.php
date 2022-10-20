@@ -8,6 +8,7 @@ use App\Http\Controllers\HistorialController;
 
 class ServiciosController extends Controller
 {
+    /*Variable que define las reglas para los servicios del recurso turistico */
     public static $rules = [
         'TIENDAS' => 'max:300',
         'GUIAS' => 'max:300',
@@ -18,6 +19,7 @@ class ServiciosController extends Controller
         'OTROS1' => 'max:300',
     ];
 
+    /*Metodo para crear un nuevo registro en la tabla de servicios */
     public static function create($clientData)
     {
         $servicio = new Servicios();
@@ -32,6 +34,7 @@ class ServiciosController extends Controller
         return $servicio->ID_SERVICIO;
     }
 
+    /*Metodo para actualizar un registro de la tabla de servicios */
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Servicios::find($queryUpdate->ID_SERVICIO);
@@ -52,6 +55,7 @@ class ServiciosController extends Controller
         }
     }
     
+    /*Metodo para consultar un registro especifico de la tabla de servicios */
     public static function getRecord($idServicio)
     {
         $queryData = Servicios::find($idServicio)->toArray();

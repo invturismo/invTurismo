@@ -9,6 +9,7 @@ use App\Http\Controllers\HistorialController;
 
 class TarifasController extends Controller
 {
+    /*Metodo que retorna las reglas para las tarifas del recurso turistico */
     public static function rules()
     {
         return [
@@ -22,6 +23,7 @@ class TarifasController extends Controller
         ];
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de tarifas */
     public static function create($clientData)
     {
         $tarifa = new Tarifas();
@@ -36,6 +38,7 @@ class TarifasController extends Controller
         return $tarifa->ID_TARIFA;
     }
 
+    /*Metodo para actualizar un registro de la tabla de tarifas */
     public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Tarifas::find($queryUpdate->ID_TARIFA);
@@ -47,6 +50,7 @@ class TarifasController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de tarifas */
     public static function getRecord($idTarifa)
     {
         $queryData = Tarifas::find($idTarifa)->toArray();
