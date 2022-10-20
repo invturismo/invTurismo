@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { helpHttp } from "../../../../helpers/helpHttp";
+import {useEffect, useState} from "react";
+import {helpHttp} from "../../../../helpers/helpHttp";
 
-const useRecordClasificacion = (REGISTRO,url,ACTUALIZANDO) => {
+const useRecordClasificacion = (REGISTRO, url, ACTUALIZANDO) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -11,10 +11,10 @@ const useRecordClasificacion = (REGISTRO,url,ACTUALIZANDO) => {
 
     (async () => {
       try {
-        const body = {REGISTRO}
-        if(ACTUALIZANDO) body.ACTUALIZANDO = ACTUALIZANDO;
+        const body = {REGISTRO};
+        if (ACTUALIZANDO) body.ACTUALIZANDO = ACTUALIZANDO;
         const response = await helpHttp().post(
-          "clasificacion-recursos-atractivos/"+url,
+          "clasificacion-recursos-atractivos/" + url,
           {
             signal,
             body,

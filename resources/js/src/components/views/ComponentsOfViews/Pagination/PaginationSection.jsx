@@ -1,7 +1,7 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
-import { validateOthers } from "./logicPagination";
-import { StylePagination } from "./StylePagination";
+import {useSearchParams} from "react-router-dom";
+import {validateOthers} from "./logicPagination";
+import {StylePagination} from "./StylePagination";
 
 const PaginationSection = ({others}) => {
   const [params, setParams] = useSearchParams();
@@ -27,7 +27,7 @@ const PaginationSection = ({others}) => {
         <span className="nullSpan"></span>
       )}
       <div>
-        {validateOthers(others, params.get("page")).map((val) => {
+        {validateOthers(others, params.get("page")).map(val => {
           return (
             <span
               onClick={() => handleClick(val.url)}

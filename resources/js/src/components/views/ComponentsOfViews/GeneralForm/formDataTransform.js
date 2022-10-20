@@ -1,4 +1,4 @@
-export const formDataTransform = (values,who) => {
+export const formDataTransform = (values, who) => {
   const valuesFormData = new Map(),
     arrVall = {
       OTROS: who === 2 ? 1 : 0,
@@ -17,7 +17,7 @@ export const formDataTransform = (values,who) => {
     valuesFormData.set(val, values[val]);
   };
 
-  const exploreArray = (values) => {
+  const exploreArray = values => {
     for (let val in values) {
       if (
         typeof values[val] === "object" &&
@@ -30,8 +30,8 @@ export const formDataTransform = (values,who) => {
 
   exploreArray(values);
   const formData = new FormData();
-  valuesFormData.forEach((val,key) => {
-    formData.append(key,val);
+  valuesFormData.forEach((val, key) => {
+    formData.append(key, val);
   });
   console.log(valuesFormData);
   return formData;

@@ -1,9 +1,9 @@
 import React from "react";
-import { helpWhoData } from "../../../../../helpers/helpWhoData";
+import {helpWhoData} from "../../../../../helpers/helpWhoData";
 import TipoAcceso from "../../GeneralForm/DataJson/DataTipoAcceso.json";
 import GetInformation1 from "./GetInformation1";
 
-const GetGeneralidades = ({ data, originalData, who }) => {
+const GetGeneralidades = ({data, originalData, who}) => {
   return (
     <div className="ContainerGet1">
       <GetInformation1

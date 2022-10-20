@@ -1,17 +1,17 @@
-import React from 'react'
-import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
-import { useNavigate, useParams } from "react-router-dom";
-import GeneralLoader from '../../../common/GeneralLoader';
-import ErrorComponent from '../../../common/ErrorComponent';
-import { helpConvertData } from '../../../../helpers/helpConvertData';
-import GeneralGetRecord from '../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord';
-import { helpDeleteRecurso } from '../../ComponentsOfViews/helpers/helpDeleteRecurso';
-import { useDispatch } from 'react-redux';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
-import { ACTUALIZAR, COMPLETADO, INMATERIAL } from '../../../router/paths';
+import React from "react";
+import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
+import {useNavigate, useParams} from "react-router-dom";
+import GeneralLoader from "../../../common/GeneralLoader";
+import ErrorComponent from "../../../common/ErrorComponent";
+import {helpConvertData} from "../../../../helpers/helpConvertData";
+import GeneralGetRecord from "../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord";
+import {helpDeleteRecurso} from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
+import {useDispatch} from "react-redux";
+import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
+import {ACTUALIZAR, COMPLETADO, INMATERIAL} from "../../../router/paths";
 
 const GetRecordConInmaterial = () => {
-  const { idPatrimonioInmaterial } = useParams();
+  const {idPatrimonioInmaterial} = useParams();
   const response = useRecordGeneral(
     idPatrimonioInmaterial,
     "patrimonios-inmateriales/getrecordcom"
@@ -26,12 +26,12 @@ const GetRecordConInmaterial = () => {
   const handleClick = () => {
     navigate(
       `${INMATERIAL}${COMPLETADO}${ACTUALIZAR}/${response.data.OTROS.ID_INMATERIAL}`,
-      { replace: true }
+      {replace: true}
     );
   };
 
   const handleDelete = () => {
-    const body = { REGISTRO: idPatrimonioInmaterial };
+    const body = {REGISTRO: idPatrimonioInmaterial};
     helpDeleteRecurso({
       body,
       dispatch,
@@ -54,6 +54,6 @@ const GetRecordConInmaterial = () => {
       handleDelete={handleDelete}
     />
   );
-}
+};
 
-export default GetRecordConInmaterial
+export default GetRecordConInmaterial;

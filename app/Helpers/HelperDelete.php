@@ -50,7 +50,7 @@ class HelperDelete
         "state" => true
       ];
     } catch (\Throwable $th) {
-      return response()->json(HelperLogs::Log($th));
+      return HelperLogs::Log($th);
     }
   }
 }

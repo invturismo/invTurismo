@@ -1,5 +1,16 @@
-import { helpCapitalize } from "../../../../helpers/helpCapitalize";
-import { CLASIFICACION, CLASIFICADO, FESTIVIDADES, GRUPOS, INMATERIAL, LISTADO, MATERIAL, SINCLASIFICAR, SINCOMPLETAR, SITIOS } from "../../../router/paths";
+import {helpCapitalize} from "../../../../helpers/helpCapitalize";
+import {
+  CLASIFICACION,
+  CLASIFICADO,
+  FESTIVIDADES,
+  GRUPOS,
+  INMATERIAL,
+  LISTADO,
+  MATERIAL,
+  SINCLASIFICAR,
+  SINCOMPLETAR,
+  SITIOS,
+} from "../../../router/paths";
 
 const nameUrl = {
   1: ["Patrimonio cultural material", MATERIAL],

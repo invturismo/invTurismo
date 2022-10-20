@@ -29,7 +29,7 @@ const StyleMainHome = styled.div`
   .WelcomeMessage {
     font-size: 3.4rem;
     font-weight: 600;
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     text-align: center;
     overflow-wrap: anywhere;
   }
@@ -41,4 +41,4 @@ const StyleMainHome = styled.div`
   }
 `;
 
-export { StyleMainHome };
+export {StyleMainHome};

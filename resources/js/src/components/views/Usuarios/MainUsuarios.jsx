@@ -1,10 +1,10 @@
-import React from 'react'
-import CreateUsuarios from './ComponentsOfUsuarios/CreateUsuarios';
-import GetRecordUsuarios from './ComponentsOfUsuarios/GetRecordUsuarios';
-import GetUsuarios from './ComponentsOfUsuarios/GetUsuarios';
-import UpdatePassword from './ComponentsOfUsuarios/UpdatePassword';
-import UpdateUsuarios from './ComponentsOfUsuarios/UpdateUsuarios';
-import { StyleMainUsuarios } from './StyleMainUsuarios';
+import React from "react";
+import CreateUsuarios from "./ComponentsOfUsuarios/CreateUsuarios";
+import GetRecordUsuarios from "./ComponentsOfUsuarios/GetRecordUsuarios";
+import GetUsuarios from "./ComponentsOfUsuarios/GetUsuarios";
+import UpdatePassword from "./ComponentsOfUsuarios/UpdatePassword";
+import UpdateUsuarios from "./ComponentsOfUsuarios/UpdateUsuarios";
+import {StyleMainUsuarios} from "./StyleMainUsuarios";
 
 const MainUsuarios = ({who}) => {
   return (
@@ -16,6 +16,6 @@ const MainUsuarios = ({who}) => {
       {who === 5 && <UpdatePassword />}
     </StyleMainUsuarios>
   );
-}
+};
 
-export default MainUsuarios
+export default MainUsuarios;

@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
   dataProfile: {
-    PRIMER_NOMBRE: '',
-    PRIMER_APELLIDO: '',
+    PRIMER_NOMBRE: "",
+    PRIMER_APELLIDO: "",
   },
 };
 
@@ -17,5 +17,5 @@ export const dataProfileSlice = createSlice({
   },
 });
 
-export const { storeDataProfile } = dataProfileSlice.actions;
+export const {storeDataProfile} = dataProfileSlice.actions;
 export default dataProfileSlice.reducer;

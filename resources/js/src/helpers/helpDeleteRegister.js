@@ -1,5 +1,5 @@
-import { helpHttp } from "./helpHttp";
-import { toastMs } from "./helpToastMessage";
+import {helpHttp} from "./helpHttp";
+import {toastMs} from "./helpToastMessage";
 
 export const helpDeleteRegister = async (url, body) => {
   try {
@@ -12,4 +12,4 @@ export const helpDeleteRegister = async (url, body) => {
     toastMs().error(error.message);
     return error;
   }
-}; 
+};

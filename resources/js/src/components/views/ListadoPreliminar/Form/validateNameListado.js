@@ -1,4 +1,4 @@
-import { helpHttp } from "../../../../helpers/helpHttp";
+import {helpHttp} from "../../../../helpers/helpHttp";
 
 export const validateNameListado = async ({
   ID_LISTADO,
@@ -6,7 +6,7 @@ export const validateNameListado = async ({
   ID_DEPARTAMENTOS,
   ID_MUNICIPIOS,
 }) => {
-  const body = { NOMBRE, ID_DEPARTAMENTOS, ID_MUNICIPIOS };
+  const body = {NOMBRE, ID_DEPARTAMENTOS, ID_MUNICIPIOS};
   if (ID_LISTADO) body.ID_LISTADO = ID_LISTADO;
   const response = await helpHttp().post(
     "listados-preliminares/validate-name",

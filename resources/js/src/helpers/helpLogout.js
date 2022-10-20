@@ -1,7 +1,7 @@
 import Cookies from "universal-cookie";
-import { helpDropCookies } from "./helpDropCookies";
-import { helpHttp } from "./helpHttp";
-import { toastMs } from "./helpToastMessage";
+import {helpDropCookies} from "./helpDropCookies";
+import {helpHttp} from "./helpHttp";
+import {toastMs} from "./helpToastMessage";
 
 const helpLogout = async () => {
   const cookies = new Cookies();
@@ -17,6 +17,6 @@ const helpLogout = async () => {
   } finally {
     if (token) helpDropCookies();
   }
-}
+};
 
-export { helpLogout };
+export {helpLogout};

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ContainerLoader = styled.div`
   position: fixed;
@@ -58,6 +58,6 @@ const LoaderForm = () => {
       <span className="loader"></span>
     </ContainerLoader>
   );
-}
+};
 
-export default LoaderForm
+export default LoaderForm;

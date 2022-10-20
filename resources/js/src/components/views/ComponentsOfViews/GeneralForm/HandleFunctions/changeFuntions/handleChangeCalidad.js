@@ -1,13 +1,13 @@
 import Significado from "../../DataJson/DataSignificado.json";
-import { helpChangeInt } from "../helpers/helpChangeInt";
+import {helpChangeInt} from "../helpers/helpChangeInt";
 
-export const handleChangeCalidad = ({ values, secondLevelChange }) => {
+export const handleChangeCalidad = ({values, secondLevelChange}) => {
   const validateExists = (e, who) => {
     if (e.target.name === who) return e.target.value;
     return values.PUNTAJES_VALORACION.CALIDAD[who];
   };
 
-  const handleChangeCalidadMaterial = (e) => {
+  const handleChangeCalidadMaterial = e => {
     let ESTADO_CONSERVACION = validateExists(e, "ESTADO_CONSERVACION");
     let CONSTITUCION = validateExists(e, "CONSTITUCION");
     let REPRESENTATIVIDAD = validateExists(e, "REPRESENTATIVIDAD");
@@ -39,7 +39,7 @@ export const handleChangeCalidad = ({ values, secondLevelChange }) => {
     );
   };
 
-  const handleChangeCalidadInmaterial = (e) => {
+  const handleChangeCalidadInmaterial = e => {
     let COLECTIVA = validateExists(e, "COLECTIVA");
     let TRADICIONAL = validateExists(e, "TRADICIONAL");
     let ANONIMA = validateExists(e, "ANONIMA");
@@ -77,7 +77,7 @@ export const handleChangeCalidad = ({ values, secondLevelChange }) => {
     );
   };
 
-  const handleChangeCalidadFestividades = (e) => {
+  const handleChangeCalidadFestividades = e => {
     let ORGANIZACION = validateExists(e, "ORGANIZACION");
     let B_SOCIOCULTURALES = validateExists(e, "B_SOCIOCULTURALES");
     let B_ECONOMICOS = validateExists(e, "B_ECONOMICOS");
@@ -106,7 +106,7 @@ export const handleChangeCalidad = ({ values, secondLevelChange }) => {
     );
   };
 
-  const handleChangeCalidadGrupos = (e) => {
+  const handleChangeCalidadGrupos = e => {
     let R_COSTUMBRES = validateExists(e, "R_COSTUMBRES");
     let ID_SIGNIFICADO = values.PUNTAJES_VALORACION.ID_SIGNIFICADO;
     let SignificadoPuntaje = ID_SIGNIFICADO
@@ -130,7 +130,7 @@ export const handleChangeCalidad = ({ values, secondLevelChange }) => {
     );
   };
 
-  const handleChangeCalidadSitios = (e) => {
+  const handleChangeCalidadSitios = e => {
     let S_C_AIRE = validateExists(e, "S_C_AIRE");
     let S_C_AGUA = validateExists(e, "S_C_AGUA");
     let S_C_VISUAL = validateExists(e, "S_C_VISUAL");

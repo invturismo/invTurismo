@@ -1,10 +1,10 @@
-import React from 'react';
-import GetCompletadoMaterial from './ComponentsOfMaterial/GetCompletadoMaterial';
-import GetRecordConMaterial from './ComponentsOfMaterial/GetRecordConMaterial';
-import GetRecordSinMaterial from './ComponentsOfMaterial/GetRecordSinMaterial';
-import GetSinCompletarMaterial from './ComponentsOfMaterial/GetSinCompletarMaterial';
-import OptionsMaterial from './ComponentsOfMaterial/OptionsMaterial';
-import UpdatePatrimonioMaterial from './ComponentsOfMaterial/UpdatePatrimonioMaterial';
+import React from "react";
+import GetCompletadoMaterial from "./ComponentsOfMaterial/GetCompletadoMaterial";
+import GetRecordConMaterial from "./ComponentsOfMaterial/GetRecordConMaterial";
+import GetRecordSinMaterial from "./ComponentsOfMaterial/GetRecordSinMaterial";
+import GetSinCompletarMaterial from "./ComponentsOfMaterial/GetSinCompletarMaterial";
+import OptionsMaterial from "./ComponentsOfMaterial/OptionsMaterial";
+import UpdatePatrimonioMaterial from "./ComponentsOfMaterial/UpdatePatrimonioMaterial";
 
 const MainPatrimonioMaterial = ({who}) => {
   return (
@@ -17,6 +17,6 @@ const MainPatrimonioMaterial = ({who}) => {
       {who === 6 && <OptionsMaterial />}
     </div>
   );
-}
+};
 
 export default MainPatrimonioMaterial;

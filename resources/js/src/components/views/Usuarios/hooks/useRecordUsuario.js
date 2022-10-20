@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { helpHttp } from "../../../../helpers/helpHttp";
+import {useEffect, useState} from "react";
+import {helpHttp} from "../../../../helpers/helpHttp";
 
-const useRecordUsuario = (idUsuario,url) => {
+const useRecordUsuario = (idUsuario, url) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const useRecordUsuario = (idUsuario,url) => {
 
     (async () => {
       try {
-        const body = { ID_USUARIO: idUsuario };
+        const body = {ID_USUARIO: idUsuario};
         const response = await helpHttp().post(url, {
           signal,
           body,
@@ -32,6 +32,6 @@ const useRecordUsuario = (idUsuario,url) => {
   }, [idUsuario]);
 
   return data;
-}
+};
 
-export default useRecordUsuario
+export default useRecordUsuario;

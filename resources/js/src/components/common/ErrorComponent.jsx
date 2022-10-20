@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyleErrorComponent = styled.div`
   height: 100%;
@@ -11,10 +11,10 @@ const StyleErrorComponent = styled.div`
   padding: 15px;
   h2 {
     font-size: 2.2rem;
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     text-align: center;
   }
-  img{
+  img {
     width: 150px;
     height: 150px;
   }
@@ -27,6 +27,6 @@ const ErrorComponent = ({message}) => {
       <h2>{message}</h2>
     </StyleErrorComponent>
   );
-}
+};
 
-export default ErrorComponent
+export default ErrorComponent;

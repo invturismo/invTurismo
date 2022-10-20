@@ -1,5 +1,5 @@
-import { helpHttp } from "./helpHttp";
-import { toastMs } from "./helpToastMessage";
+import {helpHttp} from "./helpHttp";
+import {toastMs} from "./helpToastMessage";
 
 export const helpAddTimeSession = async () => {
   try {
@@ -11,4 +11,4 @@ export const helpAddTimeSession = async () => {
     toastMs().error(error.message);
     return error;
   }
-}
+};

@@ -1,6 +1,13 @@
-import { unitValidateGeneralForm } from "../../validationsGeneralForm";
+import {unitValidateGeneralForm} from "../../validationsGeneralForm";
 
-export const helpSetValues = ({ errors, setErrors, setValues, values, valueWho, who }) => {
+export const helpSetValues = ({
+  errors,
+  setErrors,
+  setValues,
+  values,
+  valueWho,
+  who,
+}) => {
   const firstLevelErrors = (firstParent, response) => {
     setErrors({
       ...errors,

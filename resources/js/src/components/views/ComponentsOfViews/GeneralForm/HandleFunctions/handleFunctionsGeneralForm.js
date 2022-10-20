@@ -1,5 +1,5 @@
-import { mainChangeFunctions } from "./changeFuntions/mainChangeFunctions";
-import { submitFunctionsGeneralForm } from "./submitFunctionsGeneralForm";
+import {mainChangeFunctions} from "./changeFuntions/mainChangeFunctions";
+import {submitFunctionsGeneralForm} from "./submitFunctionsGeneralForm";
 
 const valueWho = {
   1: "PATRIMONIO_MATERIAL",
@@ -21,19 +21,17 @@ export const handleFunctionsGeneralForm = ({
   navigate,
   initialValues,
 }) => {
-  const handleSubmit = submitFunctionsGeneralForm(
-    {
-      dispatch,
-      idRecord,
-      initialErrors,
-      initialValues,
-      navigate,
-      setErrors,
-      values,
-      valueWho,
-      who,
-    }
-  );
+  const handleSubmit = submitFunctionsGeneralForm({
+    dispatch,
+    idRecord,
+    initialErrors,
+    initialValues,
+    navigate,
+    setErrors,
+    values,
+    valueWho,
+    who,
+  });
 
   const handleChange = mainChangeFunctions({
     dispatch,
@@ -45,5 +43,5 @@ export const handleFunctionsGeneralForm = ({
     valueWho,
   });
 
-  return {...handleChange,...handleSubmit};
+  return {...handleChange, ...handleSubmit};
 };

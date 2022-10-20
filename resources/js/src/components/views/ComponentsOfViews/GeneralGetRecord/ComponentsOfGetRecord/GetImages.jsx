@@ -1,6 +1,6 @@
-import React from 'react'
-import { DOMAIN } from '../../../../router/paths';
-import GetInformation1 from './GetInformation1';
+import React from "react";
+import {DOMAIN} from "../../../../router/paths";
+import GetInformation1 from "./GetInformation1";
 
 const GetImages = ({data}) => {
   return (
@@ -25,6 +25,6 @@ const GetImages = ({data}) => {
       </div>
     </div>
   );
-}
+};
 
-export default GetImages
+export default GetImages;

@@ -1,12 +1,12 @@
-import React from 'react'
-import GeneralLoader from '../../../common/GeneralLoader';
-import { COMPLETADO, EXPORTS, GRUPOS, SINCOMPLETAR } from '../../../router/paths';
-import GeneralGet from '../../ComponentsOfViews/GeneralGet';
-import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
-import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
+import React from "react";
+import GeneralLoader from "../../../common/GeneralLoader";
+import {COMPLETADO, EXPORTS, GRUPOS, SINCOMPLETAR} from "../../../router/paths";
+import GeneralGet from "../../ComponentsOfViews/GeneralGet";
+import useDataGeneral from "../../ComponentsOfViews/hooks/useDataGeneral";
+import RowGeneralTable from "../../ComponentsOfViews/RowGeneralTable";
 
 const GetCompletadoGrupos = () => {
-  const { response, data } = useDataGeneral("grupos-especiales/getdatacom");
+  const {response, data} = useDataGeneral("grupos-especiales/getdatacom");
 
   if (!response) return <GeneralLoader />;
 
@@ -31,6 +31,6 @@ const GetCompletadoGrupos = () => {
       </GeneralGet>
     </>
   );
-}
+};
 
-export default GetCompletadoGrupos
+export default GetCompletadoGrupos;

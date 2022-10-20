@@ -1,6 +1,11 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
-import { ACTUALIZAR, COMPLETADO, EXPORTS, SINCOMPLETAR } from "../components/router/paths";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {
+  ACTUALIZAR,
+  COMPLETADO,
+  EXPORTS,
+  SINCOMPLETAR,
+} from "../components/router/paths";
 import MainPatrimonioInmaterial from "../components/views/PatrimonioInmaterial/MainPatrimonioInmaterial";
 import useTittle from "../hooks/useTittle";
 import Error404 from "./Error404";

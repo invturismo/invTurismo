@@ -1,9 +1,14 @@
-import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { ACTUALIZAR, COMPLETADO, EXPORTS, SINCOMPLETAR } from '../components/router/paths';
-import MainPatrimonioMaterial from '../components/views/PatrimonioMaterial/MainPatrimonioMaterial';
-import useTittle from '../hooks/useTittle';
-import Error404 from './Error404';
+import React from "react";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {
+  ACTUALIZAR,
+  COMPLETADO,
+  EXPORTS,
+  SINCOMPLETAR,
+} from "../components/router/paths";
+import MainPatrimonioMaterial from "../components/views/PatrimonioMaterial/MainPatrimonioMaterial";
+import useTittle from "../hooks/useTittle";
+import Error404 from "./Error404";
 
 const PatrimonioMaterial = () => {
   useTittle("Patrimonio material");
@@ -42,6 +47,6 @@ const PatrimonioMaterial = () => {
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
-}
+};
 
-export default PatrimonioMaterial
+export default PatrimonioMaterial;

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyleGeneralLoader = styled.div`
   display: grid;
@@ -46,6 +46,6 @@ const GeneralLoader = () => {
       <span className="loader"></span>
     </StyleGeneralLoader>
   );
-}
+};
 
 export default GeneralLoader;

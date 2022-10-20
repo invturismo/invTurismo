@@ -10,7 +10,7 @@ import GetOtros from "./ComponentsOfGetRecord/GetOtros";
 import GetPuntajes from "./ComponentsOfGetRecord/GetPuntajes";
 import GetRelevantes from "./ComponentsOfGetRecord/GetRelevantes";
 import TableInformation from "./ComponentsOfGetRecord/TableInformation";
-import { StyleGeneralGetRecord } from "./StyleGeneralGetRecord";
+import {StyleGeneralGetRecord} from "./StyleGeneralGetRecord";
 
 const GeneralGetRecord = ({
   data,

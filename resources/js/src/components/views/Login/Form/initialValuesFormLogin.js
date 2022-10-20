@@ -4,7 +4,7 @@ const fieldsValues = {
 };
 
 export const initialValues = {
-  ...fieldsValues
+  ...fieldsValues,
 };
 
 export const initialErrors = {

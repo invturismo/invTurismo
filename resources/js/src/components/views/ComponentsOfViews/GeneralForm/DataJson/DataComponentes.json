@@ -1,8 +1,8 @@
 {
-	"1" : {
-    "1" : [
+  "1": {
+    "1": [
       {
-        "ID_TIPO_PATRIMONIO" : "1",
+        "ID_TIPO_PATRIMONIO": "1",
         "ID_GRUPO": "1",
         "ID_COMPONENTE": "1",
         "COMPONENTE": "Arquitectura Militar"
@@ -38,7 +38,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "2" : [
+    "2": [
       {
         "ID_TIPO_PATRIMONIO": "1",
         "ID_GRUPO": "2",
@@ -58,7 +58,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "3" : [
+    "3": [
       {
         "ID_TIPO_PATRIMONIO": "1",
         "ID_GRUPO": "3",
@@ -90,7 +90,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "4" : [
+    "4": [
       {
         "ID_TIPO_PATRIMONIO": "1",
         "ID_GRUPO": "4",
@@ -116,7 +116,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "5" : [
+    "5": [
       {
         "ID_TIPO_PATRIMONIO": "1",
         "ID_GRUPO": "5",
@@ -136,7 +136,7 @@
         "COMPONENTE": "De Carácter Científico"
       }
     ],
-    "6" : [
+    "6": [
       {
         "ID_TIPO_PATRIMONIO": "1",
         "ID_GRUPO": "6",
@@ -216,7 +216,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "7" : [
+    "7": [
       {
         "ID_TIPO_PATRIMONIO": "1",
         "ID_GRUPO": "7",
@@ -281,8 +281,8 @@
       }
     ]
   },
-  "2" : {
-    "1" : [
+  "2": {
+    "1": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "1",
@@ -374,7 +374,7 @@
         "COMPONENTE": "Otra"
       }
     ],
-    "2" : [
+    "2": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "2",
@@ -406,7 +406,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "3" : [
+    "3": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "3",
@@ -432,7 +432,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "4" : [
+    "4": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "4",
@@ -464,7 +464,7 @@
         "COMPONENTE": "Otra"
       }
     ],
-    "5" : [
+    "5": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "5",
@@ -532,7 +532,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "6" : [
+    "6": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "6",
@@ -618,7 +618,7 @@
         "COMPONENTE": "Otro"
       }
     ],
-    "7" : [
+    "7": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "7",
@@ -674,7 +674,7 @@
         "COMPONENTE": "Otras"
       }
     ],
-    "10" : [
+    "10": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "10",
@@ -706,7 +706,7 @@
         "COMPONENTE": "Otra"
       }
     ],
-    "11" : [
+    "11": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "11",
@@ -732,7 +732,7 @@
         "COMPONENTE": "Otra"
       }
     ],
-    "12" : [
+    "12": [
       {
         "ID_TIPO_PATRIMONIO": "2",
         "ID_GRUPO": "12",

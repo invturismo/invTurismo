@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const SvgLogout = ({size}) => {
   return (
@@ -26,6 +26,6 @@ const SvgLogout = ({size}) => {
       </g>
     </svg>
   );
-}
+};
 
 export default SvgLogout;

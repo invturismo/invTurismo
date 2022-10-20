@@ -1,11 +1,11 @@
-import React from 'react';
-import GeneralLoader from '../../../common/GeneralLoader';
-import useDataClasificacion from '../hooks/useDataClasificacion';
-import RowTableClasificacion from './RowTableClasificacion';
-import TemplateGet from './TemplateGet';
+import React from "react";
+import GeneralLoader from "../../../common/GeneralLoader";
+import useDataClasificacion from "../hooks/useDataClasificacion";
+import RowTableClasificacion from "./RowTableClasificacion";
+import TemplateGet from "./TemplateGet";
 
 const GetSinClasificar = () => {
-  const { response, data } = useDataClasificacion("sinclas-get");
+  const {response, data} = useDataClasificacion("sinclas-get");
 
   if (!response) return <GeneralLoader />;
 

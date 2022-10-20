@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const StyleFilter = styled(motion.div)`
   form {
@@ -35,7 +35,7 @@ const StyleFilter = styled(motion.div)`
     position: relative;
     opacity: 0.5;
   }
-  .filterButton{
+  .filterButton {
     font-size: 0.9rem;
   }
   .filterButton span {
@@ -47,4 +47,4 @@ const StyleFilter = styled(motion.div)`
   }
 `;
 
-export { StyleFilter };
+export {StyleFilter};

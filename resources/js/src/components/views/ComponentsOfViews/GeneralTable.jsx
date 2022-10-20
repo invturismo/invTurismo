@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const GeneralTable = ({children}) => {
   return (
@@ -18,6 +18,6 @@ const GeneralTable = ({children}) => {
       </table>
     </div>
   );
-}
+};
 
-export default GeneralTable
+export default GeneralTable;

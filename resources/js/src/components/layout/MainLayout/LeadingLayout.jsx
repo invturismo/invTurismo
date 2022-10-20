@@ -1,19 +1,19 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import useResponsive from "../../../hooks/useResponsive";
 import HeaderMovil from "./ComponentsMainLayout/HeaderMovil";
 import Navbar from "./Navbar/Navbar";
-import { useDispatch, useSelector } from "react-redux";
-import { StyleLeandingLayout } from "./StyleLeadingLayout";
-import { closeMenu } from "../../../features/mainLayoutSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {StyleLeandingLayout} from "./StyleLeadingLayout";
+import {closeMenu} from "../../../features/mainLayoutSlice";
 import ModalPopper from "../../views/ComponentsOfViews/ModalPopper/ModalPopper";
-import { AnimatePresence } from "framer-motion";
+import {AnimatePresence} from "framer-motion";
 import HeaderDesktop from "./ComponentsMainLayout/HeaderDesktop";
-import { Toaster } from "react-hot-toast";
+import {Toaster} from "react-hot-toast";
 import LoaderForm from "./ComponentsMainLayout/LoaderForm";
 
 const MovileLeandingLayout = () => {
-  const menuState = useSelector((state) => state.mainLayoutSlice.menuState);
+  const menuState = useSelector(state => state.mainLayoutSlice.menuState);
   const dispatch = useDispatch();
 
   return (
@@ -33,10 +33,10 @@ const MovileLeandingLayout = () => {
 const LeadingLayout = () => {
   const movile = useResponsive(0, 783);
   const desktop = useResponsive(783);
-  const loaderForm = useSelector((state) => state.modalsSlice.loaderForm);
+  const loaderForm = useSelector(state => state.modalsSlice.loaderForm);
 
   return (
-    <StyleLeandingLayout resize={{ movile: movile, desktop: desktop }}>
+    <StyleLeandingLayout resize={{movile: movile, desktop: desktop}}>
       {movile && <MovileLeandingLayout />}
       {desktop && <Navbar desktop={true} />}
       {desktop && <HeaderDesktop />}

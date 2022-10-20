@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ButtonStyle = styled.button`
   position: relative;
@@ -48,7 +48,7 @@ const ButtonStyle = styled.button`
   }
 `;
 
-const ButtonHeader = ({children,imgSrc,...props}) => {
+const ButtonHeader = ({children, imgSrc, ...props}) => {
   return (
     <ButtonStyle {...props}>
       <span>
@@ -57,6 +57,6 @@ const ButtonHeader = ({children,imgSrc,...props}) => {
       </span>
     </ButtonStyle>
   );
-}
+};
 
-export default ButtonHeader
+export default ButtonHeader;

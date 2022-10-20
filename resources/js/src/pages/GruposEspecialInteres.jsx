@@ -1,9 +1,14 @@
-import React from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { ACTUALIZAR, COMPLETADO, EXPORTS, SINCOMPLETAR } from '../components/router/paths';
-import MainGruposEspecialInteres from '../components/views/GruposEspecialInteres/MainGruposEspecialInteres';
-import useTittle from '../hooks/useTittle';
-import Error404 from './Error404';
+import React from "react";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {
+  ACTUALIZAR,
+  COMPLETADO,
+  EXPORTS,
+  SINCOMPLETAR,
+} from "../components/router/paths";
+import MainGruposEspecialInteres from "../components/views/GruposEspecialInteres/MainGruposEspecialInteres";
+import useTittle from "../hooks/useTittle";
+import Error404 from "./Error404";
 
 const GruposEspecialInteres = () => {
   useTittle("Grupos de especial interés");
@@ -42,6 +47,6 @@ const GruposEspecialInteres = () => {
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
-}
+};
 
 export default GruposEspecialInteres;

@@ -1,10 +1,10 @@
-import React from 'react';
-import GetSinClasificar from './ComponentsOfClasificacion/GetSinClasificar';
-import GetRecordClasificacionAtractivosTuristicos from './ComponentsOfClasificacion/GetRecordClasificacionAtractivosTuristicos';
-import { StyleMainClasificacionAtractivosTuristicos } from './StyleMainClasificacionAtractivosTuristicos';
-import GetClasificado from './ComponentsOfClasificacion/GetClasificado';
-import GetRecordClasificado from './ComponentsOfClasificacion/GetRecordClasificado';
-import OptionsClasificacion from './ComponentsOfClasificacion/OptionsClasificacion';
+import React from "react";
+import GetSinClasificar from "./ComponentsOfClasificacion/GetSinClasificar";
+import GetRecordClasificacionAtractivosTuristicos from "./ComponentsOfClasificacion/GetRecordClasificacionAtractivosTuristicos";
+import {StyleMainClasificacionAtractivosTuristicos} from "./StyleMainClasificacionAtractivosTuristicos";
+import GetClasificado from "./ComponentsOfClasificacion/GetClasificado";
+import GetRecordClasificado from "./ComponentsOfClasificacion/GetRecordClasificado";
+import OptionsClasificacion from "./ComponentsOfClasificacion/OptionsClasificacion";
 
 const MainClasificacionAtractivosTuristicos = ({who}) => {
   return (
@@ -12,9 +12,7 @@ const MainClasificacionAtractivosTuristicos = ({who}) => {
       {who === 1 && <GetSinClasificar />}
       {who === 2 && <GetClasificado />}
       {who === 3 && (
-        <GetRecordClasificacionAtractivosTuristicos
-          url="sinclas"
-        />
+        <GetRecordClasificacionAtractivosTuristicos url="sinclas" />
       )}
       {who === 4 && <GetRecordClasificado />}
       {who === 5 && (
@@ -26,6 +24,6 @@ const MainClasificacionAtractivosTuristicos = ({who}) => {
       {who === 6 && <OptionsClasificacion />}
     </StyleMainClasificacionAtractivosTuristicos>
   );
-}
+};
 
 export default MainClasificacionAtractivosTuristicos;

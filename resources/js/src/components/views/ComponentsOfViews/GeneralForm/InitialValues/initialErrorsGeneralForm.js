@@ -12,7 +12,7 @@ import {
   serviciosEspeciales,
 } from "./templateValues";
 
-export const initialErrorsGeneralForm = (Calidad) =>
+export const initialErrorsGeneralForm = Calidad =>
   funtionalData({
     GENERALIDADES: {
       ...generalidades(Calidad),

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const MainDiv = styled.div`
   position: relative;
@@ -47,4 +47,4 @@ const ImgAnimation = styled(motion.div)`
   }
 `;
 
-export { ImgAnimation, MainDiv };
+export {ImgAnimation, MainDiv};

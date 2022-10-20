@@ -1,5 +1,5 @@
 import Cookies from "universal-cookie";
-import { API } from "../../../router/paths";
+import {API} from "../../../router/paths";
 
 export const sendDataForm = (endpoint, formData) => {
   const defaultHeader = {
@@ -13,7 +13,7 @@ export const sendDataForm = (endpoint, formData) => {
   options.headers = defaultHeader;
   options.body = formData;
   return fetch(API + endpoint, options)
-    .then((res) =>
+    .then(res =>
       res.ok
         ? res.json()
         : Promise.reject({
@@ -22,5 +22,5 @@ export const sendDataForm = (endpoint, formData) => {
             message: res.statusText || "Ocurrió un error",
           })
     )
-    .catch((err) => err);
+    .catch(err => err);
 };

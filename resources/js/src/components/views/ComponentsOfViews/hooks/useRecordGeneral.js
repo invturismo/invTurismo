@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { helpHttp } from '../../../../helpers/helpHttp';
+import {useEffect, useState} from "react";
+import {helpHttp} from "../../../../helpers/helpHttp";
 
 const useRecordGeneral = (REGISTRO, url, ACTUALIZANDO) => {
   const [data, setData] = useState(null);
@@ -11,15 +11,12 @@ const useRecordGeneral = (REGISTRO, url, ACTUALIZANDO) => {
 
     (async () => {
       try {
-        const body = { REGISTRO };
+        const body = {REGISTRO};
         if (ACTUALIZANDO) body.ACTUALIZANDO = ACTUALIZANDO;
-        const response = await helpHttp().post(
-          url,
-          {
-            signal,
-            body,
-          }
-        );
+        const response = await helpHttp().post(url, {
+          signal,
+          body,
+        });
         console.log(response);
         if (!response.state) throw response;
         if (isMounted) setData(response);
@@ -38,4 +35,4 @@ const useRecordGeneral = (REGISTRO, url, ACTUALIZANDO) => {
   return data;
 };
 
-export default useRecordGeneral
+export default useRecordGeneral;

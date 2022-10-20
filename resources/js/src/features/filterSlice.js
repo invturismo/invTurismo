@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 const ID_DEPARTAMENTOS = cookies.get("id_departamentos");
@@ -11,7 +11,7 @@ const initialState = {
   },
   stateFilter: false,
   updateState: false,
-  searchState : ""
+  searchState: "",
 };
 
 export const filterSlice = createSlice({
@@ -24,21 +24,26 @@ export const filterSlice = createSlice({
         ...action.payload,
       };
     },
-    openFilter: (state) => {
+    openFilter: state => {
       state.stateFilter = true;
     },
-    closeFilter: (state) => {
+    closeFilter: state => {
       state.stateFilter = false;
     },
-    updateWindow: (state) => {
+    updateWindow: state => {
       state.updateState = state.updateState ? false : true;
     },
-    changeSearch: (state,{payload}) => {
+    changeSearch: (state, {payload}) => {
       state.searchState = payload;
-    }
+    },
   },
 });
 
-export const { setDataFilter, openFilter, closeFilter, updateWindow, changeSearch } =
-  filterSlice.actions;
+export const {
+  setDataFilter,
+  openFilter,
+  closeFilter,
+  updateWindow,
+  changeSearch,
+} = filterSlice.actions;
 export default filterSlice.reducer;

@@ -1,45 +1,45 @@
-import React, { useState } from "react";
-import { CSVLink } from "react-csv";
-import { useDispatch } from "react-redux";
+import React, {useState} from "react";
+import {CSVLink} from "react-csv";
+import {useDispatch} from "react-redux";
 import ButtonPage from "../../../common/ButtonPage";
 import SelectDepartamentos from "../Selects/SelectDepartamentos";
 import SelectMunicipio from "../Selects/SelectMunicipio";
-import { handleFunctionsExport } from "./handleFunctionsExport";
-import { StyleExportExcel } from "./StyleExportExcel";
+import {handleFunctionsExport} from "./handleFunctionsExport";
+import {StyleExportExcel} from "./StyleExportExcel";
 import Departamentos from "../../ListadoPreliminar/Form/DataJson/DataDepartamentos.json";
 import Municipios from "../../ListadoPreliminar/Form/DataJson/DataMunicipio.json";
-import { headersExcel } from "./headersExcel";
+import {headersExcel} from "./headersExcel";
 
 const initialFilter = {
   ID_DEPARTAMENTOS: "",
   ID_MUNICIPIOS: "",
 };
 
-const whoFilter = (textFilter) => {
-  const { ID_DEPARTAMENTOS, ID_MUNICIPIOS } = textFilter;
+const whoFilter = textFilter => {
+  const {ID_DEPARTAMENTOS, ID_MUNICIPIOS} = textFilter;
   let stringFilter = "";
   if (ID_DEPARTAMENTOS) {
-    Departamentos.forEach((val) => {
+    Departamentos.forEach(val => {
       if (val.Código === ID_DEPARTAMENTOS) stringFilter += ` de ${val.Nombre}`;
     });
   }
   if (ID_MUNICIPIOS) {
     if (ID_DEPARTAMENTOS != "11")
-      Municipios[ID_DEPARTAMENTOS]?.forEach((val) => {
+      Municipios[ID_DEPARTAMENTOS]?.forEach(val => {
         if (val.Id_Municipio === ID_MUNICIPIOS)
           stringFilter += ` - ${val.Nombre}`;
       });
   }
-	return stringFilter;
+  return stringFilter;
 };
 
-const ExportExcel = ({ fileName,url }) => {
+const ExportExcel = ({fileName, url}) => {
   const [data, setData] = useState(null);
   const [filter, setFilter] = useState(initialFilter);
   const [textFilter, setTextFilter] = useState(initialFilter);
   const dispatch = useDispatch();
 
-  const { handleSubmit, handleChange } = handleFunctionsExport({
+  const {handleSubmit, handleChange} = handleFunctionsExport({
     setData,
     filter,
     setFilter,
@@ -47,12 +47,12 @@ const ExportExcel = ({ fileName,url }) => {
     initialFilter,
     setTextFilter,
     textFilter,
-		url
+    url,
   });
 
   return (
     <StyleExportExcel>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={e => handleSubmit(e)}>
         <p>Filtros de exportacion</p>
         <div className="ContainerFilters">
           <SelectDepartamentos handleChange={handleChange} values={filter} />

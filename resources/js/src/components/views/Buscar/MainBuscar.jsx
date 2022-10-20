@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { changeSearch } from "../../../features/filterSlice";
-import { helpCapitalize } from "../../../helpers/helpCapitalize";
+import React, {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {Link, useParams} from "react-router-dom";
+import {changeSearch} from "../../../features/filterSlice";
+import {helpCapitalize} from "../../../helpers/helpCapitalize";
 import GeneralLoader from "../../common/GeneralLoader";
 import PaginationSection from "../ComponentsOfViews/Pagination/PaginationSection";
-import { helpUrl } from "./helpers/helpUrl";
+import {helpUrl} from "./helpers/helpUrl";
 import useFindRecord from "./hooks/useFindRecord";
-import { StyleBuscar } from "./StyleBuscar";
+import {StyleBuscar} from "./StyleBuscar";
 
 const MainBuscar = () => {
-  const { find } = useParams();
-  const { data, response } = useFindRecord(find);
+  const {find} = useParams();
+  const {data, response} = useFindRecord(find);
   const dispath = useDispatch();
 
   useEffect(() => {

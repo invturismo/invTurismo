@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const TableUsuarios = ({children}) => {
   return (
@@ -16,6 +16,6 @@ const TableUsuarios = ({children}) => {
       </table>
     </div>
   );
-}
+};
 
 export default TableUsuarios;

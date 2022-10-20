@@ -1,16 +1,16 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { helpCapitalize } from "../../../../helpers/helpCapitalize";
-import { toastMs } from "../../../../helpers/helpToastMessage";
+import {useNavigate, useParams} from "react-router-dom";
+import {helpCapitalize} from "../../../../helpers/helpCapitalize";
+import {toastMs} from "../../../../helpers/helpToastMessage";
 import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
-import { ACTUALIZAR, CLASIFICACION, CLASIFICADO } from "../../../router/paths";
+import {ACTUALIZAR, CLASIFICACION, CLASIFICADO} from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
 import useRecordClasificacion from "../hooks/useRecordClasificacion";
 
 const GetRecordClasificado = () => {
-  const { idRecursoAtractivo } = useParams();
+  const {idRecursoAtractivo} = useParams();
   const response = useRecordClasificacion(idRecursoAtractivo, "clas");
   const navigate = useNavigate();
 
@@ -18,14 +18,14 @@ const GetRecordClasificado = () => {
 
   if (!response.state) return <ErrorComponent message={response.message} />;
 
-  const handleClick = (condition) => {
+  const handleClick = condition => {
     if (condition)
       return toastMs().error(
         "No es posible actualizar, tienes que borrar el registro en su correspondiente clasificacion"
       );
     navigate(
       `${CLASIFICACION}${CLASIFICADO}${ACTUALIZAR}/${response.data.ID_LISTADO}`,
-      {replace:true}
+      {replace: true}
     );
   };
 

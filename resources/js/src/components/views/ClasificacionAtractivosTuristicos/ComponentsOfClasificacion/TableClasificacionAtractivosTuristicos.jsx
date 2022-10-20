@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const TableClasificacionAtractivosTuristicos = ({children,who}) => {
+const TableClasificacionAtractivosTuristicos = ({children, who}) => {
   return (
     <div className="ContainerTable">
       <table className="StyleTable">
@@ -17,6 +17,6 @@ const TableClasificacionAtractivosTuristicos = ({children,who}) => {
       </table>
     </div>
   );
-}
+};
 
 export default TableClasificacionAtractivosTuristicos;

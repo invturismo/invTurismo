@@ -1,9 +1,9 @@
 {
-	"1" : {
-    "1" : {
-      "1" : [
+  "1": {
+    "1": {
+      "1": [
         {
-          "ID_TIPO_PATRIMONIO" : "1",
+          "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "1",
           "ID_COMPONENTE": "1",
           "ID_ELEMENTO": "1",
@@ -61,7 +61,7 @@
           "ELEMENTO": "Vivienda Rural (Casa de Hacienda; Quinta, Vivienda Raizal, Tradicional, Popular)"
         }
       ],
-      "3" : [
+      "3": [
         {
           "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "1",
@@ -105,7 +105,7 @@
           "ELEMENTO": "Otro"
         }
       ],
-      "4" : [
+      "4": [
         {
           "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "1",
@@ -178,8 +178,8 @@
         }
       ]
     },
-    "5" : {
-      "1" : [
+    "5": {
+      "1": [
         {
           "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "5",
@@ -202,7 +202,7 @@
           "ELEMENTO": "Otro"
         }
       ],
-      "2" : [
+      "2": [
         {
           "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "5",
@@ -302,7 +302,7 @@
           "ELEMENTO": "Otro"
         }
       ],
-      "3" : [
+      "3": [
         {
           "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "5",
@@ -333,8 +333,8 @@
         }
       ]
     },
-    "7" : {
-      "1" : [
+    "7": {
+      "1": [
         {
           "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "7",
@@ -385,7 +385,7 @@
           "ELEMENTO": "Otras"
         }
       ],
-      "2" : [
+      "2": [
         {
           "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "7",
@@ -471,7 +471,7 @@
           "ELEMENTO": "Otras"
         }
       ],
-      "3" : [
+      "3": [
         {
           "ID_TIPO_PATRIMONIO": "1",
           "ID_GRUPO": "7",
@@ -517,9 +517,9 @@
       ]
     }
   },
-  "2" : {
+  "2": {
     "10": {
-      "1" : [
+      "1": [
         {
           "ID_TIPO_PATRIMONIO": "2",
           "ID_GRUPO": "10",

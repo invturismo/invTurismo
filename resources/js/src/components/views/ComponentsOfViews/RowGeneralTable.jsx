@@ -1,6 +1,6 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { helpCapitalize } from '../../../helpers/helpCapitalize';
+import React from "react";
+import {useNavigate} from "react-router-dom";
+import {helpCapitalize} from "../../../helpers/helpCapitalize";
 
 const RowGeneralTable = ({
   ID,
@@ -9,7 +9,7 @@ const RowGeneralTable = ({
   CALIFICACION,
   UBICACION,
   GEORREFERENCIACION,
-  linkNavigate
+  linkNavigate,
 }) => {
   const navigate = useNavigate();
 
@@ -39,6 +39,6 @@ const RowGeneralTable = ({
       </td>
     </tr>
   );
-}
+};
 
-export default RowGeneralTable
+export default RowGeneralTable;

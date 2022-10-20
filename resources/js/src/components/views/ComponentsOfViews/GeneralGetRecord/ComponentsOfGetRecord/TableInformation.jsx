@@ -61,10 +61,10 @@ const convertObject = (values, parent) => {
   return finalArray;
 };
 
-const TableInformation = ({ data, parent }) => {
+const TableInformation = ({data, parent}) => {
   return (
     <div className="TableInformation">
-      {convertObject(data, parent).map((val) => (
+      {convertObject(data, parent).map(val => (
         <div key={parent + val[0]} className="RowInformation">
           <div>
             <span className="titleRow">{val[0]}</span>

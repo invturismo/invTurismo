@@ -1,14 +1,17 @@
-import React from 'react'
-import GeneralLoader from '../../../common/GeneralLoader';
-import { COMPLETADO, EXPORTS, FESTIVIDADES, SINCOMPLETAR } from '../../../router/paths';
-import GeneralGet from '../../ComponentsOfViews/GeneralGet';
-import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
-import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
+import React from "react";
+import GeneralLoader from "../../../common/GeneralLoader";
+import {
+  COMPLETADO,
+  EXPORTS,
+  FESTIVIDADES,
+  SINCOMPLETAR,
+} from "../../../router/paths";
+import GeneralGet from "../../ComponentsOfViews/GeneralGet";
+import useDataGeneral from "../../ComponentsOfViews/hooks/useDataGeneral";
+import RowGeneralTable from "../../ComponentsOfViews/RowGeneralTable";
 
 const GetSinCompletarFestividades = () => {
-  const { response, data } = useDataGeneral(
-    "festividades-eventos/getdatasincom"
-  );
+  const {response, data} = useDataGeneral("festividades-eventos/getdatasincom");
 
   if (!response) return <GeneralLoader />;
 
@@ -33,6 +36,6 @@ const GetSinCompletarFestividades = () => {
       </GeneralGet>
     </>
   );
-}
+};
 
-export default GetSinCompletarFestividades
+export default GetSinCompletarFestividades;

@@ -1,29 +1,29 @@
 [
-	{
-		"id_tipos_bien" : 1,
-		"tipo_bien": "Guía Turística"
-	},
-	{
-		"id_tipos_bien" : 2,
-		"tipo_bien": "Bien con declaratoria local"
-	},
-	{
+  {
+    "id_tipos_bien": 1,
+    "tipo_bien": "Guía Turística"
+  },
+  {
+    "id_tipos_bien": 2,
+    "tipo_bien": "Bien con declaratoria local"
+  },
+  {
     "id_tipos_bien": 3,
     "tipo_bien": "Bien con declaratoria nacional"
   },
-	{
+  {
     "id_tipos_bien": 4,
     "tipo_bien": "Bien con declaratoria internacional"
   },
-	{
+  {
     "id_tipos_bien": 5,
     "tipo_bien": "Artículos de prensa"
   },
-	{
+  {
     "id_tipos_bien": 6,
     "tipo_bien": "Revistas"
   },
-	{
+  {
     "id_tipos_bien": 7,
     "tipo_bien": "Otros"
   }

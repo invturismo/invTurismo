@@ -1,21 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-  menuState : false
-}
+  menuState: false,
+};
 
 export const mainLayoutSlice = createSlice({
   name: "mainLayoutSlice",
   initialState: initialState,
   reducers: {
-    closeMenu: (state) => {
+    closeMenu: state => {
       state.menuState = false;
     },
-    openMenu: (state) => {
+    openMenu: state => {
       state.menuState = true;
     },
   },
 });
 
-export const {closeMenu,openMenu} = mainLayoutSlice.actions;
+export const {closeMenu, openMenu} = mainLayoutSlice.actions;
 export default mainLayoutSlice.reducer;

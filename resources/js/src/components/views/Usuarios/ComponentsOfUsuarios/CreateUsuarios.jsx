@@ -1,6 +1,6 @@
 import React from "react";
 import Cookies from "universal-cookie";
-import { USUARIOS } from "../../../router/paths";
+import {USUARIOS} from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
 import RegistrationForm from "../Form/RegistrationForm";
 const cookies = new Cookies();

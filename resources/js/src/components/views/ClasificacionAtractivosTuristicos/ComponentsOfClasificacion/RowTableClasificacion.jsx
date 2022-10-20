@@ -1,6 +1,6 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { helpCapitalize } from '../../../../helpers/helpCapitalize';
+import React from "react";
+import {useNavigate} from "react-router-dom";
+import {helpCapitalize} from "../../../../helpers/helpCapitalize";
 
 const RowTableClasificacion = ({
   ID_LISTADO,
@@ -8,7 +8,7 @@ const RowTableClasificacion = ({
   DEPARTAMENTO,
   MUNICIPIO,
   TIPO_BIEN,
-  who
+  who,
 }) => {
   const navigate = useNavigate();
 
@@ -39,4 +39,4 @@ const RowTableClasificacion = ({
   );
 };
 
-export default RowTableClasificacion
+export default RowTableClasificacion;

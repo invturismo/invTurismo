@@ -1,6 +1,6 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HOME, LOGIN } from "./components/router/paths";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {HOME, LOGIN} from "./components/router/paths";
 import {
   PrivateRouteHome,
   PrivateRouteLogin,
@@ -12,7 +12,7 @@ import Login from "./pages/Login";
 
 const App = () => {
   useTittle("Cargando");
-  
+
   return (
     <BrowserRouter>
       <Routes>
@@ -32,7 +32,7 @@ const App = () => {
             </PrivateRouteLogin>
           }
         />
-        <Route path="*" element={<Error404/>}/>
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );

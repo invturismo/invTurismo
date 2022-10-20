@@ -23,9 +23,9 @@ const StyleMainUsuarios = styled.div`
     h2 {
       text-align: center;
       font-size: 2.3rem;
-      font-family: ${(props) => props.theme.fonts.secondary};
+      font-family: ${props => props.theme.fonts.secondary};
     }
   }
 `;
 
-export { StyleMainUsuarios };
+export {StyleMainUsuarios};

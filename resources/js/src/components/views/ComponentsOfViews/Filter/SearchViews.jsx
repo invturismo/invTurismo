@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import React, {useState} from "react";
+import {useSearchParams} from "react-router-dom";
 import styled from "styled-components";
 
 const StyleSearch = styled.form`
@@ -40,22 +40,22 @@ const StyleSearch = styled.form`
 `;
 
 const SearchViews = () => {
-  const [params,setParams] = useSearchParams();
-  const [search, setSearch] = useState(params.get('buscar')||"");
+  const [params, setParams] = useSearchParams();
+  const [search, setSearch] = useState(params.get("buscar") || "");
 
-  const handleChange = (e) => setSearch(e.target.value);
+  const handleChange = e => setSearch(e.target.value);
   const handleDelete = () => {
     setSearch("");
     params.delete("buscar");
-    params.delete('page');
+    params.delete("page");
     setParams(params);
-  }
-  const handleSubmit = (e) => {
+  };
+  const handleSubmit = e => {
     e.preventDefault();
-    params.set('buscar',search);
-    params.delete('page');
+    params.set("buscar", search);
+    params.delete("page");
     setParams(params);
-  }
+  };
 
   return (
     <StyleSearch onSubmit={handleSubmit}>

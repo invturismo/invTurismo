@@ -1,16 +1,16 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { helpCapitalize } from "../../../../helpers/helpCapitalize";
+import {useDispatch} from "react-redux";
+import {useNavigate, useParams} from "react-router-dom";
+import {helpCapitalize} from "../../../../helpers/helpCapitalize";
 import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
-import { ACTUALIZAR, CAMBIARCLAVE, USUARIOS } from "../../../router/paths";
+import {ACTUALIZAR, CAMBIARCLAVE, USUARIOS} from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
-import { helpDeleteUsuario } from "../helpers/helpDeleteUsuario";
+import {helpDeleteUsuario} from "../helpers/helpDeleteUsuario";
 import useRecordUsuario from "../hooks/useRecordUsuario";
 
-const Information = ({ tittle, children }) => {
+const Information = ({tittle, children}) => {
   return (
     <p>
       <span className="titleInformation">{tittle}</span>
@@ -20,7 +20,7 @@ const Information = ({ tittle, children }) => {
 };
 
 const GetRecordUsuarios = () => {
-  const { idUsuario } = useParams();
+  const {idUsuario} = useParams();
   const response = useRecordUsuario(idUsuario, "user");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -69,7 +69,7 @@ const GetRecordUsuarios = () => {
           </ButtonPage>
           <ButtonPage
             colorButton="#220646"
-            onClick={() => helpDeleteUsuario({ dispatch, idUsuario, navigate })}
+            onClick={() => helpDeleteUsuario({dispatch, idUsuario, navigate})}
           >
             Eliminar
           </ButtonPage>

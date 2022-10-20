@@ -1,6 +1,6 @@
-import React from 'react'
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import ExportExcel from '../../ComponentsOfViews/GeneralOptions/ExportExcel';
+import React from "react";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import ExportExcel from "../../ComponentsOfViews/GeneralOptions/ExportExcel";
 
 const OptionsFestividades = () => {
   return (
@@ -15,6 +15,6 @@ const OptionsFestividades = () => {
       </div>
     </div>
   );
-}
+};
 
-export default OptionsFestividades
+export default OptionsFestividades;

@@ -8,31 +8,29 @@ let schema = yup.object({
     .string()
     .required(messageRequire)
     .max(200, "No puede superar 200 caracteres"),
-  UBICACION: yup
-    .string()
-    .max(200, "No puede superar 200 caracteres"),
+  UBICACION: yup.string().max(200, "No puede superar 200 caracteres"),
   ID_FUENTE: yup.string().required(messageRequire),
 });
 
-export const ValidationsFormListaPreliminar = async (values) => {
+export const ValidationsFormListaPreliminar = async values => {
   try {
-    await schema.validate(values, { abortEarly: false });
-    return {state:true}
+    await schema.validate(values, {abortEarly: false});
+    return {state: true};
   } catch (err) {
     let errors = {};
     err.inner.forEach(val => {
       errors[val.path] = val.message;
     });
-    return { state: false, errors };
+    return {state: false, errors};
   }
-}
+};
 
-export const UnitValidationsListaPreliminar = async (value) => {
+export const UnitValidationsListaPreliminar = async value => {
   const UnitValidation = schema.pick(Object.keys(value));
   try {
     await UnitValidation.validate(value);
-    return { state: true };
+    return {state: true};
   } catch (err) {
-    return { state: false, errors: {[err.path] : err.message} };
+    return {state: false, errors: {[err.path]: err.message}};
   }
-}
+};

@@ -2,7 +2,7 @@ import React from "react";
 import GetInformation1 from "./GetInformation1";
 import TableInformation from "./TableInformation";
 
-const Redes = ({ data }) => {
+const Redes = ({data}) => {
   return (
     <div className="GetContainerTittle">
       <h4>Redes</h4>
@@ -11,7 +11,7 @@ const Redes = ({ data }) => {
   );
 };
 
-const Otros = ({ data, who }) => {
+const Otros = ({data, who}) => {
   return (
     <div className="ContainerGet1">
       <GetInformation1
@@ -30,7 +30,7 @@ const Otros = ({ data, who }) => {
   );
 };
 
-const Fecha = ({ data }) => {
+const Fecha = ({data}) => {
   return (
     <>
       <div className="ContainerGet1">
@@ -53,7 +53,7 @@ const Fecha = ({ data }) => {
   );
 };
 
-const GetOtros = ({ data, originalData, who }) => {
+const GetOtros = ({data, originalData, who}) => {
   return (
     <>
       <Redes data={data.REDES} />

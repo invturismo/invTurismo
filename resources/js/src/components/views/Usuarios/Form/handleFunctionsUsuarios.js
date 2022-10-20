@@ -4,14 +4,14 @@ import {
   openLoaderForm,
   openModalLayoutState,
 } from "../../../../features/modalsSlice";
-import { toastMs } from "../../../../helpers/helpToastMessage";
-import { LOGIN, USUARIOS } from "../../../router/paths";
+import {toastMs} from "../../../../helpers/helpToastMessage";
+import {LOGIN, USUARIOS} from "../../../router/paths";
 import {
   initialErrorsUsuarios,
   initialValuesUsuarios,
 } from "./initialValuesUsuarios";
-import { fetchFormUsuarios } from "./logicFormUsuarios";
-import { validateTokens } from "./validateTokens";
+import {fetchFormUsuarios} from "./logicFormUsuarios";
+import {validateTokens} from "./validateTokens";
 import {
   unitValidationsUsuarios,
   validationsUsuarios,
@@ -36,47 +36,45 @@ export const handleFunctionsUsuarios = ({
     3: ["put", "reset-password"],
   };
 
-  const actionWho = (equal) => {
-    let linkNavigate = equal
-      ? `${LOGIN}`
-      : `${USUARIOS}/${values.ID_USUARIO}`;
+  const actionWho = equal => {
+    let linkNavigate = equal ? `${LOGIN}` : `${USUARIOS}/${values.ID_USUARIO}`;
     switch (who) {
       case 1:
-        setValues({ ...initialValuesUsuarios });
+        setValues({...initialValuesUsuarios});
         toastMs().success("El usuario se registro correctamente");
-        navigate(`${USUARIOS}`,{replace:true});
+        navigate(`${USUARIOS}`, {replace: true});
         break;
       case 2:
         toastMs().success("El usuario se actualizo correctamente");
-        navigate(linkNavigate, { replace: true });
+        navigate(linkNavigate, {replace: true});
         break;
       case 3:
         toastMs().success("La constraseña se actualizo correctamente");
-        navigate(linkNavigate, { replace: true });
+        navigate(linkNavigate, {replace: true});
         break;
     }
   };
 
-  const handleChange = async (e) => {
-    const { name, value } = e.target;
+  const handleChange = async e => {
+    const {name, value} = e.target;
     let response;
-    setValues({ ...values, [name]: value });
+    setValues({...values, [name]: value});
     if (name === "CONFIRMAR_CLAVE")
-      response = await unitValidationsUsuarios(e, { CLAVE: values.CLAVE });
+      response = await unitValidationsUsuarios(e, {CLAVE: values.CLAVE});
     else response = await unitValidationsUsuarios(e);
-    if (response.state) setErrors({ ...errors, [name]: "" });
+    if (response.state) setErrors({...errors, [name]: ""});
   };
 
-  const validateSchema = async (e) => {
+  const validateSchema = async e => {
     const response = await validationsUsuarios(values, who);
     if (!response.state) {
-      setErrors({ ...initialErrorsUsuarios, ...response.errors });
+      setErrors({...initialErrorsUsuarios, ...response.errors});
       return false;
     }
     return true;
   };
 
-  const sendData = async (equal) => {
+  const sendData = async equal => {
     dispatch(openLoaderForm());
     const [method, url] = whoData[who];
     const responseServe = await fetchFormUsuarios(values, method, url);
@@ -85,7 +83,7 @@ export const handleFunctionsUsuarios = ({
     dispatch(closeModalLayoutState());
     if (!responseServe.state) {
       if (responseServe.errors)
-        setErrors({ ...initialErrorsUsuarios, ...responseServe.errors });
+        setErrors({...initialErrorsUsuarios, ...responseServe.errors});
       if (responseServe.message) toastMs().error(responseServe.message);
       return;
     }
@@ -100,7 +98,7 @@ export const handleFunctionsUsuarios = ({
     return response;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (who === 1) return handleCreate();
     if (who === 2) return handleUpdate();
@@ -113,7 +111,7 @@ export const handleFunctionsUsuarios = ({
     sendData();
   };
 
-  const modalFunction = (responseTokens) => {
+  const modalFunction = responseTokens => {
     let textMessage1 =
       responseTokens[0] == 4
         ? `¿Estas seguro que quieres`
@@ -149,24 +147,24 @@ export const handleFunctionsUsuarios = ({
     modalFunction(responseTokens);
   };
 
-  const handleBlur = async (e) => {
+  const handleBlur = async e => {
     let response;
-    const { name } = e.target;
+    const {name} = e.target;
     if (name === "CONFIRMAR_CLAVE" || name === "CLAVE") {
-      setFocus({ ...focus, [name]: false });
+      setFocus({...focus, [name]: false});
     }
     if (name === "CONFIRMAR_CLAVE")
-      response = await unitValidationsUsuarios(e, { CLAVE: values.CLAVE });
+      response = await unitValidationsUsuarios(e, {CLAVE: values.CLAVE});
     else response = await unitValidationsUsuarios(e);
-    if (!response.state) return setErrors({ ...errors, ...response.errors });
+    if (!response.state) return setErrors({...errors, ...response.errors});
   };
 
-  const handleFocus = (e) => {
-    setFocus({ ...focus, [e.target.name]: true });
+  const handleFocus = e => {
+    setFocus({...focus, [e.target.name]: true});
   };
 
-  const handleClickView = (e) => {
-    const { className } = e.target;
+  const handleClickView = e => {
+    const {className} = e.target;
     setViewPassword({
       ...viewPassword,
       [className]: viewPassword[className] ? false : true,

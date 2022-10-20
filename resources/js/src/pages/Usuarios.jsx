@@ -1,9 +1,9 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import { ACTUALIZAR, CAMBIARCLAVE, REGISTRAR } from '../components/router/paths';
-import MainUsuarios from '../components/views/Usuarios/MainUsuarios';
-import useTittle from '../hooks/useTittle';
-import Error404 from './Error404';
+import React from "react";
+import {Route, Routes} from "react-router-dom";
+import {ACTUALIZAR, CAMBIARCLAVE, REGISTRAR} from "../components/router/paths";
+import MainUsuarios from "../components/views/Usuarios/MainUsuarios";
+import useTittle from "../hooks/useTittle";
+import Error404 from "./Error404";
 
 const Usuarios = () => {
   useTittle("Usuarios");
@@ -25,6 +25,6 @@ const Usuarios = () => {
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
-}
+};
 
 export default Usuarios;

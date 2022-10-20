@@ -1,6 +1,6 @@
-import React from 'react'
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import ExportExcel from '../../ComponentsOfViews/GeneralOptions/ExportExcel';
+import React from "react";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import ExportExcel from "../../ComponentsOfViews/GeneralOptions/ExportExcel";
 
 const OptionsSitios = () => {
   return (
@@ -8,13 +8,10 @@ const OptionsSitios = () => {
       <ActionBack to={-1} />
       <h2>Exportar sitios naturales</h2>
       <div className="ContainerMainOptionsClasificacion">
-        <ExportExcel
-          fileName="Sitios-naturales"
-          url="sitios-naturales"
-        />
+        <ExportExcel fileName="Sitios-naturales" url="sitios-naturales" />
       </div>
     </div>
   );
-}
+};
 
-export default OptionsSitios
+export default OptionsSitios;

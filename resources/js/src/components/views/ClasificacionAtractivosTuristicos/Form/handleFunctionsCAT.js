@@ -4,7 +4,7 @@ import {
   openLoaderForm,
   openModalLayoutState,
 } from "../../../../features/modalsSlice";
-import { toastMs } from "../../../../helpers/helpToastMessage";
+import {toastMs} from "../../../../helpers/helpToastMessage";
 import {
   CLASIFICACION,
   CLASIFICADO,
@@ -16,8 +16,8 @@ import {
   SINCOMPLETAR,
   SITIOS,
 } from "../../../router/paths";
-import { fetchFormClasificacion } from "./logicFormClasificacion";
-import { validationClasificacion } from "./schemaErrorsFormCAT";
+import {fetchFormClasificacion} from "./logicFormClasificacion";
+import {validationClasificacion} from "./schemaErrorsFormCAT";
 
 const linksPatrimonios = {
   1: MATERIAL,
@@ -35,21 +35,21 @@ export const handleFunctionsCAT = ({
   setErrors,
   values,
 }) => {
-  const handleChange = async (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+  const handleChange = async e => {
+    setValues({...values, [e.target.name]: e.target.value});
     const response = await validationClasificacion(values);
-    if (response.state) setErrors({ [e.target.name]: "" });
+    if (response.state) setErrors({[e.target.name]: ""});
   };
 
   const handleBlur = async () => {
     const response = await validationClasificacion(values);
     console.log(response);
-    if (!response.state) setErrors({ ...response.errors });
+    if (!response.state) setErrors({...response.errors});
   };
 
-  const sendData = async (exec) => {
+  const sendData = async exec => {
     const response = await validationClasificacion(values);
-    if (!response.state) return setErrors({ ...response.errors });
+    if (!response.state) return setErrors({...response.errors});
     dispatch(openLoaderForm());
     const data = await fetchFormClasificacion(values);
     console.log(data);
@@ -64,9 +64,9 @@ export const handleFunctionsCAT = ({
     dispatch(closeModalLayoutState());
   };
 
-  const handleCreate = (e) => {
+  const handleCreate = e => {
     const validateNext = e.nativeEvent.submitter.id === "buttonNext";
-    const handleSend = (id) => {
+    const handleSend = id => {
       let urlNavigate = `${CLASIFICACION}${SINCLASIFICAR}`;
       toastMs().success("Se clasifico correctamente");
       if (validateNext)
