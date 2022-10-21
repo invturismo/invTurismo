@@ -1,17 +1,17 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate, useParams } from "react-router-dom";
-import { helpConvertData } from '../../../../helpers/helpConvertData';
+import React from "react";
+import {useDispatch} from "react-redux";
+import {useNavigate, useParams} from "react-router-dom";
+import {helpConvertData} from "../../../../helpers/helpConvertData";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
-import { ACTUALIZAR, COMPLETADO, SITIOS } from '../../../router/paths';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
-import GeneralGetRecord from '../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord';
-import { helpDeleteRecurso } from '../../ComponentsOfViews/helpers/helpDeleteRecurso';
+import {ACTUALIZAR, COMPLETADO, SITIOS} from "../../../router/paths";
+import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
+import GeneralGetRecord from "../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord";
+import {helpDeleteRecurso} from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
 
 const GetRecordConSitios = () => {
-  const { idSitiosNaturales } = useParams();
+  const {idSitiosNaturales} = useParams();
   const response = useRecordGeneral(
     idSitiosNaturales,
     "sitios-naturales/getrecordcom"
@@ -26,12 +26,12 @@ const GetRecordConSitios = () => {
   const handleClick = () => {
     navigate(
       `${SITIOS}${COMPLETADO}${ACTUALIZAR}/${response.data.OTROS.ID_SITIO}`,
-      { replace: true }
+      {replace: true}
     );
   };
 
   const handleDelete = () => {
-    const body = { REGISTRO: idSitiosNaturales };
+    const body = {REGISTRO: idSitiosNaturales};
     helpDeleteRecurso({
       body,
       dispatch,
@@ -54,6 +54,6 @@ const GetRecordConSitios = () => {
       handleDelete={handleDelete}
     />
   );
-}
+};
 
-export default GetRecordConSitios
+export default GetRecordConSitios;

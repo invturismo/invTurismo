@@ -22,6 +22,7 @@ export const handleFunctionsLP = (
   navigate,
   dispatch
 ) => {
+  //Funcion para validar un campo en especifico dependiendo del esquema de validacion
   const ValidateField = async (name, value) => {
     let FieldValue = {[name]: value};
     const response = await UnitValidationsListaPreliminar(FieldValue);
@@ -45,6 +46,7 @@ export const handleFunctionsLP = (
     if (response.state) setErrors({...errors, [e.target.name]: ""});
   };
 
+  //Funcion que comprueba el esquema de validacion
   const validateSchema = async () => {
     const response = await ValidationsFormListaPreliminar(values);
     if (!response.state) {
@@ -54,6 +56,7 @@ export const handleFunctionsLP = (
     return true;
   };
 
+  //Funcion base para enviar los datos al servidor
   const sendData = async (exec, method, url) => {
     dispatch(openLoaderForm());
     const responseServe = await fetchFormListaPreliminar(values, method, url);
@@ -73,6 +76,7 @@ export const handleFunctionsLP = (
   const text1 =
     "El nombre ya es registrado en la base de datos en este municipio";
 
+  //Funcion para crear un nuevo recurso turistico
   const handleCreate = async e => {
     const schemaValidate = await validateSchema();
     if (!schemaValidate) return;
@@ -101,6 +105,7 @@ export const handleFunctionsLP = (
     dispatch(openModalLayoutState(dataPayload));
   };
 
+  //Funcion para actualizar un recurso turistico en el listado preliminar
   const handleUpdate = async () => {
     console.log(values);
     const schemaValidate = await validateSchema();

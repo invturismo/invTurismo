@@ -4,6 +4,7 @@ const objectPages = (path, page, active) => ({
   active: active == page,
 });
 
+//Funcion para generar los links de la paginacion de la app
 const validateOthers = (others, page) => {
   if (!others || !others.links || others.links.length === 0) return [];
   let dataOthers = JSON.parse(JSON.stringify(others)),

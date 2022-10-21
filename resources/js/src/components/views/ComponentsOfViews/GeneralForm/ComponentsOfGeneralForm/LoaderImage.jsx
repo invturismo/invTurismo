@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyleLoaderImage = styled.div`
   width: 100%;
@@ -54,6 +54,6 @@ const LoaderImage = () => {
       <span className="loader"></span>
     </StyleLoaderImage>
   );
-}
+};
 
 export default LoaderImage;

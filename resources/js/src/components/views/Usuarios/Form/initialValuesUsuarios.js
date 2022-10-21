@@ -1,3 +1,4 @@
+//Valores iniciales del formulario de usuarios
 const fieldsValues = {
   PRIMER_NOMBRE: "",
   SEGUNDO_NOMBRE: "",

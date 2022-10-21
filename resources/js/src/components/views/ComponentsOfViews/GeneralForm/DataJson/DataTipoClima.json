@@ -1,30 +1,30 @@
 [
-	{
+  {
     "ID_TIPO_CLIMA": 1,
     "TIPO_CLIMA": "Cálido"
-	},
-	{
-	"ID_TIPO_CLIMA": 2,
-	"TIPO_CLIMA": "Medio"
-	},
-	{
-	"ID_TIPO_CLIMA": 3,
-	"TIPO_CLIMA": "Frio"
-	},
-	{
-	"ID_TIPO_CLIMA": 4,
-	"TIPO_CLIMA": "Muy Frio"
-	},
-	{
-	"ID_TIPO_CLIMA": 5,
-	"TIPO_CLIMA": "Extremadamento Frio"
-	},
-	{
-	"ID_TIPO_CLIMA": 6,
-	"TIPO_CLIMA": "Subnival"
-	},
-	{
-	"ID_TIPO_CLIMA": 7,
-	"TIPO_CLIMA": "Nival"
-	}
+  },
+  {
+    "ID_TIPO_CLIMA": 2,
+    "TIPO_CLIMA": "Medio"
+  },
+  {
+    "ID_TIPO_CLIMA": 3,
+    "TIPO_CLIMA": "Frio"
+  },
+  {
+    "ID_TIPO_CLIMA": 4,
+    "TIPO_CLIMA": "Muy Frio"
+  },
+  {
+    "ID_TIPO_CLIMA": 5,
+    "TIPO_CLIMA": "Extremadamento Frio"
+  },
+  {
+    "ID_TIPO_CLIMA": 6,
+    "TIPO_CLIMA": "Subnival"
+  },
+  {
+    "ID_TIPO_CLIMA": 7,
+    "TIPO_CLIMA": "Nival"
+  }
 ]

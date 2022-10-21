@@ -1,12 +1,12 @@
-import React from 'react'
-import GeneralLoader from '../../../common/GeneralLoader';
-import { COMPLETADO, EXPORTS, GRUPOS, SINCOMPLETAR } from '../../../router/paths';
-import GeneralGet from '../../ComponentsOfViews/GeneralGet';
-import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
-import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
+import React from "react";
+import GeneralLoader from "../../../common/GeneralLoader";
+import {COMPLETADO, EXPORTS, GRUPOS, SINCOMPLETAR} from "../../../router/paths";
+import GeneralGet from "../../ComponentsOfViews/GeneralGet";
+import useDataGeneral from "../../ComponentsOfViews/hooks/useDataGeneral";
+import RowGeneralTable from "../../ComponentsOfViews/RowGeneralTable";
 
 const GetSinCompletarGrupos = () => {
-  const { response, data } = useDataGeneral("grupos-especiales/getdatasincom");
+  const {response, data} = useDataGeneral("grupos-especiales/getdatasincom");
 
   if (!response) return <GeneralLoader />;
 
@@ -31,6 +31,6 @@ const GetSinCompletarGrupos = () => {
       </GeneralGet>
     </>
   );
-}
+};
 
-export default GetSinCompletarGrupos
+export default GetSinCompletarGrupos;

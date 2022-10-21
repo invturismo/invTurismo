@@ -1,4 +1,8 @@
-import { helpErrors } from "../../../../helpers/helpErrors";
+import {helpErrors} from "../../../../helpers/helpErrors";
+
+/* Transforma los errores que llegan del servidor referente al formulario en una lista de objetos
+   acorde a la plantilla de valores del mismo
+*/
 
 const templateCalidad = {
   PATRIMONIOS_MATERIALES: {
@@ -36,7 +40,7 @@ const templateCalidad = {
   },
 };
 
-const templateErrors = (who) => ({
+const templateErrors = who => ({
   ...templateCalidad[who],
   NOMBRE: ["GENERALIDADES", "NOMBRE"],
   UBICACION: ["GENERALIDADES", "UBICACION"],
@@ -118,7 +122,7 @@ export const errorsTransform = (data, who, initialErrors) => {
   console.log(data);
   helpErrors(data);
   const newErrors = JSON.parse(JSON.stringify(initialErrors)),
-  { errors } = data;
+    {errors} = data;
   for (const key in errors) {
     let [v1, v2, v3] = templateErrors(who)[key];
     if (!v3) newErrors[v1][v2] = errors[v2];

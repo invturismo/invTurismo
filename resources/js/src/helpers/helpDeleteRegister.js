@@ -1,6 +1,7 @@
-import { helpHttp } from "./helpHttp";
-import { toastMs } from "./helpToastMessage";
+import {helpHttp} from "./helpHttp";
+import {toastMs} from "./helpToastMessage";
 
+//Funcion base para enviar peticion de eliminar registro de la base de datos
 export const helpDeleteRegister = async (url, body) => {
   try {
     const response = await helpHttp().del(url, {
@@ -12,4 +13,4 @@ export const helpDeleteRegister = async (url, body) => {
     toastMs().error(error.message);
     return error;
   }
-}; 
+};

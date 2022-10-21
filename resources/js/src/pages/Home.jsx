@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import LeadingLayout from "../components/layout/MainLayout/LeadingLayout";
 import {
   BUSCAR,

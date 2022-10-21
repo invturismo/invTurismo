@@ -1,10 +1,10 @@
-import React from 'react';
-import GetCompletadoGrupos from './ComponentsOfGrupos/GetCompletadoGrupos';
-import GetRecordConGrupos from './ComponentsOfGrupos/GetRecordConGrupos';
-import GetRecordSinGrupos from './ComponentsOfGrupos/GetRecordSinGrupos';
-import GetSinCompletarGrupos from './ComponentsOfGrupos/GetSinCompletarGrupos';
-import OptionsGrupos from './ComponentsOfGrupos/OptionsGrupos';
-import UpdateGrupos from './ComponentsOfGrupos/UpdateGrupos';
+import React from "react";
+import GetCompletadoGrupos from "./ComponentsOfGrupos/GetCompletadoGrupos";
+import GetRecordConGrupos from "./ComponentsOfGrupos/GetRecordConGrupos";
+import GetRecordSinGrupos from "./ComponentsOfGrupos/GetRecordSinGrupos";
+import GetSinCompletarGrupos from "./ComponentsOfGrupos/GetSinCompletarGrupos";
+import OptionsGrupos from "./ComponentsOfGrupos/OptionsGrupos";
+import UpdateGrupos from "./ComponentsOfGrupos/UpdateGrupos";
 
 const MainGruposEspecialInteres = ({who}) => {
   return (
@@ -17,6 +17,6 @@ const MainGruposEspecialInteres = ({who}) => {
       {who === 6 && <OptionsGrupos />}
     </div>
   );
-}
+};
 
-export default MainGruposEspecialInteres
+export default MainGruposEspecialInteres;

@@ -1,6 +1,6 @@
-import React from 'react'
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import ExportExcel from '../../ComponentsOfViews/GeneralOptions/ExportExcel';
+import React from "react";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import ExportExcel from "../../ComponentsOfViews/GeneralOptions/ExportExcel";
 
 const OptionsListadoPreliminar = () => {
   return (
@@ -12,6 +12,6 @@ const OptionsListadoPreliminar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default OptionsListadoPreliminar
+export default OptionsListadoPreliminar;

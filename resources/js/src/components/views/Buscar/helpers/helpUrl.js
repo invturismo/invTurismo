@@ -1,5 +1,18 @@
-import { helpCapitalize } from "../../../../helpers/helpCapitalize";
-import { CLASIFICACION, CLASIFICADO, FESTIVIDADES, GRUPOS, INMATERIAL, LISTADO, MATERIAL, SINCLASIFICAR, SINCOMPLETAR, SITIOS } from "../../../router/paths";
+import {helpCapitalize} from "../../../../helpers/helpCapitalize";
+import {
+  CLASIFICACION,
+  CLASIFICADO,
+  FESTIVIDADES,
+  GRUPOS,
+  INMATERIAL,
+  LISTADO,
+  MATERIAL,
+  SINCLASIFICAR,
+  SINCOMPLETAR,
+  SITIOS,
+} from "../../../router/paths";
+
+// Generar url dependiendo del tipo de clasificacion o instancia de creacion del recurso turistico
 
 const nameUrl = {
   1: ["Patrimonio cultural material", MATERIAL],

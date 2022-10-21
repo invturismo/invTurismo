@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom';
-import { helpHttp } from '../../../../helpers/helpHttp';
-import { toastMs } from '../../../../helpers/helpToastMessage';
+import {useEffect, useState} from "react";
+import {useSearchParams} from "react-router-dom";
+import {helpHttp} from "../../../../helpers/helpHttp";
+import {toastMs} from "../../../../helpers/helpToastMessage";
+
+//Funcion para enviar datos al servidor
 
 const useDataUsuario = () => {
   const [response, setResponse] = useState(false);
@@ -41,7 +43,7 @@ const useDataUsuario = () => {
     };
   }, [params]);
 
-  return { response, data };
-}
+  return {response, data};
+};
 
-export default useDataUsuario
+export default useDataUsuario;

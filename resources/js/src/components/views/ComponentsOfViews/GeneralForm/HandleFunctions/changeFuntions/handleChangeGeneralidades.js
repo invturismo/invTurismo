@@ -1,4 +1,7 @@
-export const handleChangesGeneralidades = ({ secondLevelChange, normalChange }) => {
+export const handleChangesGeneralidades = ({
+  secondLevelChange,
+  normalChange,
+}) => {
   const handleChangeDepartamentosMunicipio = (name, value) => {
     let optionalChange = {
       ID_MUNICIPIOS: "",
@@ -27,7 +30,7 @@ export const handleChangesGeneralidades = ({ secondLevelChange, normalChange }) 
     }
   };
 
-  return (e) => {
+  return e => {
     if (
       e.target.name === "ID_DEPARTAMENTOS" ||
       e.target.name === "ID_MUNICIPIOS"

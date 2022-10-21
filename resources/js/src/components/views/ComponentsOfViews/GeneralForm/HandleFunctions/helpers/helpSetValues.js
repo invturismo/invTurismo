@@ -1,6 +1,14 @@
-import { unitValidateGeneralForm } from "../../validationsGeneralForm";
+import {unitValidateGeneralForm} from "../../validationsGeneralForm";
 
-export const helpSetValues = ({ errors, setErrors, setValues, values, valueWho, who }) => {
+export const helpSetValues = ({
+  errors,
+  setErrors,
+  setValues,
+  values,
+  valueWho,
+  who,
+}) => {
+  /*Cambia un valor de error si el objeto solo tiene un objeto padre */
   const firstLevelErrors = (firstParent, response) => {
     setErrors({
       ...errors,
@@ -11,6 +19,7 @@ export const helpSetValues = ({ errors, setErrors, setValues, values, valueWho, 
     });
   };
 
+  /*Cambia un valor de error si el objeto tiene dos objetos padre */
   const secondLevelErrors = (firstParent, secondParent, response) => {
     setErrors({
       ...errors,
@@ -24,6 +33,7 @@ export const helpSetValues = ({ errors, setErrors, setValues, values, valueWho, 
     });
   };
 
+  /*Cambia un valor del campo de texto si el objeto solo tiene un objeto padre */
   const normalChange = async (name, value, table, optionalChange = {}) => {
     let e = {
       target: {
@@ -43,6 +53,7 @@ export const helpSetValues = ({ errors, setErrors, setValues, values, valueWho, 
     if (response.state) firstLevelErrors(table, response);
   };
 
+  /*Cambia un valor del campo de texto si el objeto tiene dos objetos padre */
   const secondLevelChange = async (
     name,
     value,

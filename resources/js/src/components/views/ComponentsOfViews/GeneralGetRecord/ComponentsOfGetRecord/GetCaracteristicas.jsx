@@ -1,12 +1,12 @@
 import React from "react";
-import { helpWhoData } from "../../../../../helpers/helpWhoData";
+import {helpWhoData} from "../../../../../helpers/helpWhoData";
 import TipoPatrimonio from "../../GeneralForm/DataJson/DataTiposPatrimonio.json";
 import Grupo from "../../GeneralForm/DataJson/DataGrupos.json";
 import Componente from "../../GeneralForm/DataJson/DataComponentes.json";
 import Elemento from "../../GeneralForm/DataJson/DataElementos.json";
 import GetInformation1 from "./GetInformation1";
 
-const GetCaracteristicas = ({ data, dataCodigo, originalData }) => {
+const GetCaracteristicas = ({data, dataCodigo, originalData}) => {
   return (
     <div className="GetContainerTittle">
       <h4>Codigo</h4>

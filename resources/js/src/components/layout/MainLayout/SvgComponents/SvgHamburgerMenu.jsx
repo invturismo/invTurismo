@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 const SvgHamburgerMenu = ({size}) => {
   return (
@@ -20,6 +20,6 @@ const SvgHamburgerMenu = ({size}) => {
       />
     </svg>
   );
-}
+};
 
 export default SvgHamburgerMenu;

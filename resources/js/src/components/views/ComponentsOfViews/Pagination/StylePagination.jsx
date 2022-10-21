@@ -37,4 +37,4 @@ const StylePagination = styled.div`
   }
 `;
 
-export { StylePagination };
+export {StylePagination};

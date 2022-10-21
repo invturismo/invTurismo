@@ -1,6 +1,9 @@
-import { closeLoaderForm, openLoaderForm } from "../../../../features/modalsSlice";
-import { helpHttp } from "../../../../helpers/helpHttp";
-import { toastMs } from "../../../../helpers/helpToastMessage";
+import {
+  closeLoaderForm,
+  openLoaderForm,
+} from "../../../../features/modalsSlice";
+import {helpHttp} from "../../../../helpers/helpHttp";
+import {toastMs} from "../../../../helpers/helpToastMessage";
 
 export const handleFunctionsExport = ({
   setData,
@@ -10,19 +13,20 @@ export const handleFunctionsExport = ({
   initialFilter,
   setTextFilter,
   textFilter,
-  url
+  url,
 }) => {
-  const handleSubmit = async (e) => {
+  //Funcion para enviar la consulta de que datos desea exportar
+  const handleSubmit = async e => {
     e.preventDefault();
     try {
       dispatch(openLoaderForm());
       const body = filter;
-      const response = await helpHttp().post("export/"+url, {
+      const response = await helpHttp().post("export/" + url, {
         body,
       });
       dispatch(closeLoaderForm());
       if (!response.state) toastMs().error(response.message);
-      setTextFilter({ ...textFilter, ...filter });
+      setTextFilter({...textFilter, ...filter});
       setFilter(initialFilter);
       setData(response.data);
     } catch (error) {
@@ -30,17 +34,17 @@ export const handleFunctionsExport = ({
     }
   };
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     if (e.target.name === "ID_DEPARTAMENTOS") {
-      const valueMunicipio = { ID_MUNICIPIOS: "" };
+      const valueMunicipio = {ID_MUNICIPIOS: ""};
       if (e.target.value === "11") valueMunicipio.ID_MUNICIPIOS = "001";
       setFilter({
         ...filter,
         [e.target.name]: e.target.value,
         ...valueMunicipio,
       });
-    } else setFilter({ ...filter, [e.target.name]: e.target.value });
+    } else setFilter({...filter, [e.target.name]: e.target.value});
   };
 
-  return { handleSubmit, handleChange };
+  return {handleSubmit, handleChange};
 };

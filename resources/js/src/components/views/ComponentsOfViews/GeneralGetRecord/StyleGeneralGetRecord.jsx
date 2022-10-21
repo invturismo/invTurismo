@@ -20,7 +20,7 @@ const StyleGeneralGetRecord = styled.div`
     border-bottom: 3px solid #2206467a;
     text-transform: uppercase;
     font-size: 2.3rem;
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
   }
   h3 {
     font-size: 2rem;
@@ -39,7 +39,7 @@ const StyleGeneralGetRecord = styled.div`
   h3,
   h4,
   h5 {
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
   }
   .GetContainerTittle {
     display: flex;
@@ -76,7 +76,7 @@ const StyleGeneralGetRecord = styled.div`
     grid-column: 1 / -1;
   }
   .TotalStyle b {
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
   }
   .TotalStyle p {
     font-size: 1.1rem;
@@ -128,7 +128,7 @@ const StyleGeneralGetRecord = styled.div`
   }
   .titleRow {
     font-weight: 700;
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
   }
   .contentRow {
     margin: 0 auto;
@@ -142,4 +142,4 @@ const StyleGeneralGetRecord = styled.div`
   }
 `;
 
-export { StyleGeneralGetRecord };
+export {StyleGeneralGetRecord};

@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { closeModalLayoutState } from '../../../../features/modalsSlice';
-import { MainModalPopper, StyleModalPopper } from './StyleModalPopper';
-import { AnimatePresence, motion } from "framer-motion";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {closeModalLayoutState} from "../../../../features/modalsSlice";
+import {MainModalPopper, StyleModalPopper} from "./StyleModalPopper";
+import {AnimatePresence, motion} from "framer-motion";
 
 const ModalPopper = () => {
   const dispatch = useDispatch();
@@ -12,10 +12,10 @@ const ModalPopper = () => {
     textButton,
     srcImg,
     handleFunction,
-    noButton
-  } = useSelector((state) => state.modalsSlice.dataModalPopper);
+    noButton,
+  } = useSelector(state => state.modalsSlice.dataModalPopper);
   const modalLayoutState = useSelector(
-    (state) => state.modalsSlice.modalLayoutState
+    state => state.modalsSlice.modalLayoutState
   );
 
   useEffect(() => {
@@ -29,16 +29,16 @@ const ModalPopper = () => {
       {modalLayoutState && (
         <StyleModalPopper>
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
             className="backgroundModal"
             onClick={() => !noButton && dispatch(closeModalLayoutState())}
           />
           <MainModalPopper
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
+            initial={{scale: 0}}
+            animate={{scale: 1}}
+            exit={{scale: 0}}
           >
             <div className="body">
               <div className="text">

@@ -19,6 +19,7 @@ import {formDataTransform} from "../formDataTransform";
 import {sendDataForm} from "../sendDataForm";
 import {validationsGeneralForm} from "../validationsGeneralForm";
 
+//Links de los recursos turisticos dependiendo de su clasificacion
 const whoLink = {
   1: [
     "patrimonios-materiales/insertForm",
@@ -63,6 +64,7 @@ export const submitFunctionsGeneralForm = ({
   initialValues,
   navigate,
 }) => {
+  //Funcion que comprueba el esquema de validacion
   const validateSchema = async () => {
     const response = await validationsGeneralForm(
       values,
@@ -77,6 +79,7 @@ export const submitFunctionsGeneralForm = ({
     return true;
   };
 
+  //Funcion base para enviar datos al servidor y mostrar mensajes al usuario
   const templateSubmit = async (nameLink, exec, updateImage) => {
     dispatch(openLoaderForm());
     const formData = formDataTransform({...values, ...idRecord}, who);
@@ -103,6 +106,7 @@ export const submitFunctionsGeneralForm = ({
     exec();
   };
 
+  //Funcion para enviar formulario de recurso turistico ya clasificado
   const handleSubmitCreate = async () => {
     const response = await validateSchema();
     if (!response) return;
@@ -112,6 +116,7 @@ export const submitFunctionsGeneralForm = ({
     });
   };
 
+  //Funcion para enviar formulario de recurso turistico ya completado
   const handleSubmitUpdate = async () => {
     let jsonInital = JSON.stringify(initialValues),
       jsonValues = JSON.stringify(values);
@@ -125,6 +130,7 @@ export const submitFunctionsGeneralForm = ({
         replace: true,
       });
     };
+    //Funcion para validar si se actualizo alguna imagen o la fuente de las imagenes
     const validateImages = () => {
       let ifImage1 =
           values.CARACTERISTICAS.IMAGEN1 !=

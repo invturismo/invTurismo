@@ -1,13 +1,13 @@
-import { unitValidateGeneralForm } from "../../validationsGeneralForm";
-import { helpSetValues } from "../helpers/helpSetValues";
-import { helpSwitchCodigo } from "../helpers/helpSwitchCodigo";
-import { handleChangeCalidad } from "./handleChangeCalidad";
-import { handleChangeCheckBox } from "./handleChangeCheckbox";
-import { handleChangeFiles } from "./handleChangeFile";
-import { handleChangesGeneralidades } from "./handleChangeGeneralidades";
-import Significado from "../../DataJson/DataSignificado.json"
-import { helpChangeInt } from "../helpers/helpChangeInt";
-import { deleteUrlImage } from "../../../../../../features/imagesSlice";
+import {unitValidateGeneralForm} from "../../validationsGeneralForm";
+import {helpSetValues} from "../helpers/helpSetValues";
+import {helpSwitchCodigo} from "../helpers/helpSwitchCodigo";
+import {handleChangeCalidad} from "./handleChangeCalidad";
+import {handleChangeCheckBox} from "./handleChangeCheckbox";
+import {handleChangeFiles} from "./handleChangeFile";
+import {handleChangesGeneralidades} from "./handleChangeGeneralidades";
+import Significado from "../../DataJson/DataSignificado.json";
+import {helpChangeInt} from "../helpers/helpChangeInt";
+import {deleteUrlImage} from "../../../../../../features/imagesSlice";
 
 export const mainChangeFunctions = ({
   values,
@@ -18,19 +18,15 @@ export const mainChangeFunctions = ({
   dispatch,
   valueWho,
 }) => {
-  const {
-    firstLevelErrors,
-    normalChange,
-    secondLevelChange,
-    secondLevelErrors,
-  } = helpSetValues({ errors, setErrors, setValues, values, valueWho, who });
+  const {firstLevelErrors, normalChange, secondLevelChange, secondLevelErrors} =
+    helpSetValues({errors, setErrors, setValues, values, valueWho, who});
 
   const handleChangeGeneralidades = handleChangesGeneralidades({
     normalChange,
     secondLevelChange,
   });
 
-  const handleChangeAdminPropietario = (e) => {
+  const handleChangeAdminPropietario = e => {
     secondLevelChange(
       e.target.name,
       e.target.value,
@@ -39,11 +35,11 @@ export const mainChangeFunctions = ({
     );
   };
 
-  const handleChangeCaracteristicas = (e) => {
+  const handleChangeCaracteristicas = e => {
     normalChange(e.target.name, e.target.value, "CARACTERISTICAS");
   };
 
-  const handleChangeCodigo = (e) => {
+  const handleChangeCodigo = e => {
     let optionalChange = helpSwitchCodigo(values, e);
     secondLevelChange(
       e.target.name,
@@ -60,13 +56,16 @@ export const mainChangeFunctions = ({
     normalChange,
   });
 
-  const handleDeleteImage = (e) => {
-    const { className } = e.target;
+  const handleDeleteImage = e => {
+    const {className} = e.target;
     normalChange(className, null, "CARACTERISTICAS");
     dispatch(deleteUrlImage(className));
   };
 
-  const handleChangePuntajes = (e) => {
+  /*Calcula el valor del total del puntaje dependiendo de la opcion del significado que escoga
+   * el usuario.
+   */
+  const handleChangePuntajes = e => {
     let Subtotal = values.PUNTAJES_VALORACION.CALIDAD.SUBTOTAL;
     let SignificadoPuntaje = Significado[e.target.value - 1]["PUNTAJE"];
     Subtotal = helpChangeInt(Subtotal);
@@ -88,9 +87,9 @@ export const mainChangeFunctions = ({
     handleChangeCalidadInmaterial,
     handleChangeCalidadMaterial,
     handleChangeCalidadSitios,
-  } = handleChangeCalidad({ secondLevelChange, values });
+  } = handleChangeCalidad({secondLevelChange, values});
 
-  const handleChangeCaracteristicasRelevantes = (e) => {
+  const handleChangeCaracteristicasRelevantes = e => {
     normalChange(e.target.name, e.target.value, "CARACTERISTICAS_RELEVANTES");
   };
 
@@ -100,7 +99,7 @@ export const mainChangeFunctions = ({
     values,
   });
 
-  const handleChangeTarifas = (e) => {
+  const handleChangeTarifas = e => {
     secondLevelChange(
       e.target.name,
       e.target.value,
@@ -109,7 +108,7 @@ export const mainChangeFunctions = ({
     );
   };
 
-  const handleChangeActividades = (e) => {
+  const handleChangeActividades = e => {
     secondLevelChange(
       e.target.name,
       e.target.value,
@@ -118,7 +117,7 @@ export const mainChangeFunctions = ({
     );
   };
 
-  const handleChangeServicios = (e) => {
+  const handleChangeServicios = e => {
     secondLevelChange(
       e.target.name,
       e.target.value,
@@ -127,19 +126,19 @@ export const mainChangeFunctions = ({
     );
   };
 
-  const handleChangePromocion = (e) => {
+  const handleChangePromocion = e => {
     normalChange(e.target.name, e.target.value, "PROMOCION");
   };
 
-  const handleChangeServiciosEspeciales = (e) => {
+  const handleChangeServiciosEspeciales = e => {
     normalChange(e.target.name, e.target.value, "SERVICIOS_ESPECIALES");
   };
 
-  const handleChangeRedes = (e) => {
+  const handleChangeRedes = e => {
     secondLevelChange(e.target.name, e.target.value, "OTROS", "REDES");
   };
 
-  const handleChangeOtros = (e) => {
+  const handleChangeOtros = e => {
     normalChange(e.target.name, e.target.value, "OTROS");
   };
 

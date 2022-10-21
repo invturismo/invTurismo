@@ -1,14 +1,18 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { closeFilter, openFilter, updateWindow } from "../../../features/filterSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
+import {
+  closeFilter,
+  openFilter,
+  updateWindow,
+} from "../../../features/filterSlice";
 import ButtonHeader from "../../common/ButtonHeader";
-import { CREAR } from "../../router/paths";
+import {CREAR} from "../../router/paths";
 import SearchViews from "./Filter/SearchViews";
 
-const GeneralHeader = ({ linkOptions, who }) => {
+const GeneralHeader = ({linkOptions, who}) => {
   const dispatch = useDispatch();
-  const stateFilter = useSelector((state) => state.filterSlice.stateFilter);
+  const stateFilter = useSelector(state => state.filterSlice.stateFilter);
 
   const handleClickFilter = () => {
     if (stateFilter) dispatch(closeFilter());

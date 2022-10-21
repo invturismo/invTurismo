@@ -1,9 +1,9 @@
 import React from "react";
-import { helpCapitalize } from "../../../../../helpers/helpCapitalize";
+import {helpCapitalize} from "../../../../../helpers/helpCapitalize";
 
-const validateValue = (value) => value || "-";
+const validateValue = value => value || "-";
 
-const GetInformation1 = ({ name, content, help }) => {
+const GetInformation1 = ({name, content, help}) => {
   return (
     <div className="GetInformation1">
       <h5>{name}</h5>

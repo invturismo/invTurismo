@@ -7,7 +7,7 @@ const StyleExportExcel = styled.div`
     gap: 10px;
   }
   form > p {
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     font-size: 1.4rem;
     font-weight: 700;
   }
@@ -71,7 +71,7 @@ const StyleExportExcel = styled.div`
   }
   .TextDownload {
     align-self: center;
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     font-size: 1.1rem;
   }
   img {
@@ -85,4 +85,4 @@ const StyleExportExcel = styled.div`
   }
 `;
 
-export { StyleExportExcel };
+export {StyleExportExcel};

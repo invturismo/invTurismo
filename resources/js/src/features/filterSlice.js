@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 const ID_DEPARTAMENTOS = cookies.get("id_departamentos");
@@ -9,11 +9,12 @@ const initialState = {
     ID_DEPARTAMENTOS: ID_DEPARTAMENTOS || "",
     ID_MUNICIPIOS: ID_MUNICIPIOS || "",
   },
-  stateFilter: false,
-  updateState: false,
-  searchState : ""
+  stateFilter: false, //Si las opciones de filtrado estan abiertas cambia a true
+  updateState: false, //Cambia de estado si el usuario actualiza alguna tabla
+  searchState: "", //Filtro de busqueda general de la app
 };
 
+//Guarda los filtros de consulta
 export const filterSlice = createSlice({
   name: "filterSlice",
   initialState: initialState,
@@ -24,21 +25,26 @@ export const filterSlice = createSlice({
         ...action.payload,
       };
     },
-    openFilter: (state) => {
+    openFilter: state => {
       state.stateFilter = true;
     },
-    closeFilter: (state) => {
+    closeFilter: state => {
       state.stateFilter = false;
     },
-    updateWindow: (state) => {
+    updateWindow: state => {
       state.updateState = state.updateState ? false : true;
     },
-    changeSearch: (state,{payload}) => {
+    changeSearch: (state, {payload}) => {
       state.searchState = payload;
-    }
+    },
   },
 });
 
-export const { setDataFilter, openFilter, closeFilter, updateWindow, changeSearch } =
-  filterSlice.actions;
+export const {
+  setDataFilter,
+  openFilter,
+  closeFilter,
+  updateWindow,
+  changeSearch,
+} = filterSlice.actions;
 export default filterSlice.reducer;

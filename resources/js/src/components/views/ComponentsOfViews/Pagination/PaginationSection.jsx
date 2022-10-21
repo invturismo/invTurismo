@@ -1,11 +1,12 @@
 import React from "react";
-import { useSearchParams } from "react-router-dom";
-import { validateOthers } from "./logicPagination";
-import { StylePagination } from "./StylePagination";
+import {useSearchParams} from "react-router-dom";
+import {validateOthers} from "./logicPagination";
+import {StylePagination} from "./StylePagination";
 
 const PaginationSection = ({others}) => {
   const [params, setParams] = useSearchParams();
 
+  //Funcion para cambiar de pagina ya sea siguiente o previa
   const handleClick = (url, prev) => {
     let paramsClick = new URL(url).searchParams;
     let page = paramsClick.get("page");
@@ -27,7 +28,7 @@ const PaginationSection = ({others}) => {
         <span className="nullSpan"></span>
       )}
       <div>
-        {validateOthers(others, params.get("page")).map((val) => {
+        {validateOthers(others, params.get("page")).map(val => {
           return (
             <span
               onClick={() => handleClick(val.url)}

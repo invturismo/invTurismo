@@ -1,12 +1,16 @@
-import React from 'react';
-import MenuNavbar from './Menu/MenuNavbar';
-import { Nav } from './StyleNavbar';
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { closeMenu } from '../../../../features/mainLayoutSlice';
-import { closeLoaderForm, openLoaderForm, openModalLayoutState } from '../../../../features/modalsSlice';
-import { helpLogout } from '../../../../helpers/helpLogout';
-import { HOME, LOGIN } from '../../../router/paths';
+import React from "react";
+import MenuNavbar from "./Menu/MenuNavbar";
+import {Nav} from "./StyleNavbar";
+import {useDispatch} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
+import {closeMenu} from "../../../../features/mainLayoutSlice";
+import {
+  closeLoaderForm,
+  openLoaderForm,
+  openModalLayoutState,
+} from "../../../../features/modalsSlice";
+import {helpLogout} from "../../../../helpers/helpLogout";
+import {HOME, LOGIN} from "../../../router/paths";
 
 const CloseMenu = () => {
   const dispatch = useDispatch();
@@ -18,7 +22,7 @@ const CloseMenu = () => {
       </button>
     </div>
   );
-}
+};
 
 const HeaderMenu = () => {
   const dispatch = useDispatch();
@@ -29,12 +33,12 @@ const HeaderMenu = () => {
       </Link>
     </header>
   );
-}
+};
 
 const ButtonLogout = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   const handleClickLogout = async () => {
     dispatch(openLoaderForm());
     await helpLogout();
@@ -59,16 +63,16 @@ const ButtonLogout = () => {
       </button>
     </div>
   );
-}
+};
 
-const Navbar = ({movile,desktop}) => {
+const Navbar = ({movile, desktop}) => {
   return (
     <Nav
-      resize={{ movile: movile, desktop: desktop }}
-      initial={movile ? { x: -200 } : null}
-      animate={movile ? { x: [-200, 0] } : null}
-      transition={movile ? { duration: 0.5 } : null}
-      exit={movile ? { x: [0, -1000] } : null}
+      resize={{movile: movile, desktop: desktop}}
+      initial={movile ? {x: -200} : null}
+      animate={movile ? {x: [-200, 0]} : null}
+      transition={movile ? {duration: 0.5} : null}
+      exit={movile ? {x: [0, -1000]} : null}
       className="Navbar"
     >
       {movile && <CloseMenu />}

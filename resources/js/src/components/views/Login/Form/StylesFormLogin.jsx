@@ -35,4 +35,4 @@ const ContainerForm = styled.form`
   }
 `;
 
-export { ContainerForm };
+export {ContainerForm};

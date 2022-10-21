@@ -1,17 +1,17 @@
 import React from "react";
-import { helpConvertData } from "../../../../helpers/helpConvertData";
+import {helpConvertData} from "../../../../helpers/helpConvertData";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
 import GeneralGetRecord from "../../ComponentsOfViews/GeneralGetRecord/GeneralGetRecord";
-import { useNavigate, useParams } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
-import { useDispatch } from "react-redux";
-import { helpDeleteRecurso } from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
-import { initialValuesGeneralForm } from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
-import { ACTUALIZAR, COMPLETADO, MATERIAL } from "../../../router/paths";
+import {useDispatch} from "react-redux";
+import {helpDeleteRecurso} from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
+import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
+import {ACTUALIZAR, COMPLETADO, MATERIAL} from "../../../router/paths";
 
 const GetRecordConMaterial = () => {
-  const { idPatrimonioMaterial } = useParams();
+  const {idPatrimonioMaterial} = useParams();
   const response = useRecordGeneral(
     idPatrimonioMaterial,
     "patrimonios-materiales/getrecordcom"
@@ -26,12 +26,12 @@ const GetRecordConMaterial = () => {
   const handleClick = () => {
     navigate(
       `${MATERIAL}${COMPLETADO}${ACTUALIZAR}/${response.data.OTROS.ID_MATERIAL}`,
-      { replace: true }
+      {replace: true}
     );
   };
 
   const handleDelete = () => {
-    const body = { REGISTRO: idPatrimonioMaterial };
+    const body = {REGISTRO: idPatrimonioMaterial};
     helpDeleteRecurso({
       body,
       dispatch,
@@ -40,7 +40,6 @@ const GetRecordConMaterial = () => {
       url: "patrimonios-materiales/delete",
     });
   };
-
 
   return (
     <GeneralGetRecord

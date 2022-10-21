@@ -1,7 +1,13 @@
-import { closeLoaderForm, closeModalLayoutState, openLoaderForm, openModalLayoutState } from "../../../../features/modalsSlice";
-import { helpDeleteRegister } from "../../../../helpers/helpDeleteRegister";
-import { toastMs } from "../../../../helpers/helpToastMessage";
+import {
+  closeLoaderForm,
+  closeModalLayoutState,
+  openLoaderForm,
+  openModalLayoutState,
+} from "../../../../features/modalsSlice";
+import {helpDeleteRegister} from "../../../../helpers/helpDeleteRegister";
+import {toastMs} from "../../../../helpers/helpToastMessage";
 
+//Funcion para eliminar un recurso turistico
 export const helpDeleteRecurso = async ({
   body,
   url,

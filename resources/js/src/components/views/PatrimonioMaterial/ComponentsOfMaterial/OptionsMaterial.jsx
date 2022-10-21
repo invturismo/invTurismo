@@ -1,11 +1,11 @@
-import React from 'react'
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import ExportExcel from '../../ComponentsOfViews/GeneralOptions/ExportExcel';
+import React from "react";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import ExportExcel from "../../ComponentsOfViews/GeneralOptions/ExportExcel";
 
 const OptionsMaterial = () => {
   return (
     <div className="OptionsGeneral">
-      <ActionBack to={-1}/>
+      <ActionBack to={-1} />
       <h2>Exportar patrimonios materiales</h2>
       <div className="ContainerMainOptionsClasificacion">
         <ExportExcel
@@ -15,6 +15,6 @@ const OptionsMaterial = () => {
       </div>
     </div>
   );
-}
+};
 
-export default OptionsMaterial
+export default OptionsMaterial;

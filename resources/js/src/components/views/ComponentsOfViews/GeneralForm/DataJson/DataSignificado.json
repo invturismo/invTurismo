@@ -1,20 +1,20 @@
 [
-	{
+  {
     "ID_SIGNIFICADO": "1",
     "SIGNIFICADO": "Local",
-		"PUNTAJE": "6"
-	},
-	{
+    "PUNTAJE": "6"
+  },
+  {
     "ID_SIGNIFICADO": "2",
     "SIGNIFICADO": "Regional",
     "PUNTAJE": "12"
   },
-	{
+  {
     "ID_SIGNIFICADO": "3",
     "SIGNIFICADO": "Nacional",
     "PUNTAJE": "18"
   },
-	{
+  {
     "ID_SIGNIFICADO": "4",
     "SIGNIFICADO": "Internacional",
     "PUNTAJE": "30"

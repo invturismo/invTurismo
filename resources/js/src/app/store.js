@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import {configureStore} from "@reduxjs/toolkit";
 import dataProfileSlice from "../features/dataProfileSlice";
 import filterSlice from "../features/filterSlice";
 import imagesSlice from "../features/imagesSlice";
@@ -13,7 +13,7 @@ export const store = configureStore({
     filterSlice: filterSlice,
     imagesSlice: imagesSlice,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: ["modalsSlice/openModalLayoutState"],

@@ -1,7 +1,7 @@
-import React from 'react';
-import GetInformation1 from './GetInformation1';
+import React from "react";
+import GetInformation1 from "./GetInformation1";
 import Significado from "../../GeneralForm/DataJson/DataSignificado.json";
-import { helpWhoData } from '../../../../../helpers/helpWhoData';
+import {helpWhoData} from "../../../../../helpers/helpWhoData";
 
 const whoFields = {
   PATRIMONIO_MATERIAL: [
@@ -33,13 +33,13 @@ const whoFields = {
   ],
 };
 
-const GetPuntajes = ({ data, who }) => {
+const GetPuntajes = ({data, who}) => {
   return (
     <>
       <div className="GetContainerTittle">
         <h4>Calidad</h4>
         <div className="ContainerGet1">
-          {whoFields[who].map((val) => (
+          {whoFields[who].map(val => (
             <GetInformation1
               key={"CALIDAD_" + val[0]}
               content={data.CALIDAD[val[0]] || "0"}
@@ -77,4 +77,4 @@ const GetPuntajes = ({ data, who }) => {
   );
 };
 
-export default GetPuntajes
+export default GetPuntajes;

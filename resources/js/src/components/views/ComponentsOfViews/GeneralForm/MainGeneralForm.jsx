@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import ButtonPage from "../../../common/ButtonPage";
 import FormActividadesServicios from "./ComponentsOfGeneralForm/FormActividadesServicios";
 import FormCaracteristicas from "./ComponentsOfGeneralForm/FormCaracteristicas";
@@ -8,12 +8,18 @@ import FormOtros from "./ComponentsOfGeneralForm/FormOtros";
 import FormPromocionAtractivo from "./ComponentsOfGeneralForm/FormPromocionAtractivo";
 import FormPuntajesValoracion from "./ComponentsOfGeneralForm/FormPuntajesValoracion";
 import FormServiciosEspeciales from "./ComponentsOfGeneralForm/FormServiciosEspeciales";
-import { StyleMainGeneralForm } from "./StyleMainGeneralForm";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { handleFunctionsGeneralForm } from "./HandleFunctions/handleFunctionsGeneralForm";
+import {StyleMainGeneralForm} from "./StyleMainGeneralForm";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
+import {handleFunctionsGeneralForm} from "./HandleFunctions/handleFunctionsGeneralForm";
 
-const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }) => {
+const MainGeneralForm = ({
+  initialValues,
+  initialErrors,
+  who,
+  idRecord,
+  update,
+}) => {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
   const dispatch = useDispatch();
@@ -59,7 +65,7 @@ const MainGeneralForm = ({ initialValues, initialErrors, who, idRecord, update }
 
   return (
     <StyleMainGeneralForm
-      onSubmit={(e) => {
+      onSubmit={e => {
         e.preventDefault();
         if (!update) return handleSubmitCreate();
         handleSubmitUpdate();

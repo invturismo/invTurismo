@@ -1,5 +1,6 @@
 import Cookies from "universal-cookie";
 
+//Funcion para eliminar todas las cookies de la app
 export const helpDropCookies = () => {
   const cookies = new Cookies();
   cookies.remove("accecs_token");

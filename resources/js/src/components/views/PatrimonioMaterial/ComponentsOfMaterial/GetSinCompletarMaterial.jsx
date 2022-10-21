@@ -1,12 +1,17 @@
-import React from 'react';
-import GeneralLoader from '../../../common/GeneralLoader';
-import { COMPLETADO, EXPORTS, MATERIAL, SINCOMPLETAR } from '../../../router/paths';
-import GeneralGet from '../../ComponentsOfViews/GeneralGet';
-import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
-import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
+import React from "react";
+import GeneralLoader from "../../../common/GeneralLoader";
+import {
+  COMPLETADO,
+  EXPORTS,
+  MATERIAL,
+  SINCOMPLETAR,
+} from "../../../router/paths";
+import GeneralGet from "../../ComponentsOfViews/GeneralGet";
+import useDataGeneral from "../../ComponentsOfViews/hooks/useDataGeneral";
+import RowGeneralTable from "../../ComponentsOfViews/RowGeneralTable";
 
 const GetSinCompletarMaterial = () => {
-  const { response, data } = useDataGeneral(
+  const {response, data} = useDataGeneral(
     "patrimonios-materiales/getdatasincom"
   );
 
@@ -33,6 +38,6 @@ const GetSinCompletarMaterial = () => {
       </GeneralGet>
     </>
   );
-}
+};
 
-export default GetSinCompletarMaterial
+export default GetSinCompletarMaterial;

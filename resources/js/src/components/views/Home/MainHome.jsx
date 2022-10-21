@@ -1,14 +1,14 @@
-import React from 'react'
-import useTittle from '../../../hooks/useTittle'
-import { StyleMainHome } from './StylesMainHome';
-import { useSelector } from 'react-redux';
-import CardButton from './ComponentsOfHome/CardButton';
-import { CREAR, CUADRORESUMEN, LISTADO } from '../../router/paths';
+import React from "react";
+import useTittle from "../../../hooks/useTittle";
+import {StyleMainHome} from "./StylesMainHome";
+import {useSelector} from "react-redux";
+import CardButton from "./ComponentsOfHome/CardButton";
+import {CREAR, CUADRORESUMEN, LISTADO} from "../../router/paths";
 
 const MainHome = () => {
-  useTittle('Inicio');
-  const { PRIMER_NOMBRE } = useSelector(
-    (state) => state.dataProfileSlice.dataProfile
+  useTittle("Inicio");
+  const {PRIMER_NOMBRE} = useSelector(
+    state => state.dataProfileSlice.dataProfile
   );
   return (
     <StyleMainHome>
@@ -47,6 +47,6 @@ const MainHome = () => {
       </div>
     </StyleMainHome>
   );
-}
+};
 
-export default MainHome
+export default MainHome;

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
-const styleLeandingLayoutResize = ({movile,desktop}) => {
-  if(movile) return `
+const styleLeandingLayoutResize = ({movile, desktop}) => {
+  if (movile)
+    return `
     display: grid;
     grid-template-rows: auto 1fr;
     min-height: 100vh;
@@ -15,7 +16,8 @@ const styleLeandingLayoutResize = ({movile,desktop}) => {
       z-index: 49;
     }
   `;
-  if(desktop) return `
+  if (desktop)
+    return `
     .HeaderDesktop {
       grid-area: HeaderDesktop;
     }
@@ -32,14 +34,14 @@ const styleLeandingLayoutResize = ({movile,desktop}) => {
     grid-template-rows: auto 1fr;
     height: 100vh;
   `;
-}
+};
 
 const StyleLeandingLayout = styled.div`
-  ${(props) => styleLeandingLayoutResize(props.resize)}
+  ${props => styleLeandingLayoutResize(props.resize)}
   main {
     width: 100%;
     overflow-x: hidden;
   }
 `;
 
-export { StyleLeandingLayout };
+export {StyleLeandingLayout};

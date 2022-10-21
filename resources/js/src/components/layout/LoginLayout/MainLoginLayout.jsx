@@ -1,18 +1,15 @@
 import React from "react";
-import { Toaster } from "react-hot-toast";
-import { useSelector } from "react-redux";
+import {Toaster} from "react-hot-toast";
+import {useSelector} from "react-redux";
 import LoaderForm from "../MainLayout/ComponentsMainLayout/LoaderForm";
-import { ImgAnimation, MainDiv } from "./StyleMainLayout";
+import {ImgAnimation, MainDiv} from "./StyleMainLayout";
 
-const MainLoginLayout = ({ children }) => {
-  const loaderForm = useSelector((state) => state.modalsSlice.loaderForm);
+const MainLoginLayout = ({children}) => {
+  const loaderForm = useSelector(state => state.modalsSlice.loaderForm);
   return (
     <MainDiv>
       <div className="ContainerLeft">
-        <ImgAnimation
-          animate={{ scale: [0.7, 1] }}
-          transition={{ duration: 0.5 }}
-        >
+        <ImgAnimation animate={{scale: [0.7, 1]}} transition={{duration: 0.5}}>
           <img src="/img/vectores/ImgLogin.svg" alt="login" />
         </ImgAnimation>
       </div>

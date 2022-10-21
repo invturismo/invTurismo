@@ -1,6 +1,6 @@
-import React from 'react'
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import ExportExcel from '../../ComponentsOfViews/GeneralOptions/ExportExcel';
+import React from "react";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import ExportExcel from "../../ComponentsOfViews/GeneralOptions/ExportExcel";
 
 const OptionsResumen = () => {
   return (
@@ -12,6 +12,6 @@ const OptionsResumen = () => {
       </div>
     </div>
   );
-}
+};
 
-export default OptionsResumen
+export default OptionsResumen;

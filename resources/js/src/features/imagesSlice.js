@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
   urlImage: {
@@ -11,25 +11,26 @@ const initialState = {
   },
 };
 
+//Guarda el valor de la url de las imagenes
 export const imagesSlice = createSlice({
   name: "imagesSlice",
   initialState: initialState,
   reducers: {
     setUrlImage: (state, action) => {
-      state.urlImage = { ...state.urlImage, ...action.payload };
+      state.urlImage = {...state.urlImage, ...action.payload};
     },
     deleteUrlImage: (state, action) => {
-      state.urlImage = { ...state.urlImage, [action.payload]: "" };
+      state.urlImage = {...state.urlImage, [action.payload]: ""};
     },
     openLoadImage: (state, action) => {
-      state.loadImage = { ...state.loadImage, [action.payload]: true };
+      state.loadImage = {...state.loadImage, [action.payload]: true};
     },
     closeLoadImage: (state, action) => {
-      state.loadImage = { ...state.loadImage, [action.payload]: false };
+      state.loadImage = {...state.loadImage, [action.payload]: false};
     },
   },
 });
 
-export const { setUrlImage, deleteUrlImage, openLoadImage, closeLoadImage } =
+export const {setUrlImage, deleteUrlImage, openLoadImage, closeLoadImage} =
   imagesSlice.actions;
 export default imagesSlice.reducer;

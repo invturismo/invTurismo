@@ -1,8 +1,9 @@
 import Cookies from "universal-cookie";
-import { helpDropCookies } from "./helpDropCookies";
-import { helpHttp } from "./helpHttp";
-import { toastMs } from "./helpToastMessage";
+import {helpDropCookies} from "./helpDropCookies";
+import {helpHttp} from "./helpHttp";
+import {toastMs} from "./helpToastMessage";
 
+//Funcion para enviar peticion al servidor para cerrar sesion
 const helpLogout = async () => {
   const cookies = new Cookies();
   const token = cookies.get("accecs_token");
@@ -17,6 +18,6 @@ const helpLogout = async () => {
   } finally {
     if (token) helpDropCookies();
   }
-}
+};
 
-export { helpLogout };
+export {helpLogout};

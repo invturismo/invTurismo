@@ -1,19 +1,19 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import useCancelUpdate from '../../../../hooks/useCancelUpdate';
-import ErrorComponent from '../../../common/ErrorComponent';
-import GeneralLoader from '../../../common/GeneralLoader';
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import MainGeneralForm from '../../ComponentsOfViews/GeneralForm/MainGeneralForm';
-import { useDispatch } from "react-redux";
-import { helpConvertData } from '../../../../helpers/helpConvertData';
-import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
-import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
-import { COMPLETADO, MATERIAL } from '../../../router/paths';
+import React from "react";
+import {useParams} from "react-router-dom";
+import useCancelUpdate from "../../../../hooks/useCancelUpdate";
+import ErrorComponent from "../../../common/ErrorComponent";
+import GeneralLoader from "../../../common/GeneralLoader";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
+import {useDispatch} from "react-redux";
+import {helpConvertData} from "../../../../helpers/helpConvertData";
+import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
+import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm";
+import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
+import {COMPLETADO, MATERIAL} from "../../../router/paths";
 
 const UpdatePatrimonioMaterial = () => {
-  const { idPatrimonioMaterial } = useParams();
+  const {idPatrimonioMaterial} = useParams();
   const response = useRecordGeneral(
     idPatrimonioMaterial,
     "patrimonios-materiales/getrecordcom",
@@ -41,11 +41,11 @@ const UpdatePatrimonioMaterial = () => {
           response.data,
           dispatch
         )}
-        idRecord={{ ID_MATERIAL: idPatrimonioMaterial }}
+        idRecord={{ID_MATERIAL: idPatrimonioMaterial}}
         update
       />
     </div>
   );
-}
+};
 
 export default UpdatePatrimonioMaterial;

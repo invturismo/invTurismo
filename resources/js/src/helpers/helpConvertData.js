@@ -1,6 +1,7 @@
-import { setUrlImage } from "../features/imagesSlice";
-import { DOMAIN } from "../components/router/paths";
+import {setUrlImage} from "../features/imagesSlice";
+import {DOMAIN} from "../components/router/paths";
 
+//Funcion para convertir los datos que llegan del servidor acorde a la plantilla del formulario general
 export const helpConvertData = (initialValues, data, dispatch) => {
   const parentsObject = {
     "ADMIN/PROPIETARIOS": "GENERALIDADES",
@@ -14,8 +15,8 @@ export const helpConvertData = (initialValues, data, dispatch) => {
     REDES: "OTROS",
   };
 
-  const validateNull = (val) => (val === null ? "" : val);
-  const validateBolean = (val) => {
+  const validateNull = val => (val === null ? "" : val);
+  const validateBolean = val => {
     if (typeof val != "number") return validateNull(val);
     return val === 0 ? false : true;
   };
@@ -48,10 +49,10 @@ export const helpConvertData = (initialValues, data, dispatch) => {
       else hasValue(val, values, parent);
     }
   };
-  
+
   const finalData = JSON.parse(JSON.stringify(initialValues));
   exploreArray(finalData);
-  if(dispatch) {
+  if (dispatch) {
     dispatch(
       setUrlImage({
         IMAGEN1:

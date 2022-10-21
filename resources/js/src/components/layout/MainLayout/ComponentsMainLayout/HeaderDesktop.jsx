@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import SearchBar from './SearchBar';
+import React from "react";
+import styled from "styled-components";
+import SearchBar from "./SearchBar";
 
 const StyleHeaderDesktop = styled.header`
   display: flex;
@@ -23,10 +23,10 @@ const StyleHeaderDesktop = styled.header`
 
 const HeaderDesktop = () => {
   return (
-    <StyleHeaderDesktop className='HeaderDesktop'>
-      <SearchBar desktop={true}/>
+    <StyleHeaderDesktop className="HeaderDesktop">
+      <SearchBar desktop={true} />
     </StyleHeaderDesktop>
-  )
-}
+  );
+};
 
 export default HeaderDesktop;

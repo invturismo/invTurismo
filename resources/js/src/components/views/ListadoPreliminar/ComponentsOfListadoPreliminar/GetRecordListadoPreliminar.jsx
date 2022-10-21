@@ -1,18 +1,18 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { helpCapitalize } from "../../../../helpers/helpCapitalize";
-import { toastMs } from "../../../../helpers/helpToastMessage";
+import {useDispatch} from "react-redux";
+import {useNavigate, useParams} from "react-router-dom";
+import {helpCapitalize} from "../../../../helpers/helpCapitalize";
+import {toastMs} from "../../../../helpers/helpToastMessage";
 import ButtonPage from "../../../common/ButtonPage";
 import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
-import { ACTUALIZAR, LISTADO } from "../../../router/paths";
+import {ACTUALIZAR, LISTADO} from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
-import { helpDeleteRecurso } from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
+import {helpDeleteRecurso} from "../../ComponentsOfViews/helpers/helpDeleteRecurso";
 import useRecordListadoPreliminar from "../hooks/useRecordListadoPreliminar";
 
 const GetRecordListadoPreliminar = () => {
-  const { idListado } = useParams();
+  const {idListado} = useParams();
   const response = useRecordListadoPreliminar(idListado);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const GetRecordListadoPreliminar = () => {
 
   if (!response.state) return <ErrorComponent message={response.message} />;
 
-  const handleClick = (condition) => {
+  const handleClick = condition => {
     if (condition)
       return toastMs().error(
         "No es posible actualizar, tienes que actualizarlo en su correspondiente clasificacion"
@@ -31,12 +31,12 @@ const GetRecordListadoPreliminar = () => {
     });
   };
 
-  const handleDelete = (idPatrimonio) => {
+  const handleDelete = idPatrimonio => {
     if (idPatrimonio)
       return toastMs().error(
         "No es posible eliminar, tienes que eliminarlo en su correspondiente clasificacion"
       );
-    const body = { ID_LISTADO: idListado };
+    const body = {ID_LISTADO: idListado};
     helpDeleteRecurso({
       body,
       dispatch,
@@ -113,7 +113,9 @@ const GetRecordListadoPreliminar = () => {
               Actualizar
             </ButtonPage>
           </span>
-          <span onClick={() =>handleDelete(response.data["ID_TIPO_PATRIMONIO"])}>
+          <span
+            onClick={() => handleDelete(response.data["ID_TIPO_PATRIMONIO"])}
+          >
             <ButtonPage
               colorButton={
                 response.data["ID_TIPO_PATRIMONIO"] ? "gray" : "#220646"

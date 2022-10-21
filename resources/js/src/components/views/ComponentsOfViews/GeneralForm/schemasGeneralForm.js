@@ -1,15 +1,17 @@
 import * as yup from "yup";
 
+//Todos los esquemas de validacion del formulario general
+
 const messageRequire = "El campo es obligatorio";
 const messageEmail = "No es un email";
 const messageTelefono = "No es un telefono valido";
 const messageTarifa = "El valor no es valido";
 const messageTemperatura = "La temperatura no es valida";
-const messageCalidad = (text) =>
+const messageCalidad = text =>
   `El numero no es valido debe ser entre 0 y ${text}`;
-const maxMessage = (text) => `No puede superar ${text} caracteres`;
+const maxMessage = text => `No puede superar ${text} caracteres`;
 
-const testTelefono = (value) => {
+const testTelefono = value => {
   if (!value) return true;
   return /^\d{5,10}$/g.test(value);
 };
@@ -19,16 +21,16 @@ const testCalidad = (value, max) => {
   let number = parseInt(value);
   return number >= 0 && number <= max;
 };
-const testTarifa = (value) => {
+const testTarifa = value => {
   if (!value) return true;
   return /^\d+$/g.test(value);
 };
-const testTemperatura = (value) => {
+const testTemperatura = value => {
   if (!value) return true;
   return /^\d{1,2}$/g.test(value);
 };
 
-const yupMaxAndReq = (max) =>
+const yupMaxAndReq = max =>
   yup.string().required(messageRequire).max(max, maxMessage(max));
 const yupTelefono = () =>
   yup.string().test({
@@ -40,13 +42,13 @@ const yupTemperatura = () =>
     test: testTemperatura,
     message: messageTemperatura,
   });
-const yupMax = (max) => yup.string().max(max, maxMessage(max));
-const yupCalidad = (max) =>
+const yupMax = max => yup.string().max(max, maxMessage(max));
+const yupCalidad = max =>
   yup
     .string()
     .required(messageRequire)
     .test({
-      test: (v) => testCalidad(v, max),
+      test: v => testCalidad(v, max),
       message: messageCalidad(max),
     });
 const yupTarifa = () =>
@@ -87,7 +89,7 @@ const schemaCalidad = {
   },
 };
 
-const schemaGeneralidades = (who) => {
+const schemaGeneralidades = who => {
   const templateGeneralidades = {
     GEORREFERENCIACION: yupMaxAndReq(50),
     ID_TIPO_ACCESO: yupMaxAndReq(1),
@@ -99,10 +101,10 @@ const schemaGeneralidades = (who) => {
     UBICACION: yupMaxAndReq(200),
     INDICACIONES_ACCESO: yupMax(300),
   };
-  return { ...templateGeneralidades, ...others };
+  return {...templateGeneralidades, ...others};
 };
 
-const schemaAdminPropietarios = (who) => {
+const schemaAdminPropietarios = who => {
   if (who === "PATRIMONIOS_INMATERIALES") return {};
   return {
     NOMBRE: yupMaxAndReq(200),
@@ -161,7 +163,7 @@ const schemaActividades = {
   OTROS: yupMax(300),
 };
 
-const schemaServicios = (who) => {
+const schemaServicios = who => {
   if (who === "PATRIMONIOS_INMATERIALES") return {};
   return {
     TIENDAS: yupMax(300),
@@ -185,7 +187,7 @@ const schemaPromocion = {
   OTROS: yupMax(300),
 };
 
-const schemaServiciosEspeciales = (who) => {
+const schemaServiciosEspeciales = who => {
   if (who === "PATRIMONIOS_INMATERIALES") return {};
   return {
     ASCENSORES: yupMax(300),
@@ -197,7 +199,7 @@ const schemaServiciosEspeciales = (who) => {
   };
 };
 
-const schemaOtros = (who) => {
+const schemaOtros = who => {
   const templateOtros = {
     REF_BIBLIOGRAFICA: yupMax(300),
     OBSERVACIONES: yupMax(300),
@@ -219,7 +221,7 @@ const schemaRedes = {
   OTRA: yupMax(300),
 };
 
-const schemaRelevantes = (who) => {
+const schemaRelevantes = who => {
   if (who === "PATRIMONIOS_INMATERIALES") return {};
   return {
     CARACTERISTICAS_RELEVANTES: {
@@ -230,7 +232,7 @@ const schemaRelevantes = (who) => {
   };
 };
 
-const schemaObjectRelevantes = (who) => {
+const schemaObjectRelevantes = who => {
   if (who === "PATRIMONIOS_INMATERIALES") return {};
   return {
     CARACTERISTICAS_RELEVANTES: yup.object({
@@ -241,7 +243,7 @@ const schemaObjectRelevantes = (who) => {
   };
 };
 
-const unitValidateTemplate = (who) => ({
+const unitValidateTemplate = who => ({
   GENERALIDADES: {
     ...schemaGeneralidades(who),
     "ADMIN/PROPIETARIOS": schemaAdminPropietarios(who),
@@ -267,7 +269,7 @@ const unitValidateTemplate = (who) => ({
   },
 });
 
-const schemaGeneral = (who) =>
+const schemaGeneral = who =>
   yup.object({
     GENERALIDADES: yup.object({
       ...schemaGeneralidades(who),
@@ -294,4 +296,4 @@ const schemaGeneral = (who) =>
     }),
   });
 
-export { schemaGeneral, unitValidateTemplate };
+export {schemaGeneral, unitValidateTemplate};

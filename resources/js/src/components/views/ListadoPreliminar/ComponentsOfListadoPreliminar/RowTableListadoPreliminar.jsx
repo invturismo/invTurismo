@@ -1,6 +1,6 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { helpCapitalize } from '../../../../helpers/helpCapitalize';
+import React from "react";
+import {useNavigate} from "react-router-dom";
+import {helpCapitalize} from "../../../../helpers/helpCapitalize";
 
 const RowTableListadoPreliminar = ({
   ID_LISTADO,
@@ -14,7 +14,7 @@ const RowTableListadoPreliminar = ({
 
   const handleClick = () => {
     navigate(`./${ID_LISTADO}`);
-  }
+  };
 
   return (
     <tr onClick={handleClick}>
@@ -40,4 +40,4 @@ const RowTableListadoPreliminar = ({
   );
 };
 
-export default RowTableListadoPreliminar
+export default RowTableListadoPreliminar;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const StyleModalPopper = styled.div`
   position: fixed;
@@ -65,7 +65,7 @@ const MainModalPopper = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     text-align: center;
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
   }
   .footer {
     width: 100%;
@@ -90,7 +90,7 @@ const MainModalPopper = styled(motion.div)`
     border: 1px solid var(--color-3x);
   }
   .bttn {
-    font-family: ${(props) => props.theme.fonts.secondary};
+    font-family: ${props => props.theme.fonts.secondary};
     width: 100px;
     height: 40px;
     padding: 4px 8px;
@@ -108,4 +108,4 @@ const MainModalPopper = styled(motion.div)`
   }
 `;
 
-export { StyleModalPopper, MainModalPopper };
+export {StyleModalPopper, MainModalPopper};

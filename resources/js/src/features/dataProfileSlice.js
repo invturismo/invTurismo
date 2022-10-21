@@ -1,12 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
   dataProfile: {
-    PRIMER_NOMBRE: '',
-    PRIMER_APELLIDO: '',
+    PRIMER_NOMBRE: "",
+    PRIMER_APELLIDO: "",
   },
 };
 
+//Guarda datos relevantes del usuario que se encuentra en sesion
 export const dataProfileSlice = createSlice({
   name: "dataProfileSlice",
   initialState: initialState,
@@ -17,5 +18,5 @@ export const dataProfileSlice = createSlice({
   },
 });
 
-export const { storeDataProfile } = dataProfileSlice.actions;
+export const {storeDataProfile} = dataProfileSlice.actions;
 export default dataProfileSlice.reducer;

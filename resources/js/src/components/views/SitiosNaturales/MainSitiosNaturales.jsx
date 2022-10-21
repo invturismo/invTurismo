@@ -1,10 +1,10 @@
-import React from 'react';
-import GetCompletadoSitios from './ComponentsOfSitios/GetCompletadoSitios';
-import GetRecordConSitios from './ComponentsOfSitios/GetRecordConSitios';
-import GetRecordSinSitios from './ComponentsOfSitios/GetRecordSinSitios';
-import GetSinCompletarSitios from './ComponentsOfSitios/GetSinCompletarSitios';
-import OptionsSitios from './ComponentsOfSitios/OptionsSitios';
-import UpdateSitiosNaturales from './ComponentsOfSitios/UpdateSitiosNaturales';
+import React from "react";
+import GetCompletadoSitios from "./ComponentsOfSitios/GetCompletadoSitios";
+import GetRecordConSitios from "./ComponentsOfSitios/GetRecordConSitios";
+import GetRecordSinSitios from "./ComponentsOfSitios/GetRecordSinSitios";
+import GetSinCompletarSitios from "./ComponentsOfSitios/GetSinCompletarSitios";
+import OptionsSitios from "./ComponentsOfSitios/OptionsSitios";
+import UpdateSitiosNaturales from "./ComponentsOfSitios/UpdateSitiosNaturales";
 
 const MainSitiosNaturales = ({who}) => {
   return (
@@ -17,6 +17,6 @@ const MainSitiosNaturales = ({who}) => {
       {who === 6 && <OptionsSitios />}
     </div>
   );
-}
+};
 
-export default MainSitiosNaturales
+export default MainSitiosNaturales;

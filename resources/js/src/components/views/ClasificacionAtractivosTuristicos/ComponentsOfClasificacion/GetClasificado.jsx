@@ -1,11 +1,11 @@
-import React from 'react';
-import GeneralLoader from '../../../common/GeneralLoader';
-import useDataClasificacion from '../hooks/useDataClasificacion';
-import RowTableClasificacion from './RowTableClasificacion';
-import TemplateGet from './TemplateGet';
+import React from "react";
+import GeneralLoader from "../../../common/GeneralLoader";
+import useDataClasificacion from "../hooks/useDataClasificacion";
+import RowTableClasificacion from "./RowTableClasificacion";
+import TemplateGet from "./TemplateGet";
 
 const GetClasificado = () => {
-  const { response, data } = useDataClasificacion("clas-get");
+  const {response, data} = useDataClasificacion("clas-get");
 
   if (!response) return <GeneralLoader />;
 
@@ -28,6 +28,6 @@ const GetClasificado = () => {
       )}
     </TemplateGet>
   );
-}
+};
 
 export default GetClasificado;

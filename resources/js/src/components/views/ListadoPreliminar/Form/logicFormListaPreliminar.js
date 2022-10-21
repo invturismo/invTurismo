@@ -1,7 +1,8 @@
-import { helpErrors } from "../../../../helpers/helpErrors";
-import { helpHttp } from "../../../../helpers/helpHttp";
+import {helpErrors} from "../../../../helpers/helpErrors";
+import {helpHttp} from "../../../../helpers/helpHttp";
 
-const fetchFormListaPreliminar = async (values,method,url) => {
+//Funcion que ejecuta peticion fetch para enviar datos al servidor
+const fetchFormListaPreliminar = async (values, method, url) => {
   values.ID_FUENTE = parseInt(values.ID_FUENTE);
   const response = await helpHttp()[method](url, {
     body: values,
@@ -14,6 +15,6 @@ const fetchFormListaPreliminar = async (values,method,url) => {
     return response;
   }
   return response;
-}
+};
 
-export { fetchFormListaPreliminar };
+export {fetchFormListaPreliminar};

@@ -1,13 +1,8 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { helpCapitalize } from '../../../../helpers/helpCapitalize';
+import React from "react";
+import {useNavigate} from "react-router-dom";
+import {helpCapitalize} from "../../../../helpers/helpCapitalize";
 
-const RowUsuarios = ({
-  ID_USUARIO,
-  PRIMER_NOMBRE,
-  PRIMER_APELLIDO,
-  USUARIO,
-}) => {
+const RowUsuarios = ({ID_USUARIO, PRIMER_NOMBRE, PRIMER_APELLIDO, USUARIO}) => {
   const navigate = useNavigate();
 
   const handleClick = () => {

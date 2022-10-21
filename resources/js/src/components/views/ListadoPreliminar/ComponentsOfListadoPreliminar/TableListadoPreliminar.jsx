@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const TableListadoPreliminar = ({children}) => {
   return (
@@ -14,12 +14,10 @@ const TableListadoPreliminar = ({children}) => {
             <th>Fuente</th>
           </tr>
         </thead>
-        <tbody>
-          {children}
-        </tbody>
+        <tbody>{children}</tbody>
       </table>
     </div>
   );
-}
+};
 
-export default TableListadoPreliminar
+export default TableListadoPreliminar;

@@ -1,9 +1,14 @@
-import React from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom';
-import { ACTUALIZAR, COMPLETADO, EXPORTS, SINCOMPLETAR } from '../components/router/paths';
-import MainFestividadesEventos from '../components/views/FestividadesEventos/MainFestividadesEventos';
-import useTittle from '../hooks/useTittle';
-import Error404 from './Error404';
+import React from "react";
+import {Navigate, Route, Routes} from "react-router-dom";
+import {
+  ACTUALIZAR,
+  COMPLETADO,
+  EXPORTS,
+  SINCOMPLETAR,
+} from "../components/router/paths";
+import MainFestividadesEventos from "../components/views/FestividadesEventos/MainFestividadesEventos";
+import useTittle from "../hooks/useTittle";
+import Error404 from "./Error404";
 
 const FestividadesEventos = () => {
   useTittle("Festividades y eventos");
@@ -34,11 +39,14 @@ const FestividadesEventos = () => {
           path={`${COMPLETADO}${ACTUALIZAR}/:idFestividadesEventos`}
           element={<MainFestividadesEventos who={5} />}
         />
-        <Route path={`${EXPORTS}`} element={<MainFestividadesEventos who={6} />} />
+        <Route
+          path={`${EXPORTS}`}
+          element={<MainFestividadesEventos who={6} />}
+        />
       </Route>
       <Route path="*" element={<Error404 />} />
     </Routes>
   );
-}
+};
 
-export default FestividadesEventos
+export default FestividadesEventos;

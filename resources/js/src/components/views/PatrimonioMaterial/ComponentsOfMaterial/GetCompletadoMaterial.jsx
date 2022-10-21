@@ -1,14 +1,17 @@
-import React from 'react'
-import GeneralLoader from '../../../common/GeneralLoader';
-import { COMPLETADO, EXPORTS, MATERIAL, SINCOMPLETAR } from '../../../router/paths';
-import GeneralGet from '../../ComponentsOfViews/GeneralGet';
-import useDataGeneral from '../../ComponentsOfViews/hooks/useDataGeneral';
-import RowGeneralTable from '../../ComponentsOfViews/RowGeneralTable';
+import React from "react";
+import GeneralLoader from "../../../common/GeneralLoader";
+import {
+  COMPLETADO,
+  EXPORTS,
+  MATERIAL,
+  SINCOMPLETAR,
+} from "../../../router/paths";
+import GeneralGet from "../../ComponentsOfViews/GeneralGet";
+import useDataGeneral from "../../ComponentsOfViews/hooks/useDataGeneral";
+import RowGeneralTable from "../../ComponentsOfViews/RowGeneralTable";
 
 const GetCompletadoMaterial = () => {
-  const { response, data } = useDataGeneral(
-    "patrimonios-materiales/getdatacom"
-  );
+  const {response, data} = useDataGeneral("patrimonios-materiales/getdatacom");
 
   if (!response) return <GeneralLoader />;
 
@@ -33,6 +36,6 @@ const GetCompletadoMaterial = () => {
       </GeneralGet>
     </>
   );
-}
+};
 
-export default GetCompletadoMaterial
+export default GetCompletadoMaterial;

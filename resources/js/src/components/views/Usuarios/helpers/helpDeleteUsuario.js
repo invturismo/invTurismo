@@ -9,6 +9,7 @@ import {toastMs} from "../../../../helpers/helpToastMessage";
 import {USUARIOS} from "../../../router/paths";
 import {validateTokens} from "../Form/validateTokens";
 
+//Funcion para eliminar un usuario
 export const helpDeleteUsuario = async ({idUsuario, dispatch, navigate}) => {
   console.log(idUsuario);
   dispatch(openLoaderForm());

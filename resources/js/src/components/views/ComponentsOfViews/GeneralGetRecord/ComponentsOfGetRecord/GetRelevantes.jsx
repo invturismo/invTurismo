@@ -1,12 +1,12 @@
 import React from "react";
-import { helpCapitalize } from "../../../../../helpers/helpCapitalize";
+import {helpCapitalize} from "../../../../../helpers/helpCapitalize";
 import GetInformation1 from "./GetInformation1";
 import TableInformation from "./TableInformation";
 import TipoClima from "../../GeneralForm/DataJson/DataTipoClima.json";
 import TipoEstado from "../../GeneralForm/DataJson/DataTipoEstadoAtractivo.json";
-import { helpWhoData } from "../../../../../helpers/helpWhoData";
+import {helpWhoData} from "../../../../../helpers/helpWhoData";
 
-const validateDataBoolean = (values) => {
+const validateDataBoolean = values => {
   let finalArray = [];
   for (const key in values) {
     if (typeof values[key] != "boolean") continue;
@@ -15,8 +15,8 @@ const validateDataBoolean = (values) => {
   return finalArray;
 };
 
-const validateTarifa = (values) => {
-  let newObject = { ...values };
+const validateTarifa = values => {
+  let newObject = {...values};
   for (const key in newObject) {
     if (!newObject[key]) continue;
     newObject[key] += " $";
@@ -33,13 +33,16 @@ const Clima = ({data}) => {
           content={helpWhoData(TipoClima, data, "ID_TIPO_CLIMA")?.TIPO_CLIMA}
           name="Tipo de clima"
         />
-        <GetInformation1 content={data.TEMPERATURA + " °C"} name="Temperatura" />
+        <GetInformation1
+          content={data.TEMPERATURA + " °C"}
+          name="Temperatura"
+        />
       </div>
     </div>
   );
-}
+};
 
-const Horarios = ({ data }) => {
+const Horarios = ({data}) => {
   return (
     <div className="GetContainerTittle">
       <h4>Horario</h4>
@@ -48,7 +51,7 @@ const Horarios = ({ data }) => {
           <h5>Acceso</h5>
           {validateDataBoolean(data.ACCESO_HORARIOS).length > 0 ? (
             <ul>
-              {validateDataBoolean(data.ACCESO_HORARIOS).map((val) => (
+              {validateDataBoolean(data.ACCESO_HORARIOS).map(val => (
                 <li key={"Acceso" + val}>{helpCapitalize(val)}</li>
               ))}
             </ul>
@@ -60,7 +63,7 @@ const Horarios = ({ data }) => {
           <h5>Dias de visita</h5>
           {validateDataBoolean(data.DIAS_HORARIOS).length > 0 ? (
             <ul>
-              {validateDataBoolean(data.DIAS_HORARIOS).map((val) => (
+              {validateDataBoolean(data.DIAS_HORARIOS).map(val => (
                 <li key={"Dias" + val}>{helpCapitalize(val)}</li>
               ))}
             </ul>
@@ -78,7 +81,7 @@ const Horarios = ({ data }) => {
   );
 };
 
-const Tarifas = ({ data }) => {
+const Tarifas = ({data}) => {
   return (
     <div className="GetContainerTittle">
       <h4>Tarifas</h4>
@@ -103,9 +106,9 @@ const EstadoAtractivo = ({data}) => {
       </div>
     </div>
   );
-}
+};
 
-const GetRelevantes = ({ data }) => {
+const GetRelevantes = ({data}) => {
   return (
     <>
       <Clima data={data} />

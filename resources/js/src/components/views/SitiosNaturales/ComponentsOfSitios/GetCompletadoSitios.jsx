@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
 import GeneralLoader from "../../../common/GeneralLoader";
-import { COMPLETADO, EXPORTS, SINCOMPLETAR, SITIOS } from '../../../router/paths';
+import {COMPLETADO, EXPORTS, SINCOMPLETAR, SITIOS} from "../../../router/paths";
 import GeneralGet from "../../ComponentsOfViews/GeneralGet";
 import useDataGeneral from "../../ComponentsOfViews/hooks/useDataGeneral";
 import RowGeneralTable from "../../ComponentsOfViews/RowGeneralTable";
 
 const GetCompletadoSitios = () => {
-  const { response, data } = useDataGeneral("sitios-naturales/getdatacom");
+  const {response, data} = useDataGeneral("sitios-naturales/getdatacom");
 
   if (!response) return <GeneralLoader />;
 
@@ -31,6 +31,6 @@ const GetCompletadoSitios = () => {
       </GeneralGet>
     </>
   );
-}
+};
 
-export default GetCompletadoSitios
+export default GetCompletadoSitios;

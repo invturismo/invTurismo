@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { changeSearch } from '../../../../features/filterSlice';
-import { BUSCAR, HOME } from '../../../router/paths';
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {useLocation, useNavigate} from "react-router-dom";
+import styled from "styled-components";
+import {changeSearch} from "../../../../features/filterSlice";
+import {BUSCAR, HOME} from "../../../router/paths";
 
 const StyleSearch = styled.form`
   max-width: 350px;
@@ -44,29 +44,28 @@ const StyleSearch = styled.form`
 
 const SearchBar = () => {
   const location = useLocation();
-  const search = useSelector((state) => state.filterSlice.searchState);
+  const search = useSelector(state => state.filterSlice.searchState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     const {pathname} = location;
-    (()=> {
+    (() => {
       if (!pathname.includes("/buscar/")) return "";
       const arrPath = pathname.split("/");
       dispatch(changeSearch(arrPath[2]));
     })();
   }, [location]);
-  
 
-  const handleChange = (e) => dispatch(changeSearch(e.target.value));
+  const handleChange = e => dispatch(changeSearch(e.target.value));
   const handleDelete = () => {
     const {pathname} = window.location;
     dispatch(changeSearch(""));
     if (pathname.includes("/buscar/")) navigate(HOME);
-  }
-  const handleSubmit = (e) => {
+  };
+  const handleSubmit = e => {
     e.preventDefault();
-    if(!search) return;
+    if (!search) return;
     navigate(`${BUSCAR}/${search}`);
   };
 
@@ -95,6 +94,6 @@ const SearchBar = () => {
       </label>
     </StyleSearch>
   );
-}
+};
 
 export default SearchBar;

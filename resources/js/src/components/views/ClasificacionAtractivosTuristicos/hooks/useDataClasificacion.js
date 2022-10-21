@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
-import { helpHttp } from "../../../../helpers/helpHttp";
-import { toastMs } from "../../../../helpers/helpToastMessage";
+import {useEffect, useState} from "react";
+import {useSelector} from "react-redux";
+import {useSearchParams} from "react-router-dom";
+import {helpHttp} from "../../../../helpers/helpHttp";
+import {toastMs} from "../../../../helpers/helpToastMessage";
 
-const useDataClasificacion = (url) => {
+//Funcion para enviar datos al servidor
+
+const useDataClasificacion = url => {
   const [response, setResponse] = useState(false);
   const [data, setData] = useState([]);
   const [params] = useSearchParams();
-  const { dataFilter, updateState } = useSelector((state) => state.filterSlice);
+  const {dataFilter, updateState} = useSelector(state => state.filterSlice);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -49,7 +51,7 @@ const useDataClasificacion = (url) => {
     };
   }, [params, dataFilter, updateState]);
 
-  return { response, data };
+  return {response, data};
 };
 
 export default useDataClasificacion;

@@ -1,7 +1,7 @@
 import React from "react";
 import TableInformation from "./TableInformation";
 
-const Actividades = ({ data }) => {
+const Actividades = ({data}) => {
   return (
     <div className="GetContainerTittle">
       <h4>Actividades</h4>
@@ -10,7 +10,7 @@ const Actividades = ({ data }) => {
   );
 };
 
-const Servicios = ({ data }) => {
+const Servicios = ({data}) => {
   return (
     <div className="GetContainerTittle">
       <h4>Servicios que se ofrecen en el lugar</h4>
@@ -19,7 +19,7 @@ const Servicios = ({ data }) => {
   );
 };
 
-const GetActividadesServicios = ({ data, who }) => {
+const GetActividadesServicios = ({data, who}) => {
   return (
     <>
       <Actividades data={data.ACTIVIDADES} />

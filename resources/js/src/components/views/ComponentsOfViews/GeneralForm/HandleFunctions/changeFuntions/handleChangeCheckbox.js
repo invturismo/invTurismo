@@ -1,5 +1,9 @@
-export const handleChangeCheckBox = ({ secondLevelChange, setValues, values }) => {
-  return (e) => {
+export const handleChangeCheckBox = ({
+  secondLevelChange,
+  setValues,
+  values,
+}) => {
+  return e => {
     if (e.target.name === "HORAS") {
       return secondLevelChange(
         e.target.name,

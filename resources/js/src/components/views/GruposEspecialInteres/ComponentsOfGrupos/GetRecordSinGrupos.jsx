@@ -1,16 +1,16 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
-import useCancelUpdate from '../../../../hooks/useCancelUpdate';
-import useRecordGeneral from '../../ComponentsOfViews/hooks/useRecordGeneral';
+import React from "react";
+import {useParams} from "react-router-dom";
+import useCancelUpdate from "../../../../hooks/useCancelUpdate";
+import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
 import GeneralLoader from "../../../common/GeneralLoader";
-import ErrorComponent from '../../../common/ErrorComponent';
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import MainGeneralForm from '../../ComponentsOfViews/GeneralForm/MainGeneralForm';
-import { initialErrorsGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm';
-import { initialValuesGeneralForm } from '../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm';
+import ErrorComponent from "../../../common/ErrorComponent";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
+import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm";
+import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
 
 const GetRecordSinGrupos = () => {
-  const { idGruposEspeciales } = useParams();
+  const {idGruposEspeciales} = useParams();
   const response = useRecordGeneral(
     idGruposEspeciales,
     "grupos-especiales/getrecordsincom"
@@ -32,10 +32,10 @@ const GetRecordSinGrupos = () => {
           "GRUPOS_ESPECIALES",
           response.data
         )}
-        idRecord={{ ID_GRUPOS: idGruposEspeciales }}
+        idRecord={{ID_GRUPOS: idGruposEspeciales}}
       />
     </div>
   );
-}
+};
 
-export default GetRecordSinGrupos
+export default GetRecordSinGrupos;

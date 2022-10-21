@@ -2,12 +2,12 @@
   {
     "ID_ESTADO": 1,
     "ESTADO": "Satisfactorio",
-		"DESCRIPCION": "Componentes sanos, no presentan daños apreciables, solo requieren acciones de mantenimiento."
+    "DESCRIPCION": "Componentes sanos, no presentan daños apreciables, solo requieren acciones de mantenimiento."
   },
   {
     "ID_ESTADO": 2,
     "ESTADO": "Bueno",
-		"DESCRIPCION": "Componentes o elementos presentan afectaciones mínimas. Para su recuperación se requiere de  labores menores de intervención."
+    "DESCRIPCION": "Componentes o elementos presentan afectaciones mínimas. Para su recuperación se requiere de  labores menores de intervención."
   },
   {
     "ID_ESTADO": 3,

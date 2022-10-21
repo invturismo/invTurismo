@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const ContainerLogin = styled.div`
   padding: 15px 0;
@@ -62,4 +62,4 @@ const LoginStyle = styled(motion.div)`
   }
 `;
 
-export { ContainerLogin, LoginStyle };
+export {ContainerLogin, LoginStyle};

@@ -1,6 +1,6 @@
-import React from 'react'
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import ExportExcel from '../../ComponentsOfViews/GeneralOptions/ExportExcel';
+import React from "react";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import ExportExcel from "../../ComponentsOfViews/GeneralOptions/ExportExcel";
 
 const OptionsInmaterial = () => {
   return (
@@ -15,6 +15,6 @@ const OptionsInmaterial = () => {
       </div>
     </div>
   );
-}
+};
 
-export default OptionsInmaterial
+export default OptionsInmaterial;

@@ -1,6 +1,7 @@
 import {useEffect} from "react";
 import {helpHttp} from "../helpers/helpHttp";
 
+//Funcion para cancelar la actualizacion de algun registro que se este manipulando
 const useCancelUpdate = response => {
   useEffect(() => {
     return () => {

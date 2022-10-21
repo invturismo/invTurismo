@@ -1,22 +1,22 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import useCancelUpdate from '../../../../hooks/useCancelUpdate';
-import ErrorComponent from '../../../common/ErrorComponent';
-import GeneralLoader from '../../../common/GeneralLoader';
-import { LISTADO } from '../../../router/paths';
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import { changeNullValues } from '../Form/changeNullValues';
-import FormListaPreliminar from '../Form/FormListaPreliminar';
-import useUpdateDataListadoPreliminar from '../hooks/useUpdateDataListadoPreliminar';
+import React from "react";
+import {useParams} from "react-router-dom";
+import useCancelUpdate from "../../../../hooks/useCancelUpdate";
+import ErrorComponent from "../../../common/ErrorComponent";
+import GeneralLoader from "../../../common/GeneralLoader";
+import {LISTADO} from "../../../router/paths";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import {changeNullValues} from "../Form/changeNullValues";
+import FormListaPreliminar from "../Form/FormListaPreliminar";
+import useUpdateDataListadoPreliminar from "../hooks/useUpdateDataListadoPreliminar";
 
 const UpdateListadoPreliminar = () => {
-  const { idListado } = useParams();
-  const response = useUpdateDataListadoPreliminar(idListado);  
+  const {idListado} = useParams();
+  const response = useUpdateDataListadoPreliminar(idListado);
   useCancelUpdate(response);
 
   if (!response) return <GeneralLoader />;
 
-  if (!response.state) return <ErrorComponent message={response.message}/>;
+  if (!response.state) return <ErrorComponent message={response.message} />;
 
   return (
     <div className="UpdateListadoPreliminar">
@@ -34,4 +34,4 @@ const UpdateListadoPreliminar = () => {
   );
 };
 
-export default UpdateListadoPreliminar
+export default UpdateListadoPreliminar;

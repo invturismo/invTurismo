@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { helpHttp } from '../../../../helpers/helpHttp';
+import {useEffect, useState} from "react";
+import {useSearchParams} from "react-router-dom";
+import {helpHttp} from "../../../../helpers/helpHttp";
 
-const useFindRecord = (find) => {
+//Peticion al servidor para obtener resultados de la busqueda del usuario
+
+const useFindRecord = find => {
   const [response, setResponse] = useState(false);
   const [data, setData] = useState([]);
   const [params] = useSearchParams();
@@ -15,7 +17,7 @@ const useFindRecord = (find) => {
     (async () => {
       try {
         if (isMounted) setResponse(false);
-        const body = { BUSCAR: find };
+        const body = {BUSCAR: find};
         const page = params.has("page") ? "?page=" + params.get("page") : "";
         const responseServe = await helpHttp().post("find" + page, {
           signal,
@@ -37,9 +39,8 @@ const useFindRecord = (find) => {
       isMounted = false;
     };
   }, [find, params]);
-  
 
-  return {data,response};
-}
+  return {data, response};
+};
 
-export default useFindRecord
+export default useFindRecord;

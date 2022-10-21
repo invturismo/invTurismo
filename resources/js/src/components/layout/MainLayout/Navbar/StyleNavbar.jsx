@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
-const styleNavResize = ({movile,desktop}) => {
-  if(movile) return `
+const styleNavResize = ({movile, desktop}) => {
+  if (movile)
+    return `
     position : fixed;
     top: 0;
     left: 0;
@@ -22,24 +23,25 @@ const styleNavResize = ({movile,desktop}) => {
       }
     }
   `;
-  if(desktop) return `
+  if (desktop)
+    return `
     width: 286px;
   `;
-}
+};
 
 const Nav = styled(motion.nav)`
   background-color: #220646;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  ${(props) => styleNavResize(props.resize)}
+  ${props => styleNavResize(props.resize)}
   .HeaderNav {
     display: grid;
     padding: 15px;
     place-items: center center;
     a {
       width: 100px;
-      font-family: ${(props) => props.theme.fonts.tittle};
+      font-family: ${props => props.theme.fonts.tittle};
       font-size: 3.5rem;
       color: #2be6ab;
       text-shadow: 6px 0px 1px #5328fe;

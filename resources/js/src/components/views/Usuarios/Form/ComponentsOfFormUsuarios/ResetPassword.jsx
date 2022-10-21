@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import React, {useState} from "react";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 import ButtonPage from "../../../../common/ButtonPage";
-import { handleFunctionsUsuarios } from "../handleFunctionsUsuarios";
+import {handleFunctionsUsuarios} from "../handleFunctionsUsuarios";
 import {
   initialErrorsUsuarios,
   initialValuesUsuarios,
@@ -14,7 +14,7 @@ const dataPassword = {
   CLAVE: false,
 };
 
-const ResetPassword = ({ valuesQuery }) => {
+const ResetPassword = ({valuesQuery}) => {
   const [values, setValues] = useState({
     ...initialValuesUsuarios,
     ...valuesQuery,
@@ -26,7 +26,7 @@ const ResetPassword = ({ valuesQuery }) => {
   const navigate = useNavigate();
   const who = 3;
 
-  const { handleBlur, handleChange, handleClickView, handleFocus,handleSubmit } =
+  const {handleBlur, handleChange, handleClickView, handleFocus, handleSubmit} =
     handleFunctionsUsuarios({
       dispatch,
       errors,
@@ -42,7 +42,7 @@ const ResetPassword = ({ valuesQuery }) => {
     });
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)} className="FormStyleR">
+    <form onSubmit={e => handleSubmit(e)} className="FormStyleR">
       <div className="ContainerFields">
         <FieldsPassword
           errors={errors}

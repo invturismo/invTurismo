@@ -1,10 +1,10 @@
-import React from 'react';
-import GetCompletadoFestividades from './ComponentsOfFestividades/GetCompletadoFestividades';
-import GetRecordConFestividades from './ComponentsOfFestividades/GetRecordConFestividades';
-import GetRecordSinFestividades from './ComponentsOfFestividades/GetRecordSinFestividades';
-import GetSinCompletarFestividades from './ComponentsOfFestividades/GetSinCompletarFestividades';
-import OptionsFestividades from './ComponentsOfFestividades/OptionsFestividades';
-import UpdateFestividadesEventos from './ComponentsOfFestividades/UpdateFestividadesEventos';
+import React from "react";
+import GetCompletadoFestividades from "./ComponentsOfFestividades/GetCompletadoFestividades";
+import GetRecordConFestividades from "./ComponentsOfFestividades/GetRecordConFestividades";
+import GetRecordSinFestividades from "./ComponentsOfFestividades/GetRecordSinFestividades";
+import GetSinCompletarFestividades from "./ComponentsOfFestividades/GetSinCompletarFestividades";
+import OptionsFestividades from "./ComponentsOfFestividades/OptionsFestividades";
+import UpdateFestividadesEventos from "./ComponentsOfFestividades/UpdateFestividadesEventos";
 
 const MainFestividadesEventos = ({who}) => {
   return (
@@ -17,6 +17,6 @@ const MainFestividadesEventos = ({who}) => {
       {who === 6 && <OptionsFestividades />}
     </div>
   );
-}
+};
 
 export default MainFestividadesEventos;

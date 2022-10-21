@@ -1,6 +1,6 @@
-import React from 'react'
-import ActionBack from '../../ComponentsOfViews/ActionBack';
-import ExportExcel from '../../ComponentsOfViews/GeneralOptions/ExportExcel';
+import React from "react";
+import ActionBack from "../../ComponentsOfViews/ActionBack";
+import ExportExcel from "../../ComponentsOfViews/GeneralOptions/ExportExcel";
 
 const OptionsGrupos = () => {
   return (
@@ -15,6 +15,6 @@ const OptionsGrupos = () => {
       </div>
     </div>
   );
-}
+};
 
-export default OptionsGrupos
+export default OptionsGrupos;
