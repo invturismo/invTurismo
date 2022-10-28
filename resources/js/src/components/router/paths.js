@@ -1,13 +1,8 @@
-<<<<<<< HEAD
-export const API = `${window.location.protocol}//invturismo.jptecnologia.com/api/`;
-export const DOMAIN = `${window.location.protocol}//invturismo.jptecnologia.com/`;
-=======
 const PRODUCTION = true;
 const LOCALPATH = "127.0.0.1:8000";
 const PRODUCTIONPATH = "invturismo.jptecnologia.com";
 export const API = `${window.location.protocol}//${PRODUCTION?PRODUCTIONPATH:LOCALPATH}/api/`;
 export const DOMAIN = `${window.location.protocol}//${PRODUCTION?PRODUCTIONPATH:LOCALPATH}/`;
->>>>>>> 7e01e1cfd688b2e5cd08eb18e57de17d974c5917
 export const HOME = "/";
 export const LOGIN = "/inicio-sesion";
 export const CREAR = "/crear";
