@@ -20,6 +20,7 @@ use App\Helpers\HelperValidator;
 use App\Helpers\HelpersExport;
 use App\Helpers\HelperDelete;
 use App\Helpers\HelperLogs;
+use Illuminate\Support\Facades\DB;
 
 class PatrimonioInmaterialController extends Controller
 {
@@ -50,6 +51,7 @@ class PatrimonioInmaterialController extends Controller
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
         if($isValid != 1) return response()->json($isValid);
+        DB::beginTransaction();
         try {
             $queryData = PatrimoniosInmateriales::find($request->ID_INMATERIAL);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
@@ -81,6 +83,7 @@ class PatrimonioInmaterialController extends Controller
             HistorialController::createInsertDelete(
                 $ID_USUARIO,'Patrimonio Cultural Inmaterial',$queryData->ID_INMATERIAL,2
             );
+            DB::commit();
             return response()->json([
                 "state" => true,
             ]);
@@ -107,6 +110,7 @@ class PatrimonioInmaterialController extends Controller
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
         $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
         if($isValid != 1) return response()->json($isValid);
+        DB::beginTransaction();
         try {
             $queryData = PatrimoniosInmateriales::find($request->ID_INMATERIAL);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);
@@ -142,6 +146,7 @@ class PatrimonioInmaterialController extends Controller
             }
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            DB::commit();
             return response()->json([
                 "state" => true,
             ]);

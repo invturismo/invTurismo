@@ -15,6 +15,7 @@ use App\Helpers\HelperFilter;
 use App\Helpers\HelpersExport;
 use App\Helpers\HelpersClasificacion;
 use App\Helpers\HelperLogs;
+use Illuminate\Support\Facades\DB;
 
 class ListadosPreliminaresController extends Controller
 {
@@ -62,6 +63,7 @@ class ListadosPreliminaresController extends Controller
     public function create(Request $request) { 
         $isValid = HelperValidator::Validate(self::rules(),$request);
         if($isValid != 1) return response()->json($isValid);
+        DB::beginTransaction();
         try {
             $ID_USUARIO = Auth::user()->ID_USUARIO;
             $codigos = new Codigos();
@@ -80,6 +82,7 @@ class ListadosPreliminaresController extends Controller
                 'listados_preliminares',
                 $listadosPreliminares->ID_LISTADO,1
             );
+            DB::commit();
             return response()->json([
                 'state' => true,
                 'id_listado' => $listadosPreliminares->ID_LISTADO
@@ -96,6 +99,7 @@ class ListadosPreliminaresController extends Controller
         $isValid = HelperValidator::Validate($rules,$request);
         if($isValid != 1) return response()->json($isValid);
         $ID_USUARIO = Auth::user()->ID_USUARIO;
+        DB::beginTransaction();
         try {
             $listadoPreliminar = Joins::JoinCodigo(new ListadosPreliminares())
             ->select("listados_preliminares.*")
@@ -125,6 +129,7 @@ class ListadosPreliminaresController extends Controller
                 'listados_preliminares',
                 $listadoPreliminar->ID_LISTADO,0
             );
+            DB::commit();
             return response()->json([
                 "state" => true
             ]);
@@ -139,6 +144,7 @@ class ListadosPreliminaresController extends Controller
         $isValid = HelperValidator::Validate(self::rules(true),$request);
         if($isValid != 1) return response()->json($isValid);
         $ID_USUARIO = Auth::user()->ID_USUARIO;
+        DB::beginTransaction();
         try {
             $queryData = Joins::JoinCodigo(new ListadosPreliminares())
             ->select(
@@ -190,6 +196,7 @@ class ListadosPreliminaresController extends Controller
             $codigo->update($codigoChanges);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            DB::commit();
             return response()->json([
                 "state" => true
             ]);
