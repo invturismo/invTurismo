@@ -24,6 +24,7 @@ use App\Helpers\HelpersExport;
 use App\Helpers\HelperDelete;
 use App\Models\GruposEspeciales;
 use App\Helpers\HelperLogs;
+use Illuminate\Support\Facades\DB;
 
 class GruposEspecialesController extends Controller
 {
@@ -58,6 +59,7 @@ class GruposEspecialesController extends Controller
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
         if($isValid != 1) return response()->json($isValid);
+        DB::beginTransaction();
         try {
             $queryData = GruposEspeciales::find($request->ID_GRUPOS);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
@@ -96,6 +98,7 @@ class GruposEspecialesController extends Controller
             HistorialController::createInsertDelete(
                 $ID_USUARIO,'Grupos de Especial Interés',$queryData->ID_GRUPOS,2
             );
+            DB::commit();
             return response()->json([
                 "state" => true,
             ]);
@@ -120,6 +123,7 @@ class GruposEspecialesController extends Controller
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
         $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
         if($isValid != 1) return response()->json($isValid);
+        DB::beginTransaction();
         try {
             $queryData = GruposEspeciales::find($request->ID_GRUPOS);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);
@@ -160,6 +164,7 @@ class GruposEspecialesController extends Controller
             }
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            DB::commit();
             return response()->json([
                 "state" => true,
             ]);

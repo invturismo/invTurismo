@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\GeneralidadesController;
 use App\Http\Controllers\CodigosController;
 use App\Http\Controllers\CaracteristicasController;
@@ -53,6 +54,7 @@ class FestividadesController extends Controller
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
         if($isValid != 1) return response()->json($isValid);     
+        DB::beginTransaction();
         try {
             $queryData = FestividadesEventos::find($request->ID_EVENTO);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
@@ -90,6 +92,7 @@ class FestividadesController extends Controller
             HistorialController::createInsertDelete(
                 $ID_USUARIO,'Festividades y Eventos',$queryData->ID_EVENTO,2
             );
+            DB::commit();
             return response()->json([
                 "state" => true,
             ]);
@@ -114,6 +117,7 @@ class FestividadesController extends Controller
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
         $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
         if($isValid != 1) return response()->json($isValid);
+        DB::beginTransaction();
         try {
             $queryData = FestividadesEventos::find($request->ID_EVENTO);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);
@@ -152,6 +156,7 @@ class FestividadesController extends Controller
             }
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            DB::commit();
             return response()->json([
                 "state" => true,
             ]);

@@ -2,19 +2,25 @@
 
 namespace App\Helpers;
 use App\Models\Logs_App;
+use Illuminate\Support\Facades\DB;
 
 class HelperLogs
 {
   public static function Log($error)
   {
-    $log = new Logs_App();
-    $log->MESSAGE_LOG = $error->getMessage();
-    $log->FILE = $error->getFile();
-    $log->LINE = $error->getLine();
-    $log->save();
-    return [
-      'state' => false,
-      'message' => 'Error en la base de datos'
-    ];
+    DB::rollBack();
+    try {
+      $log = new Logs_App();
+      $log->MESSAGE_LOG = $error->getMessage();
+      $log->FILE = $error->getFile();
+      $log->LINE = $error->getLine();
+      $log->save();
+    } catch (\Throwable $th) {
+    } finally {
+      return [
+        'state' => false,
+        'message' => 'Error en la base de datos'
+      ];
+    }
   }
 }

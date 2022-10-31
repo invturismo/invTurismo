@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\ListadosPreliminares;
 use App\Http\Controllers\HistorialController;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,7 @@ class ClasificacionController extends Controller
         $isValid = HelperValidator::Validate($rules,$request);
         if($isValid != 1) return response()->json($isValid);
         $ID_USUARIO = Auth::user()->ID_USUARIO;
+        DB::beginTransaction();
         try {
             $queryData = ListadosPreliminares::find($request->ID_LISTADO);
             if(!isset($queryData)) return response()->json([
@@ -55,6 +57,7 @@ class ClasificacionController extends Controller
             );
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            DB::commit();
             return response()->json([
                 "state" => true,
                 "id" => $idRecord

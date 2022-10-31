@@ -64,7 +64,6 @@ class UpdateController extends Controller
     } catch (\Throwable $th) {
       return response()->json([
           "state" => false,
-          "message" => "Error en la base de datos",
           'phpMessage' => $th->getMessage()
       ]);
     }

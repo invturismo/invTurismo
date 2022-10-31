@@ -48,6 +48,7 @@ class UsersController extends Controller
             'state' => false,
             'message' => 'No es posible el acceso'
         ]);
+        DB::beginTransaction();
         try {
             $rules = self::rules($request->input('CLAVE'));
             $isValid = HelperValidator::Validate($rules,$request);
@@ -66,6 +67,7 @@ class UsersController extends Controller
             $user->save();
             $ID_USUARIO = Auth::user()->ID_USUARIO;
             HistorialController::createInsertDelete($ID_USUARIO,'usuarios',$user->ID_USUARIO,1);
+            DB::commit();
             return response()->json([
                 'state' => true
             ]);
@@ -100,6 +102,7 @@ class UsersController extends Controller
             'state' => false,
             'message' => 'No es posible el acceso'
         ]);
+        DB::beginTransaction();
         try {
             $rules = self::rules($request->input('CLAVE'),$request->ID_USUARIO);
             $isValid = HelperValidator::Validate($rules,$request);
@@ -133,6 +136,7 @@ class UsersController extends Controller
             self::deleteTokens($request->ID_USUARIO);
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            DB::commit();
             return response()->json([
                 "state" => true
             ]);
@@ -281,6 +285,7 @@ class UsersController extends Controller
             'state' => false,
             'message' => 'No es posible el acceso'
         ]);
+        DB::beginTransaction();
         try {
             $queryData = User::where('EXIST','=',true)
             ->where('ID_USUARIO','=',$request->ID_USUARIO)->first();
@@ -302,6 +307,7 @@ class UsersController extends Controller
                 $ID_USUARIO,'listados_preliminares',$queryData->ID_USUARIO,0
             );
             self::deleteTokens($request->ID_USUARIO);
+            DB::commit();
             return response()->json([
                 "state" => true
             ]);
