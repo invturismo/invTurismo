@@ -23,6 +23,7 @@ use App\Helpers\HelperValidator;
 use App\Helpers\HelpersExport;
 use App\Helpers\HelperDelete;
 use App\Helpers\HelperLogs;
+use Illuminate\Support\Facades\DB;
 
 class SitiosNaturalesController extends Controller
 {
@@ -56,6 +57,7 @@ class SitiosNaturalesController extends Controller
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
         if($isValid != 1) return response()->json($isValid);     
+        DB::beginTransaction();
         try {
             $queryData = SitiosNaturales::find($request->ID_SITIO);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,false);
@@ -93,6 +95,7 @@ class SitiosNaturalesController extends Controller
             HistorialController::createInsertDelete(
                 $ID_USUARIO,'Sitios Naturales',$queryData->ID_SITIO,2
             );
+            DB::commit();
             return response()->json([
                 "state" => true,
             ]);
@@ -119,6 +122,7 @@ class SitiosNaturalesController extends Controller
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
         $isValid = HelperValidator::Validate($this->mergeRules($reglas),$request);
         if($isValid != 1) return response()->json($isValid);
+        DB::beginTransaction();
         try {
             $queryData = SitiosNaturales::find($request->ID_SITIO);
             $validateName = CodigosController::existName($queryData->ID_LISTADO,$request,true);
@@ -157,6 +161,7 @@ class SitiosNaturalesController extends Controller
             }
             $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];
             UpdateController::actionCancelUpdate($idTokenUser);
+            DB::commit();
             return response()->json([
                 "state" => true,
             ]);

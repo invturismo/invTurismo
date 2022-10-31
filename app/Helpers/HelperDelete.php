@@ -14,6 +14,7 @@ class HelperDelete
   /* Metodo que centraliza la opcion de eliminar algun registro segun su clasifiacion */
   public static function delete($request,$id,$queryData,$table)
   {
+    DB::beginTransaction();
     try {
       $rules = ["REGISTRO" => 'required|numeric'];
       $isValid = HelperValidator::Validate($rules,$request);
@@ -47,6 +48,7 @@ class HelperDelete
         $table,
         $request->REGISTRO,0
       );
+      DB::commit();
       return [
         "state" => true
       ];
