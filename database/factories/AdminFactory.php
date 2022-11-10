@@ -19,7 +19,7 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            'NOMBRE' => $this->faker->name(),
+            'NOMBRE' => $this->faker->firstName()." ".$this->faker->firstName(),
             'DIRECCION_UBICACION' => $this->faker->streetAddress,
             'CORREO' => $this->faker->email,
             'TELEFONO1' => $this->faker->ean8,

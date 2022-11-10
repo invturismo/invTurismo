@@ -4,6 +4,8 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+//Regla para validar el nombre de usuario
+
 class ValidateUserRegex implements Rule
 {
     /**
@@ -25,7 +27,7 @@ class ValidateUserRegex implements Rule
      */
     public function passes($attribute, $value)
     {
-        $regularExpression = '/^[a-z_]([a-z0-9_-]{5,31}|[a-z0-9_-]{5,30}\$)$/i';
+        $regularExpression = '/^[a-z_]([a-z0-9_\-\.]{5,31}|[a-z0-9_\-\.]{5,30}\$)$/i';
         return preg_match($regularExpression,$value);
     }
 

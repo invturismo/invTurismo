@@ -24,7 +24,7 @@ class ListadosPreliminaresFactory extends Factory
         return [
             'ID_FUENTE' => rand(1, 7),
             'ID_CODIGO' => Codigos::factory(),
-            'NOMBRE' => $this->faker->text($maxNbChars = 10),
+            'NOMBRE' => $this->faker->citySuffix." ".$this->faker->state,
             'UBICACION' => $this->faker->streetAddress,
         ];
     }

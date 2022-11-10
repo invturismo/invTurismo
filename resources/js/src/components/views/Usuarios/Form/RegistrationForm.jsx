@@ -47,7 +47,7 @@ const RegistrationForm = ({initialValuesUpdate, who}) => {
           errors={errors.PRIMER_NOMBRE}
           name="PRIMER_NOMBRE"
           nameField="Primer nombre"
-          onBlur={e => handleChange(e)}
+          onBlur={e => handleBlur(e)}
           onChange={e => handleChange(e)}
           value={values.PRIMER_NOMBRE}
           req
@@ -57,7 +57,7 @@ const RegistrationForm = ({initialValuesUpdate, who}) => {
           errors={errors.SEGUNDO_NOMBRE}
           name="SEGUNDO_NOMBRE"
           nameField="Segundo nombre"
-          onBlur={e => handleChange(e)}
+          onBlur={e => handleBlur(e)}
           onChange={e => handleChange(e)}
           value={values.SEGUNDO_NOMBRE}
           autOff
@@ -66,7 +66,7 @@ const RegistrationForm = ({initialValuesUpdate, who}) => {
           errors={errors.PRIMER_APELLIDO}
           name="PRIMER_APELLIDO"
           nameField="Primer apellido"
-          onBlur={e => handleChange(e)}
+          onBlur={e => handleBlur(e)}
           onChange={e => handleChange(e)}
           value={values.PRIMER_APELLIDO}
           req
@@ -76,7 +76,7 @@ const RegistrationForm = ({initialValuesUpdate, who}) => {
           errors={errors.SEGUNDO_APELLIDO}
           name="SEGUNDO_APELLIDO"
           nameField="Segundo apellido"
-          onBlur={e => handleChange(e)}
+          onBlur={e => handleBlur(e)}
           onChange={e => handleChange(e)}
           value={values.SEGUNDO_APELLIDO}
           autOff
@@ -85,7 +85,7 @@ const RegistrationForm = ({initialValuesUpdate, who}) => {
           errors={errors.USUARIO}
           name="USUARIO"
           nameField="Usuario"
-          onBlur={e => handleChange(e)}
+          onBlur={e => handleBlur(e)}
           onChange={e => handleChange(e)}
           value={values.USUARIO}
           placeholder="Ejemplo: Pepito123"
@@ -96,7 +96,7 @@ const RegistrationForm = ({initialValuesUpdate, who}) => {
           errors={errors.CORREO}
           name="CORREO"
           nameField="Correo"
-          onBlur={e => handleChange(e)}
+          onBlur={e => handleBlur(e)}
           onChange={e => handleChange(e)}
           value={values.CORREO}
           autOff

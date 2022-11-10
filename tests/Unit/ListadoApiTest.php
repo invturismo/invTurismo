@@ -18,7 +18,7 @@ class ListadoApiTest extends TestCase
         $templateData = [
             'ID_DEPARTAMENTOS'=> $dataCodigos->ID_DEPARTAMENTOS,
             'ID_MUNICIPIOS'=> $dataCodigos->ID_MUNICIPIOS,
-            'NOMBRE'=> $faker->text($maxNbChars = 10),
+            'NOMBRE'=> $faker->citySuffix." ".$faker->state,
             'UBICACION'=> $faker->streetAddress,
             'ID_FUENTE'=> rand(1, 7)
         ];

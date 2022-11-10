@@ -4,6 +4,8 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+//Regla para validar si es un numero de telefono
+
 class ValidatePhone implements Rule
 {
     /**

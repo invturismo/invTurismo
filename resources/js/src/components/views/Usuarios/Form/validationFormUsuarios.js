@@ -6,20 +6,39 @@ const messageRequire = "El campo es obligatorio",
     "La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula",
   messageConfirmar = "Las contraseñas no coinciden",
   messageCorreo = "No es un correo valido";
+const messageNombre = "Solo puede contener letras";
+const matchNombre = _ => [
+  /^[A-ZÁÉÍÓÚÑ]+$/i,
+  {message: messageNombre, excludeEmptyString: true},
+];
 
 //Esquema de validacion del formulario de usuarios
 let schema = yup.object({
-  PRIMER_NOMBRE: yup.string().required(messageRequire).max(50, messageMax(50)),
-  SEGUNDO_NOMBRE: yup.string().max(50, messageMax(50)),
+  PRIMER_NOMBRE: yup
+    .string()
+    .required(messageRequire)
+    .max(50, messageMax(50))
+    .matches(...matchNombre()),
+  SEGUNDO_NOMBRE: yup
+    .string()
+    .max(50, messageMax(50))
+    .matches(...matchNombre()),
   PRIMER_APELLIDO: yup
     .string()
     .required(messageRequire)
-    .max(50, messageMax(50)),
-  SEGUNDO_APELLIDO: yup.string().max(50, messageMax(50)),
+    .max(50, messageMax(50))
+    .matches(...matchNombre()),
+  SEGUNDO_APELLIDO: yup
+    .string()
+    .max(50, messageMax(50))
+    .matches(...matchNombre()),
   USUARIO: yup
     .string()
     .required(messageRequire)
-    .matches(/^[a-z_]([a-z0-9_-]{5,31}|[a-z0-9_-]{5,30}\$)$/i, messageUsuario),
+    .matches(
+      /^[a-z_]([a-z0-9_\-\.]{5,31}|[a-z0-9_\-\.]{5,30}\$)$/i,
+      messageUsuario
+    ),
   CORREO: yup.string().required(messageRequire).email(messageCorreo),
   CLAVE: yup
     .string()

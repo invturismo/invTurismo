@@ -4,9 +4,9 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-//Regla para validar la tarifa del recurso
+//Regla para validar el nombre del administrador del recurso
 
-class ValidateTarifa implements Rule
+class ValidateNombreAdmin implements Rule
 {
     /**
      * Create a new rule instance.
@@ -28,7 +28,7 @@ class ValidateTarifa implements Rule
     public function passes($attribute, $value)
     {
         if(!isset($value)) return true;
-        $regularExpression = '/^\d+$/';
+        $regularExpression = '/^[A-ZÁÉÍÓÚÑ]+$/i';
         return preg_match($regularExpression,$value);
     }
 
@@ -39,6 +39,6 @@ class ValidateTarifa implements Rule
      */
     public function message()
     {
-        return 'El valor no es valido';
+        return 'Solo puede contener letras';
     }
 }

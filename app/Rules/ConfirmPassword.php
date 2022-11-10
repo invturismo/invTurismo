@@ -4,6 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+//Regla para validar que las contraseñas coinciden
 class ConfirmPassword implements Rule
 {   
     protected $password;
