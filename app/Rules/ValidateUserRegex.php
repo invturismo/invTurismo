@@ -25,7 +25,7 @@ class ValidateUserRegex implements Rule
      */
     public function passes($attribute, $value)
     {
-        $regularExpression = '/^[a-z_]([a-z0-9_-]{5,31}|[a-z0-9_-]{5,30}\$)$/i';
+        $regularExpression = '/^[a-z_]([a-z0-9_\-\.]{5,31}|[a-z0-9_\-\.]{5,30}\$)$/i';
         return preg_match($regularExpression,$value);
     }
 
