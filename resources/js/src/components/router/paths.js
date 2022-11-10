@@ -1,4 +1,4 @@
-const PRODUCTION = true;
+const PRODUCTION = false;
 const LOCALPATH = "127.0.0.1:8000";
 const PRODUCTIONPATH = "invturismo.jptecnologia.com";
 export const API = `${window.location.protocol}//${
