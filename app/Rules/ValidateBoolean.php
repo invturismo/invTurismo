@@ -4,6 +4,8 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+//Regla para validar si se esta ingresando un booleano por cadena de texto
+
 class ValidateBoolean implements Rule
 {
     /**

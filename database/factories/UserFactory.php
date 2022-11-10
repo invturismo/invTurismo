@@ -20,9 +20,9 @@ class UserFactory extends Factory
             'ID_TIPO_USUARIO' => '2',
             'PRIMER_NOMBRE' => $this->faker->firstName(),
             'SEGUNDO_NOMBRE' => $this->faker->firstName(),
-            'PRIMER_APELLIDO' => $this->faker->lastName,
-            'SEGUNDO_APELLIDO' => $this->faker->lastName,
-            'USUARIO' => $this->faker->word.$this->faker->word,
+            'PRIMER_APELLIDO' => $this->faker->firstName(),
+            'SEGUNDO_APELLIDO' => $this->faker->firstName(),
+            'USUARIO' => $this->faker->userName.$this->faker->buildingNumber,
             'CORREO' => $this->faker->email
         ];
     }

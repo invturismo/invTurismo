@@ -4,6 +4,8 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+//Regla para validar la tarifa del recurso
+
 class ValidateTarifa implements Rule
 {
     /**

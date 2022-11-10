@@ -5,6 +5,8 @@ namespace App\Rules;
 use Illuminate\Contracts\Validation\Rule;
 use App\Models\User;
 
+//Regla para validar el nombre de usuario y el email en la base de datos
+
 class ValidateUserNameAndEmail implements Rule
 {
     public $message = "";
