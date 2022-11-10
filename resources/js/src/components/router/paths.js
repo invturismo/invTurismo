@@ -1,8 +1,12 @@
-const PRODUCTION = true;
+const PRODUCTION = false;
 const LOCALPATH = "127.0.0.1:8000";
 const PRODUCTIONPATH = "invturismo.jptecnologia.com";
-export const API = `${window.location.protocol}//${PRODUCTION?PRODUCTIONPATH:LOCALPATH}/api/`;
-export const DOMAIN = `${window.location.protocol}//${PRODUCTION?PRODUCTIONPATH:LOCALPATH}/`;
+export const API = `${window.location.protocol}//${
+  PRODUCTION ? PRODUCTIONPATH : LOCALPATH
+}/api/`;
+export const DOMAIN = `${window.location.protocol}//${
+  PRODUCTION ? PRODUCTIONPATH : LOCALPATH
+}/`;
 export const HOME = "/";
 export const LOGIN = "/inicio-sesion";
 export const CREAR = "/crear";

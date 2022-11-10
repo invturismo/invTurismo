@@ -17,6 +17,7 @@ use App\Http\Controllers\UpdateController;
 use Illuminate\Support\Facades\DB;
 use App\Helpers\HelperValidator;
 use App\Helpers\HelperLogs;
+use App\Rules\ValidateNombreAdmin;
 
 class UsersController extends Controller
 {
@@ -25,10 +26,10 @@ class UsersController extends Controller
         $unique = new ValidateUserNameAndEmail();
         if($id) $unique = new ValidateUserNameAndEmail($id);
         $rules = [
-            'PRIMER_NOMBRE'=>'required|max:50',
-            'SEGUNDO_NOMBRE'=>'max:50',
-            'PRIMER_APELLIDO'=>'required|alpha|max:50',
-            'SEGUNDO_APELLIDO'=>'max:50',
+            'PRIMER_NOMBRE'=>['required','max:50',new ValidateNombreAdmin()],
+            'SEGUNDO_NOMBRE'=>['max:50',new ValidateNombreAdmin()],
+            'PRIMER_APELLIDO'=>['required','max:50',new ValidateNombreAdmin()],
+            'SEGUNDO_APELLIDO'=>['max:50',new ValidateNombreAdmin()],
             'USUARIO'=>['required',new ValidateUserRegex(),$unique],
             'CORREO'=>['required','email',$unique,'max:100']
         ];

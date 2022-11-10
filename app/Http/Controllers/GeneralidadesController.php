@@ -26,7 +26,7 @@ class GeneralidadesController extends Controller
     public static function rules($others)
     {
         $generalRules = [
-            'NOMBRE' => 'required|max:200',
+            'NOMBRE' => 'required|max:200|regex:/^[A-ZÁÉÍÓÚÑ&\s]+$/i',
             'ID_TIPO_ACCESO' => 'required|numeric',
             'GEORREFERENCIACION' => 'required|max:50',
             'CORREGIMIENTO_VEREDA_LOCALIDAD' => 'max:200'

@@ -24,7 +24,7 @@ class ListadosPreliminaresController extends Controller
         $templateRules = [
             'ID_DEPARTAMENTOS'=>'required|max:2',
             'ID_MUNICIPIOS'=>'required|max:3',
-            'NOMBRE'=>'required|max:200',
+            'NOMBRE'=>'required|max:200|regex:/^[A-ZÁÉÍÓÚÑ&\s]+$/i',
             'UBICACION'=>'max:200',
             'ID_FUENTE'=>'required|numeric'
         ];

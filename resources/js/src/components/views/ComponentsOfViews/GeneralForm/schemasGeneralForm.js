@@ -5,6 +5,7 @@ const messageEmail = "No es un email";
 const messageTelefono = "No es un telefono valido";
 const messageTarifa = "El valor no es valido";
 const messageTemperatura = "La temperatura no es valida";
+const messageNombre = "Solo puede contener letras";
 const messageCalidad = text =>
   `El numero no es valido debe ser entre 0 y ${text}`;
 const maxMessage = text => `No puede superar ${text} caracteres`;
@@ -27,6 +28,10 @@ const testTemperatura = value => {
   if (!value) return true;
   return /^\d{1,2}$/g.test(value);
 };
+const matchNombre = _ => [
+  /^[A-ZÁÉÍÓÚÑ&\s]+$/i,
+  {message: messageNombre, excludeEmptyString: true},
+];
 
 const yupMaxAndReq = max =>
   yup.string().required(messageRequire).max(max, maxMessage(max));
@@ -92,7 +97,7 @@ const schemaGeneralidades = who => {
     GEORREFERENCIACION: yupMaxAndReq(50),
     ID_TIPO_ACCESO: yupMaxAndReq(1),
     CORREGIMIENTO_VEREDA_LOCALIDAD: yupMax(200),
-    NOMBRE: yupMaxAndReq(200),
+    NOMBRE: yupMaxAndReq(200).matches(...matchNombre()),
   };
   if (who === "PATRIMONIOS_INMATERIALES") return templateGeneralidades;
   const others = {
@@ -105,7 +110,7 @@ const schemaGeneralidades = who => {
 const schemaAdminPropietarios = who => {
   if (who === "PATRIMONIOS_INMATERIALES") return {};
   return {
-    NOMBRE: yupMaxAndReq(200),
+    NOMBRE: yupMaxAndReq(200).matches(...matchNombre()),
     DIRECCION_UBICACION: yupMaxAndReq(200),
     CORREO: yup.string().email(messageEmail).max(200, maxMessage(200)),
     TELEFONO1: yupTelefono(),

@@ -7,7 +7,11 @@ let schema = yup.object({
   NOMBRE: yup
     .string()
     .required(messageRequire)
-    .max(200, "No puede superar 200 caracteres"),
+    .max(200, "No puede superar 200 caracteres")
+    .matches(/^[A-ZÁÉÍÓÚÑ\s]+$/i, {
+      message: "Solo puede contener letras",
+      excludeEmptyString: true,
+    }),
   UBICACION: yup.string().max(200, "No puede superar 200 caracteres"),
   ID_FUENTE: yup.string().required(messageRequire),
 });
