@@ -23,7 +23,6 @@ class UserApiTest extends TestCase
     public function test_crear_usuario()
     {
         $dataSend = $this->sendData();
-        print_r($dataSend);
         $response = $this->withHeaders(HelpToken::headers())
         ->post('/api/register',$dataSend);
         $response->assertOk()
@@ -36,7 +35,6 @@ class UserApiTest extends TestCase
         $clave = Hash::make('Prueba123*');
         $idUser = User::factory()->create(['CLAVE' => $clave])->toArray()['ID_USUARIO'];
         $dataSend = $this->sendData();
-        print_r($dataSend);
         $dataSend = array_merge($dataSend,['ID_USUARIO'=>$idUser]);
         $response = $this->withHeaders(HelpToken::headers())
         ->put('/api/user-update',$dataSend);

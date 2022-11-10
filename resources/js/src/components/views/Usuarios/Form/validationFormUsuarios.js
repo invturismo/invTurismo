@@ -35,7 +35,10 @@ let schema = yup.object({
   USUARIO: yup
     .string()
     .required(messageRequire)
-    .matches(/^[a-z_]([a-z0-9_-]{5,31}|[a-z0-9_-]{5,30}\$)$/i, messageUsuario),
+    .matches(
+      /^[a-z_]([a-z0-9_\-\.]{5,31}|[a-z0-9_\-\.]{5,30}\$)$/i,
+      messageUsuario
+    ),
   CORREO: yup.string().required(messageRequire).email(messageCorreo),
   CLAVE: yup
     .string()

@@ -119,7 +119,6 @@ class HelpDataRecursos
   public static function dataSend($dataListado,$dataPuntaje,$otherData)
   {
     $dataAdmin = Admin::factory()->withMake()->make()->toArray();
-    print_r($dataAdmin);
     $dataGeneralidades = Generalidades::factory()->withoutAdmin()->make()->toArray();
     $dataImagenes = self::imagenesData();
     $dataCaracteristicas = Caracteristicas::factory()->make()->toArray();
