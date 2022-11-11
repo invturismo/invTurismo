@@ -117,6 +117,13 @@ const StyleMainGeneralForm = styled.form`
     margin-bottom: 15px;
     font-size: 1.2rem;
   }
+  .infoForm small {
+    display: block;
+    text-align: center;
+    font-style: italic;
+    color: #6e21a9;
+    font-weight: 900;
+  }
   .LabelType1,
   .ContainerInputFile {
     display: flex;

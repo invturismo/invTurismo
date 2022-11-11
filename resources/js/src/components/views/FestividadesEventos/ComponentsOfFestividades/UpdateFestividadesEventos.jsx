@@ -11,6 +11,7 @@ import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/Init
 import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
 import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 
 const UpdateFestividadesEventos = () => {
   const {idFestividadesEventos} = useParams();
@@ -32,7 +33,7 @@ const UpdateFestividadesEventos = () => {
         to={`${FESTIVIDADES}${COMPLETADO}/${idFestividadesEventos}`}
         replace={true}
       />
-      <h2>Actualizar datos de festividades y eventos</h2>
+      <TitleForm title="Actualizar datos de festividades y eventos" />
       <MainGeneralForm
         who={3}
         initialErrors={initialErrorsGeneralForm("FESTIVIDADES_EVENTOS")}

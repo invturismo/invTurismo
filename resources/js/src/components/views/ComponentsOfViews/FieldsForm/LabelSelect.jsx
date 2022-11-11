@@ -17,7 +17,7 @@ const LabelSelect = ({
   ...props
 }) => {
   return (
-    <label htmlFor="ID_FUENTE" className={className || null}>
+    <label htmlFor={id} className={className || null}>
       <NameField name={nameField} req={req} />
       <FieldSelect
         id={id}

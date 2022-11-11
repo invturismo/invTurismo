@@ -1,19 +1,20 @@
-import React from 'react';
-import FormListaPreliminar from './Form/FormListaPreliminar';
-import { StyleMainListadoPreliminar } from './StyleMainListadoPreliminar';
+import React from "react";
+import FormListaPreliminar from "./Form/FormListaPreliminar";
+import {StyleMainListadoPreliminar} from "./StyleMainListadoPreliminar";
 import GetListadoPreliminar from "./ComponentsOfListadoPreliminar/GetListadoPreliminar";
-import { initialValues } from './Form/initialValuesFormListaPreliminar';
-import GetRecordListadoPreliminar from './ComponentsOfListadoPreliminar/GetRecordListadoPreliminar';
-import UpdateListadoPreliminar from './ComponentsOfListadoPreliminar/UpdateListadoPreliminar';
-import ActionBack from '../ComponentsOfViews/ActionBack';
+import {initialValues} from "./Form/initialValuesFormListaPreliminar";
+import GetRecordListadoPreliminar from "./ComponentsOfListadoPreliminar/GetRecordListadoPreliminar";
+import UpdateListadoPreliminar from "./ComponentsOfListadoPreliminar/UpdateListadoPreliminar";
+import ActionBack from "../ComponentsOfViews/ActionBack";
 import OptionsListadoPreliminar from "./ComponentsOfListadoPreliminar/OptionsListadoPreliminar";
-import { LISTADO } from '../../router/paths';
+import {LISTADO} from "../../router/paths";
+import TitleForm from "../ComponentsOfViews/TitleForm";
 
 const CreateListadoPreliminar = () => {
   return (
     <div className="CreateListadoPreliminar">
       <ActionBack to={`${LISTADO}`} />
-      <h2>Crear un listado preliminar</h2>
+      <TitleForm title="Crear un listado preliminar" />
       <FormListaPreliminar
         initialValues={initialValues}
         nameButton="Aceptar"
@@ -21,7 +22,7 @@ const CreateListadoPreliminar = () => {
       />
     </div>
   );
-}
+};
 
 const MainListadoPreliminar = ({who}) => {
   return (
@@ -33,6 +34,6 @@ const MainListadoPreliminar = ({who}) => {
       {who === 5 && <OptionsListadoPreliminar />}
     </StyleMainListadoPreliminar>
   );
-}
+};
 
 export default MainListadoPreliminar;

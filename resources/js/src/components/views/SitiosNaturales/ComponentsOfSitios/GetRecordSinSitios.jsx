@@ -8,6 +8,7 @@ import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/Init
 import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
 import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 
 const GetRecordSinSitios = () => {
   const {idSitiosNaturales} = useParams();
@@ -24,7 +25,7 @@ const GetRecordSinSitios = () => {
   return (
     <div className="GeneralContainer">
       <ActionBack to={-1} />
-      <h2>Completar datos de los sitios naturales</h2>
+      <TitleForm title="Completar datos de los sitios naturales" />
       <MainGeneralForm
         who={5}
         initialErrors={initialErrorsGeneralForm("SITIOS_NATURALES")}
