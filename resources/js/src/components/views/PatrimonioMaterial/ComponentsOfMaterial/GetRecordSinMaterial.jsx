@@ -26,7 +26,6 @@ const GetRecordSinMaterial = () => {
     <div className="GeneralContainer">
       <ActionBack to={-1} />
       <TitleForm title="Completar datos del patrimonio material" />
-      <h2></h2>
       <MainGeneralForm
         who={1}
         initialErrors={initialErrorsGeneralForm("PATRIMONIO_MATERIAL")}
