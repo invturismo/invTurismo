@@ -11,6 +11,7 @@ import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
 import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm";
 import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
 import {COMPLETADO, MATERIAL} from "../../../router/paths";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 
 const UpdatePatrimonioMaterial = () => {
   const {idPatrimonioMaterial} = useParams();
@@ -32,7 +33,7 @@ const UpdatePatrimonioMaterial = () => {
         to={`${MATERIAL}${COMPLETADO}/${idPatrimonioMaterial}`}
         replace={true}
       />
-      <h2>Actualizar datos del patrimonio material</h2>
+      <TitleForm title="Actualizar datos del patrimonio material" />
       <MainGeneralForm
         who={1}
         initialErrors={initialErrorsGeneralForm("PATRIMONIO_MATERIAL")}

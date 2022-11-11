@@ -90,6 +90,7 @@ const RegistrationForm = ({initialValuesUpdate, who}) => {
           value={values.USUARIO}
           placeholder="Ejemplo: Pepito123"
           autOff
+          req
         />
         <LabelInput
           type="email"

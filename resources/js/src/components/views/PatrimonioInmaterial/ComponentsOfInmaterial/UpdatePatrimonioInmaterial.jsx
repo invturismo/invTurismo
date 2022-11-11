@@ -11,6 +11,7 @@ import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/Init
 import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
 import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 
 const UpdatePatrimonioInmaterial = () => {
   const {idPatrimonioInmaterial} = useParams();
@@ -32,7 +33,7 @@ const UpdatePatrimonioInmaterial = () => {
         to={`${INMATERIAL}${COMPLETADO}/${idPatrimonioInmaterial}`}
         replace={true}
       />
-      <h2>Actualizar datos del patrimonio inmaterial</h2>
+      <TitleForm title="Actualizar datos del patrimonio inmaterial" />
       <MainGeneralForm
         who={2}
         initialErrors={initialErrorsGeneralForm("PATRIMONIOS_INMATERIALES")}

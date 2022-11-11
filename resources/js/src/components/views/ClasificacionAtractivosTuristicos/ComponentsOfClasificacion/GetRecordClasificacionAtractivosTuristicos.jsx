@@ -7,6 +7,7 @@ import useRecordClasificacion from "../hooks/useRecordClasificacion";
 import GeneralLoader from "../../../common/GeneralLoader";
 import useCancelUpdate from "../../../../hooks/useCancelUpdate";
 import {CLASIFICACION, CLASIFICADO} from "../../../router/paths";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 
 const linkUpdate = idListado => `${CLASIFICACION}${CLASIFICADO}/${idListado}`;
 
@@ -29,7 +30,7 @@ const GetRecordClasificacionAtractivosTuristicos = ({actualizando, url}) => {
         to={actualizando ? linkUpdate(response.data.ID_LISTADO) : -1}
         replace={actualizando || null}
       />
-      <h2>{response.data.NOMBRE}</h2>
+      <TitleForm title={response.data.NOMBRE} />
       <FormClasificacionAtractivosTuristicos
         initialValues={{
           ID_TIPO_BIEN: response.data.ID_TIPO_BIEN

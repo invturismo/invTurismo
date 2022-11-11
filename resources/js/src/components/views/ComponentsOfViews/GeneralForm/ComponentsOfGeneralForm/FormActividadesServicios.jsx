@@ -154,7 +154,12 @@ const FormActividadesServicios = ({
 }) => {
   return (
     <section>
-      <h3>Actividades y servicios</h3>
+      <div className="infoForm">
+        <h3>Actividades y servicios</h3>
+        <small>
+          (En este apartado solo se llenan los campos que crea necesarios)
+        </small>
+      </div>
       <Actividades
         values={values.ACTIVIDADES}
         handleChange={handleChangeActividades}

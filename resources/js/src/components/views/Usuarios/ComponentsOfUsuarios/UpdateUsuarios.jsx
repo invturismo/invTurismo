@@ -6,6 +6,7 @@ import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
 import {USUARIOS} from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 import RegistrationForm from "../Form/RegistrationForm";
 import useRecordUsuario from "../hooks/useRecordUsuario";
 
@@ -24,7 +25,7 @@ const UpdateUsuarios = () => {
         to={`${USUARIOS}/${response.data.ID_USUARIO}`}
         replace={true}
       />
-      <h2>Actualizar un usuario</h2>
+      <TitleForm title="Actualizar un usuario" />
       <RegistrationForm
         who={2}
         initialValuesUpdate={helpDropNull(response.data)}

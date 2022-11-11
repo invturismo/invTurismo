@@ -8,6 +8,7 @@ import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/Init
 import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
 import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 
 const GetRecordSinFestividades = () => {
   const {idFestividadesEventos} = useParams();
@@ -24,7 +25,7 @@ const GetRecordSinFestividades = () => {
   return (
     <div className="GeneralContainer">
       <ActionBack to={-1} />
-      <h2>Completar datos del patrimonio material</h2>
+      <TitleForm title="Completar datos del patrimonio material" />
       <MainGeneralForm
         who={3}
         initialErrors={initialErrorsGeneralForm("FESTIVIDADES_EVENTOS")}
