@@ -72,6 +72,9 @@ export const submitFunctionsGeneralForm = ({
     if (!response.state) {
       toastMs().error("Hay campos erroneos");
       setErrors({...response.errors});
+      document
+        .querySelector(".errorMessage")
+        ?.scrollIntoView({block: "center", behavior: "smooth"});
       return false;
     }
     return true;

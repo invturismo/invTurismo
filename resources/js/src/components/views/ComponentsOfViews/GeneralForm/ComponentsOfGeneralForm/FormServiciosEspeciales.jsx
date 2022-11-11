@@ -9,10 +9,15 @@ const FormServiciosEspeciales = ({
 }) => {
   return (
     <section>
-      <h3>
-        Servicios para personas en condición de discapacidad o condiciones
-        especiales
-      </h3>
+      <div className="infoForm">
+        <h3>
+          Servicios para personas en condición de discapacidad o condiciones
+          especiales
+        </h3>
+        <small>
+          (En este apartado solo se llenan los campos que crea necesarios)
+        </small>
+      </div>
       <div className="SectionDivType1">
         <LabelInput
           nameField="Ascensores"

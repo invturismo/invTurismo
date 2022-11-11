@@ -14,7 +14,7 @@ class AdminController extends Controller
         return [
             'NOMBRE_ADMIN' => 'required|max:200|regex:/^[A-ZÁÉÍÓÚÑ\s]+$/i',
             'DIRECCION_UBICACION' => 'required|max:200',
-            'CORREO' => 'email|max:200',
+            'CORREO' => 'nullable|email|max:200',
             'TELEFONO1' => [new ValidatePhone()],
             'TELEFONO2' => [new ValidatePhone()],
         ];

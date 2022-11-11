@@ -22,6 +22,7 @@ const ExtraDataGeneralidades = ({
         className="LabelType1"
         errors={errors.GEORREFERENCIACION}
         autOff
+        req
       />
       <LabelSelect
         nameField="Tipo de Acceso"
@@ -101,7 +102,6 @@ const AdminPropietario = ({values, errors, handleChange, handleBlur}) => {
           className="LabelType1"
           errors={errors.CORREO}
           autOff
-          req
         />
         <LabelInput
           nameField="Telefono 1"

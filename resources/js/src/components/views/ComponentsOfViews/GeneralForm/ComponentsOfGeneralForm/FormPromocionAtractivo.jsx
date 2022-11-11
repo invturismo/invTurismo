@@ -4,7 +4,12 @@ import LabelInput from "../../FieldsForm/LabelInput";
 const FormPromocionAtractivo = ({values, handleChange, handleBlur, errors}) => {
   return (
     <section>
-      <h3>Promocion del atractivo</h3>
+      <div className="infoForm">
+        <h3>Promocion del atractivo</h3>
+        <small>
+          (En este apartado solo se llenan los campos que crea necesarios)
+        </small>
+      </div>
       <div className="SectionDivType1">
         <LabelInput
           nameField="Folletos y guias"

@@ -5,6 +5,7 @@ import ErrorComponent from "../../../common/ErrorComponent";
 import GeneralLoader from "../../../common/GeneralLoader";
 import {LISTADO} from "../../../router/paths";
 import ActionBack from "../../ComponentsOfViews/ActionBack";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 import {changeNullValues} from "../Form/changeNullValues";
 import FormListaPreliminar from "../Form/FormListaPreliminar";
 import useUpdateDataListadoPreliminar from "../hooks/useUpdateDataListadoPreliminar";
@@ -24,7 +25,7 @@ const UpdateListadoPreliminar = () => {
         to={`${LISTADO}/${response.data.ID_LISTADO}`}
         replace={true}
       />
-      <h2>Actulizar un listado preliminar</h2>
+      <TitleForm title="Actulizar un listado preliminar" />
       <FormListaPreliminar
         initialValues={changeNullValues(response.data)}
         nameButton="Actualizar"

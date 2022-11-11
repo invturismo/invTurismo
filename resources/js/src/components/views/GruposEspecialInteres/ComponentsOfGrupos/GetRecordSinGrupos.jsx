@@ -8,6 +8,7 @@ import ActionBack from "../../ComponentsOfViews/ActionBack";
 import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
 import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialErrorsGeneralForm";
 import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 
 const GetRecordSinGrupos = () => {
   const {idGruposEspeciales} = useParams();
@@ -24,7 +25,7 @@ const GetRecordSinGrupos = () => {
   return (
     <div className="GeneralContainer">
       <ActionBack to={-1} />
-      <h2>Completar datos del patrimonio material</h2>
+      <TitleForm title="Completar datos del patrimonio material" />
       <MainGeneralForm
         who={4}
         initialErrors={initialErrorsGeneralForm("GRUPOS_ESPECIALES")}

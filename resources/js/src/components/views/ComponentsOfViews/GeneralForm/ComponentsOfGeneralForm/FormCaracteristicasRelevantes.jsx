@@ -252,7 +252,12 @@ const FormCaracteristicasRelevantes = ({
 }) => {
   return (
     <section>
-      <h3>Caracteristicas relevantes</h3>
+      <div className="infoForm">
+        <h3>Caracteristicas relevantes</h3>
+        <small>
+          (En este apartado solo se llenan los campos que crea necesarios)
+        </small>
+      </div>
       <Clima
         values={values}
         errors={errors}

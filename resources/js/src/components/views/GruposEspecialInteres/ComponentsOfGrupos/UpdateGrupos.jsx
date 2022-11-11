@@ -11,6 +11,7 @@ import {initialErrorsGeneralForm} from "../../ComponentsOfViews/GeneralForm/Init
 import {initialValuesGeneralForm} from "../../ComponentsOfViews/GeneralForm/InitialValues/initialValuesGeneralForm";
 import MainGeneralForm from "../../ComponentsOfViews/GeneralForm/MainGeneralForm";
 import useRecordGeneral from "../../ComponentsOfViews/hooks/useRecordGeneral";
+import TitleForm from "../../ComponentsOfViews/TitleForm";
 
 const UpdateGrupos = () => {
   const {idGruposEspeciales} = useParams();
@@ -32,7 +33,7 @@ const UpdateGrupos = () => {
         to={`${GRUPOS}${COMPLETADO}/${idGruposEspeciales}`}
         replace={true}
       />
-      <h2>Actualizar datos grupos de especial interés</h2>
+      <TitleForm title="Actualizar datos grupos de especial interés" />
       <MainGeneralForm
         who={4}
         initialErrors={initialErrorsGeneralForm("GRUPOS_ESPECIALES")}

@@ -74,6 +74,7 @@ const Internacional = ({values, handleChange, handleBlur, errors}) => {
         <LabelSelect
           nameField="Tipo de Acceso"
           name="APRO_INTERNACIONAL"
+          id="APRO_INTERNACIONAL"
           value={values.APRO_INTERNACIONAL}
           onChange={e => handleChange(e)}
           onBlur={e => handleBlur(e, "OTROS")}
@@ -98,7 +99,12 @@ const FormOtros = ({
 }) => {
   return (
     <section>
-      <h3>Otros</h3>
+      <div className="infoForm">
+        <h3>Otros</h3>
+        <small>
+          (En este apartado solo se llenan los campos que crea necesarios)
+        </small>
+      </div>
       <Redes
         handleChange={handleChangeRedes}
         values={values.REDES}
