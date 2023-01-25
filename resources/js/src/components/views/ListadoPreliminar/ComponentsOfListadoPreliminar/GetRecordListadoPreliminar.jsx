@@ -77,7 +77,7 @@ const GetRecordListadoPreliminar = () => {
             </span>
           </p>
           <p>
-            <span className="titleInformation">Fecha creacion: </span>
+            <span className="titleInformation">Fecha creación: </span>
             <span className="information">
               {response.data["FECHA_MOVIMIENTO"]}
             </span>
@@ -88,7 +88,7 @@ const GetRecordListadoPreliminar = () => {
           </p>
           {response.data["FECHA_MODIFICACION"] && (
             <p>
-              <span className="titleInformation">Fecha actualizacion: </span>
+              <span className="titleInformation">Fecha actualización: </span>
               <span className="information">
                 {response.data["FECHA_MODIFICACION"]}
               </span>

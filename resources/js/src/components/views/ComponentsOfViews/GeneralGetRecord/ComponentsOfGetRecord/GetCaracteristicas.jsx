@@ -65,7 +65,7 @@ const GetCaracteristicas = ({data, dataCodigo, originalData}) => {
               help
             />
           )}
-        <GetInformation1 content={data.DESCRIPCION} name="Descripcion" />
+        <GetInformation1 content={data.DESCRIPCION} name="Descripción" />
       </div>
     </div>
   );

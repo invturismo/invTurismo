@@ -37,7 +37,7 @@ const GeneralGetRecord = ({
           )}
         </div>
         <div className="GetContainerTittle">
-          <h3>Caracteristicas</h3>
+          <h3>Características</h3>
           <GetCaracteristicas
             data={data.CARACTERISTICAS}
             dataCodigo={data.CARACTERISTICAS.CODIGOS}
@@ -50,7 +50,7 @@ const GeneralGetRecord = ({
           <GetPuntajes data={data.PUNTAJES_VALORACION} who={who} />
         </div>
         <div className="GetContainerTittle">
-          <h3>Caracteristicas relevantes</h3>
+          <h3>Características relevantes</h3>
           {who !== "PATRIMONIOS_INMATERIALES" && (
             <GetRelevantes data={data.CARACTERISTICAS_RELEVANTES} />
           )}
@@ -63,7 +63,7 @@ const GeneralGetRecord = ({
           />
         </div>
         <div className="GetContainerTittle">
-          <h3>Promocion del atractivo</h3>
+          <h3>Promoción del atractivo</h3>
           <TableInformation data={data.PROMOCION} parent="PROMOCION" />
         </div>
         {who !== "PATRIMONIOS_INMATERIALES" && (

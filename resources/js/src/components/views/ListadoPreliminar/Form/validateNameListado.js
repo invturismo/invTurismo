@@ -15,7 +15,6 @@ export const validateNameListado = async ({
       body,
     }
   );
-  console.log(body);
   if (response.state) return [2];
   if (response.message) return [0, response.message];
   return [1];

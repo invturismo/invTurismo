@@ -20,7 +20,6 @@ export const handleChangeFiles = ({
       response.errors[name] = "El peso maximo de la imagen es de 1MB";
       return firstLevelErrors("CARACTERISTICAS", response);
     }
-    console.log(files[0]);
     const readerImage = new FileReader();
     readerImage.readAsDataURL(files[0]);
     dispatch(openLoadImage(name));

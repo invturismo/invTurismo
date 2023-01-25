@@ -18,11 +18,13 @@ const useUpdateDataListadoPreliminar = idListado => {
           signal,
           body,
         });
+<<<<<<< HEAD
         console.log(response);
+=======
+>>>>>>> 98a7f589723d6c4daed4ea88d3e958a0ba602a92
         if (!response.state) throw response;
         if (isMounted) setData(response);
       } catch (error) {
-        console.log(error);
         if (isMounted) setData(error);
       }
     })();

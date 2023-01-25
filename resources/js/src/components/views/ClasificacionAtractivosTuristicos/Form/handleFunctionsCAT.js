@@ -45,7 +45,6 @@ export const handleFunctionsCAT = ({
 
   const handleBlur = async () => {
     const response = await validationClasificacion(values);
-    console.log(response);
     if (!response.state) setErrors({...response.errors});
   };
 
@@ -55,7 +54,6 @@ export const handleFunctionsCAT = ({
     if (!response.state) return setErrors({...response.errors});
     dispatch(openLoaderForm());
     const data = await fetchFormClasificacion(values);
-    console.log(data);
     dispatch(closeLoaderForm());
     if (!data.state) {
       dispatch(closeModalLayoutState());

@@ -36,7 +36,7 @@ const Fecha = ({data}) => {
       <div className="ContainerGet1">
         <GetInformation1
           content={data.FECHA_MOVIMIENTO}
-          name="Fecha creacion"
+          name="Fecha creación"
         />
         <GetInformation1 content={data.USUARIO} name="Creado por" />
       </div>
@@ -44,7 +44,7 @@ const Fecha = ({data}) => {
         <div className="ContainerGet1">
           <GetInformation1
             content={data.FECHA_MODIFICACION}
-            name="Fecha actualizacion"
+            name="Fecha actualización"
           />
           <GetInformation1 content={data.USUARIO_AC} name="Actualizado por" />
         </div>

@@ -34,6 +34,5 @@ export const formDataTransform = (values, who) => {
   valuesFormData.forEach((val, key) => {
     formData.append(key, val);
   });
-  console.log(valuesFormData);
   return formData;
 };

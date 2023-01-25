@@ -22,11 +22,9 @@ const useRecordClasificacion = (REGISTRO, url, ACTUALIZANDO) => {
             body,
           }
         );
-        console.log(response);
         if (!response.state) throw response;
         if (isMounted) setData(response);
       } catch (error) {
-        console.log(error);
         if (isMounted) setData(error);
       }
     })();
