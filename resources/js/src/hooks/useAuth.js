@@ -22,7 +22,6 @@ const initialAuth = {
 //Funcion para generar cuadro de dialogo y confirmar si desea seguir en sesion (Se ejecuta cada hora)
 const execTimeOut = (dispatch, navigate) => {
   const cancelSession = setTimeout(() => {
-    console.log("cancelar");
     navigate(LOGIN);
     dispatch(closeModalLayoutState());
   }, 1000 * 60 + 1000);

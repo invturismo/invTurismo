@@ -5,7 +5,7 @@ const FormPromocionAtractivo = ({values, handleChange, handleBlur, errors}) => {
   return (
     <section>
       <div className="infoForm">
-        <h3>Promocion del atractivo</h3>
+        <h3>Promoción del atractivo</h3>
         <small>
           (En este apartado solo se llenan los campos que crea necesarios)
         </small>
@@ -62,7 +62,7 @@ const FormPromocionAtractivo = ({values, handleChange, handleBlur, errors}) => {
           autOff
         />
         <LabelInput
-          nameField="Pagina web"
+          nameField="Página web"
           name="PAGINA_WEB"
           id="PAGINA_WEB_PROMOCION"
           onChange={e => handleChange(e)}

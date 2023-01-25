@@ -10,7 +10,7 @@ const StyleMainClasificacionAtractivosTuristicos = styled.div`
       margin: 0 auto 10px;
       padding-bottom: 5px;
       border-bottom: 3px solid #2206467a;
-      text-transform: uppercase;
+      text-transform: capitalize;
     }
   }
   .GetRecordClasificado,

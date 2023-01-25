@@ -11,7 +11,6 @@ import {validateTokens} from "../Form/validateTokens";
 
 //Funcion para eliminar un usuario
 export const helpDeleteUsuario = async ({idUsuario, dispatch, navigate}) => {
-  console.log(idUsuario);
   dispatch(openLoaderForm());
   const tokensValidate = await validateTokens(idUsuario);
   dispatch(closeLoaderForm());

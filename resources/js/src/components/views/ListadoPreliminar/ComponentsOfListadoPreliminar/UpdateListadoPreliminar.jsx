@@ -25,7 +25,7 @@ const UpdateListadoPreliminar = () => {
         to={`${LISTADO}/${response.data.ID_LISTADO}`}
         replace={true}
       />
-      <TitleForm title="Actulizar un listado preliminar" />
+      <TitleForm title="Actualizar un listado preliminar" />
       <FormListaPreliminar
         initialValues={changeNullValues(response.data)}
         nameButton="Actualizar"

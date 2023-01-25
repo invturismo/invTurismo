@@ -85,9 +85,9 @@ const Horario = ({values, handleChange, errors, handleBlur}) => {
           </div>
         </div>
         <div className="LabelType1 ContainerCheckbox">
-          <NameField name="Dias de visita" />
+          <NameField name="Días de visita" />
           <div>
-            {DiasHorarios.map(({NOMBRE}) => {
+            {DiasHorarios.map(({NOMBRE, TEXT}) => {
               return (
                 <div
                   className="ContainerOptionAcceso"
@@ -102,7 +102,7 @@ const Horario = ({values, handleChange, errors, handleBlur}) => {
                     onChange={e => handleChange(e)}
                   />
                   <label htmlFor={"DIAS_HORARIOS" + NOMBRE}>
-                    {helpCapitalize(NOMBRE)}
+                    {helpCapitalize(TEXT)}
                   </label>
                 </div>
               );
@@ -110,7 +110,7 @@ const Horario = ({values, handleChange, errors, handleBlur}) => {
           </div>
         </div>
         <LabelTextarea
-          nameField="Descripcion del horario"
+          nameField="Descripción del horario"
           name="HORAS"
           onChange={e => handleChange(e)}
           value={values.DIAS_HORARIOS.HORAS}
@@ -253,7 +253,7 @@ const FormCaracteristicasRelevantes = ({
   return (
     <section>
       <div className="infoForm">
-        <h3>Caracteristicas relevantes</h3>
+        <h3>Características relevantes</h3>
         <small>
           (En este apartado solo se llenan los campos que crea necesarios)
         </small>

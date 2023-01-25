@@ -12,7 +12,7 @@ const StyleMainListadoPreliminar = styled.div`
       margin: 0 auto 10px;
       padding-bottom: 5px;
       border-bottom: 3px solid #2206467a;
-      text-transform: uppercase;
+      text-transform: capitalize;
     }
   }
   .CreateListadoPreliminar,
@@ -27,7 +27,7 @@ const StyleMainListadoPreliminar = styled.div`
     h2 {
       text-align: center;
       font-size: 2.3rem;
-      font-family: ${(props) => props.theme.fonts.secondary};
+      font-family: ${props => props.theme.fonts.secondary};
     }
   }
 `;

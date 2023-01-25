@@ -54,7 +54,7 @@ const GetRecordClasificado = () => {
             </span>
           </p>
           <p>
-            <span className="titleInformation">Fecha clasificacion: </span>
+            <span className="titleInformation">Fecha clasificación: </span>
             <span className="information">
               {response.data["FECHA_MOVIMIENTO"]}
             </span>
@@ -65,7 +65,7 @@ const GetRecordClasificado = () => {
           </p>
           {response.data["FECHA_MODIFICACION"] && (
             <p>
-              <span className="titleInformation">Fecha actualizacion: </span>
+              <span className="titleInformation">Fecha actualización: </span>
               <span className="information">
                 {response.data["FECHA_MODIFICACION"]}
               </span>

@@ -85,7 +85,6 @@ export const handleFunctionsUsuarios = ({
     dispatch(openLoaderForm());
     const [method, url] = whoData[who];
     const responseServe = await fetchFormUsuarios(values, method, url);
-    console.log(responseServe);
     dispatch(closeLoaderForm());
     dispatch(closeModalLayoutState());
     if (!responseServe.state) {
