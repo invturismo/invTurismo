@@ -9,7 +9,6 @@ const helpLogout = async () => {
   try {
     const data = await helpHttp().post("logout");
     if (!data.state) throw data;
-    console.log(data);
     return data;
   } catch (error) {
     toastMs().error(error.message);

@@ -13,8 +13,6 @@ const fetchLogin = async values => {
 
 const saveCookies = values => {
   const {accecs_token, user_role} = values;
-  console.log(accecs_token);
-  console.log(user_role);
   const cookies = new Cookies();
   cookies.set("accecs_token", `${accecs_token}`, {path: "/"});
   cookies.set("user_role", user_role, {path: "/"});

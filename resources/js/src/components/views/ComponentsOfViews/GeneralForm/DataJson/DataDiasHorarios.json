@@ -1,30 +1,37 @@
 [
   {
     "NOMBRE": "LUNES",
+    "TEXT": "LUNES",
     "VALOR": true
   },
   {
     "NOMBRE": "MARTES",
+    "TEXT": "MARTES",
     "VALOR": true
   },
   {
     "NOMBRE": "MIERCOLES",
+    "TEXT": "MIERCOLES",
     "VALOR": true
   },
   {
     "NOMBRE": "JUEVES",
+    "TEXT": "JUEVES",
     "VALOR": true
   },
   {
     "NOMBRE": "VIERNES",
+    "TEXT": "VIERNES",
     "VALOR": true
   },
   {
     "NOMBRE": "SABADO",
+    "TEXT": "SÁBADO",
     "VALOR": true
   },
   {
     "NOMBRE": "DOMINGO",
+    "TEXT": "DOMINGO",
     "VALOR": true
   }
 ]

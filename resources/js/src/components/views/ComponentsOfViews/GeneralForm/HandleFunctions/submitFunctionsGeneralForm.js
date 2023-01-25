@@ -90,7 +90,6 @@ export const submitFunctionsGeneralForm = ({
     const responseServe = await sendDataForm(nameLink, formData);
     dispatch(closeLoaderForm());
     dispatch(closeModalLayoutState());
-    console.log(responseServe);
     if (!responseServe.state) {
       if (responseServe.errors) {
         let errTrans = errorsTransform(

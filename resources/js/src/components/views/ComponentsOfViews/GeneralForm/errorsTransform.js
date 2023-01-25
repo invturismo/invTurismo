@@ -115,7 +115,6 @@ const templateErrors = who => ({
 });
 
 export const errorsTransform = (data, who, initialErrors) => {
-  console.log(data);
   helpErrors(data);
   const newErrors = JSON.parse(JSON.stringify(initialErrors)),
     {errors} = data;

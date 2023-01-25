@@ -4,7 +4,6 @@ import {toastMs} from "./helpToastMessage";
 export const helpAddTimeSession = async () => {
   try {
     const data = await helpHttp().post("add-time-session");
-    console.log(data);
     if (!data.state) throw data;
     return data;
   } catch (error) {

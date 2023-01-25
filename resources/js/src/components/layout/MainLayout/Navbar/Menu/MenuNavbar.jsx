@@ -37,7 +37,7 @@ const MenuNavbar = () => {
       />
       <OptionMenuNavbar
         linkDirection={CLASIFICACION}
-        linkName="Clasificacion recursos y atractivos"
+        linkName="Clasificación recursos y atractivos"
         srcImg="IconClasificacionRecursos"
       />
       <OptionMenuNavbar

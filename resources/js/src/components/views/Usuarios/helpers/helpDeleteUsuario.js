@@ -10,7 +10,6 @@ import {USUARIOS} from "../../../router/paths";
 import {validateTokens} from "../Form/validateTokens";
 
 export const helpDeleteUsuario = async ({idUsuario, dispatch, navigate}) => {
-  console.log(idUsuario);
   dispatch(openLoaderForm());
   const tokensValidate = await validateTokens(idUsuario);
   dispatch(closeLoaderForm());

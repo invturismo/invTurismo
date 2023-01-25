@@ -9,7 +9,6 @@ const useCancelUpdate = response => {
       setTimeout(async () => {
         try {
           const response = await helpHttp().del("cancel-update");
-          console.log(response, "del");
           if (!response.state) throw response;
         } catch (error) {
           if (error.status === 401) return;

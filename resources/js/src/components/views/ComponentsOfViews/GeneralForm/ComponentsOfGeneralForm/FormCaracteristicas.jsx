@@ -162,7 +162,7 @@ const Codigo = ({
           id="DESCRIPCION_CARACTERISTICAS"
           onChange={e => handleChangeDes(e)}
           onBlur={e => handleBlur(e, "CARACTERISTICAS")}
-          placeholder="Introduce una descripcion"
+          placeholder="Introduce una descripción"
           value={valuesDes.DESCRIPCION}
           rows={3}
           nameField="Descripción"
@@ -287,7 +287,7 @@ const FormCaracteristicas = ({
 }) => {
   return (
     <section>
-      <h3>Caracteristicas</h3>
+      <h3>Características</h3>
       <Codigo
         values={valuesCodigo}
         valuesDes={values}

@@ -9,7 +9,6 @@ const PrivateRouteHome = ({children}) => {
 
   if (state === 0) return <LoaderMain />;
   if (state === 1) {
-    console.log(message);
     return <Navigate to={LOGIN} replace={true} />;
   }
 

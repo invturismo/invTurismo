@@ -21,7 +21,6 @@ const initialAuth = {
 
 const execTimeOut = (dispatch, navigate) => {
   const cancelSession = setTimeout(() => {
-    console.log("cancelar");
     navigate(LOGIN);
     dispatch(closeModalLayoutState());
   }, 1000 * 60 + 1000);

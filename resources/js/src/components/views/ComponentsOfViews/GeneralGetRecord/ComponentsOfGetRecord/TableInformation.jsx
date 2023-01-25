@@ -19,7 +19,7 @@ const whoObject = {
   },
   SERVICIOS: {
     TIENDAS: "Tiendas",
-    GUIAS: "Guias",
+    GUIAS: "Guías",
     BANOS: "Baños",
     RESTAURANTES: "Restaurantes",
     PARQUEADERO: "Parqueadero",
@@ -27,12 +27,12 @@ const whoObject = {
     OTROS: "Otros",
   },
   PROMOCION: {
-    FOLLETOS_GUIAS: "Folletos o guias",
+    FOLLETOS_GUIAS: "Folletos o guías",
     PUBLICACIONES: "Publicaciones",
     TRIPADVISOR: "TripAdvisor",
     CTRAVEL: "Colombia travel",
     GOOGLEM: "Google Maps",
-    PAGINA_WEB: "Pagina web",
+    PAGINA_WEB: "Página web",
     YOUTUBE: "Youtube",
     OTROS: "Otros",
   },
@@ -45,7 +45,7 @@ const whoObject = {
     OTROS: "Otros",
   },
   REDES: {
-    PAGINA_WEB: "Pagina web",
+    PAGINA_WEB: "Página web",
     FACEBOOK: "Facebook",
     TWITTER: "Twitter",
     INSTAGRAM: "Instagram",

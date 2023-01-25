@@ -67,7 +67,7 @@ const SearchViews = () => {
           type="text"
           name="SerachViews"
           id="SerachViews"
-          placeholder="Busqueda..."
+          placeholder="Búsqueda..."
           value={search}
           onChange={handleChange}
           autoComplete="off"

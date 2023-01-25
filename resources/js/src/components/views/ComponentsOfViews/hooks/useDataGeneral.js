@@ -29,11 +29,9 @@ const useDataGeneral = url => {
           signal,
           body,
         });
-        console.log(responseServe);
         if (!responseServe.state) throw responseServe;
         if (isMounted) setData(responseServe);
       } catch (error) {
-        console.log(error);
         if (isMounted) toastMs().error(error.message);
       } finally {
         if (isMounted) setResponse(true);

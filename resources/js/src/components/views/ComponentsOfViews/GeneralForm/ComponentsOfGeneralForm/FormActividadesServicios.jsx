@@ -17,7 +17,7 @@ const Actividades = ({values, handleChange, handleBlur, errors}) => {
           autOff
         />
         <LabelInput
-          nameField="Artisticas"
+          nameField="Artísticas"
           name="ARTISTICAS"
           onChange={e => handleChange(e)}
           onBlur={e => handleBlur(e, "ACTIVIDADES_SERVICIOS", "ACTIVIDADES")}
@@ -78,7 +78,7 @@ const Servicios = ({values, handleChange, errors, handleBlur}) => {
           autOff
         />
         <LabelInput
-          nameField="Guias"
+          nameField="Guías"
           name="GUIAS"
           onChange={e => handleChange(e)}
           onBlur={e => handleBlur(e, "ACTIVIDADES_SERVICIOS", "SERVICIOS")}

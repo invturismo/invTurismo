@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { helpHttp } from '../../../../helpers/helpHttp';
+import {useEffect, useState} from "react";
+import {helpHttp} from "../../../../helpers/helpHttp";
 
-const useRecordListadoPreliminar = (idListado) => {
+const useRecordListadoPreliminar = idListado => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -11,13 +11,14 @@ const useRecordListadoPreliminar = (idListado) => {
 
     (async () => {
       try {
-        const body = { ID_LISTADO: idListado };
-        const response = await helpHttp().post("listados-preliminares", {signal,body});
-        console.log(response);
+        const body = {ID_LISTADO: idListado};
+        const response = await helpHttp().post("listados-preliminares", {
+          signal,
+          body,
+        });
         if (!response.state) throw response;
         if (isMounted) setData(response);
       } catch (error) {
-        console.log(error);
         if (isMounted) setData(error);
       }
     })();
@@ -31,4 +32,4 @@ const useRecordListadoPreliminar = (idListado) => {
   return data;
 };
 
-export default useRecordListadoPreliminar
+export default useRecordListadoPreliminar;

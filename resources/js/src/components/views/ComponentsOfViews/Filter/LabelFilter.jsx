@@ -25,7 +25,6 @@ const LabelFilter = () => {
   const handleClick = e => {
     const cookies = new Cookies();
     const id = e.target.id ? e.target.id : e.target.parentElement.id;
-    console.log(id);
     const ID_MUNICIPIOS = cookies.get("id_municipios");
     if (id === "ID_DEPARTAMENTOS" && ID_MUNICIPIOS) {
       cookies.remove("id_departamentos", {path: "/"});

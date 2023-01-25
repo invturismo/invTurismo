@@ -22,7 +22,9 @@ const RowTableClasificacion = ({
         <span>{ID_LISTADO}</span>
       </td>
       <td>
-        <span title={NOMBRE}>{helpCapitalize(NOMBRE)}</span>
+        <span title={NOMBRE} style={{textTransform: "capitalize"}}>
+          {NOMBRE}
+        </span>
       </td>
       <td>
         <span title={DEPARTAMENTO}>{helpCapitalize(DEPARTAMENTO)}</span>

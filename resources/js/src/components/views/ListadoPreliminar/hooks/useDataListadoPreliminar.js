@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { helpHttp } from "../../../../helpers/helpHttp";
-import { toastMs } from "../../../../helpers/helpToastMessage";
-import { useSearchParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import {useEffect, useState} from "react";
+import {helpHttp} from "../../../../helpers/helpHttp";
+import {toastMs} from "../../../../helpers/helpToastMessage";
+import {useSearchParams} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const useDataListadoPreliminar = () => {
   const [response, setResponse] = useState(false);
   const [data, setData] = useState([]);
   const [params] = useSearchParams();
-  const { dataFilter, updateState } = useSelector((state) => state.filterSlice);
+  const {dataFilter, updateState} = useSelector(state => state.filterSlice);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -32,11 +32,9 @@ const useDataListadoPreliminar = () => {
             body,
           }
         );
-        console.log(responseServe);
         if (!responseServe.state) throw responseServe;
         if (isMounted) setData(responseServe);
       } catch (error) {
-        console.log(error);
         if (isMounted) toastMs().error(error.message);
       } finally {
         if (isMounted) setResponse(true);
@@ -49,7 +47,7 @@ const useDataListadoPreliminar = () => {
     };
   }, [params, dataFilter, updateState]);
 
-  return { response, data };
+  return {response, data};
 };
 
 export default useDataListadoPreliminar;

@@ -59,7 +59,6 @@ export const handleFunctionsLP = (
     const responseServe = await fetchFormListaPreliminar(values, method, url);
     dispatch(closeLoaderForm());
     if (!responseServe.state) {
-      console.log(responseServe);
       dispatch(closeModalLayoutState());
       if (responseServe.errors)
         setErrors({...initialErrors, ...responseServe.errors});
@@ -102,7 +101,6 @@ export const handleFunctionsLP = (
   };
 
   const handleUpdate = async () => {
-    console.log(values);
     const schemaValidate = await validateSchema();
     if (!schemaValidate) return;
     dispatch(openLoaderForm());
