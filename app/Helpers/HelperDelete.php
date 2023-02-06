@@ -8,8 +8,9 @@ use App\Http\Controllers\UpdateController;
 use App\Models\ListadosPreliminares;
 use App\Http\Controllers\HistorialController;
 use App\Helpers\HelperLogs;
+use Illuminate\Support\Facades\DB;
 
-class HelperDelete 
+class HelperDelete
 {
   /* Metodo que centraliza la opcion de eliminar algun registro segun su clasifiacion */
   public static function delete($request,$id,$queryData,$table)
@@ -33,7 +34,7 @@ class HelperDelete
         'state' => false,
         'message' => "El registro se esta actualizando"
       ];
-      $listadoPreliminar = ListadosPreliminares::find($queryData->ID_LISTADO);              
+      $listadoPreliminar = ListadosPreliminares::find($queryData->ID_LISTADO);
       $listadoPreliminar->EXIST = false;
       $listadoPreliminar->save();
       $queryData->EXIST = false;
