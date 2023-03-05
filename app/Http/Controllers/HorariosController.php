@@ -10,6 +10,7 @@ use App\Http\Controllers\HistorialController;
 
 class HorariosController extends Controller
 {
+    /*Metodo que retorna las reglas para los horarios del recurso turistico */
     public static function rules() {
         return [
             'RESTRINGIDO' => [new ValidateBoolean()],
@@ -19,12 +20,14 @@ class HorariosController extends Controller
         ];
     }
 
+    /*Metodo que une todas las reglas necesarias para la tabla de horarios */
     public static function rulesHorarios()
     {
         $rulesIngresos = IngresosController::rules();
         return array_merge(self::rules(),$rulesIngresos);
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de horarios */
     public static function create($clientData)
     {
         $idIngreso = IngresosController::create($clientData);
@@ -38,6 +41,7 @@ class HorariosController extends Controller
         return $horario->ID_HORARIO;
     }
 
+    /*Metodo para actualizar un registro de la tabla de horarios */
     public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Horarios::find($queryUpdate->ID_HORARIO);
@@ -59,6 +63,7 @@ class HorariosController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de climas */
     public static function getRecord($idHorario)
     {
         $queryData = Horarios::find($idHorario)->toArray();

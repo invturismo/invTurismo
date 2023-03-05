@@ -8,6 +8,7 @@ use App\Http\Controllers\HistorialController;
 
 class PromocionController extends Controller
 {
+    /*Variable que define las reglas para la promocion del recurso turistico */
     public static $rules = [
         'FOLLETOS_GUIAS' => 'max:300',
         'PUBLICACIONES' => 'max:300',
@@ -19,6 +20,7 @@ class PromocionController extends Controller
         'OTROS2' => 'max:300',
     ];
 
+    /*Metodo para crear un nuevo registro en la tabla de promocion */
     public static function create($clientData)
     {
         $promo = new Promocion();
@@ -34,6 +36,7 @@ class PromocionController extends Controller
         return $promo->ID_PROMOCION;
     }
 
+    /*Metodo para actualizar un registro de la tabla de promocion */
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Promocion::find($queryUpdate->ID_PROMOCION);
@@ -54,6 +57,7 @@ class PromocionController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de promocion */
     public static function getRecord($idPromocion)
     {
         $queryData = Promocion::find($idPromocion)->toArray();

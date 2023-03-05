@@ -8,6 +8,7 @@ use App\Http\Controllers\HistorialController;
 
 class ActividadesController extends Controller
 {
+    /*Variable que define las reglas para las actividades del recurso turistico */
     public static $rules = [
         'CULTURALES' => 'max:300',
         'ARTISTICAS' => 'max:300',
@@ -16,6 +17,7 @@ class ActividadesController extends Controller
         'OTROS' => 'max:300',
     ];
 
+    /*Metodo para crear un nuevo registro en la tabla de actividades */
     public static function create($clientData)
     {
         $actividad = new Actividades();
@@ -28,6 +30,7 @@ class ActividadesController extends Controller
         return $actividad->ID_ACTIVIDAD;
     }
 
+    /*Metodo para actualizar un registro de la tabla de actividades */
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Actividades::find($queryUpdate->ID_ACTIVIDAD);
@@ -46,6 +49,7 @@ class ActividadesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de actividades */
     public static function getRecord($idActividad)
     {
         $queryData = Actividades::find($idActividad)->toArray();

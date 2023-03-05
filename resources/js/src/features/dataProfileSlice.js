@@ -7,6 +7,7 @@ const initialState = {
   },
 };
 
+//Guarda datos relevantes del usuario que se encuentra en sesion
 export const dataProfileSlice = createSlice({
   name: "dataProfileSlice",
   initialState: initialState,

@@ -11,16 +11,19 @@ use App\Http\Controllers\CodigosController;
 
 class CaracteristicasController extends Controller
 {
+    /*Variable que define las reglas para las caracteristicas del recurso turistico */
     public static $rules = [
         'DESCRIPCION' => 'max:300',
     ];
 
+    /*Metodo que retorna la union de las reglas de las caracteristicas e imagenes */
     public static function rulesCaracteristicas($state)
     {
         $rulesImagenes = ImagenesController::rules($state);
         return array_merge(self::$rules,$rulesImagenes);
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de caracteristicas */
     public static function create($clientData)
     {
         $idImagen = ImagenesController::create($clientData);
@@ -31,6 +34,7 @@ class CaracteristicasController extends Controller
         return $caracteristicas->ID_CARACTERISTICA;
     }
 
+    /*Metodo para actualizar un registro de la tabla de caracteristicas */
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Caracteristicas::find($queryUpdate->ID_CARACTERISTICA);
@@ -50,6 +54,7 @@ class CaracteristicasController extends Controller
         $queryData->save();
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de caracteristicas */
     public static function getRecord($idCaracteristica,$idListado)
     {
         $queryData = Caracteristicas::find($idCaracteristica)->toArray();

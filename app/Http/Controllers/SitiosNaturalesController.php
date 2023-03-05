@@ -27,12 +27,14 @@ use Illuminate\Support\Facades\DB;
 
 class SitiosNaturalesController extends Controller
 {
+    /*Variable que define algunas reglas para los sitios naturales */
     public static $rules = [
         'ID_SITIO' => 'required|numeric',
         'REF_BIBLIOGRAFICA' => 'max:300',
         'OBSERVACIONES' => 'max:300',
     ];
 
+    /*Metodo que une todas las reglas necesarias para los sitios naturales */
     public function mergeRules($state)
     {
         return array_merge(
@@ -50,6 +52,7 @@ class SitiosNaturalesController extends Controller
         );
     }
 
+    /*Metodo para completar un registro en la tabla de sitios naturales */
     public function insertForm(Request $request) 
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
@@ -101,6 +104,7 @@ class SitiosNaturalesController extends Controller
         }
     }
 
+    /*Metodo para eliminar un registro en la tabla de sitios naturales */
     public function delete(Request $request)
     {
         $arrayMessage = HelperDelete::delete(
@@ -112,6 +116,7 @@ class SitiosNaturalesController extends Controller
         return response()->json($arrayMessage);
     }
 
+    /*Metodo para actualizar un registro de la tabla de sitios naturales */
     public function update(Request $request)
     {
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
@@ -165,6 +170,7 @@ class SitiosNaturalesController extends Controller
         }
     }
 
+    /*Metodo para consultar los registros de sitios naturales que no se han clasificado */
     public function getDataSinCom(Request $request)
     {
         try {
@@ -184,6 +190,8 @@ class SitiosNaturalesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de sitios naturales
+    que no se han clasificado */
     public function getRecordSinCom(Request $request)
     {
         try {
@@ -212,6 +220,7 @@ class SitiosNaturalesController extends Controller
         }
     }
 
+    /*Metodo para consultar los registros de sitios naturales que ya se clasificaron */
     public function getDataCom(Request $request)
     {
         try {
@@ -236,6 +245,8 @@ class SitiosNaturalesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de sitios naturales
+    que ya se clasifico */
     public function getRecordCom(Request $request)
     {
         try {

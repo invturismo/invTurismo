@@ -1,6 +1,7 @@
 import {object} from "yup";
 import {schemaGeneral, unitValidateTemplate} from "./schemasGeneralForm";
 
+//Funcion para validar esquema
 export const validationsGeneralForm = async (values, who, templateErrors) => {
   try {
     await schemaGeneral(who).validate(values, {
@@ -18,6 +19,7 @@ export const validationsGeneralForm = async (values, who, templateErrors) => {
   }
 };
 
+//Funcion para validar un campo especifico del esquema
 export const unitValidateGeneralForm = async (
   e,
   who,

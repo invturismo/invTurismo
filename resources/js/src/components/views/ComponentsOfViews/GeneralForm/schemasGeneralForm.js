@@ -1,5 +1,7 @@
 import * as yup from "yup";
 
+//Todos los esquemas de validacion del formulario general
+
 const messageRequire = "El campo es obligatorio";
 const messageEmail = "No es un email";
 const messageTelefono = "No es un telefono valido";

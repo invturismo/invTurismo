@@ -8,6 +8,7 @@ use App\Models\Historial_Insert_Delete;
 
 class HistorialController extends Controller
 {
+    /*Metodo para guardar en la base de datos el historial de actualizaciones */
     public static function createUpdate(
         $ID_USUARIO,
         $TABLA_MODIFICADA,
@@ -28,6 +29,7 @@ class HistorialController extends Controller
         $historial->save();
     }
 
+    /*Metodo para guardar en la base de datos el historial de inserciones y eliminaciones*/
     public static function createInsertDelete(
         $ID_USUARIO,
         $TABLA_MOVIMIENTO,
@@ -37,6 +39,10 @@ class HistorialController extends Controller
         $historial = new Historial_Insert_Delete();
         $historial->ID_USUARIO = $ID_USUARIO;
         $historial->TABLA_MOVIMIENTO = $TABLA_MOVIMIENTO;
+        /*ID_REGISTRO_MOVIMIENTO se refiere a los siguientes casos:
+        - 0 es eliminado.
+        - 1 es una nueva insercion.
+        - 2 es registro completado */
         $historial->ID_REGISTRO_MOVIMIENTO = $ID_REGISTRO_MOVIMIENTO;
         $historial->TIPO_MOVIMIENTO = $TIPO_MOVIMIENTO;
         $historial->save();

@@ -12,6 +12,7 @@ import {
   serviciosEspeciales,
 } from "./templateValues";
 
+//Valores iniciales de los errores
 export const initialErrorsGeneralForm = Calidad =>
   funtionalData({
     GENERALIDADES: {

@@ -1,5 +1,6 @@
 import {helpHttp} from "../../../../helpers/helpHttp";
 
+//Funcion para consultar al servidor si el usuario esta en sesion
 export const validateTokens = async (ID_USUARIO, ACTUALIZANDO) => {
   const body = {ID_USUARIO};
   if (ACTUALIZANDO) body.ACTUALIZANDO = ACTUALIZANDO;

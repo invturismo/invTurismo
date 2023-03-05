@@ -26,6 +26,7 @@ export const handleFunctionsLogin = ({
     if (!response.state) setErrors({...errors, ...response.errors});
   };
 
+  //Funcion para enviar los datos del formulario de iniciar sesion al servidor
   const handleSubmit = async e => {
     e.preventDefault();
     const response = await validationsLogin(values);

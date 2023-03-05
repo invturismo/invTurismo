@@ -12,6 +12,7 @@ const matchNombre = _ => [
   {message: messageNombre, excludeEmptyString: true},
 ];
 
+//Esquema de validacion del formulario de usuarios
 let schema = yup.object({
   PRIMER_NOMBRE: yup
     .string()
@@ -67,6 +68,7 @@ const whoSchema = {
   3: schemaPassword,
 };
 
+//Funcion que comprueba todos los valores del formulario de usuarios
 export const validationsUsuarios = async (values, who) => {
   try {
     const schemaWho = whoSchema[who];
@@ -81,6 +83,7 @@ export const validationsUsuarios = async (values, who) => {
   }
 };
 
+//Funcion para validar un valor en especifico del formulario de usuarios
 export const unitValidationsUsuarios = async (e, objClave = {}) => {
   const {name, value} = e.target;
   const objectValue = {[name]: value, ...objClave};

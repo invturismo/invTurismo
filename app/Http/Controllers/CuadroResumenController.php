@@ -15,6 +15,8 @@ use App\Helpers\HelperLogs;
 
 class CuadroResumenController extends Controller
 {
+    /*Metodo para generar el codigo a los recursos turisticos completados y la fecha en la que se crearon, 
+    tambien consultar los datos necesarios para exportarlos a excel */
     public static function otherData($data,$get = false)
     {
         foreach ($data as $key => $value) {
@@ -52,6 +54,8 @@ class CuadroResumenController extends Controller
         return $data;
     }
 
+    /*Metodo que contiene la plantilla para consultar los datos que se muestran en el
+    cuadro resumen */
     public static function templateQuery()
     {
         return Joins::JoinGeneral(new ListadosPreliminares())
@@ -65,6 +69,7 @@ class CuadroResumenController extends Controller
         ->where('listados_preliminares.EXIST','=',true);
     }
 
+    /*Metodo para responder al usuario con todos los datos necesarios del cuadro resumen */
     public function getData(Request $request)
     {
         try {
@@ -83,6 +88,8 @@ class CuadroResumenController extends Controller
         }
     }
 
+    /*Metodo para responder al usuario con todos los datos necesarios para exportar
+    el cuadro resumen */
     public function ExportCuadroResumen(Request $request)
     {
         try {

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class HelperDelete
 {
+  /* Metodo que centraliza la opcion de eliminar algun registro segun su clasifiacion */
   public static function delete($request,$id,$queryData,$table)
   {
     DB::beginTransaction();

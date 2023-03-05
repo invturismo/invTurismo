@@ -10,6 +10,7 @@ use App\Http\Controllers\HistorialController;
 
 class ImagenesController extends Controller
 {
+    /*Metodo que retorna las reglas para las imagenes del recurso turistico */
     public static function rules($newRules)
     {
         if($newRules == "-") return [];
@@ -27,6 +28,7 @@ class ImagenesController extends Controller
         return $finalRules;
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de imagenes */
     public static function create($clientData)
     {
         $imagenes = new Imagenes();
@@ -39,6 +41,7 @@ class ImagenesController extends Controller
         return $imagenes->ID_IMAGEN;
     }
 
+    /*Metodo para actualizar un registro de la tabla de imagenes */
     public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {   
         $imagenes = Imagenes::find($queryUpdate->ID_IMAGEN);
@@ -77,6 +80,7 @@ class ImagenesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de imagenes */
     public static function getRecord($idImagen)
     {
         return Imagenes::find($idImagen)->toArray();

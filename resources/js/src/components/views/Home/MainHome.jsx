@@ -3,7 +3,7 @@ import useTittle from "../../../hooks/useTittle";
 import {StyleMainHome} from "./StylesMainHome";
 import {useSelector} from "react-redux";
 import CardButton from "./ComponentsOfHome/CardButton";
-import {CREAR, CUADRORESUMEN, LISTADO} from "../../router/paths";
+import {CONOCENOS, CREAR, CUADRORESUMEN, LISTADO} from "../../router/paths";
 
 const MainHome = () => {
   useTittle("Inicio");
@@ -43,6 +43,13 @@ const MainHome = () => {
           srcImg="SvgResumen.svg"
           colorText="rgba(66,193,110,1)"
           linkClick={CUADRORESUMEN}
+        />
+        <CardButton
+          colorBackground="#3739fe"
+          name1="Conocenos"
+          srcImg="SvgConocenos.svg"
+          colorText="#1f0e48"
+          linkClick={CONOCENOS}
         />
       </div>
     </StyleMainHome>

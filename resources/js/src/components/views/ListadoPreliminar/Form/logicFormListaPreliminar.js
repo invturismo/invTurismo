@@ -1,6 +1,7 @@
 import {helpErrors} from "../../../../helpers/helpErrors";
 import {helpHttp} from "../../../../helpers/helpHttp";
 
+//Funcion que ejecuta peticion fetch para enviar datos al servidor
 const fetchFormListaPreliminar = async (values, method, url) => {
   values.ID_FUENTE = parseInt(values.ID_FUENTE);
   const response = await helpHttp()[method](url, {

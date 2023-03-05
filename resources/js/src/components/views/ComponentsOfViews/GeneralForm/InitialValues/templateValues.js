@@ -1,3 +1,5 @@
+/* Las siguientes funciones reparten los valores del formulario general en objetos */
+
 const dataCalidad = {
   PATRIMONIO_MATERIAL: {
     ESTADO_CONSERVACION: "",
@@ -49,10 +51,10 @@ const generalidades = (Calidad, data) => {
       TELEFONO2: "",
     },
   };
-  return { ...templateGeneralidades, ...others };
+  return {...templateGeneralidades, ...others};
 };
 
-const caracteristicas = (data) => {
+const caracteristicas = data => {
   return {
     CODIGOS: {
       ID_MUNICIPIOS: data?.ID_MUNICIPIOS || "",
@@ -65,14 +67,15 @@ const caracteristicas = (data) => {
     DESCRIPCION: "",
     FUENTE: "",
   };
-}
+};
 
-const relevantesBoolean = (boolean) => {
-  if(!boolean) return {
-    DIAS_HORARIOS: {
-      HORAS: "",
-    },
-  };
+const relevantesBoolean = boolean => {
+  if (!boolean)
+    return {
+      DIAS_HORARIOS: {
+        HORAS: "",
+      },
+    };
   return {
     ACCESO_HORARIOS: {
       RESTRINGIDO: false,
@@ -93,7 +96,7 @@ const relevantesBoolean = (boolean) => {
   };
 };
 
-const relevantes = (Calidad,boolean = false) => {
+const relevantes = (Calidad, boolean = false) => {
   if (Calidad === "PATRIMONIOS_INMATERIALES") return {};
   return {
     CARACTERISTICAS_RELEVANTES: {
@@ -124,7 +127,7 @@ const actividades = {
   },
 };
 
-const servicios = (Calidad) => {
+const servicios = Calidad => {
   if (Calidad === "PATRIMONIOS_INMATERIALES") return {};
   return {
     SERVICIOS: {
@@ -152,7 +155,7 @@ const promocion = {
   },
 };
 
-const serviciosEspeciales = (Calidad) => {
+const serviciosEspeciales = Calidad => {
   if (Calidad === "PATRIMONIOS_INMATERIALES") return {};
   return {
     SERVICIOS_ESPECIALES: {
@@ -178,14 +181,14 @@ const otros = {
   OBSERVACIONES: "",
 };
 
-const fieldInternacional = (Calidad,initial=false) => {
+const fieldInternacional = (Calidad, initial = false) => {
   if (Calidad !== "GRUPOS_ESPECIALES") return {};
   return {
     APRO_INTERNACIONAL: initial ? "false" : "",
   };
 };
 
-const funtionalData = (data) => JSON.parse(JSON.stringify(data));
+const funtionalData = data => JSON.parse(JSON.stringify(data));
 
 export {
   dataCalidad,

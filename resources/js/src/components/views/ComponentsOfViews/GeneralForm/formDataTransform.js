@@ -1,3 +1,4 @@
+//Funcion que tranforma los datos del formulario en un FormData para enviar al servidor
 export const formDataTransform = (values, who) => {
   const valuesFormData = new Map(),
     arrVall = {

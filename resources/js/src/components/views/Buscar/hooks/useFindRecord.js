@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 import {helpHttp} from "../../../../helpers/helpHttp";
 
+//Peticion al servidor para obtener resultados de la busqueda del usuario
+
 const useFindRecord = find => {
   const [response, setResponse] = useState(false);
   const [data, setData] = useState([]);

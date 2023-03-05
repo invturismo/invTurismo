@@ -1,5 +1,6 @@
 import toast from "react-hot-toast";
 
+//Funcion base para hacer uso de la libreria toast
 export const toastMs = () => {
   const settings = {
     position: "bottom-right",

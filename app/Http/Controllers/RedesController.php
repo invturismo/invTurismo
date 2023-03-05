@@ -8,6 +8,7 @@ use App\Http\Controllers\HistorialController;
 
 class RedesController extends Controller
 {
+    /*Variable que define las reglas para las redes sociales del recurso turistico */
     public static $rules = [
         'PAGINA_WEB2' => 'max:200',
         'FACEBOOK' => 'max:200',
@@ -16,6 +17,7 @@ class RedesController extends Controller
         'OTRA' => 'max:200',
     ];
 
+    /*Metodo para crear un nuevo registro en la tabla de redes */
     public static function create($clientData)
     {
         $red = new Redes();
@@ -28,6 +30,7 @@ class RedesController extends Controller
         return $red->ID_RED_SOCIAL;
     }
 
+    /*Metodo para actualizar un registro de la tabla de redes */
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Redes::find($queryUpdate->ID_RED_SOCIAL);
@@ -48,6 +51,7 @@ class RedesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de redes */
     public static function getRecord($idRedes)
     {
         $queryData = Redes::find($idRedes)->toArray();

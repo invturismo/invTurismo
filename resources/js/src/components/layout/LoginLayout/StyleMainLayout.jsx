@@ -20,20 +20,26 @@ const MainDiv = styled.div`
     display: none;
   }
   .ContainerRight {
+    position: relative;
     min-height: 100vh;
+  }
+  .LinkConocenos2 {
+    z-index: 99 !important;
   }
   @media (min-width: 768px) {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
     .ContainerLeft {
-      display: none;
       display: grid;
       place-items: center center;
     }
     .ContainerRight {
       height: 100vh;
       overflow-y: auto;
+    }
+    .LinkConocenos2 {
+      display: none !important;
     }
   }
 `;

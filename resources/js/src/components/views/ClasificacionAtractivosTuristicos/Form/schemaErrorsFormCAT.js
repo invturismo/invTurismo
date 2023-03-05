@@ -4,6 +4,7 @@ const schema = Yup.object().shape({
   ID_TIPO_BIEN: Yup.string().required("El campo es obligatorio"),
 });
 
+//Funcion para comprobar esquema de validacion
 export const validationClasificacion = async value => {
   try {
     await schema.validate(value);

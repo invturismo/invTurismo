@@ -12,6 +12,7 @@ use App\Rules\ValidateNumber;
 
 class RelevantesController extends Controller
 {
+    /*Metodo que retorna algunas reglas para las caracteristicas relevantes del recurso turistico */
     public static function rules()
     {
         return [
@@ -19,6 +20,7 @@ class RelevantesController extends Controller
         ];
     }
 
+    /*Metodo que une todas las reglas necesarias para las caracteristicas relevantes */
     public static function rulesRelevantes()
     {
         $merge = [
@@ -29,6 +31,7 @@ class RelevantesController extends Controller
         return array_merge(self::rules(),...$merge);
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de caracteristicas relevantes */
     public static function create($clientData)
     {
         $idClima = ClimaController::create($clientData);
@@ -43,6 +46,7 @@ class RelevantesController extends Controller
         return $relevante->ID_RELEVANTE;
     }
 
+    /*Metodo para actualizar un registro de la tabla de caracteristicas relevantes */
     public static function update($clientData,$queryUpdate,$idUsuario)
     {
         $queryData = Relevantes::find($queryUpdate->ID_RELEVANTE);
@@ -63,6 +67,7 @@ class RelevantesController extends Controller
         $queryData->save();
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de caracteristicas relevantes */
     public static function getRecord($idRelevantes)
     {
         $queryData = Relevantes::find($idRelevantes)->toArray();

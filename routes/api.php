@@ -27,8 +27,10 @@ use App\Http\Controllers\CuadroResumenController;
 |
 */
 
+/*Metodo de la API para iniciar sesion */
 Route::post("login",[AuthController::class,'login']);
 
+/*Metodos de la API que necesitan token para poder acceder */
 Route::middleware('auth:sanctum')->group(function () {
     Route::post("profile",[AuthController::class,'profile']);
     Route::post("logout",[AuthController::class,'logout']);

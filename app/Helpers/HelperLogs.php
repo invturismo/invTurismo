@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 class HelperLogs
 {
+  /*Metodo que permite guardar en la base de datos los errores inesperados que puedan surgir */
   public static function Log($error)
   {
     DB::rollBack();

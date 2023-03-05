@@ -62,6 +62,9 @@ export const mainChangeFunctions = ({
     dispatch(deleteUrlImage(className));
   };
 
+  /*Calcula el valor del total del puntaje dependiendo de la opcion del significado que escoga
+   * el usuario.
+   */
   const handleChangePuntajes = e => {
     let Subtotal = values.PUNTAJES_VALORACION.CALIDAD.SUBTOTAL;
     let SignificadoPuntaje = Significado[e.target.value - 1]["PUNTAJE"];

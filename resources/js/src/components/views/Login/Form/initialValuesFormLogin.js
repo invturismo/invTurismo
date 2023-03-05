@@ -1,3 +1,4 @@
+//Valores iniciales del formulario de inciar sesion
 const fieldsValues = {
   user: "",
   clave: "",

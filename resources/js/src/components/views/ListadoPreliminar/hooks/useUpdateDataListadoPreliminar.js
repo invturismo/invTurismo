@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import {helpHttp} from "../../../../helpers/helpHttp";
 
+//Funcion para enviar datos al servidor
+
 const useUpdateDataListadoPreliminar = idListado => {
   const [data, setData] = useState(null);
 
@@ -16,6 +18,7 @@ const useUpdateDataListadoPreliminar = idListado => {
           signal,
           body,
         });
+        console.log(response);
         if (!response.state) throw response;
         if (isMounted) setData(response);
       } catch (error) {

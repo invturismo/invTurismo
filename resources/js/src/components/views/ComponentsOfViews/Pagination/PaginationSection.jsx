@@ -6,6 +6,7 @@ import {StylePagination} from "./StylePagination";
 const PaginationSection = ({others}) => {
   const [params, setParams] = useSearchParams();
 
+  //Funcion para cambiar de pagina ya sea siguiente o previa
   const handleClick = (url, prev) => {
     let paramsClick = new URL(url).searchParams;
     let page = paramsClick.get("page");

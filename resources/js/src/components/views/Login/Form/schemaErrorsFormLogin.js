@@ -1,10 +1,12 @@
 import * as Yup from "yup";
 
+//Esquema de validacion del formulario
 const schema = Yup.object().shape({
   user: Yup.string().required("El campo es obligatorio"),
   clave: Yup.string().required("El campo es obligatorio"),
 });
 
+//Funcion que comprueba todos los valores del formulario de iniciar sesion
 export const validationsLogin = async values => {
   try {
     await schema.validate(values, {abortEarly: false});
@@ -18,6 +20,7 @@ export const validationsLogin = async values => {
   }
 };
 
+//Funcion para validar un valor en especifico del formulario de iniciar sesion
 export const unitValidationLogin = async e => {
   const {name, value} = e.target;
   const values = {[name]: value};

@@ -9,11 +9,12 @@ const initialState = {
     ID_DEPARTAMENTOS: ID_DEPARTAMENTOS || "",
     ID_MUNICIPIOS: ID_MUNICIPIOS || "",
   },
-  stateFilter: false,
-  updateState: false,
-  searchState: "",
+  stateFilter: false, //Si las opciones de filtrado estan abiertas cambia a true
+  updateState: false, //Cambia de estado si el usuario actualiza alguna tabla
+  searchState: "", //Filtro de busqueda general de la app
 };
 
+//Guarda los filtros de consulta
 export const filterSlice = createSlice({
   name: "filterSlice",
   initialState: initialState,

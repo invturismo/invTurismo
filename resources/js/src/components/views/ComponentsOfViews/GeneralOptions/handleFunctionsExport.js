@@ -15,6 +15,7 @@ export const handleFunctionsExport = ({
   textFilter,
   url,
 }) => {
+  //Funcion para enviar la consulta de que datos desea exportar
   const handleSubmit = async e => {
     e.preventDefault();
     try {

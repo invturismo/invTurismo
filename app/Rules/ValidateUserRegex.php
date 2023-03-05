@@ -4,6 +4,8 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+//Regla para validar el nombre de usuario
+
 class ValidateUserRegex implements Rule
 {
     /**

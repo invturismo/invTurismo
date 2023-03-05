@@ -1,3 +1,5 @@
+//Valores iniciales del formulario de listado preliminar
+
 const templateValues = {
   ID_DEPARTAMENTOS: "",
   ID_MUNICIPIOS: "",

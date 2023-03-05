@@ -1,6 +1,7 @@
 import Cookies from "universal-cookie";
 import {API} from "../components/router/paths";
 
+//Funcion base para enviar peticiones al servidor
 export const helpHttp = (data = {}) => {
   const {login, profile} = data;
   const customFetch = (endpoint, options) => {

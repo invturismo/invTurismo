@@ -1,6 +1,7 @@
 import {setUrlImage} from "../features/imagesSlice";
 import {DOMAIN} from "../components/router/paths";
 
+//Funcion para convertir los datos que llegan del servidor acorde a la plantilla del formulario general
 export const helpConvertData = (initialValues, data, dispatch) => {
   const parentsObject = {
     "ADMIN/PROPIETARIOS": "GENERALIDADES",

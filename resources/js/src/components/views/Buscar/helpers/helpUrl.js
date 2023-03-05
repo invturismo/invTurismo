@@ -12,6 +12,8 @@ import {
   SITIOS,
 } from "../../../router/paths";
 
+// Generar url dependiendo del tipo de clasificacion o instancia de creacion del recurso turistico
+
 const nameUrl = {
   1: ["Patrimonio cultural material", MATERIAL],
   2: ["Patrimonio cultural inmaterial", INMATERIAL],

@@ -16,6 +16,7 @@ const initialValues = {
   ID_MUNICIPIOS: "",
 };
 
+//Funcion para consultar si hay filtros en las cookies
 const dataFilter = () => {
   const ID_DEPARTAMENTOS = cookies.get("id_departamentos");
   const ID_MUNICIPIOS = cookies.get("id_municipios");
@@ -52,6 +53,7 @@ const Filter = () => {
     } else setValues({...values, [e.target.name]: e.target.value});
   };
 
+  //Funcion para guardar los filtros de consulta en las cookies
   const handleSubmit = e => {
     e.preventDefault();
     if (!values.ID_DEPARTAMENTOS && !values.ID_MUNICIPIOS)

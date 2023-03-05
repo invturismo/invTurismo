@@ -1,6 +1,8 @@
 import {useEffect, useState} from "react";
 import {helpHttp} from "../../../../helpers/helpHttp";
 
+//Funcion para enviar datos al servidor
+
 const useRecordGeneral = (REGISTRO, url, ACTUALIZANDO) => {
   const [data, setData] = useState(null);
 

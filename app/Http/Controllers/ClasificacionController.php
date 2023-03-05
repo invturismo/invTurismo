@@ -17,6 +17,7 @@ use App\Helpers\HelperLogs;
 
 class ClasificacionController extends Controller
 {
+    /*Metodo para clasificar o actulizar la clasificacion de un recurso turistico */
     public function clasificacion(Request $request)
     {
         $rules = [
@@ -67,6 +68,8 @@ class ClasificacionController extends Controller
         }
     }
 
+    /*Metodo que contiene la platilla para consultar un recurso turistico que ya se clasifico 
+    o se va a clasificar */
     public function templateQuery($selectArguments = [],$secondJoin = false)
     {
         $queryData = Joins::JoinGeneral(new ListadosPreliminares())->select(
@@ -84,6 +87,8 @@ class ClasificacionController extends Controller
         return $queryData;
     }
 
+    /*Metodo que responde al usuario con los datos de los recursos que no se ha clasificado,
+    aplicando filtros de consulta  */
     public function getDataSin(Request $request)
     {
         try {
@@ -101,6 +106,7 @@ class ClasificacionController extends Controller
         }
     }
 
+    /*Metodo que responde al usuario con los datos de un recurso especifico que no se ha clasificado  */
     public function getRecordSin(Request $request)
     {
         try {
@@ -128,6 +134,8 @@ class ClasificacionController extends Controller
         }
     }
 
+    /*Metodo que responde al usuario con los datos de los recursos que ya se clasificaron,
+    aplicando filtros de consulta  */
     public function getDataCon(Request $request)
     {
         try {
@@ -146,6 +154,7 @@ class ClasificacionController extends Controller
         }
     }
 
+    /*Metodo que responde al usuario con los datos de un recurso especifico que ya se clasifico  */
     public function getRecordCon(Request $request)
     {
         try {

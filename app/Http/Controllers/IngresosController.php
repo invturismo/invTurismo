@@ -9,6 +9,7 @@ use App\Http\Controllers\HistorialController;
 
 class IngresosController extends Controller
 {
+    /*Metodo que retorna las reglas para los ingresos al recurso turistico */
     public static function rules()
     {
         return [
@@ -23,6 +24,7 @@ class IngresosController extends Controller
         ];
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de ingresos */
     public static function create($clientData)
     {
         $ingreso = new Ingresos();
@@ -38,6 +40,7 @@ class IngresosController extends Controller
         return $ingreso->ID_INGRESO;
     }
 
+    /*Metodo para actualizar un registro de la tabla de ingresos */
     public static function update($clientData,$queryUpdate,$idUsuario,$idListado)
     {
         $queryData = Ingresos::find($queryUpdate->ID_INGRESO);
@@ -57,6 +60,7 @@ class IngresosController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de ingresos */
     public static function getRecord($idIngreso)
     {
         $queryData = Ingresos::find($idIngreso)->toArray();

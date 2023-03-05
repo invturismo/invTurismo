@@ -7,6 +7,7 @@ import {
 import {helpDeleteRegister} from "../../../../helpers/helpDeleteRegister";
 import {toastMs} from "../../../../helpers/helpToastMessage";
 
+//Funcion para eliminar un recurso turistico
 export const helpDeleteRecurso = async ({
   body,
   url,

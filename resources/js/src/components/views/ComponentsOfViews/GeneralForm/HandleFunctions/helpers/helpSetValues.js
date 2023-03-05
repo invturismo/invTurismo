@@ -8,6 +8,7 @@ export const helpSetValues = ({
   valueWho,
   who,
 }) => {
+  /*Cambia un valor de error si el objeto solo tiene un objeto padre */
   const firstLevelErrors = (firstParent, response) => {
     setErrors({
       ...errors,
@@ -18,6 +19,7 @@ export const helpSetValues = ({
     });
   };
 
+  /*Cambia un valor de error si el objeto tiene dos objetos padre */
   const secondLevelErrors = (firstParent, secondParent, response) => {
     setErrors({
       ...errors,
@@ -31,6 +33,7 @@ export const helpSetValues = ({
     });
   };
 
+  /*Cambia un valor del campo de texto si el objeto solo tiene un objeto padre */
   const normalChange = async (name, value, table, optionalChange = {}) => {
     let e = {
       target: {
@@ -50,6 +53,7 @@ export const helpSetValues = ({
     if (response.state) firstLevelErrors(table, response);
   };
 
+  /*Cambia un valor del campo de texto si el objeto tiene dos objetos padre */
   const secondLevelChange = async (
     name,
     value,

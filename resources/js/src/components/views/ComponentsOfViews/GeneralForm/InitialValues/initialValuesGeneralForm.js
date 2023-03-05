@@ -12,6 +12,7 @@ import {
   serviciosEspeciales,
 } from "./templateValues";
 
+//Valores iniciales del formulario general
 export const initialValuesGeneralForm = (Calidad, data) =>
   funtionalData({
     GENERALIDADES: {

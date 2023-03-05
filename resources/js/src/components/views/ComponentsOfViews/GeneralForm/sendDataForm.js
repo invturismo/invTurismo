@@ -1,6 +1,7 @@
 import Cookies from "universal-cookie";
 import {API} from "../../../router/paths";
 
+//Peticion fetch para enviar datos al servidor
 export const sendDataForm = (endpoint, formData) => {
   const defaultHeader = {
       Accept: "application/json",

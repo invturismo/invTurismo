@@ -4,6 +4,7 @@ const initialState = {
   menuState: false,
 };
 
+//Guarda el estado del menu
 export const mainLayoutSlice = createSlice({
   name: "mainLayoutSlice",
   initialState: initialState,

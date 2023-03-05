@@ -17,6 +17,8 @@ use App\Helpers\HelperLogs;
 
 class ExportController extends Controller
 {
+    /*Metodo para responder al usuario con todos los datos necesarios para exportar
+    el listado preliminar */
     public function ExportListadosPreliminares(Request $request)
     {
         try {
@@ -49,6 +51,8 @@ class ExportController extends Controller
         }
     }
 
+    /*Metodo para responder al usuario con todos los datos necesarios para exportar
+    los recursos turisticos que ya se clasificaron */
     public function ExportClasificacion(Request $request)
     {
         try {
@@ -82,6 +86,8 @@ class ExportController extends Controller
         }
     }
 
+    /*Metodo para responder al usuario con todos los datos necesarios para exportar
+    los patrimonios culturales materiales */
     public function ExportPatrimonioMaterial(Request $request)
     {
         try {
@@ -115,6 +121,8 @@ class ExportController extends Controller
         }
     }
 
+    /*Metodo para responder al usuario con todos los datos necesarios para exportar
+    los patrimonios culturales inmateriales */
     public function ExportPatrimonioInmaterial(Request $request)
     {
         try {
@@ -148,6 +156,8 @@ class ExportController extends Controller
         }
     }
 
+    /*Metodo para responder al usuario con todos los datos necesarios para exportar
+    los grupos de especial interes */
     public function ExportGruposEspeciales(Request $request)
     {
         try {
@@ -181,6 +191,8 @@ class ExportController extends Controller
         }
     }
 
+    /*Metodo para responder al usuario con todos los datos necesarios para exportar
+    los sitios naturales */
     public function ExportSitiosNaturales(Request $request)
     {
         try {
@@ -214,6 +226,8 @@ class ExportController extends Controller
         }
     }
 
+    /*Metodo para responder al usuario con todos los datos necesarios para exportar
+    las festividades y eventos */
     public function ExportFestividadesEventos(Request $request)
     {
         try {

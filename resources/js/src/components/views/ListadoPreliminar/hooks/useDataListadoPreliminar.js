@@ -4,6 +4,8 @@ import {toastMs} from "../../../../helpers/helpToastMessage";
 import {useSearchParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 
+//Funcion para enviar datos al servidor
+
 const useDataListadoPreliminar = () => {
   const [response, setResponse] = useState(false);
   const [data, setData] = useState([]);

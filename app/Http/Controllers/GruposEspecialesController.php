@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\DB;
 
 class GruposEspecialesController extends Controller
 {
+    /*Metodo que retorna algunas reglas para los grupos de especial interes */
     public static function rules()
     {
         return [
@@ -38,6 +39,7 @@ class GruposEspecialesController extends Controller
         ];
     }
 
+    /*Metodo que une todas las reglas necesarias para los grupos de especial interes */
     public function mergeRules($state)
     {
         return array_merge(
@@ -55,6 +57,7 @@ class GruposEspecialesController extends Controller
         );
     }
 
+    /*Metodo para completar un registro en la tabla de grupos de especial interes */
     public function insertForm(Request $request) 
     {
         $isValid = HelperValidator::Validate($this->mergeRules(false),$request);
@@ -107,6 +110,7 @@ class GruposEspecialesController extends Controller
         }
     }
 
+    /*Metodo para eliminar un registro en la tabla de grupos de especial interes */
     public function delete(Request $request)
     {
         $arrayMessage = HelperDelete::delete(
@@ -118,6 +122,7 @@ class GruposEspecialesController extends Controller
         return response()->json($arrayMessage);
     }
 
+    /*Metodo para actualizar un registro de la tabla de grupos de especial interes */
     public function update(Request $request)
     {
         $reglas = isset($request->REGLAS) ? $request->REGLAS : "-";
@@ -173,6 +178,7 @@ class GruposEspecialesController extends Controller
         }
     }
 
+    /*Metodo para consultar los registros de grupos de especial interes que no se han clasificado */
     public function getDataSinCom(Request $request)
     {
         try {
@@ -192,6 +198,8 @@ class GruposEspecialesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de grupos de especial interes
+    que no se han clasificado */
     public function getRecordSinCom(Request $request)
     {
         try {
@@ -220,6 +228,7 @@ class GruposEspecialesController extends Controller
         }
     }
 
+    /*Metodo para consultar los registros de grupos de especial interes que ya se clasificaron */
     public function getDataCom(Request $request)
     {
         try {
@@ -244,6 +253,8 @@ class GruposEspecialesController extends Controller
         }
     }
     
+    /*Metodo para consultar un registro especifico de grupos de especial interes 
+    que ya se clasifico */
     public function getRecordCom(Request $request)
     {
         try {

@@ -1,10 +1,11 @@
 import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import {HOME, LOGIN} from "./components/router/paths";
+import {CONOCENOS, HOME, LOGIN} from "./components/router/paths";
 import {
   PrivateRouteHome,
   PrivateRouteLogin,
 } from "./components/router/PrivateRoute";
+import Conocenos from "./components/views/Conocenos/Conocenos";
 import useTittle from "./hooks/useTittle";
 import Error404 from "./pages/Error404";
 import Home from "./pages/Home";
@@ -32,6 +33,7 @@ const App = () => {
             </PrivateRouteLogin>
           }
         />
+        <Route path={CONOCENOS} element={<Conocenos />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>

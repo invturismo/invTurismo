@@ -27,6 +27,8 @@ const linksPatrimonios = {
   5: SITIOS,
 };
 
+//Funciones necesarias para el formulario
+
 export const handleFunctionsCAT = ({
   dispatch,
   ID_LISTADO,
@@ -46,6 +48,7 @@ export const handleFunctionsCAT = ({
     if (!response.state) setErrors({...response.errors});
   };
 
+  //Funcion para enviar datos al servidor
   const sendData = async exec => {
     const response = await validationClasificacion(values);
     if (!response.state) return setErrors({...response.errors});
@@ -63,7 +66,7 @@ export const handleFunctionsCAT = ({
   };
 
   const handleCreate = e => {
-    const validateNext = e.nativeEvent.submitter.id === "buttonNext";
+    const validateNext = e.nativeEvent.submitter.id === "buttonNext"; //Valida con cual boton interactuo
     const handleSend = id => {
       let urlNavigate = `${CLASIFICACION}${SINCLASIFICAR}`;
       toastMs().success("Se clasifico correctamente");

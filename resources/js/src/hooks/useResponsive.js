@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 
+//Funcion para validar el tamaño del dispositivo que esta usando para la app
 function useResponsive(size1, size2) {
   const [dimension, setDimension] = useState(window.innerWidth);
 

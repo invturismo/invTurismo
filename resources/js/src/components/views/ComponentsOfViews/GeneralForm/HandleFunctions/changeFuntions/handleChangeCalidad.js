@@ -1,7 +1,9 @@
 import Significado from "../../DataJson/DataSignificado.json";
 import {helpChangeInt} from "../helpers/helpChangeInt";
 
+//Controladores para calcular el valor de la calidad del recurso turistico
 export const handleChangeCalidad = ({values, secondLevelChange}) => {
+  //Funcion para saber cual es el valor actual de la calidad del recurso turistico
   const validateExists = (e, who) => {
     if (e.target.name === who) return e.target.value;
     return values.PUNTAJES_VALORACION.CALIDAD[who];

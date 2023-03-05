@@ -4,6 +4,8 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+//Regla para validar el nombre del administrador del recurso
+
 class ValidateNombreAdmin implements Rule
 {
     /**

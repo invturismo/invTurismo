@@ -4,6 +4,7 @@ namespace App\Helpers;
 
 class Joins 
 {
+  /*Metodo que concatena una consulta con la tabla de codigos */
   public static function JoinCodigo($query)
   {
     return $query->join(
@@ -13,6 +14,7 @@ class Joins
     );
   }
 
+  /*Metodo que concatena una consulta con la tabla de municipio */
   public static function JoinMunicipio($query)
   {
     $sendFunction = function ($join) {
@@ -27,6 +29,7 @@ class Joins
     );
   }
 
+  /*Metodo que concatena una consulta con la tabla de departamento */
   public static function JoinDepartamento($query)
   {
     return $query->join(
@@ -36,6 +39,7 @@ class Joins
     );
   }
 
+  /*Metodo que une todos las anteriores funciones */
   public static function JoinGeneral($query)
   {
     $queryData = self::JoinCodigo($query);

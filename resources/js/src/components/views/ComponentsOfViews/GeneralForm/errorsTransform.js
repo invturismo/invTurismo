@@ -1,5 +1,9 @@
 import {helpErrors} from "../../../../helpers/helpErrors";
 
+/* Transforma los errores que llegan del servidor referente al formulario en una lista de objetos
+   acorde a la plantilla de valores del mismo
+*/
+
 const templateCalidad = {
   PATRIMONIOS_MATERIALES: {
     ESTADO_CONSERVACION: [

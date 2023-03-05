@@ -12,6 +12,7 @@ use App\Helpers\Joins;
 
 class GeneralidadesController extends Controller
 {
+    /*Metodo que retorna los campos base para actulizar la tabla de generalidades */
     public static function fieldsUpdate($others)
     {
         $generalFields = [
@@ -23,6 +24,7 @@ class GeneralidadesController extends Controller
         return array_merge($generalFields,['INDICACIONES_ACCESO']);
     }
 
+    /*Metodo que retorna las reglas para las generalidades del recurso turistico */
     public static function rules($others)
     {
         $generalRules = [
@@ -39,6 +41,7 @@ class GeneralidadesController extends Controller
         return $generalRules;
     }
 
+    /*Metodo que une las reglas necesarias de la tabla de generalidades */
     public static function rulesGeneralidades($others=false)
     {
         if($others) return self::rules(true);
@@ -46,6 +49,7 @@ class GeneralidadesController extends Controller
         return array_merge(self::rules(false),$rulesAdmin);
     }
 
+    /*Metodo para actualizar un registro de la tabla de listados preliminares */
     public static function updateListado($clientData,$idListado,$idUsuario,$noData)
     {
         $queryData = ListadosPreliminares::find($idListado);
@@ -78,6 +82,7 @@ class GeneralidadesController extends Controller
         }
     }
 
+    /*Metodo para crear un nuevo registro en la tabla de generalidades */
     public static function create($clientData,$idListado,$idUsuario,$noData=false)
     {
         if(!$noData) $idAdmin = AdminController::create($clientData);
@@ -92,6 +97,7 @@ class GeneralidadesController extends Controller
         return $generalidad->ID_GENERALIDAD;
     }
 
+    /*Metodo para actualizar un registro de la tabla de generalidades */
     public static function update($clientData,$queryUpdate,$idUsuario,$noData=false)
     {
         $queryData = Generalidades::find($queryUpdate->ID_GENERALIDAD);
@@ -113,6 +119,7 @@ class GeneralidadesController extends Controller
         }
     }
 
+    /*Metodo para consultar un registro especifico de la tabla de generalidades */
     public static function getRecord($idGeneralidad,$idListado,$noData=false)
     {
         $queryListado = Joins::JoinGeneral(new ListadosPreliminares)

@@ -11,6 +11,7 @@ const initialState = {
   },
 };
 
+//Guarda el valor de la url de las imagenes
 export const imagesSlice = createSlice({
   name: "imagesSlice",
   initialState: initialState,

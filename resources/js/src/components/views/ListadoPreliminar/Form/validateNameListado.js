@@ -1,5 +1,6 @@
 import {helpHttp} from "../../../../helpers/helpHttp";
 
+//Funcion para comprobar si el nombre ya se encuentra en la base de datos
 export const validateNameListado = async ({
   ID_LISTADO,
   NOMBRE,

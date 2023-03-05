@@ -1,6 +1,7 @@
 import Componentes from "../../DataJson/DataComponentes.json";
 import Elementos from "../../DataJson/DataElementos.json";
 
+//Funcion para reiniciar valores anteriores del codigo
 export const helpSwitchCodigo = (values, e) => {
   let optionalChange = {};
   let idPatrimonio = values.CARACTERISTICAS.CODIGOS.ID_TIPO_PATRIMONIO;

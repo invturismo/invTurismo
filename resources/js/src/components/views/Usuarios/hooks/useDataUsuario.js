@@ -3,6 +3,8 @@ import {useSearchParams} from "react-router-dom";
 import {helpHttp} from "../../../../helpers/helpHttp";
 import {toastMs} from "../../../../helpers/helpToastMessage";
 
+//Funcion para enviar datos al servidor
+
 const useDataUsuario = () => {
   const [response, setResponse] = useState(false);
   const [data, setData] = useState({});

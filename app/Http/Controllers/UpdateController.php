@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 
 class UpdateController extends Controller
 {
+  /*Metodo que guarda en la base de datos el registro que se esta actualizando, dependiendo
+  del token de sesion */
   public static function stateUpdate($REGISTRO,$TABLA,$idTokenUser,$delete) {
     try {
       $queryData = Update_Record::where('REGISTRO',"=",$REGISTRO)
@@ -39,6 +41,7 @@ class UpdateController extends Controller
     }
   }
 
+  /*Metodo que elimina de la tabla de update record el registro que se esta actualizando */
   public static function actionCancelUpdate($idTokenUser) {
     try {
       $recordsToken = Update_Record::where('ID_TOKEN',"=",$idTokenUser);
@@ -53,6 +56,8 @@ class UpdateController extends Controller
     }
   }
 
+  /*Metodo que elimina de la tabla de update record el registro que se esta actualizando, dependiendo
+  del token de sesion */
   public function cancelUpdate() {
     try {
       $idTokenUser = Auth::user()->currentAccessToken()->toArray()['id'];

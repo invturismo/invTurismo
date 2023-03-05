@@ -13,6 +13,7 @@ use App\Models\Historial_Insert_Delete;
 
 class HelpersExport 
 {
+  /*Metodo que retorna el id del recurso turistico ya clasificado */
   public static function WhoAtractivo($tipoBien,$idListado)
   {
       $id = "";
@@ -41,6 +42,7 @@ class HelpersExport
     return $id;
   }
 
+  /*Metodo que retorna la consulta que se envia concatenandolo con el usuario */
   public static function JoinUsuarioFecha($query,$table,$nameKey)
   {
       return $query->join(
@@ -54,6 +56,8 @@ class HelpersExport
       );
   }
 
+  /*Metodo que contiene la plantilla de consulta para los datos del historial de insercion e 
+  historial de actualizacion */
   public static function templateHistorial($tabla,$id,$movimiento,$idListado)
   {
       $queryHistorial = Historial_Insert_Delete::where(
@@ -77,6 +81,7 @@ class HelpersExport
       return $queryHistorial;
   }
 
+  /*Metodo que ayuda a encontrar el registro que se clasifico y retorna los datos del historial */
   public static function historialClasificacion($value)
   {
     $id = self::WhoAtractivo($value['TIPO_BIEN'],$value['ID_LISTADO']);
@@ -84,6 +89,8 @@ class HelpersExport
     return $queryHistorial;
   }
 
+  /*Metodo que contiene la plantilla para consultar los datos necesarios para exportar una tabla
+  (dependiendo del tipo de bien) a excel */
   public static function templateQuery($query,$table,$id,$valoracion)
   {
     $queryData = $query->join(

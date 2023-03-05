@@ -11,6 +11,7 @@ use App\Helpers\HelperLogs;
 
 class FindController extends Controller
 {
+    /*Metodo para consultar el id del recurso turistico que ya se clasifico */
     public static function whoId($data)
     {
         foreach ($data as $key => $value) {
@@ -22,6 +23,7 @@ class FindController extends Controller
         return $data;
     }
 
+    /*Metodo para buscar un registro dependiendo del nombre del recurso turistico */
     public function find(Request $request)
     {
         try {

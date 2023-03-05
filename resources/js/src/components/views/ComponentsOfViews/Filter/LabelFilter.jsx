@@ -22,6 +22,7 @@ const LabelFilter = () => {
   const dataFilter = useSelector(state => state.filterSlice.dataFilter);
   const dispatch = useDispatch();
 
+  //Funcion para eliminar algun filtro de las cookies
   const handleClick = e => {
     const cookies = new Cookies();
     const id = e.target.id ? e.target.id : e.target.parentElement.id;

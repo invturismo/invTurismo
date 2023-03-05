@@ -1,3 +1,4 @@
+//Cabeceras del archivo de excel que va a ser exportado
 const arrayHeader = [
   {label: "N°", key: "ID"},
   {label: "Nombre", key: "NOMBRE"},

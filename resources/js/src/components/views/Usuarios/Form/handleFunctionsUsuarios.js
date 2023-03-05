@@ -36,6 +36,11 @@ export const handleFunctionsUsuarios = ({
     3: ["put", "reset-password"],
   };
 
+  /*Funcion para saber que accion esta ejecutando el usuario:
+    1- Creando un nuevo usuario
+    2- Actualizando un usuario
+    3- Cambiando la clave de un usuario
+  */
   const actionWho = equal => {
     let linkNavigate = equal ? `${LOGIN}` : `${USUARIOS}/${values.ID_USUARIO}`;
     switch (who) {
@@ -65,6 +70,7 @@ export const handleFunctionsUsuarios = ({
     if (response.state) setErrors({...errors, [name]: ""});
   };
 
+  //Funcion para validar el formulario con el esquema de validacion
   const validateSchema = async e => {
     const response = await validationsUsuarios(values, who);
     if (!response.state) {
@@ -74,6 +80,7 @@ export const handleFunctionsUsuarios = ({
     return true;
   };
 
+  //Funcion para enviar datos al servidor
   const sendData = async equal => {
     dispatch(openLoaderForm());
     const [method, url] = whoData[who];
@@ -89,6 +96,7 @@ export const handleFunctionsUsuarios = ({
     actionWho(equal);
   };
 
+  //Funcion para saber si el usuario que se esta manipulando esta en sesion
   const sendValidateTokens = async () => {
     dispatch(openLoaderForm());
     const response = await validateTokens(values.ID_USUARIO, true);
@@ -110,6 +118,7 @@ export const handleFunctionsUsuarios = ({
     sendData();
   };
 
+  //Funcion base para ver por pantalla un cuadro de confirmacion
   const modalFunction = responseTokens => {
     let textMessage1 =
       responseTokens[0] == 4
@@ -130,6 +139,7 @@ export const handleFunctionsUsuarios = ({
     dispatch(openModalLayoutState(dataPayload));
   };
 
+  //Funcion para actulizar un usuario
   const handleUpdate = async () => {
     const response = await validateSchema();
     if (!response) return;
@@ -138,6 +148,7 @@ export const handleFunctionsUsuarios = ({
     modalFunction(responseTokens);
   };
 
+  //Funcion para cambiar la clave de algun usuario
   const handlePassword = async () => {
     const response = await validateSchema();
     if (!response) return;
@@ -162,6 +173,7 @@ export const handleFunctionsUsuarios = ({
     setFocus({...focus, [e.target.name]: true});
   };
 
+  //Funcion previsualizar la contraseña
   const handleClickView = e => {
     const {className} = e.target;
     setViewPassword({
