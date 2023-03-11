@@ -23,13 +23,11 @@ export const StyleMainConocenos = styled(Parallax)`
     border-bottom: 3px solid white;
     background-color: rgb(47 46 65);
   }
-  .sectionProfe,
-  .sectionColaboracion {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    gap: 2rem;
+  .sectionProfe,.sectionColaboracion{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1.5rem;
   }
   .sectionColaboracion img {
     width: 100%;
@@ -38,7 +36,7 @@ export const StyleMainConocenos = styled(Parallax)`
   }
   .sectionColaboracion div {
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
   }
   .sectionProfe,
   .sectionColaboracion,
@@ -91,11 +89,6 @@ export const StyleMainConocenos = styled(Parallax)`
     }
     .titleSection {
       font-size: 3rem;
-    }
-    .sectionProfe,
-    .sectionColaboracion {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: initial;
     }
     .imgRight,
     .imgLeft {

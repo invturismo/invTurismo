@@ -88,15 +88,15 @@ const Template = ({values}) => {
         </div>
       </ParallaxLayer>
       <ParallaxLayer
-        offset={2}
-        sticky={{start: "2", end: "3.6"}}
+        offset={values[1]}
+        sticky={{start: values[1], end: values[2]}}
         style={{pointerEvents: "none"}}
       >
         <h2 className="titleSection">
-          <span>Desarrolladores</span>
+          <span>Auxiliares de investigación</span>
         </h2>
       </ParallaxLayer>
-      <ParallaxLayer offset={values[1]}>
+      <ParallaxLayer offset={values[3]}>
         <div className="conPad">
           <CardDesarrolladores
             order="last"
@@ -134,46 +134,91 @@ const Template = ({values}) => {
         </div>
       </ParallaxLayer>
       <ParallaxLayer
-        offset={values[2]}
+        offset={values[4]}
         style={{pointerEvents: "none"}}
-        sticky={{start: values[2], end: values[3]}}
+        sticky={{start: values[4], end: values[5]}}
       >
         <h2 className="titleSection">
-          <span>Investigadores</span>
+          <span>Grupo Neotic</span>
         </h2>
       </ParallaxLayer>
-      <ParallaxLayer offset={values[4]}>
+      <ParallaxLayer offset={values[6]}>
         <div className="sectionProfe">
           <CardProfesores
             name="Jaime Alberto Paez"
             srcImg="https://www.zonahistorica.jptecnologia.com/img/bit-jaime.png"
-            text="PROFESOR TC AUXILIAR MAGISTER"
+            text="INVESTIGADOR PRINCIPAL"
             bg="rgb(83 40 254)"
           />
           <CardProfesores
             name="Fredys Alberto Simanca"
             srcImg="https://www.zonahistorica.jptecnologia.com/img/bit-fredys.png"
             bg="rgb(43,230,171)"
-            text="PROFESOR TC ASOCIADO DOCTOR"
+            text="COINVESTIGADOR"
+          />
+          <CardProfesores
+            name="Jairo Augusto Cortes"
+            srcImg="https://zonahistorica.jptecnologia.com/img/bit-jairo.png"
+            bg="rgb(54, 35, 97)"
+            text="COINVESTIGADOR"
           />
         </div>
       </ParallaxLayer>
       <ParallaxLayer
-        offset={values[5]}
+        offset={values[7]}
         style={{pointerEvents: "none"}}
-        sticky={{start: values[5], end: values[6]}}
+        sticky={{start: values[7], end: values[8]}}
+      >
+        <h2 className="titleSection">
+          <span>Grupo CYGA</span>
+        </h2>
+      </ParallaxLayer>
+      <ParallaxLayer offset={values[9]}>
+        <div className="sectionProfe">
+          <CardProfesores
+            name="Iván Fernando Amaya"
+            srcImg="https://media.licdn.com/dms/image/C4D03AQGnCHf8XPSR_Q/profile-displayphoto-shrink_800_800/0/1530023374616?e=1683763200&v=beta&t=ReWruv7LdhQP9JHA5WpIZU_Ck7rVD5TJ0iboLWplGGU"
+            text="Docente Investigador en educación Superior"
+            bg="rgb(83 40 254)"
+          />
+          <CardProfesores
+            name="Francisco Javier Lagos"
+            srcImg="https://scontent.fbog2-4.fna.fbcdn.net/v/t1.6435-9/67847862_2428814360728328_3926914544630235136_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_eui2=AeHt5Ht28sxc3x3m0GN-YpMD7wIRMDo65t7vAhEwOjrm3t0qBxn9ALikM9zmgZxEQJkpKbG6vS2TrqPCSm3k1625&_nc_ohc=4XkuNwuHzVAAX8IhhS6&_nc_ht=scontent.fbog2-4.fna&oh=00_AfDy-yy8jAJbx_xElhEiONLDNrZKJNzu8D5O78gndQCUEQ&oe=64343B3F"
+            bg="rgb(43,230,171)"
+            text="Docente de construcción"
+          />
+          <CardProfesores
+            name="Jairo Jamith Palacios"
+            srcImg="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
+            bg="rgb(54, 35, 97)"
+          />
+          <CardProfesores
+            name="Helber Ferney Guzmán"
+            srcImg="https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-social-media-user-portrait-176256935.jpg"
+            bg="rgb(83 40 254)"
+            text="Profesor de Turismo"
+          />
+        </div>
+      </ParallaxLayer>
+      <ParallaxLayer
+        offset={values[10]}
+        style={{pointerEvents: "none"}}
+        sticky={{start: values[10], end: values[11]}}
       >
         <h2 className="titleSection">
           <span>En colaboración con</span>
         </h2>
       </ParallaxLayer>
-      <ParallaxLayer offset={values[7]}>
+      <ParallaxLayer offset={values[12]}>
         <div className="sectionColaboracion">
           <div>
             <img src="/img/nosotros/UccLogo2.png" alt="..." />
           </div>
           <div>
             <img src="/img/nosotros/UnicolLogo.png" alt="..." />
+          </div>
+          <div>
+            <img src="/img/nosotros/neotic.png" alt="..." />
           </div>
         </div>
       </ParallaxLayer>
@@ -183,10 +228,12 @@ const Template = ({values}) => {
 
 const Conocenos = () => {
   useTittle("Conocenos");
-  const desktop = useResponsive(814);
+  const desktop = useResponsive(1285);
+  const tablet = useResponsive(860,1284);
   if (desktop)
-    return <Template values={[5.8, 2.4, 3.8, 4.6, 4.1, 4.8, 5.8, 5.1]} />;
-  else return <Template values={[6.4, 2.2, 4, 5.1, 4.2, 5.3, 6.8, 5.5]} />;
+    return <Template values={[7,2, 3.4, 2.4, 3.6, 4, 3.9, 4.6, 5.7, 4.9 ,6, 8, 6.3]} />;
+  else if(tablet) return <Template values={[7.8,2, 3.4, 2.4, 3.6, 4, 3.9, 5.1, 6.2, 5.4 ,6.5, 7.8, 6.8]} />;
+  else return <Template values={[10,2, 4, 2.4, 4.2, 6, 4.5, 6.2, 7.9, 6.5 ,8.6, 10, 8.9]} />;
 };
 
 export default Conocenos;

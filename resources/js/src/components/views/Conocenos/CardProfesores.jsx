@@ -54,7 +54,6 @@ const StyleCardProfesores = styled.div`
     font-size: 0.8rem;
     text-transform: capitalize;
     font-weight: 900;
-    color: #6e6e6e;
     text-align: center;
   }
 `;
@@ -69,7 +68,7 @@ const CardProfesores = ({name, text, srcImg, bg}) => {
         </div>
         <div className="descripcionProfe">
           <h5>{name}</h5>
-          <p>{text}</p>
+          <p style={{color: text ? "#6e6e6e": "white"}}>{text ?? "Default"}</p>
         </div>
       </div>
     </StyleCardProfesores>
